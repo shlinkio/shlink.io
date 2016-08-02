@@ -1,15 +1,16 @@
 <?php
 
+use Shlinkio\Website\Action;
+
 return [
 
     'routes' => [
-        // Example:
-        // [
-        //     'name' => 'home',
-        //     'path' => '/',
-        //     'middleware' => App\Action\HomePageAction::class,
-        //     'allowed_methods' => ['GET'],
-        // ],
+        [
+            'name' => 'template',
+            'path' => '/[{template:index|install}]',
+            'middleware' => Action\TemplateAction::class,
+            'allowed_methods' => ['GET'],
+        ],
     ],
 
 ];

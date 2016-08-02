@@ -4,7 +4,7 @@ return [
     'templates' => [
         'extension' => 'html.twig',
         'paths' => [
-            'shlink' => ['templates'],
+            'templates',
         ],
     ],
 

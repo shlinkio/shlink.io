@@ -1,4 +1,5 @@
 <?php
+use Shlinkio\Website\Action;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container;
 use Zend\Expressive\Helper;
@@ -19,8 +20,10 @@ return [
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
             Helper\ServerUrlMiddleware::class => Helper\ServerUrlMiddlewareFactory::class,
             Helper\UrlHelperMiddleware::class => Helper\UrlHelperMiddlewareFactory::class,
-
             TemplateRendererInterface::class => TwigRendererFactory::class,
+
+            // Actions
+            Action\TemplateAction::class => Action\TemplateActionFactory::class,
         ],
     ],
 
