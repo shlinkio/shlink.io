@@ -5,10 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="A self-hosted URL shortener.">
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css">
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
     </head>
     <body id="top">
 
@@ -19,7 +20,7 @@
                 <p>A self-hosted URL shortener.<br />
                     Shorten URLs and serve them under your own short domain.</p>
                 <ul class="actions">
-                    <li><a href="#" class="button special icon fa-download">Download</a></li>
+                    <li><a href="{{ path('template', {"template": "install"}) }}" class="button special icon fa-download">Install</a></li>
                     <li><a href="#one" class="button icon fa-chevron-down scrolly">Learn More</a></li>
                 </ul>
             </div>
@@ -31,18 +32,17 @@
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
-                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="https://github.com/shlinkio/shlink" target="_blank" class="icon fa-github"><span class="label">Twitter</span></a></li>
+                <li><a href="https://twitter.com/shlinkio" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.facebook.com/shlinkio" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
             </ul>
-            <p class="copyright">&copy; 2016 Shlink - Template from <a href="http://html5up.net">HTML5 UP</a></p>
+            <p class="copyright">&copy; {{ 'now' | date('Y') }} Shlink - Template from <a href="http://html5up.net">HTML5 UP</a></p>
         </footer>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/skel.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery.scrolly.min.js"></script>
+        <script src="/assets/js/skel.min.js"></script>
+        <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="/assets/js/main.js"></script>
     </body>
 </html>
