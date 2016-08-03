@@ -4,19 +4,37 @@
     <!-- Header -->
     {% include 'partials/small-header.html.twig' %}
 
-    <section id="one" class="wrapper" xmlns="http://www.w3.org/1999/html">
+    <section id="one" class="wrapper">
+        <header class="major">
+            <h2>Installation</h2>
+        </header>
         <div class="inner alt">
             <section class="spotlight text-only">
                 <div class="content">
-                    <h3 class="align-center">Installation</h3>
                     <p>Shlink is a web application built with PHP. It shouldn't be hard to install, but you have to follow these steps.</p>
-                    <ul style="list-style-type: none">
+                    <header>
+                        <h4>Requirements</h4>
+                    </header>
+                    <ul>
+                        <li>PHP 5.6 or greater with JSON, APC, intl, curl and PDO extensions.</li>
+                        <li>MySQL (other database systems will be supported in the future).</li>
+                        <li>The web server of your choice with PHP integration (Apache or Nginx recommended).</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="spotlight text-only">
+                <div class="content">
+                    <header>
+                        <h4>Installation steps</h4>
+                    </header>
+                    <ul>
                         <li>
-                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span><a href="https://getcomposer.org/download/" target="_blank">Download composer</a> and run this command.</span><br>
-                            <code>php composer.phar create-project shlinkio/shlink</code>
+                            <a href="https://getcomposer.org/download/" target="_blank">Download composer</a> and run this command.<br>
+                            <code>php composer.phar create-project shlinkio/shlink</code><br>
+                            Move the resulting <b>shlink</b> folder to the destination of your choice.
                         </li>
                         <li>
-                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Define these env vars, both for the web server and for the command line:</span>
+                            Define these environment vars, both for the web server and for the command line:
                             <ul style="list-style-type: none; margin: 10px 0;">
                                 <li><b>SHORTENED_URL_SCHEMA</b>: http|https (defaults to http).</li>
                                 <li><b>SHORTENED_URL_HOSTNAME</b>: The short domain to use in generated short URLs.</li>
@@ -31,25 +49,76 @@
                             </ul>
                         </li>
                         <li>
-                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Initialize the MySQL database. It can be done by running the command <code>vendor/bin/doctrine orm:schema-tool:create</code> once an empty database has been created.</span>
+                            Create the MySQL database. Initialize an empty database and run this:<br>
+                            <code>vendor/bin/doctrine orm:schema-tool:create</code>
+                        </li>
+                        <li>Add write permissions to the <code>data</code> directory.</li>
+                        <li>
+                            Create doctrine proxies by running this:<br>
+                            <code>vendor/bin/doctrine orm:generate-proxies</code>
                         </li>
                         <li>
-                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Add write permissions to the <code>data</code> directory.</span>
-                        </li>
-                        <li>
-                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Create doctrine proxies by running <code>vendor/bin/doctrine orm:generate-proxies</code>.</span>
-                        </li>
-                        <li>
-                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Optionally, you can create a symlink to the bin/cli script in a folder which is in your path, for example /usr/local/bin for linux systems. This will allow you to easily run shlink from the command line.</span>
+                            Optionally, you can create a symlink to the bin/cli script in a folder which is in your path.<br>
+                            For example /usr/local/bin for linux systems. This will allow you to easily run shlink from the command line.
                         </li>
                     </ul>
-                    <p>In the future, an automated installation and update process will be provided.</p>
-                    <h4>Virtual hosts</h4>
+                    <p>In the future, an automated installation and update process will be provided, so that this process doesn't need to be done manually.</p>
+                </div>
+            </section>
+            <section class="spotlight text-only">
+                <div class="content">
+                    <header>
+                        <h4>Virtual hosts</h4>
+                        <p>These are samples for the most used web servers. Use them to get shlink up and running.</p>
+                    </header>
                     <b>Apache</b>
                     <pre>
-                        <code>
+                        <code>&lt;VirtualHost *:80&gt;
+    ServerName doma.in
+    DocumentRoot &quot;/path/to/shlink/public&quot;
 
-                        </code>
+    SetEnv SHORTENED_URL_HOSTNAME doma.in
+    SetEnv SHORTCODE_CHARS 123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ
+    SetEnv DB_USER root
+    SetEnv DB_PASSWORD root
+    SetEnv REST_USER user
+    SetEnv REST_PASSWORD password
+
+    &lt;Directory &quot;/path/to/shlink/public&quot;&gt;
+        Options FollowSymLinks Includes ExecCGI
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code>
+                    </pre>
+                    <b>Nginx</b>
+                    <pre>
+                        <code>server {
+    server_name doma.in;
+    listen 80;
+    root /path/to/shlink/public;
+    index index.php;
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        fastcgi_param SHORTENED_URL_HOSTNAME "doma.in";
+        fastcgi_param SHORTCODE_CHARS "123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+        fastcgi_param DB_USER "root";
+        fastcgi_param DB_PASSWORD "root";
+        fastcgi_param REST_USER "user";
+        fastcgi_param REST_PASSWORD "password";
+
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+    }
+}</code>
                     </pre>
                 </div>
             </section>

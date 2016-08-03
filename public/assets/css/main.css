@@ -2830,7 +2830,7 @@
                 margin: 0 0 0 3em;
             }
 
-            .spotlight:nth-child(2n) .content {
+            .spotlight:not(.text-only):nth-child(2n) .content {
                 text-align: right;
             }
 
