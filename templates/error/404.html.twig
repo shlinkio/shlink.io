@@ -2,21 +2,20 @@
 
 {% block content %}
     <!-- Header -->
-    <header id="header">
-        <div class="content">
-            <h1><a href="{{ path('template') }}">Shlink</a></h1>
-            <p>
-                A self-hosted URL shortener.<br />
-                Shorten URLs and serve them under your own short domain.
-            </p>
-        </div>
-        <div class="image"><img src="images/shlink-logo-white.png" alt="" /></div>
-    </header>
+    {% include 'partials/small-header.html.twig' %}
 
     <section id="one" class="wrapper">
         <div class="inner alt">
-            <section class="spotlight">
-                404
+            <section class="special">
+                <div class="content">
+                    {% block error %}
+                        <h3><b>Oops!</b> This page does not exist</h3>
+                    {% endblock %}
+                    <p>Use your browser's Back button to navigate to the page you have previously come from or just press this button.</p>
+                    <ul class="actions">
+                        <li><a href="{{ path('template') }}" target="_blank" class="button special icon fa-download">Home</a></li>
+                    </ul>
+                </div>
             </section>
         </div>
     </section>

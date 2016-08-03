@@ -1,1 +1,5 @@
-{% extends 'layout.html.twig' %}
+{% extends 'error/404.html.twig' %}
+
+{% block error %}
+    <h3><b>Oops!</b> We encountered a <i>{{ status }}, {{ reason }}</i> error.</h3>
+{% endblock %}

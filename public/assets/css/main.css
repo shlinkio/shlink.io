@@ -2763,7 +2763,7 @@
     }
 
         .spotlight .image {
-            width: 60%;
+            width: 45%;
             height: 100%;
             margin: 0 3em 0 0;
             display: block;
@@ -2808,7 +2808,10 @@
         }
 
         .spotlight .content {
-            width: 70%;
+            width: 55%;
+        }
+        .spotlight.text-only .content {
+            width: 100%;
         }
 
             .spotlight .content > :last-child {
@@ -3884,6 +3887,11 @@
             }
 
         #header .content {
+            opacity: 1;
+            text-align: right;
+            margin: 0 4em 0 0;
+        }
+        #header.big .content {
             -moz-transition: opacity 0.5s ease, -moz-transform 1s ease;
             -webkit-transition: opacity 0.5s ease, -webkit-transform 1s ease;
             -ms-transition: opacity 0.5s ease, -ms-transform 1s ease;
@@ -3892,9 +3900,6 @@
             -webkit-transform: translateX(0);
             -ms-transform: translateX(0);
             transform: translateX(0);
-            opacity: 1;
-            text-align: right;
-            margin: 0 4em 0 0;
         }
 
             #header .content > :last-child {

@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <!-- Header -->
+    {% include 'partials/small-header.html.twig' %}
+
+    <section id="one" class="wrapper" xmlns="http://www.w3.org/1999/html">
+        <div class="inner alt">
+            <section class="spotlight text-only">
+                <div class="content">
+                    <h3 class="align-center">Installation</h3>
+                    <p>Shlink is a web application built with PHP. It shouldn't be hard to install, but you have to follow these steps.</p>
+                    <ul style="list-style-type: none">
+                        <li>
+                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span><a href="https://getcomposer.org/download/" target="_blank">Download composer</a> and run this command.</span><br>
+                            <code>php composer.phar create-project shlinkio/shlink</code>
+                        </li>
+                        <li>
+                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Define these env vars, both for the web server and for the command line:</span>
+                            <ul style="list-style-type: none; margin: 10px 0;">
+                                <li><b>SHORTENED_URL_SCHEMA</b>: http|https (defaults to http).</li>
+                                <li><b>SHORTENED_URL_HOSTNAME</b>: The short domain to use in generated short URLs.</li>
+                                <li><b>SHORTCODE_CHARS</b>: The char set used to generate short codes (defaults to <b>123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ</b>, but a new one can be generated with the <code>config:generate-charset</code> command)</li>
+                                <li><b>DB_USER</b>: The MySQL database username.</li>
+                                <li><b>DB_PASSWORD</b>: The MySQL database password.</li>
+                                <li><b>DB_NAME</b>: MySQL database name (defaults to <b>shlink</b>).</li>
+                                <li><b>REST_USER</b>: Username for REST authentication.</li>
+                                <li><b>REST_PASSWORD</b>: Password for REST authentication.</li>
+                                <li><b>DEFAULT_LOCALE</b>: Language in which web requests (browser and REST) will be returned if no <code>Accept-Language</code> header is sent (defaults to <b>en</b>).</li>
+                                <li><b>CLI_LOCALE</b>: Language in which console command messages will be displayed (defaults to <b>en</b>).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Initialize the MySQL database. It can be done by running the command <code>vendor/bin/doctrine orm:schema-tool:create</code> once an empty database has been created.</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Add write permissions to the <code>data</code> directory.</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Create doctrine proxies by running <code>vendor/bin/doctrine orm:generate-proxies</code>.</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-chevron-down"></i>&nbsp;&nbsp;<span>Optionally, you can create a symlink to the bin/cli script in a folder which is in your path, for example /usr/local/bin for linux systems. This will allow you to easily run shlink from the command line.</span>
+                        </li>
+                    </ul>
+                    <p>In the future, an automated installation and update process will be provided.</p>
+                    <h4>Virtual hosts</h4>
+                    <b>Apache</b>
+                    <pre>
+                        <code>
+
+                        </code>
+                    </pre>
+                </div>
+            </section>
+        </div>
+    </section>
+{% endblock %}
