@@ -2473,6 +2473,11 @@
                     padding-top: 0;
                 }
 
+        .side-menu-contents {
+            border-left: 1px solid #e6e6e6;
+            margin-left: -1px;
+        }
+
         ul.side-menu {
             list-style: none;
             padding-left: 0;
@@ -2519,6 +2524,10 @@
                     }
                     ul.side-menu li a.selected:before{
                         display: none;
+                    }
+                    .side-menu-contents {
+                        border-left: none;
+                        margin-left: 0;
                     }
                 }
 
@@ -3706,18 +3715,25 @@
 #navbar {
     min-height: 50px;
     padding: 0 20px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    border: 2px solid transparent;
     background-color: #4696e5;
     background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size1.svg");
     background-position: top left, center center;
     background-attachment: fixed, fixed;
     background-size: auto, cover;
     z-index: 10;
+    -webkit-transition: border .3s ease-in-out;
+    -moz-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
 }
+#navbar.active {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+
     #navbar .logo {
         float: left;
         font-weight: bold;
@@ -4150,7 +4166,7 @@
         @media screen and (max-width: 736px) and (orientation: landscape) {
 
             #header {
-                padding: 2em 2em 0.1em 2em ;
+                padding: 4em 2em 0.1em 2em ;
             }
 
                 #header .content {
