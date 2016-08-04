@@ -1,0 +1,18 @@
+<ul class="side-menu">
+    <li>
+        <a href="{{ path('api-docs-section', {'template': 'error-management'}) }}"
+           class="{{ template == 'api-docs' or template == 'api-docs/error-management' ? 'selected' : '' }}">Error Management</a>
+    </li>
+    <li>
+        <a href="{{ path('api-docs-section', {'template': 'authentication'}) }}"
+           class="{{ template == 'api-docs/authentication' ? 'selected' : '' }}">Authentication</a>
+    </li>
+    <li>
+        <a href="{{ path('api-docs-section', {'template': 'language'}) }}"
+           class="{{ template == 'api-docs/language' ? 'selected' : '' }}">Language</a>
+    </li>
+    <li>
+        <a href="{{ path('api-docs-section', {'template': 'endpoints'}) }}"
+           class="{{ template == 'api-docs/endpoints' ? 'selected' : '' }}">Endpoints</a>
+    </li>
+</ul>

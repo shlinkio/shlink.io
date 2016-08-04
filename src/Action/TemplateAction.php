@@ -4,6 +4,7 @@ namespace Shlinkio\Website\Action;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Zend\Diactoros\Response\HtmlResponse;
+use Zend\Expressive\Router\RouteResult;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Stratigility\MiddlewareInterface;
 
@@ -50,8 +51,11 @@ class TemplateAction implements MiddlewareInterface
     public function __invoke(Request $request, Response $response, callable $out = null)
     {
         $template = $request->getAttribute('template', 'index');
+
         try {
-            return new HtmlResponse($this->templateRenderer->render($template . '.html.twig'));
+            return new HtmlResponse($this->templateRenderer->render($template . '.html.twig', [
+                'template' => $template,
+            ]));
         } catch (\Twig_Error_Loader $e) {
             return $out($request, $response->withStatus(404), 'Not Found');
         }
