@@ -1,0 +1,25 @@
+<nav id="navbar">
+    <a class="logo" href="{{ path('template', {'template': null}) }}">
+        <img src="/images/shlink-logo-white.png">&nbsp;&nbsp;Shlink
+    </a>
+    <button class="menu-collapser"><i class="fa fa-bars"></i></button>
+    <ul class="menu">
+        <li>
+            <a href="{{ path('template', {'template': 'installation'}) }}">
+                <i class="fa fa-server"></i>&nbsp;&nbsp;Installation
+            </a>
+        </li><li>
+            <a href="{{ path('template', {'template': 'api-docs'}) }}">
+                <i class="fa fa-book"></i>&nbsp;&nbsp;API Docs
+            </a>
+        {#</li><li>#}
+            {#<a href="{{ path('template', {'template': 'apps'}) }}">#}
+                {#<i class="fa fa-mobile"></i>&nbsp;&nbsp;Apps#}
+            {#</a>#}
+        </li><li>
+            <a href="https://github.com/shlinkio/shlink" target="_blank">
+                <i class="fa fa-github"></i>&nbsp;&nbsp;Fork me
+            </a>
+        </li>
+    </ul>
+</nav>
