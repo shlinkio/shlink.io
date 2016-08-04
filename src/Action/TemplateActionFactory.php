@@ -26,6 +26,6 @@ class TemplateActionFactory implements FactoryInterface
     {
         /** @var TemplateRendererInterface $templateRenderer */
         $templateRenderer = $container->get(TemplateRendererInterface::class);
-        return new TemplateAction($templateRenderer);
+        return new $requestedName($templateRenderer);
     }
 }

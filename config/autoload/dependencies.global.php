@@ -24,6 +24,7 @@ return [
 
             // Actions
             Action\TemplateAction::class => Action\TemplateActionFactory::class,
+            Action\ApiTemplateAction::class => Action\TemplateActionFactory::class,
         ],
     ],
 
