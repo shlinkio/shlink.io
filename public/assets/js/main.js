@@ -15,10 +15,13 @@
         xxsmall: '(max-width: 360px)'
     });
 
+    hljs.initHighlightingOnLoad();
+
     $(function() {
 
         var $window = $(window),
-            $body = $('body');
+            $body = $('body'),
+            $navbar = $('#navbar');
 
         // Disable animations/transitions until the page has loaded.
         $body.addClass('is-loading');
@@ -47,8 +50,29 @@
                 speed: 1500
             });
 
-        $('.menu-collapser').click(function () {
+        $navbar.find('.menu-collapser').click(function () {
             $('.menu').stop().slideToggle();
+        });
+
+        $window.scroll(function () {
+            var top = $window.scrollTop();
+
+            if (top >= 20) {
+                $navbar.addClass('active');
+            } else {
+                $navbar.removeClass('active');
+            }
+        });
+
+        $body.on('click', '.accordion-header', function () {
+            var $accordion = $(this).closest('.accordion'),
+                $selectedElementBody = $(this).closest('.accordion-item').find('.accordion-body'),
+                isAlreadyVisible = $selectedElementBody.is(':visible');
+
+            $accordion.find('.accordion-body').slideUp();
+            if (! isAlreadyVisible) {
+                $selectedElementBody.slideDown();
+            }
         });
     });
 

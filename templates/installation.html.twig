@@ -4,10 +4,12 @@
     <!-- Header -->
     {% include 'partials/small-header.html.twig' %}
 
-    <section id="one" class="wrapper">
+    <section id="three" class="wrapper style2 special">
         <header class="major">
             <h2>Installation</h2>
         </header>
+    </section>
+    <section id="one" class="wrapper">
         <div class="inner alt">
             <section class="spotlight text-only">
                 <div class="content">
@@ -71,27 +73,6 @@
                         <h4>Virtual hosts</h4>
                         <p>These are samples for the most used web servers. Use them to get shlink up and running.</p>
                     </header>
-                    <b>Apache</b>
-                    <pre>
-                        <code>&lt;VirtualHost *:80&gt;
-    ServerName doma.in
-    DocumentRoot &quot;/path/to/shlink/public&quot;
-
-    SetEnv SHORTENED_URL_HOSTNAME doma.in
-    SetEnv SHORTCODE_CHARS 123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ
-    SetEnv DB_USER root
-    SetEnv DB_PASSWORD root
-    SetEnv REST_USER user
-    SetEnv REST_PASSWORD password
-
-    &lt;Directory &quot;/path/to/shlink/public&quot;&gt;
-        Options FollowSymLinks Includes ExecCGI
-        AllowOverride all
-        Order allow,deny
-        Allow from all
-    &lt;/Directory&gt;
-&lt;/VirtualHost&gt;</code>
-                    </pre>
                     <b>Nginx</b>
                     <pre>
                         <code>server {
@@ -119,6 +100,27 @@
         include fastcgi.conf;
     }
 }</code>
+                    </pre>
+                    <b>Apache</b>
+                    <pre>
+                        <code>&lt;VirtualHost *:80&gt;
+    ServerName doma.in
+    DocumentRoot &quot;/path/to/shlink/public&quot;
+
+    SetEnv SHORTENED_URL_HOSTNAME doma.in
+    SetEnv SHORTCODE_CHARS 123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ
+    SetEnv DB_USER root
+    SetEnv DB_PASSWORD root
+    SetEnv REST_USER user
+    SetEnv REST_PASSWORD password
+
+    &lt;Directory &quot;/path/to/shlink/public&quot;&gt;
+        Options FollowSymLinks Includes ExecCGI
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code>
                     </pre>
                 </div>
             </section>

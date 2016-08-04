@@ -3,26 +3,9 @@ namespace Shlinkio\Website\Action;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Zend\Diactoros\Response\HtmlResponse;
-use Zend\Expressive\Router\RouteResult;
-use Zend\Expressive\Template\TemplateRendererInterface;
-use Zend\Stratigility\MiddlewareInterface;
 
-class TemplateAction implements MiddlewareInterface
+class ApiTemplateAction extends TemplateAction
 {
-    /**
-     * @var TemplateRendererInterface
-     */
-    private $templateRenderer;
-
-    /**
-     * @param TemplateRendererInterface $templateRenderer
-     */
-    public function __construct(TemplateRendererInterface $templateRenderer)
-    {
-        $this->templateRenderer = $templateRenderer;
-    }
-
     /**
      * Process an incoming request and/or response.
      *
@@ -51,13 +34,6 @@ class TemplateAction implements MiddlewareInterface
     public function __invoke(Request $request, Response $response, callable $out = null)
     {
         $template = $request->getAttribute('template', 'index');
-
-        try {
-            return new HtmlResponse($this->templateRenderer->render($template . '.html.twig', [
-                'template' => $template,
-            ]));
-        } catch (\Twig_Error_Loader $e) {
-            return $out($request, $response->withStatus(404), 'Not Found');
-        }
+        return parent::__invoke($request->withAttribute('template', 'api-docs/' . $template), $response, $out);
     }
 }

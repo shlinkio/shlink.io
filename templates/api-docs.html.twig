@@ -4,14 +4,31 @@
     <!-- Header -->
     {% include 'partials/small-header.html.twig' %}
 
-    <section id="one" class="wrapper" xmlns="http://www.w3.org/1999/html">
+    <section id="three" class="wrapper style2 special">
         <header class="major">
             <h2>API Documentation</h2>
         </header>
+    </section>
+    <section id="one" class="wrapper" xmlns="http://www.w3.org/1999/html">
         <div class="inner alt">
             <section class="spotlight text-only">
                 <div class="content">
-
+                    <div class="row">
+                        <div class="3u 12u$(medium)">
+                            {% include 'api-docs/side-menu.html.twig' %}
+                        </div>
+                        <div class="9u 12u$(medium) side-menu-contents">
+                            {% block apiContent %}
+                                <header>
+                                    <h3>REST API</h3>
+                                </header>
+                                <p>Shlink provides a REST API that can be used to integrate the short URLs management on any system or application.</p>
+                                <p>All the requests return JSON-encoded responses and semantic status codes, so it should be easy to implement client apps that consume this API.</p>
+                                <p>However, if an unexpected error occurs, the system could end returning HTML. To prevent this, always pass the <code>Accept</code> header with the <code>application/json</code> value.</p>
+                                <p>Follow the documentation in order to see how to manage errors and perform requests correctly.</p>
+                            {% endblock %}
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

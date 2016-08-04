@@ -1,0 +1,16 @@
+{% extends 'api-docs.html.twig' %}
+
+{% block apiContent %}
+    <header>
+        <h3>Authentication</h3>
+    </header>
+    <p>All the endpoints require authentication. In order to do it you have to call to the special <code>authenticate</code> endpoint, which will return a token.</p>
+    <p>The token is valid indeterminately, but will expire after 20 minutes of inactivity, and you will have to pass it on every request in the <code>X-Auth-Token</code> header.</p>
+    <p>If a token is not provided or the token has expired, the server will return an error like this, with a status 401:</p>
+    <pre>
+        <code>{
+    "error": "INVALID_AUTH_TOKEN",
+    "message": "Missing or invalid auth token provided. Perform a new authentication request and send provided token on every new request on the \"X-Auth-Token\" header"
+}</code>
+    </pre>
+{% endblock %}

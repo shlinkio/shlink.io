@@ -1,21 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <!-- Header -->
-    <header id="header" class="big">
-        <div class="content">
-            <h1>Shlink</h1>
-            <p>
-                A self-hosted URL shortener.<br />
-                Shorten URLs and serve them under your own short domain.
-            </p>
-            <ul class="actions">
-                <li><a href="{{ path('template', {"template": "installation"}) }}" class="button special icon fa-download">Install</a></li>
-                <li><a href="#one" class="button icon fa-chevron-down scrolly">Learn More</a></li>
-            </ul>
-        </div>
-        <div class="image"><img src="images/shlink-logo-white.png" alt="" /></div>
-    </header>
+    {% include 'partials/header.html.twig' %}
 
     <!-- Two -->
     <section id="one" class="wrapper">
