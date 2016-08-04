@@ -15,6 +15,8 @@
         xxsmall: '(max-width: 360px)'
     });
 
+    hljs.initHighlightingOnLoad();
+
     $(function() {
 
         var $window = $(window),
