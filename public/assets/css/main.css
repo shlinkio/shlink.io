@@ -4378,6 +4378,7 @@
     .accordion .accordion-item .accordion-body {
         border-top: 1px solid #e6e6e6;
         display: none;
+        text-align: left;
     }
     .accordion .accordion-item .accordion-header {
         cursor: pointer;
