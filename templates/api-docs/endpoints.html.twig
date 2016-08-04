@@ -5,132 +5,149 @@
         <h3>Endpoints</h3>
     </header>
 
-    <section>
-        <h4>Authenticate</h4>
-        <b>REQUEST</b>
-        <ul>
-            <li>Method: <code>POST</code></li>
-            <li>Path: <code>/rest/authenticate</code></li>
-            <li>
-                Body params:
-                <ul>
-                    <li>username: <code>string</code></li>
-                    <li>password: <code>string</code></li>
-                </ul>
-            </li>
-        </ul>
-        <b>SUCCESSFUL RESPONSE</b>
-        <pre>
-        <code>{
+    <div class="accordion">
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <h4>Authenticate</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <b>REQUEST</b>
+                    <ul>
+                        <li>Method: <code>POST</code></li>
+                        <li>Path: <code>/rest/authenticate</code></li>
+                        <li>
+                            Body params:
+                            <ul>
+                                <li>username: <code>string</code></li>
+                                <li>password: <code>string</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
     "token": "9f741eb0-33d7-4c56-b8f7-3719e9929946"
 }</code>
-    </pre>
-        <b>ERROR RESPONSE</b>
-        <pre>
-        <code>{
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
     "error": "INVALID_ARGUMENT",
     "message": "You have to provide both \"username\" and \"password\""
 }</code>
-    </pre>
-        <b>ERRORS</b>
-        <ul>
-            <li><b>INVALID_ARGUMENT</b>: Username or password were not provided. (Status 400)</li>
-            <li><b>INVALID_CREDENTIALS</b>: Username or password are incorrect. (Status 401)</li>
-        </ul>
-    </section>
+                    </pre>
+                    <b>ERRORS</b>
+                    <ul>
+                        <li><b>INVALID_ARGUMENT</b>: Username or password were not provided. (Status 400)</li>
+                        <li><b>INVALID_CREDENTIALS</b>: Username or password are incorrect. (Status 401)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <hr>
-
-    <section>
-        <h4>Create short code</h4>
-        <b>REQUEST</b>
-        <ul>
-            <li>Method: <code>POST</code></li>
-            <li>Path: <code>/rest/short-codes</code></li>
-            <li>
-                Body params:
-                <ul>
-                    <li>longUrl: <code>string</code> &rarr; The URL that will be shortened.</li>
-                </ul>
-            </li>
-        </ul>
-        <b>SUCCESSFUL RESPONSE</b>
-        <pre>
-        <code>{
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <h4>Create short code</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <b>REQUEST</b>
+                    <ul>
+                        <li>Method: <code>POST</code></li>
+                        <li>Path: <code>/rest/short-codes</code></li>
+                        <li>
+                            Body params:
+                            <ul>
+                                <li>longUrl: <code>string</code> &rarr; The URL that will be shortened.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
     "longUrl": "https://www.facebook.com/something/something",
     "shortUrl": "https://doma.in/rY9Kr",
     "shortCode": "rY9Kr"
 }</code>
-    </pre>
-        <b>ERROR RESPONSE</b>
-        <pre>
-        <code>{
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
     "error": "INVALID_URL",
     "message": "Provided URL \"http://foo.com\" is invalid. Try with a different one."
 }</code>
-    </pre>
-        <b>ERRORS</b>
-        <ul>
-            <li><b>INVALID_ARGUMENT</b>: The longUrl was not provided. (Status 400)</li>
-            <li><b>INVALID_URL</b>: Provided longUrl has an invalid format or can't be resolved. (Status 400)</li>
-            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
-        </ul>
-    </section>
+                    </pre>
+                    <b>ERRORS</b>
+                    <ul>
+                        <li><b>INVALID_ARGUMENT</b>: The longUrl was not provided. (Status 400)</li>
+                        <li><b>INVALID_URL</b>: Provided longUrl has an invalid format or can't be resolved. (Status 400)</li>
+                        <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <hr>
-
-    <section>
-        <h4>Resolve URL</h4>
-        <b>REQUEST</b>
-        <ul>
-            <li>Method: <code>GET</code></li>
-            <li>Path: <code>/rest/short-codes/{shortCode}</code></li>
-            <li>
-                Route params:
-                <ul>
-                    <li>shortCode: <code>string</code> &rarr; The short code we want to resolve.</li>
-                </ul>
-            </li>
-        </ul>
-        <b>SUCCESSFUL RESPONSE</b>
-        <pre>
-        <code>{
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <h4>Resolve URL</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <b>REQUEST</b>
+                    <ul>
+                        <li>Method: <code>GET</code></li>
+                        <li>Path: <code>/rest/short-codes/{shortCode}</code></li>
+                        <li>
+                            Route params:
+                            <ul>
+                                <li>shortCode: <code>string</code> &rarr; The short code we want to resolve.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
     "longUrl": "https://www.facebook.com/something/something"
 }</code>
-    </pre>
-        <b>ERROR RESPONSE</b>
-        <pre>
-        <code>{
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
     "error": "INVALID_SHORTCODE",
     "message": "Provided short code \"abc123\" has an invalid format"
 }</code>
-    </pre>
-        <b>ERRORS</b>
-        <ul>
-            <li><b>INVALID_ARGUMENT</b>: No URL was found for provided shortCode. (Status 400)</li>
-            <li><b>INVALID_SHORTCODE</b>: Provided shortCode does not match the character set currently used by the app to generate short codes. (Status 400)</li>
-            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
-        </ul>
-    </section>
+                    </pre>
+                    <b>ERRORS</b>
+                    <ul>
+                        <li><b>INVALID_ARGUMENT</b>: No URL was found for provided shortCode. (Status 400)</li>
+                        <li><b>INVALID_SHORTCODE</b>: Provided shortCode does not match the character set currently used by the app to generate short codes. (Status 400)</li>
+                        <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <hr>
-
-    <section>
-        <h4>List shortened URLs</h4>
-        <b>REQUEST</b>
-        <ul>
-            <li>Method: <code>GET</code></li>
-            <li>Path: <code>/rest/short-codes</code></li>
-            <li>
-                Query params:
-                <ul>
-                    <li>page: <code>string</code> &rarr; The page to list. Defaults to 1 if not provided.</li>
-                </ul>
-            </li>
-        </ul>
-        <b>SUCCESSFUL RESPONSE</b>
-        <pre>
-        <code>{
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <h4>List shortened URLs</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <b>REQUEST</b>
+                    <ul>
+                        <li>Method: <code>GET</code></li>
+                        <li>Path: <code>/rest/short-codes</code></li>
+                        <li>
+                            Query params:
+                            <ul>
+                                <li>page: <code>string</code> &rarr; The page to list. Defaults to 1 if not provided.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
     "shortUrls": {
         "data": [
             {
@@ -200,45 +217,49 @@
         }
     }
 }</code>
-    </pre>
-        <b>ERROR RESPONSE</b>
-        <pre>
-        <code>{
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
     "error": "UNKNOWN_ERROR",
     "message": "Unexpected error occured"
 }</code>
-    </pre>
-        <b>ERRORS</b>
-        <ul>
-            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
-        </ul>
-    </section>
+                    </pre>
+                    <b>ERRORS</b>
+                    <ul>
+                        <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <hr>
-
-    <section>
-        <h4>Get visits</h4>
-        <b>REQUEST</b>
-        <ul>
-            <li>Method: <code>GET</code></li>
-            <li>Path: <code>/rest/short-codes/{shortCode}/visits</code></li>
-            <li>
-                Route params:
-                <ul style="margin-bottom: 0">
-                    <li>shortCode: <code>string</code> &rarr; The shortCode from which we want to get the visits.</li>
-                </ul>
-            </li>
-            <li>
-                Query params:
-                <ul>
-                    <li>startDate: <code>string</code> &rarr; If provided, only visits older that this date will be returned.</li>
-                    <li>endDate: <code>string</code> &rarr; If provided, only visits newer that this date will be returned.</li>
-                </ul>
-            </li>
-        </ul>
-        <b>SUCCESSFUL RESPONSE</b>
-        <pre>
-        <code>{
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <h4>Get visits</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <b>REQUEST</b>
+                    <ul>
+                        <li>Method: <code>GET</code></li>
+                        <li>Path: <code>/rest/short-codes/{shortCode}/visits</code></li>
+                        <li>
+                            Route params:
+                            <ul style="margin-bottom: 0">
+                                <li>shortCode: <code>string</code> &rarr; The shortCode from which we want to get the visits.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Query params:
+                            <ul>
+                                <li>startDate: <code>string</code> &rarr; If provided, only visits older that this date will be returned.</li>
+                                <li>endDate: <code>string</code> &rarr; If provided, only visits newer that this date will be returned.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
     "visits": {
         "data": [
             {
@@ -268,18 +289,21 @@
         ],
     }
 }</code>
-    </pre>
-        <b>ERROR RESPONSE</b>
-        <pre>
-        <code>{
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
     "error": "INVALID_ARGUMENT",
     "message": "Provided short code \"abc123\" is invalid"
 }</code>
-    </pre>
-        <b>ERRORS</b>
-        <ul>
-            <li><b>INVALID_ARGUMENT</b>: The short code does not belong to any short URL. (Status 400)</li>
-            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
-        </ul>
-    </section>
+                    </pre>
+                    <b>ERRORS</b>
+                    <ul>
+                        <li><b>INVALID_ARGUMENT</b>: The short code does not belong to any short URL. (Status 400)</li>
+                        <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}

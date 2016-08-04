@@ -4363,3 +4363,26 @@
         }
 
     }
+
+.accordion .accordion-item {
+    border: 1px solid #e6e6e6;
+    margin-bottom: .5em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+    .accordion .accordion-item .accordion-header,
+    .accordion .accordion-item .accordion-body-inner {
+        padding: 10px 20px;
+    }
+    .accordion .accordion-item .accordion-body {
+        border-top: 1px solid #e6e6e6;
+        display: none;
+    }
+    .accordion .accordion-item .accordion-header {
+        cursor: pointer;
+    }
+
+        .accordion .accordion-item .accordion-header h4 {
+            margin: 0;
+        }

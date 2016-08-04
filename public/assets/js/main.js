@@ -63,6 +63,17 @@
                 $navbar.removeClass('active');
             }
         });
+
+        $body.on('click', '.accordion-header', function () {
+            var $accordion = $(this).closest('.accordion'),
+                $selectedElementBody = $(this).closest('.accordion-item').find('.accordion-body'),
+                isAlreadyVisible = $selectedElementBody.is(':visible');
+
+            $accordion.find('.accordion-body').slideUp();
+            if (! isAlreadyVisible) {
+                $selectedElementBody.slideDown();
+            }
+        });
     });
 
 })(jQuery);
