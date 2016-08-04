@@ -1796,6 +1796,7 @@
     }
 
         pre code {
+            text-align: left;
             display: block;
             line-height: 1.75em;
             padding: 1em 1.5em;
@@ -3663,7 +3664,7 @@
     left: 0;
     right: 0;
     background-color: #4696e5;
-    background-image: url("images/overlay.png"), url("images/pattern-size1.svg");
+    background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size1.svg");
     background-position: top left, center center;
     background-attachment: fixed, fixed;
     background-size: auto, cover;
@@ -3774,7 +3775,7 @@
         -webkit-justify-content: center;
         -ms-justify-content: center;
         justify-content: center;
-        background-image: url("images/overlay.png"), url("images/pattern-size1.svg");
+        background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size1.svg");
         background-position: top left, center center;
         background-attachment: fixed, fixed;
         background-size: auto, cover;
@@ -4040,7 +4041,7 @@
         @media screen and (max-width: 1280px) {
 
             #header {
-                background-image: url("images/overlay.png"), url("images/pattern-size2.svg");
+                background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size2.svg");
             }
 
         }
@@ -4084,7 +4085,7 @@
         @media screen and (max-width: 736px) {
 
             #header {
-                background-image: url("images/overlay.png"), url("images/pattern-size3.svg");
+                background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size3.svg");
             }
 
                 #header h1 {
@@ -4161,7 +4162,7 @@
     @media screen and (max-width: 480px) and (orientation: portrait) {
 
         #header {
-            padding: 2em 1em 0.1em 1em ;
+            padding: 3em 1em 0.1em 1em ;
         }
 
     }
