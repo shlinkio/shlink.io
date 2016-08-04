@@ -1,0 +1,285 @@
+{% extends 'api-docs.html.twig' %}
+
+{% block apiContent %}
+    <header>
+        <h3>Endpoints</h3>
+    </header>
+
+    <section>
+        <h4>Authenticate</h4>
+        <b>REQUEST</b>
+        <ul>
+            <li>Method: <code>POST</code></li>
+            <li>Path: <code>/rest/authenticate</code></li>
+            <li>
+                Body params:
+                <ul>
+                    <li>username: <code>string</code></li>
+                    <li>password: <code>string</code></li>
+                </ul>
+            </li>
+        </ul>
+        <b>SUCCESSFUL RESPONSE</b>
+        <pre>
+        <code>{
+    "token": "9f741eb0-33d7-4c56-b8f7-3719e9929946"
+}</code>
+    </pre>
+        <b>ERROR RESPONSE</b>
+        <pre>
+        <code>{
+    "error": "INVALID_ARGUMENT",
+    "message": "You have to provide both \"username\" and \"password\""
+}</code>
+    </pre>
+        <b>ERRORS</b>
+        <ul>
+            <li><b>INVALID_ARGUMENT</b>: Username or password were not provided. (Status 400)</li>
+            <li><b>INVALID_CREDENTIALS</b>: Username or password are incorrect. (Status 401)</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h4>Create short code</h4>
+        <b>REQUEST</b>
+        <ul>
+            <li>Method: <code>POST</code></li>
+            <li>Path: <code>/rest/short-codes</code></li>
+            <li>
+                Body params:
+                <ul>
+                    <li>longUrl: <code>string</code> &rarr; The URL that will be shortened.</li>
+                </ul>
+            </li>
+        </ul>
+        <b>SUCCESSFUL RESPONSE</b>
+        <pre>
+        <code>{
+    "longUrl": "https://www.facebook.com/something/something",
+    "shortUrl": "https://doma.in/rY9Kr",
+    "shortCode": "rY9Kr"
+}</code>
+    </pre>
+        <b>ERROR RESPONSE</b>
+        <pre>
+        <code>{
+    "error": "INVALID_URL",
+    "message": "Provided URL \"http://foo.com\" is invalid. Try with a different one."
+}</code>
+    </pre>
+        <b>ERRORS</b>
+        <ul>
+            <li><b>INVALID_ARGUMENT</b>: The longUrl was not provided. (Status 400)</li>
+            <li><b>INVALID_URL</b>: Provided longUrl has an invalid format or can't be resolved. (Status 400)</li>
+            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h4>Resolve URL</h4>
+        <b>REQUEST</b>
+        <ul>
+            <li>Method: <code>GET</code></li>
+            <li>Path: <code>/rest/short-codes/{shortCode}</code></li>
+            <li>
+                Route params:
+                <ul>
+                    <li>shortCode: <code>string</code> &rarr; The short code we want to resolve.</li>
+                </ul>
+            </li>
+        </ul>
+        <b>SUCCESSFUL RESPONSE</b>
+        <pre>
+        <code>{
+    "longUrl": "https://www.facebook.com/something/something"
+}</code>
+    </pre>
+        <b>ERROR RESPONSE</b>
+        <pre>
+        <code>{
+    "error": "INVALID_SHORTCODE",
+    "message": "Provided short code \"abc123\" has an invalid format"
+}</code>
+    </pre>
+        <b>ERRORS</b>
+        <ul>
+            <li><b>INVALID_ARGUMENT</b>: No URL was found for provided shortCode. (Status 400)</li>
+            <li><b>INVALID_SHORTCODE</b>: Provided shortCode does not match the character set currently used by the app to generate short codes. (Status 400)</li>
+            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h4>List shortened URLs</h4>
+        <b>REQUEST</b>
+        <ul>
+            <li>Method: <code>GET</code></li>
+            <li>Path: <code>/rest/short-codes</code></li>
+            <li>
+                Query params:
+                <ul>
+                    <li>page: <code>string</code> &rarr; The page to list. Defaults to 1 if not provided.</li>
+                </ul>
+            </li>
+        </ul>
+        <b>SUCCESSFUL RESPONSE</b>
+        <pre>
+        <code>{
+    "shortUrls": {
+        "data": [
+            {
+                "shortCode": "abc123",
+                "originalUrl": "http://www.alejandrocelaya.com",
+                "dateCreated": "2016-04-30T18:01:47+0200",
+                "visitsCount": 4
+            },
+            {
+                "shortCode": "def456",
+                "originalUrl": "http://www.alejandrocelaya.com/en",
+                "dateCreated": "2016-04-30T18:03:43+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "ghi789",
+                "originalUrl": "http://www.alejandrocelaya.com/es",
+                "dateCreated": "2016-04-30T18:10:38+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "jkl987",
+                "originalUrl": "http://www.alejandrocelaya.com/es/",
+                "dateCreated": "2016-04-30T18:10:57+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "mno654",
+                "originalUrl": "http://blog.alejandrocelaya.com/2016/04/09/improving-zend-service-manager-workflow-with-annotations/",
+                "dateCreated": "2016-04-30T19:21:05+0200",
+                "visitsCount": 1
+            },
+            {
+                "shortCode": "pqr321",
+                "originalUrl": "http://www.google.com",
+                "dateCreated": "2016-05-01T11:19:53+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "stv159",
+                "originalUrl": "http://www.acelaya.com",
+                "dateCreated": "2016-06-12T17:49:21+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "wxy753",
+                "originalUrl": "http://www.atomic-reader.com",
+                "dateCreated": "2016-06-12T17:50:27+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "zab852",
+                "originalUrl": "http://foo.com",
+                "dateCreated": "2016-07-03T09:07:36+0200",
+                "visitsCount": 0
+            },
+            {
+                "shortCode": "cde963",
+                "originalUrl": "https://www.facebook.com.com",
+                "dateCreated": "2016-07-03T09:12:35+0200",
+                "visitsCount": 0
+            }
+        ],
+        "pagination": {
+            "currentPage": 4,
+            "pagesCount": 15
+        }
+    }
+}</code>
+    </pre>
+        <b>ERROR RESPONSE</b>
+        <pre>
+        <code>{
+    "error": "UNKNOWN_ERROR",
+    "message": "Unexpected error occured"
+}</code>
+    </pre>
+        <b>ERRORS</b>
+        <ul>
+            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h4>Get visits</h4>
+        <b>REQUEST</b>
+        <ul>
+            <li>Method: <code>GET</code></li>
+            <li>Path: <code>/rest/short-codes/{shortCode}/visits</code></li>
+            <li>
+                Route params:
+                <ul style="margin-bottom: 0">
+                    <li>shortCode: <code>string</code> &rarr; The shortCode from which we want to get the visits.</li>
+                </ul>
+            </li>
+            <li>
+                Query params:
+                <ul>
+                    <li>startDate: <code>string</code> &rarr; If provided, only visits older that this date will be returned.</li>
+                    <li>endDate: <code>string</code> &rarr; If provided, only visits newer that this date will be returned.</li>
+                </ul>
+            </li>
+        </ul>
+        <b>SUCCESSFUL RESPONSE</b>
+        <pre>
+        <code>{
+    "visits": {
+        "data": [
+            {
+                "referer": null,
+                "date": "2016-06-18T09:32:22+0200",
+                "remoteAddr": "127.0.0.1",
+                "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+            },
+            {
+                "referer": null,
+                "date": "2016-04-30T19:20:06+0200",
+                "remoteAddr": "127.0.0.1",
+                "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+            },
+            {
+                "referer": "google.com",
+                "date": "2016-04-30T19:19:57+0200",
+                "remoteAddr": "1.2.3.4",
+                "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+            },
+            {
+                "referer": null,
+                "date": "2016-04-30T19:17:35+0200",
+                "remoteAddr": "127.0.0.1",
+                "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+            }
+        ],
+    }
+}</code>
+    </pre>
+        <b>ERROR RESPONSE</b>
+        <pre>
+        <code>{
+    "error": "INVALID_ARGUMENT",
+    "message": "Provided short code \"abc123\" is invalid"
+}</code>
+    </pre>
+        <b>ERRORS</b>
+        <ul>
+            <li><b>INVALID_ARGUMENT</b>: The short code does not belong to any short URL. (Status 400)</li>
+            <li><b>UNKNOWN_ERROR</b>: Something unexpected happened. (Status 500)</li>
+        </ul>
+    </section>
+{% endblock %}
