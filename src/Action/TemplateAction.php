@@ -50,11 +50,15 @@ class TemplateAction implements MiddlewareInterface
      */
     public function __invoke(Request $request, Response $response, callable $out = null)
     {
-        $template = $request->getAttribute('template', 'index');
+        // Generate the template name based on the path
+        $path = $request->getUri()->getPath();
+        $path = substr($path, 1);
+        $path = empty($path) ? 'index' : $path;
 
+        // Try to render the template and return a 404 if not found
         try {
-            return new HtmlResponse($this->templateRenderer->render($template . '.html.twig', [
-                'template' => $template,
+            return new HtmlResponse($this->templateRenderer->render($path . '.html.twig', [
+                'template' => $path,
             ]));
         } catch (\Twig_Error_Loader $e) {
             return $out($request, $response->withStatus(404), 'Not Found');
