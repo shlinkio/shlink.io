@@ -2489,11 +2489,13 @@
                 border-right-style: solid;
                 border-top-width: 1px;
                 border-right-width: 1px;
+                padding-left: 0;
             }
             ul.side-menu li:first-child {
                 border-top: 0;
             }
-                ul.side-menu li a {
+                ul.side-menu li a,
+                ul.side-menu li span {
                     border: none;
                     display: block;
                     padding: 0.5em 0;
@@ -2518,18 +2520,36 @@
                     height: 10px;
                 }
 
-                @media screen and (max-width: 980px) {
-                    ul.side-menu li {
-                        border-right: none;
-                    }
-                    ul.side-menu li a.selected:before{
-                        display: none;
-                    }
-                    .side-menu-contents {
-                        border-left: none;
-                        margin-left: 0;
-                    }
+            ul.side-menu .submenu {
+                list-style: none;
+                padding-left: 0;
+            }
+
+            ul.side-menu .submenu li {
+                padding-left: 1em;
+                border-right: none;
+            }
+            ul.side-menu .submenu li:first-child {
+                border-top: 1px solid #e6e6e6;
+            }
+            ul.side-menu .submenu a,
+            ul.side-menu .submenu span {
+                padding: 0.2em 0;
+                font-size: 80%;
+            }
+
+            @media screen and (max-width: 980px) {
+                ul.side-menu li {
+                    border-right: none;
                 }
+                ul.side-menu li a.selected:before{
+                    display: none;
+                }
+                .side-menu-contents {
+                    border-left: none;
+                    margin-left: 0;
+                }
+            }
 
         ul.icons {
             cursor: default;
