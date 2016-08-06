@@ -6,14 +6,20 @@ return [
     'routes' => [
         [
             'name' => 'template',
-            'path' => '/[{template}]',
+            'path' => '/[{slug}]',
             'middleware' => Action\TemplateAction::class,
             'allowed_methods' => ['GET'],
         ],
         [
             'name' => 'api-docs-section',
-            'path' => '/api-docs/{template}',
-            'middleware' => Action\ApiTemplateAction::class,
+            'path' => '/api-docs/{slug}',
+            'middleware' => Action\TemplateAction::class,
+            'allowed_methods' => ['GET'],
+        ],
+        [
+            'name' => 'api-docs-endpoints-section',
+            'path' => '/api-docs/endpoints/{slug}',
+            'middleware' => Action\TemplateAction::class,
             'allowed_methods' => ['GET'],
         ],
     ],

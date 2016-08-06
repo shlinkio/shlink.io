@@ -70,6 +70,18 @@
             <section class="spotlight text-only">
                 <div class="content">
                     <header>
+                        <h4>Visitors locations</h4>
+                    </header>
+                    <p>Resolving the IP of a visitor in order to get its location involves performing a request to an external service, which gets time. For this reason, this task is not done in real time.</p>
+                    <p>You can manually run the command <code>visit:process</code> which will process all the IPs from visits.</p>
+                    <p>Alternatively, you could create an scheduled task which automatically runs that command so that the information is updated periodically.</p>
+                    <p>This is an example cron job that could be created under a Unix system. It will run the command every hour, processing all pending IP addresses:</p>
+                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:process</code></p>
+                </div>
+            </section>
+            <section class="spotlight text-only">
+                <div class="content">
+                    <header>
                         <h4>Virtual hosts</h4>
                         <p>These are samples for the most used web servers. Use them to get shlink up and running.</p>
                     </header>
