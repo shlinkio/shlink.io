@@ -21,8 +21,7 @@
                                 <td>Body params</td>
                                 <td>
                                     <ul>
-                                        <li>username: <code>string</code></li>
-                                        <li>password: <code>string</code></li>
+                                        <li>apiKey: <code>string</code></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -31,14 +30,14 @@
                     <b>SUCCESSFUL RESPONSE</b>
                     <pre>
                         <code>{
-    "token": "9f741eb0-33d7-4c56-b8f7-3719e9929946"
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTaGxpbms6djEuMS4wIiwiaWF0IjoxNDcwNTg5ODg5LCJleHAiOjE0NzExOTcwNzEsInN1YiI6ImF1dGgiLCJrZXkiOiIxIn0.idGejxATFkHvJ5z8fld3b3BzvJcvCYnrG6w3YHrcI58"
 }</code>
                     </pre>
                     <b>ERROR RESPONSE</b>
                     <pre>
                         <code>{
     "error": "INVALID_ARGUMENT",
-    "message": "You have to provide both \"username\" and \"password\""
+    "message": "You have to provide a valid API key under the "apiKey" param name"
 }</code>
                     </pre>
                     <table class="alt errors-list">
@@ -52,12 +51,12 @@
                         <tbody>
                             <tr>
                                 <td><b>INVALID_ARGUMENT</b></td>
-                                <td>Username or password were not provided</td>
+                                <td>API key was not provided</td>
                                 <td>400</td>
                             </tr>
                             <tr>
-                                <td><b>INVALID_CREDENTIALS</b></td>
-                                <td>Username or password are incorrect</td>
+                                <td><b>INVALID_API_KEY</b></td>
+                                <td>The API key is incorrect, disabled or has expired incorrect</td>
                                 <td>401</td>
                             </tr>
                         </tbody>
