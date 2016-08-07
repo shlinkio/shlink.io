@@ -31,11 +31,6 @@
             "Shlinkio\\Website\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "ShlinkioTest\\Website\\": "test/"
-        }
-    },
     "scripts": {
         "check": [
             "@cs",
