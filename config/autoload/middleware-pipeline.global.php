@@ -1,4 +1,5 @@
 <?php
+use Shlinkio\Website\Middleware\CacheMiddleware;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;
 
@@ -7,6 +8,7 @@ return [
     'middleware_pipeline' => [
         'always' => [
             'middleware' => [
+                CacheMiddleware::class,
                 Helper\ServerUrlMiddleware::class,
             ],
             'priority' => 10000,

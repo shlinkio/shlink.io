@@ -1,0 +1,15 @@
+<?php
+use Doctrine\Common\Cache;
+
+return [
+
+    'dependencies' => [
+        'invokables' => [
+            Cache\ArrayCache::class => Cache\ArrayCache::class,
+        ],
+        'aliases' => [
+            Cache\Cache::class => Cache\ArrayCache::class,
+        ],
+    ],
+
+];

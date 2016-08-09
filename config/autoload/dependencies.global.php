@@ -1,5 +1,7 @@
 <?php
+use Doctrine\Common\Cache;
 use Shlinkio\Website\Action;
+use Shlinkio\Website\Middleware;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container;
 use Zend\Expressive\Helper;
@@ -13,6 +15,7 @@ return [
         'invokables' => [
             Helper\ServerUrlHelper::class => Helper\ServerUrlHelper::class,
             Router\RouterInterface::class => Router\FastRouteRouter::class,
+            Cache\ApcuCache::class => Cache\ApcuCache::class,
         ],
         'factories' => [
             Application::class => Container\ApplicationFactory::class,
@@ -24,6 +27,12 @@ return [
 
             // Actions
             Action\TemplateAction::class => Action\TemplateActionFactory::class,
+
+            // Middleware
+            Middleware\CacheMiddleware::class => Middleware\CacheMiddlewareFactory::class,
+        ],
+        'aliases' => [
+            Cache\Cache::class => Cache\ApcuCache::class,
         ],
     ],
 
