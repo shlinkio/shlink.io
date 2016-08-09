@@ -3739,7 +3739,7 @@
     top: 0;
     left: 0;
     right: 0;
-    border: 2px solid transparent;
+    border-bottom: 2px solid transparent;
     background-color: #4696e5;
     background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size1.svg");
     background-position: top left, center center;
@@ -3751,7 +3751,7 @@
     transition: border .3s ease-in-out;
 }
 #navbar.active {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
     #navbar .logo {
@@ -4410,7 +4410,6 @@
     }
     .accordion .accordion-item .accordion-header {
         cursor: pointer;
-        text-align: left;
     }
 
         .accordion .accordion-item .accordion-header h4 {
@@ -4427,10 +4426,26 @@
     margin-right: .5em;
     color: #fff;
     position: relative;
+    min-width: 5em;
+    /*min-width: 6em;*/
+    text-align: center;
 }
     .accordion .http-method.post {
         background-color: #5cb85c;
     }
     .accordion .http-method.get {
         background-color: #337ab7;
+    }
+    .accordion .http-method.put {
+        background-color: #f0ad4e;
+    }
+    .accordion .http-method.delete {
+        background-color: #d9534f;
+    }
+
+    @media screen and (max-width: 736px) {
+        .accordion .http-method {
+            float: none;
+            margin: 0;
+        }
     }

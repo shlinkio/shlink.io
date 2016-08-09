@@ -3,14 +3,13 @@
 {% block apiContent %}
     <header>
         <h3>Endpoints</h3>
-        <p>Base path: <code>/rest</code></p>
     </header>
 
     <div class="accordion">
         <section class="accordion-item">
             <div class="accordion-header">
                 <div class="http-method post">POST</div>
-                <h4>/authenticate</h4>
+                <h4>/rest/authenticate</h4>
             </div>
             <div class="accordion-body">
                 <div class="accordion-body-inner">
@@ -21,24 +20,24 @@
                                 <td>Body params</td>
                                 <td>
                                     <ul>
-                                        <li>username: <code>string</code></li>
-                                        <li>password: <code>string</code></li>
+                                        <li>apiKey: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>API keys are generated from the CLI interface, by running the <code>api-key:generate</code> command.</td>
                             </tr>
                         </tbody>
                     </table>
                     <b>SUCCESSFUL RESPONSE</b>
                     <pre>
                         <code>{
-    "token": "9f741eb0-33d7-4c56-b8f7-3719e9929946"
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTaGxpbms6djEuMS4wIiwiaWF0IjoxNDcwNTg5ODg5LCJleHAiOjE0NzExOTcwNzEsInN1YiI6ImF1dGgiLCJrZXkiOiIxIn0.idGejxATFkHvJ5z8fld3b3BzvJcvCYnrG6w3YHrcI58"
 }</code>
                     </pre>
                     <b>ERROR RESPONSE</b>
                     <pre>
                         <code>{
     "error": "INVALID_ARGUMENT",
-    "message": "You have to provide both \"username\" and \"password\""
+    "message": "You have to provide a valid API key under the \"apiKey\" param name"
 }</code>
                     </pre>
                     <table class="alt errors-list">
@@ -52,12 +51,12 @@
                         <tbody>
                             <tr>
                                 <td><b>INVALID_ARGUMENT</b></td>
-                                <td>Username or password were not provided</td>
+                                <td>API key was not provided</td>
                                 <td>400</td>
                             </tr>
                             <tr>
-                                <td><b>INVALID_CREDENTIALS</b></td>
-                                <td>Username or password are incorrect</td>
+                                <td><b>INVALID_API_KEY</b></td>
+                                <td>The API key is incorrect, is disabled or has expired.</td>
                                 <td>401</td>
                             </tr>
                         </tbody>
@@ -69,7 +68,7 @@
         <section class="accordion-item">
             <div class="accordion-header">
                 <div class="http-method post">POST</div>
-                <h4>/short-codes</h4>
+                <h4>/rest/short-codes</h4>
             </div>
             <div class="accordion-body">
                 <div class="accordion-body-inner">
@@ -80,9 +79,10 @@
                                 <td>Body params</td>
                                 <td>
                                     <ul>
-                                        <li>longUrl: <code>string</code> &rarr; The URL that will be shortened.</li>
+                                        <li>longUrl: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The URL that will be shortened.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -134,7 +134,7 @@
         <section class="accordion-item">
             <div class="accordion-header">
                 <div class="http-method get">GET</div>
-                <h4>/short-codes/{shortCode}</h4>
+                <h4>/rest/short-codes/{shortCode}</h4>
             </div>
             <div class="accordion-body">
                 <div class="accordion-body-inner">
@@ -145,9 +145,10 @@
                                 <td>Route params</td>
                                 <td>
                                     <ul>
-                                        <li>shortCode: <code>string</code> &rarr; The short code we want to resolve.</li>
+                                        <li>shortCode: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The short code we want to resolve.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -176,7 +177,7 @@
                             <tr>
                                 <td><b>INVALID_ARGUMENT</b></td>
                                 <td>No URL was found for provided shortCode</td>
-                                <td>400</td>
+                                <td>404</td>
                             </tr>
                             <tr>
                                 <td><b>INVALID_SHORTCODE</b></td>
@@ -197,7 +198,7 @@
         <section class="accordion-item">
             <div class="accordion-header">
                 <div class="http-method get">GET</div>
-                <h4>/short-codes</h4>
+                <h4>/rest/short-codes</h4>
             </div>
             <div class="accordion-body">
                 <div class="accordion-body-inner">
@@ -208,9 +209,10 @@
                                 <td>Query params</td>
                                 <td>
                                     <ul>
-                                        <li>page: <code>string</code> &rarr; The page to list. Defaults to 1 if not provided.</li>
+                                        <li>page: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The page to list. Defaults to 1 if not provided.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -221,49 +223,49 @@
         "data": [
             {
                 "shortCode": "abc123",
-                "originalUrl": "http://www.alejandrocelaya.com",
+                "originalUrl": "https://www.alejandrocelaya.com",
                 "dateCreated": "2016-04-30T18:01:47+0200",
                 "visitsCount": 4
             },
             {
                 "shortCode": "def456",
-                "originalUrl": "http://www.alejandrocelaya.com/en",
+                "originalUrl": "https://www.alejandrocelaya.com/en",
                 "dateCreated": "2016-04-30T18:03:43+0200",
                 "visitsCount": 0
             },
             {
                 "shortCode": "ghi789",
-                "originalUrl": "http://www.alejandrocelaya.com/es",
+                "originalUrl": "https://www.alejandrocelaya.com/es",
                 "dateCreated": "2016-04-30T18:10:38+0200",
                 "visitsCount": 0
             },
             {
                 "shortCode": "jkl987",
-                "originalUrl": "http://www.alejandrocelaya.com/es/",
+                "originalUrl": "https://www.alejandrocelaya.com/es/",
                 "dateCreated": "2016-04-30T18:10:57+0200",
                 "visitsCount": 0
             },
             {
                 "shortCode": "mno654",
-                "originalUrl": "http://blog.alejandrocelaya.com/2016/04/09/improving-zend-service-manager-workflow-with-annotations/",
+                "originalUrl": "https://blog.alejandrocelaya.com/2016/04/09/improving-zend-service-manager-workflow-with-annotations/",
                 "dateCreated": "2016-04-30T19:21:05+0200",
                 "visitsCount": 1
             },
             {
                 "shortCode": "pqr321",
-                "originalUrl": "http://www.google.com",
+                "originalUrl": "https://www.google.com",
                 "dateCreated": "2016-05-01T11:19:53+0200",
                 "visitsCount": 0
             },
             {
                 "shortCode": "stv159",
-                "originalUrl": "http://www.acelaya.com",
+                "originalUrl": "https://www.acelaya.com",
                 "dateCreated": "2016-06-12T17:49:21+0200",
                 "visitsCount": 0
             },
             {
                 "shortCode": "wxy753",
-                "originalUrl": "http://www.atomic-reader.com",
+                "originalUrl": "https://www.atomic-reader.com",
                 "dateCreated": "2016-06-12T17:50:27+0200",
                 "visitsCount": 0
             },
@@ -317,7 +319,7 @@
         <section class="accordion-item">
             <div class="accordion-header">
                 <div class="http-method get">GET</div>
-                <h4>/short-codes/{shortCode}/visits</h4>
+                <h4>/rest/short-codes/{shortCode}/visits</h4>
             </div>
             <div class="accordion-body">
                 <div class="accordion-body-inner">
@@ -328,16 +330,23 @@
                                 <td>Route params</td>
                                 <td>
                                     <ul>
-                                        <li>shortCode: <code>string</code> &rarr; The shortCode from which we want to get the visits.</li>
+                                        <li>shortCode: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The shortCode from which we want to get the visits.</td>
                             </tr>
                             <tr>
                                 <td>Query params</td>
                                 <td>
                                     <ul>
-                                        <li>startDate: <code>string</code> &rarr; If provided, only visits older that this date will be returned.</li>
-                                        <li>endDate: <code>string</code> &rarr; If provided, only visits newer that this date will be returned.</li>
+                                        <li>startDate: <code>string</code></li>
+                                        <li>endDate: <code>string</code></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>If provided, only visits older that this date will be returned.</li>
+                                        <li>If provided, only visits newer that this date will be returned.</li>
                                     </ul>
                                 </td>
                             </tr>
@@ -395,7 +404,7 @@
                             <tr>
                                 <td><b>INVALID_ARGUMENT</b></td>
                                 <td>The short code does not belong to any short URL</td>
-                                <td>400</td>
+                                <td>404</td>
                             </tr>
                             <tr>
                                 <td><b>UNKNOWN_ERROR</b></td>
