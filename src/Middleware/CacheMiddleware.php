@@ -46,14 +46,15 @@ class CacheMiddleware implements MiddlewareInterface
      */
     public function __invoke(Request $request, Response $response, callable $out = null)
     {
-        $path = $request->getUri()->getPath();
-        if ($this->cache->contains($path)) {
-            return new HtmlResponse($this->cache->fetch($path));
+        $uri = $request->getUri();
+        $cacheKey= sprintf('%s://%s/%s', $uri->getScheme(), $uri->getAuthority(), $uri->getPath());
+        if ($this->cache->contains($cacheKey)) {
+            return new HtmlResponse($this->cache->fetch($cacheKey));
         }
 
         /** @var Response $resp */
         $resp = $out($request, $response);
-        $this->cache->save($path, $resp->getBody()->__toString());
+        $this->cache->save($cacheKey, $resp->getBody()->__toString());
         return $resp;
     }
 }
