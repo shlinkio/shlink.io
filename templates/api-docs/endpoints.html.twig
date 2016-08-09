@@ -23,6 +23,7 @@
                                         <li>apiKey: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>API keys are generated from the CLI interface, by running the <code>api-key:generate</code> command.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -36,7 +37,7 @@
                     <pre>
                         <code>{
     "error": "INVALID_ARGUMENT",
-    "message": "You have to provide a valid API key under the "apiKey" param name"
+    "message": "You have to provide a valid API key under the \"apiKey\" param name"
 }</code>
                     </pre>
                     <table class="alt errors-list">
@@ -78,9 +79,10 @@
                                 <td>Body params</td>
                                 <td>
                                     <ul>
-                                        <li>longUrl: <code>string</code> &rarr; The URL that will be shortened.</li>
+                                        <li>longUrl: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The URL that will be shortened.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -143,9 +145,10 @@
                                 <td>Route params</td>
                                 <td>
                                     <ul>
-                                        <li>shortCode: <code>string</code> &rarr; The short code we want to resolve.</li>
+                                        <li>shortCode: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The short code we want to resolve.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -206,9 +209,10 @@
                                 <td>Query params</td>
                                 <td>
                                     <ul>
-                                        <li>page: <code>string</code> &rarr; The page to list. Defaults to 1 if not provided.</li>
+                                        <li>page: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The page to list. Defaults to 1 if not provided.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -326,16 +330,23 @@
                                 <td>Route params</td>
                                 <td>
                                     <ul>
-                                        <li>shortCode: <code>string</code> &rarr; The shortCode from which we want to get the visits.</li>
+                                        <li>shortCode: <code>string</code></li>
                                     </ul>
                                 </td>
+                                <td>The shortCode from which we want to get the visits.</td>
                             </tr>
                             <tr>
                                 <td>Query params</td>
                                 <td>
                                     <ul>
-                                        <li>startDate: <code>string</code> &rarr; If provided, only visits older that this date will be returned.</li>
-                                        <li>endDate: <code>string</code> &rarr; If provided, only visits newer that this date will be returned.</li>
+                                        <li>startDate: <code>string</code></li>
+                                        <li>endDate: <code>string</code></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>If provided, only visits older that this date will be returned.</li>
+                                        <li>If provided, only visits newer that this date will be returned.</li>
                                     </ul>
                                 </td>
                             </tr>
