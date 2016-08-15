@@ -79,16 +79,14 @@
     }
 
     location ~ \.php$ {
-        fastcgi_param SHORTENED_URL_HOSTNAME "doma.in";
-        fastcgi_param SHORTCODE_CHARS "123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
-        fastcgi_param SECRET_KEY "J54SIwlO2pbIJNNZ4Y6Bwuc9zJvHk0f3";
-        fastcgi_param DB_USER "root";
-        fastcgi_param DB_PASSWORD "root";
-
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
         fastcgi_index index.php;
         include fastcgi.conf;
+    }
+
+    location ~ /\.ht {
+        deny all;
     }
 }</code>
                     </pre>
@@ -97,12 +95,6 @@
                         <code>&lt;VirtualHost *:80&gt;
     ServerName doma.in
     DocumentRoot &quot;/path/to/shlink/public&quot;
-
-    SetEnv SHORTENED_URL_HOSTNAME doma.in
-    SetEnv SHORTCODE_CHARS 123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ
-    SetEnv SECRET_KEY J54SIwlO2pbIJNNZ4Y6Bwuc9zJvHk0f3
-    SetEnv DB_USER root
-    SetEnv DB_PASSWORD root
 
     &lt;Directory &quot;/path/to/shlink/public&quot;&gt;
         Options FollowSymLinks Includes ExecCGI
