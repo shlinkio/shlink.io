@@ -3,3 +3,5 @@ vendor/
 composer.lock
 build
 node_modules
+public/assets/js/main.min.js
+public/assets/css/main.min.css
