@@ -1,23 +1,23 @@
 module.exports = function(grunt) {
 
     // Get command line arguments
-    var cssFile = grunt.option('css-file') || 'public/css/main.min.css',
-        jsFile = grunt.option('js-file') || 'public/js/main.min.js',
+    var cssFile = grunt.option('css-file') || 'public/assets/css/main.min.css',
+        jsFile = grunt.option('js-file') || 'public/assets/js/main.min.js',
         cssFilesTemplate = {},
         jsFilesTemplate = {},
         currentTimestamp = new Date().getTime();
 
     cssFilesTemplate[cssFile]   = [
-        'assets/css/font-awesome.min.css',
-        'assets/css/highlightjs-github.min.css',
-        'assets/css/main.css'
+        'public/assets/css/font-awesome.min.css',
+        'public/assets/css/highlightjs-github.min.css',
+        'public/assets/css/main.css'
     ];
     jsFilesTemplate[jsFile]     = [
-        'assets/js/jquery.min.js',
-        'assets/js/jquery.scrolly.min.js',
-        'assets/js/highlight.pack.js',
-        'assets/js/skel.min.js',
-        'assets/js/main.js'
+        'public/assets/js/jquery.min.js',
+        'public/assets/js/jquery.scrolly.min.js',
+        'public/assets/js/highlight.pack.js',
+        'public/assets/js/skel.min.js',
+        'public/assets/js/main.js'
     ];
 
     // Project configuration.
