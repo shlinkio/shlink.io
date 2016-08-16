@@ -7,9 +7,6 @@ if (php_sapi_name() === 'cli-server'
     return false;
 }
 
-chdir(dirname(__DIR__));
-require 'vendor/autoload.php';
-
 /** @var \Interop\Container\ContainerInterface $container */
 $container = require 'config/container.php';
 
