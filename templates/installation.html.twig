@@ -51,18 +51,6 @@
             <section class="spotlight text-only">
                 <div class="content">
                     <header>
-                        <h4>Visitors locations</h4>
-                    </header>
-                    <p>Resolving the IP of a visitor in order to get its location involves performing a request to an external service, which gets time. For this reason, this task is not done in real time.</p>
-                    <p>You can manually run the command <code>visit:process</code> which will process all the IPs from visits.</p>
-                    <p>Alternatively, you could create an scheduled task which automatically runs that command so that the information is updated periodically.</p>
-                    <p>This is an example cron job that could be created under a Unix system. It will run the command every hour, processing all pending IP addresses:</p>
-                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:process</code></p>
-                </div>
-            </section>
-            <section class="spotlight text-only">
-                <div class="content">
-                    <header>
                         <h4>Virtual hosts</h4>
                         <p>These are samples for the most used web servers. Use them to get shlink up and running.</p>
                     </header>
@@ -105,6 +93,25 @@
     &lt;/Directory&gt;
 &lt;/VirtualHost&gt;</code>
                     </pre>
+                </div>
+            </section>
+            <section class="spotlight text-only">
+                <div class="content">
+                    <header>
+                        <h4>Resource-consuming tasks</h4>
+                    </header>
+
+                    <p>Resolving the IP of a visitor in order to get its location involves performing a request to an external service, which gets time. For this reason, this task is not done in real time.</p>
+                    <p>You can manually run the command <code>visit:process</code> which will process all the IPs from visits.</p>
+                    <p>Alternatively, you could create an scheduled task which automatically runs that command so that the information is updated periodically.</p>
+                    <p>This is an example cron job that could be created under a Unix system. It will run the command every hour, processing all pending IP addresses:</p>
+                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:process</code></p>
+
+                    <p>Something similar happens with page previews. Shlink is capable of generating the preview of a page behind a short code by appending the <b>/preview</b> path to a short URL. For example, <b>https://doma.in/abc123/preview</b>.</p>
+                    <p>If you access that URL, the image will be generated and cached, but the first time, the request will take a little bit more time.</p>
+                    <p>In order to prevent this, you can use the command <code>shortcode:process-previews</code>, which will generate all missing previews so that any later web request is faster</p>
+                    <p>This command can be configured for a cron job too:</p>
+                    <p><code>30 * * * * /path/to/shlink/bin/cli shortcode:process-previews</code></p>
                 </div>
             </section>
         </div>
