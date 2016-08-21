@@ -432,5 +432,81 @@
                 </div>
             </div>
         </section>
+
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <div class="http-method put">PUT</div>
+                <h4>/rest/short-codes/{shortCode}/tags</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <blockquote>Edit the tags on provided short code.</blockquote>
+                    <table class="alt">
+                        <tbody>
+                            <tr>
+                                <td>Route params</td>
+                                <td>
+                                    <ul>
+                                        <li>shortCode: <code>string</code></li>
+                                    </ul>
+                                </td>
+                                <td>The shortCode in which we want to edit tags.</td>
+                            </tr>
+                            <tr>
+                                <td>Body params</td>
+                                <td>
+                                    <ul>
+                                        <li>tags: <code>array</code></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>The list of tags to set to the short URL.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
+    "tags": [
+        "foo",
+        "some-tag",
+        "bar"
+    ]
+}</code>
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
+    "error": "INVALID_ARGUMENT",
+    "message": "A list of tags was not provided"
+}</code>
+                    </pre>
+                    <table class="alt errors-list">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Desc.</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>INVALID_ARGUMENT</b></td>
+                                <td>The request body does not contain a "tags" param with array type.</td>
+                                <td>400</td>
+                            </tr>
+                            <tr>
+                                <td><b>INVALID_SHORTCODE</b></td>
+                                <td>No URL was found for provided shortCode</td>
+                                <td>404</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
 {% endblock %}
