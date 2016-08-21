@@ -8,7 +8,7 @@ if (php_sapi_name() === 'cli-server'
 }
 
 /** @var \Interop\Container\ContainerInterface $container */
-$container = require 'config/container.php';
+$container = require __DIR__ . '/../config/container.php';
 
 /** @var \Zend\Expressive\Application $app */
 $app = $container->get(\Zend\Expressive\Application::class);
