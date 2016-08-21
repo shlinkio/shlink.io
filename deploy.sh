@@ -18,9 +18,9 @@ composer self-update
 composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction
 
 # Run Grunt tasks
-# rm -rf node_modules
-# npm install
-# grunt
+rm -rf node_modules
+npm install
+grunt
 
 # Remove everything that shouldn't be deployed
 rm -rf node_modules
@@ -53,6 +53,10 @@ ssh root@shlink.io "mv $temp $remotepath"
 
 # Set write access
 ssh root@shlink.io "chown www-data:www-data $remotepath/data/cache"
+
+# Restart nginx and php-fpm
+ssh root@shlink.io "service php7.0-fpm restart"
+ssh root@shlink.io "service nginx restart"
 
 # Delete deploy artifacts
 ssh root@shlink.io "rm $remotepath/data/cache/.gitignore"

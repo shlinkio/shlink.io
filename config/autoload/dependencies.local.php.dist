@@ -1,5 +1,6 @@
 <?php
 use Doctrine\Common\Cache;
+use Shlinkio\Website\Factory\CacheDelegator;
 
 return [
 
@@ -9,6 +10,11 @@ return [
         ],
         'aliases' => [
             Cache\Cache::class => Cache\ArrayCache::class,
+        ],
+        'delegators' => [
+            Cache\ArrayCache::class => [
+                CacheDelegator::class,
+            ],
         ],
     ],
 
