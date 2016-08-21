@@ -1,6 +1,7 @@
 <?php
 use Doctrine\Common\Cache;
 use Shlinkio\Website\Action;
+use Shlinkio\Website\Factory\CacheDelegator;
 use Shlinkio\Website\Middleware;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container;
@@ -33,6 +34,11 @@ return [
         ],
         'aliases' => [
             Cache\Cache::class => Cache\ApcuCache::class,
+        ],
+        'delegators' => [
+            Cache\ApcuCache::class => [
+                CacheDelegator::class,
+            ],
         ],
     ],
 

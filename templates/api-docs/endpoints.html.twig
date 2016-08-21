@@ -80,9 +80,15 @@
                                 <td>
                                     <ul>
                                         <li>longUrl: <code>string</code></li>
+                                        <li>tags: <code>array</code></li>
                                     </ul>
                                 </td>
-                                <td>The URL that will be shortened.</td>
+                                <td>
+                                    <ul>
+                                        <li>The URL that will be shortened.</li>
+                                        <li>An optional array of tags to apply to generated short URL.</li>
+                                    </ul>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -225,61 +231,71 @@
                 "shortCode": "abc123",
                 "originalUrl": "https://www.alejandrocelaya.com",
                 "dateCreated": "2016-04-30T18:01:47+0200",
-                "visitsCount": 4
+                "visitsCount": 4,
+                "tags": []
             },
             {
                 "shortCode": "def456",
                 "originalUrl": "https://www.alejandrocelaya.com/en",
                 "dateCreated": "2016-04-30T18:03:43+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": []
             },
             {
                 "shortCode": "ghi789",
                 "originalUrl": "https://www.alejandrocelaya.com/es",
                 "dateCreated": "2016-04-30T18:10:38+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": []
             },
             {
                 "shortCode": "jkl987",
                 "originalUrl": "https://www.alejandrocelaya.com/es/",
                 "dateCreated": "2016-04-30T18:10:57+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": ["foo", "bar"]
             },
             {
                 "shortCode": "mno654",
                 "originalUrl": "https://blog.alejandrocelaya.com/2016/04/09/improving-zend-service-manager-workflow-with-annotations/",
                 "dateCreated": "2016-04-30T19:21:05+0200",
-                "visitsCount": 1
+                "visitsCount": 1,
+                "tags": []
             },
             {
                 "shortCode": "pqr321",
                 "originalUrl": "https://www.google.com",
                 "dateCreated": "2016-05-01T11:19:53+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": []
             },
             {
                 "shortCode": "stv159",
                 "originalUrl": "https://www.acelaya.com",
                 "dateCreated": "2016-06-12T17:49:21+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": ["baz"]
             },
             {
                 "shortCode": "wxy753",
                 "originalUrl": "https://www.atomic-reader.com",
                 "dateCreated": "2016-06-12T17:50:27+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": []
             },
             {
                 "shortCode": "zab852",
                 "originalUrl": "http://foo.com",
                 "dateCreated": "2016-07-03T09:07:36+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": []
             },
             {
                 "shortCode": "cde963",
                 "originalUrl": "https://www.facebook.com.com",
                 "dateCreated": "2016-07-03T09:12:35+0200",
-                "visitsCount": 0
+                "visitsCount": 0,
+                "tags": []
             }
         ],
         "pagination": {
@@ -410,6 +426,82 @@
                                 <td><b>UNKNOWN_ERROR</b></td>
                                 <td>Something unexpected happened</td>
                                 <td>500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="accordion-item">
+            <div class="accordion-header">
+                <div class="http-method put">PUT</div>
+                <h4>/rest/short-codes/{shortCode}/tags</h4>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-body-inner">
+                    <blockquote>Edit the tags on provided short code.</blockquote>
+                    <table class="alt">
+                        <tbody>
+                            <tr>
+                                <td>Route params</td>
+                                <td>
+                                    <ul>
+                                        <li>shortCode: <code>string</code></li>
+                                    </ul>
+                                </td>
+                                <td>The shortCode in which we want to edit tags.</td>
+                            </tr>
+                            <tr>
+                                <td>Body params</td>
+                                <td>
+                                    <ul>
+                                        <li>tags: <code>array</code></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>The list of tags to set to the short URL.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <b>SUCCESSFUL RESPONSE</b>
+                    <pre>
+                        <code>{
+    "tags": [
+        "foo",
+        "some-tag",
+        "bar"
+    ]
+}</code>
+                    </pre>
+                    <b>ERROR RESPONSE</b>
+                    <pre>
+                        <code>{
+    "error": "INVALID_ARGUMENT",
+    "message": "A list of tags was not provided"
+}</code>
+                    </pre>
+                    <table class="alt errors-list">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Desc.</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>INVALID_ARGUMENT</b></td>
+                                <td>The request body does not contain a "tags" param with array type.</td>
+                                <td>400</td>
+                            </tr>
+                            <tr>
+                                <td><b>INVALID_SHORTCODE</b></td>
+                                <td>No URL was found for provided shortCode</td>
+                                <td>404</td>
                             </tr>
                         </tbody>
                     </table>

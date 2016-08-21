@@ -1,0 +1,18 @@
+{
+  "name": "shlink-website",
+  "description": "Shlink project website",
+  "author": "Alejandro Celaya Alastrué",
+  "readmeFilename": "README.md",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shlinkio/shlink.io"
+  },
+  "devDependencies": {
+    "grunt": "^1.0",
+    "grunt-contrib-uglify": "^1.0",
+    "grunt-processhtml": "^0.4",
+    "grunt-contrib-cssmin": "^1.0",
+    "grunt-string-replace": "^1.0"
+  }
+}
