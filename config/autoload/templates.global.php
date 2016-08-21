@@ -14,7 +14,7 @@ return [
             // extension service names or instances
         ],
         'globals' => [
-            'version' => '1.2.0',
+            'version' => '1.2.1',
         ],
     ],
 ];
