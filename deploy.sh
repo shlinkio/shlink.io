@@ -31,6 +31,8 @@ rm -rf package.json
 rm -rf README.md
 rm -rf LICENSE
 rm -rf Gruntfile.js
+rm -rf config/autoload/local.php
+rm -rf config/autoload/local.php.dist
 rm -rf config/autoload/*.local.php
 rm -rf config/autoload/*.local.php.dist
 rm -rf build
