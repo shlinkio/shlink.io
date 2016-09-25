@@ -3758,6 +3758,7 @@
         float: left;
         font-weight: bold;
         color: white;
+        border-top: 2px solid transparent;
     }
     #navbar .menu {
         float: right;
@@ -3773,11 +3774,11 @@
         padding: 0;
     }
     #navbar .menu li.active a {
-        border-bottom-color: white !important;
+        border-bottom: 2px solid white !important;
     }
     #navbar .menu li a {
-        border-top: 3px solid transparent;
-        border-bottom: 3px solid transparent;
+        border-top: 2px solid transparent;
+        margin-bottom: -2px;
     }
     #navbar .menu li:hover a {
         color: #fff;
