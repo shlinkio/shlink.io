@@ -3,16 +3,18 @@
         <img src="/images/shlink-logo-white.png">&nbsp;&nbsp;Shlink
     </a>
     <button class="menu-collapser"><i class="fa fa-bars"></i></button>
+    {% set params = current_route_params() %}
+    {% set name = current_route_name() %}
     <ul class="menu">
-        <li>
+        <li class="{{ params.slug == 'installation' ? 'active' : '' }}">
             <a href="{{ path('template', {'slug': 'installation'}) }}">
                 <i class="fa fa-server"></i>&nbsp;&nbsp;Installation
             </a>
-        </li><li>
+        </li><li class="{{ params.slug == 'api-docs' or name == 'api-docs-endpoints-section' or name == 'api-docs-section' ? 'active' : '' }}">
             <a href="{{ path('template', {'slug': 'api-docs'}) }}">
                 <i class="fa fa-book"></i>&nbsp;&nbsp;API Docs
             </a>
-        </li><li>
+        </li><li class="{{ params.slug == 'apps' ? 'active' : '' }}">
             <a href="{{ path('template', {'slug': 'apps'}) }}">
                 <i class="fa fa-rocket"></i>&nbsp;&nbsp;Apps
             </a>

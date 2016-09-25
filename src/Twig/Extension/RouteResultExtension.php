@@ -34,15 +34,28 @@ class RouteResultExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFunction('current_route_name', [$this, 'getCurrentRouteName']),
+            new \Twig_SimpleFunction('current_route_params', [$this, 'getCurrentRouteParams']),
         ];
     }
 
     public function getCurrentRouteName()
     {
+        $routeResult = $this->getRouteResult();
+        return $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : null;
+    }
+
+    public function getCurrentRouteParams()
+    {
+        $routeResult = $this->getRouteResult();
+        return $routeResult->isSuccess() ? $routeResult->getMatchedParams() : [];
+    }
+
+    protected function getRouteResult()
+    {
         if (! isset($this->routeResult)) {
             throw new \RuntimeException('Route result has not been set');
         }
 
-        return $this->routeResult->isSuccess() ? $this->routeResult->getMatchedRouteName() : null;
+        return $this->routeResult;
     }
 }
