@@ -3772,6 +3772,13 @@
         color: #d0e4f8;
         padding: 0;
     }
+    #navbar .menu li.active a {
+        border-bottom-color: white !important;
+    }
+    #navbar .menu li a {
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+    }
     #navbar .menu li:hover a {
         color: #fff;
     }
