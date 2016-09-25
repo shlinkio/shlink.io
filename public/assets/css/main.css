@@ -3758,6 +3758,7 @@
         float: left;
         font-weight: bold;
         color: white;
+        border-top: 2px solid transparent;
     }
     #navbar .menu {
         float: right;
@@ -3772,8 +3773,29 @@
         color: #d0e4f8;
         padding: 0;
     }
+    #navbar .menu li.active a {
+        border-bottom: 2px solid white !important;
+    }
+    #navbar .menu li a {
+        border-top: 2px solid transparent;
+        margin-bottom: -2px;
+    }
     #navbar .menu li:hover a {
         color: #fff;
+    }
+
+    @media (max-width: 736px) {
+        #navbar .menu li.active a {
+            border-bottom-color: transparent !important;
+            position: relative;
+        }
+        #navbar .menu li.active a:after {
+            content: '\f00c';
+            position: absolute;
+            right: 10px;
+            color: inherit;
+            font-family: FontAwesome;
+        }
     }
 
     #navbar a {

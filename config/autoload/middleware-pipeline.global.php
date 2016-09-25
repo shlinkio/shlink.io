@@ -1,5 +1,6 @@
 <?php
 use Shlinkio\Website\Middleware\CacheMiddleware;
+use Shlinkio\Website\Middleware\RouteResultExtensionMiddleware;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;
 
@@ -17,6 +18,7 @@ return [
         'routing' => [
             'middleware' => [
                 ApplicationFactory::ROUTING_MIDDLEWARE,
+                RouteResultExtensionMiddleware::class,
                 Helper\UrlHelperMiddleware::class,
                 ApplicationFactory::DISPATCH_MIDDLEWARE,
             ],

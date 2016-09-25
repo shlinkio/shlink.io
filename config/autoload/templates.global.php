@@ -1,5 +1,7 @@
 <?php
 
+use Shlinkio\Website\Twig\Extension\RouteResultExtension;
+
 return [
     'templates' => [
         'extension' => 'html.twig',
@@ -11,7 +13,7 @@ return [
     'twig' => [
         'cache_dir' => 'data/cache/twig',
         'extensions' => [
-            // extension service names or instances
+            RouteResultExtension::class,
         ],
         'globals' => [
             'version' => '1.2.2',

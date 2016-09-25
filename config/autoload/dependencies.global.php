@@ -3,6 +3,7 @@ use Doctrine\Common\Cache;
 use Shlinkio\Website\Action;
 use Shlinkio\Website\Factory\CacheDelegator;
 use Shlinkio\Website\Middleware;
+use Shlinkio\Website\Twig\Extension\RouteResultExtension;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container;
 use Zend\Expressive\Helper;
@@ -17,6 +18,7 @@ return [
             Helper\ServerUrlHelper::class => Helper\ServerUrlHelper::class,
             Router\RouterInterface::class => Router\FastRouteRouter::class,
             Cache\ApcuCache::class => Cache\ApcuCache::class,
+            RouteResultExtension::class => RouteResultExtension::class,
         ],
         'factories' => [
             Application::class => Container\ApplicationFactory::class,
@@ -31,6 +33,7 @@ return [
 
             // Middleware
             Middleware\CacheMiddleware::class => Middleware\CacheMiddlewareFactory::class,
+            Middleware\RouteResultExtensionMiddleware::class => Middleware\RouteResultExtensionMiddlewareFactory::class,
         ],
         'aliases' => [
             Cache\Cache::class => Cache\ApcuCache::class,
