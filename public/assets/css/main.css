@@ -4449,3 +4449,17 @@
             margin: 0;
         }
     }
+
+.image.app img {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.external-app-link {
+    vertical-align: middle;
+}
+    .external-app-link i {
+        float: right;
+        margin-left: 10px;
+    }
