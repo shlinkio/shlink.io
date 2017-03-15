@@ -7,12 +7,12 @@ use Shlinkio\Website\Twig\Extension\RouteResultExtension;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container;
 use Zend\Expressive\Helper;
+use Zend\Expressive\Middleware\ErrorResponseGenerator;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Expressive\Twig\TwigEnvironmentFactory;
 use Zend\Expressive\Twig\TwigRendererFactory;
 use Zend\Stratigility\Middleware\ErrorHandler;
-use Zend\Stratigility\Middleware\ErrorResponseGenerator;
 
 return [
 

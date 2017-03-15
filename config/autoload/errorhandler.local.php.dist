@@ -3,12 +3,10 @@
 use Zend\Expressive\Container\WhoopsErrorResponseGeneratorFactory;
 use Zend\Expressive\Container\WhoopsFactory;
 use Zend\Expressive\Container\WhoopsPageHandlerFactory;
-use Zend\Stratigility\Middleware\ErrorResponseGenerator;
+use Zend\Expressive\Middleware\ErrorResponseGenerator;
 
 return [
     'dependencies' => [
-        'invokables' => [
-        ],
         'factories' => [
             'Zend\Expressive\Whoops' => WhoopsFactory::class,
             'Zend\Expressive\WhoopsPageHandler' => WhoopsPageHandlerFactory::class,
