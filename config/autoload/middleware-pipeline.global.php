@@ -11,8 +11,8 @@ return [
         'always' => [
             'middleware' => [
                 ErrorHandler::class,
-                Helper\ServerUrlMiddleware::class,
                 CacheMiddleware::class,
+                Helper\ServerUrlMiddleware::class,
             ],
             'priority' => 10000,
         ],
