@@ -1,0 +1,26 @@
+<?php
+
+use Zend\Expressive\Container\WhoopsErrorResponseGeneratorFactory;
+use Zend\Expressive\Container\WhoopsFactory;
+use Zend\Expressive\Container\WhoopsPageHandlerFactory;
+use Zend\Stratigility\Middleware\ErrorResponseGenerator;
+
+return [
+    'dependencies' => [
+        'invokables' => [
+        ],
+        'factories' => [
+            'Zend\Expressive\Whoops' => WhoopsFactory::class,
+            'Zend\Expressive\WhoopsPageHandler' => WhoopsPageHandlerFactory::class,
+            ErrorResponseGenerator::class => WhoopsErrorResponseGeneratorFactory::class
+        ],
+    ],
+
+    'whoops' => [
+        'json_exceptions' => [
+            'display'    => true,
+            'show_trace' => true,
+            'ajax_only'  => true,
+        ],
+    ],
+];

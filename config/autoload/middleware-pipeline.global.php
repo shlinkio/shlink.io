@@ -3,14 +3,16 @@ use Shlinkio\Website\Middleware\CacheMiddleware;
 use Shlinkio\Website\Middleware\RouteResultExtensionMiddleware;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;
+use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
 
     'middleware_pipeline' => [
         'always' => [
             'middleware' => [
-                CacheMiddleware::class,
+                ErrorHandler::class,
                 Helper\ServerUrlMiddleware::class,
+                CacheMiddleware::class,
             ],
             'priority' => 10000,
         ],
