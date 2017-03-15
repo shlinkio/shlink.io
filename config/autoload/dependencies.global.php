@@ -7,9 +7,12 @@ use Shlinkio\Website\Twig\Extension\RouteResultExtension;
 use Zend\Expressive\Application;
 use Zend\Expressive\Container;
 use Zend\Expressive\Helper;
+use Zend\Expressive\Middleware\ErrorResponseGenerator;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template\TemplateRendererInterface;
+use Zend\Expressive\Twig\TwigEnvironmentFactory;
 use Zend\Expressive\Twig\TwigRendererFactory;
+use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
 
@@ -22,11 +25,13 @@ return [
         ],
         'factories' => [
             Application::class => Container\ApplicationFactory::class,
-            'Zend\Expressive\FinalHandler' => Container\TemplatedErrorHandlerFactory::class,
             Helper\UrlHelper::class => Helper\UrlHelperFactory::class,
             Helper\ServerUrlMiddleware::class => Helper\ServerUrlMiddlewareFactory::class,
             Helper\UrlHelperMiddleware::class => Helper\UrlHelperMiddlewareFactory::class,
             TemplateRendererInterface::class => TwigRendererFactory::class,
+            \Twig_Environment::class => TwigEnvironmentFactory::class,
+            ErrorHandler::class => Container\ErrorHandlerFactory::class,
+            ErrorResponseGenerator::class => Container\ErrorResponseGeneratorFactory::class,
 
             // Actions
             Action\TemplateAction::class => Action\TemplateActionFactory::class,
