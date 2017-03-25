@@ -23,6 +23,8 @@
             $body = $('body'),
             $navbar = $('#navbar');
 
+        getLatestRelease();
+
         // Disable animations/transitions until the page has loaded.
         $body.addClass('is-loading');
 
@@ -75,5 +77,14 @@
             }
         });
     });
+
+    function getLatestRelease () {
+        $.getJSON('https://api.github.com/repos/shlinkio/shlink/releases/latest').done(function (release) {
+            var asset = release.assets[0],
+                url = asset.browser_download_url;
+
+            $('.download-shlink-btn').attr('href', url);
+        });
+    }
 
 })(jQuery);
