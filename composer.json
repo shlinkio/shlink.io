@@ -18,7 +18,8 @@
         "zendframework/zend-expressive-twigrenderer": "^1.0",
         "zendframework/zend-servicemanager": "^3.3",
         "zendframework/zend-stdlib": "^3.0",
-        "doctrine/cache": "^1.6"
+        "doctrine/cache": "^1.6",
+        "http-interop/http-middleware": "0.4.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
