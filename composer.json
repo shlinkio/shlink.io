@@ -12,18 +12,19 @@
     ],
     "require": {
         "php": "^7.0",
+        "doctrine/cache": "^1.6",
+        "http-interop/http-middleware": "^0.4.1",
         "zendframework/zend-expressive": "^2.0",
-        "zendframework/zend-expressive-helpers": "^3.0",
         "zendframework/zend-expressive-fastroute": "^2.0",
+        "zendframework/zend-expressive-helpers": "^3.0",
         "zendframework/zend-expressive-twigrenderer": "^1.0",
         "zendframework/zend-servicemanager": "^3.3",
-        "zendframework/zend-stdlib": "^3.0",
-        "doctrine/cache": "^1.6",
-        "http-interop/http-middleware": "0.4.1"
+        "zendframework/zend-stdlib": "^3.0"
     },
     "require-dev": {
+        "filp/whoops": "^2.0",
         "roave/security-advisories": "dev-master",
-        "filp/whoops": "^2.0"
+        "symfony/var-dumper": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -41,6 +42,7 @@
         "test": "phpunit"
     },
     "config": {
-        "process-timeout": 0
+        "process-timeout": 0,
+        "sort-packages": true
     }
 }
