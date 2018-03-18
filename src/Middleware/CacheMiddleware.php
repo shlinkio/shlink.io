@@ -2,10 +2,11 @@
 namespace Shlinkio\Website\Middleware;
 
 use Doctrine\Common\Cache\Cache;
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 
 class CacheMiddleware implements MiddlewareInterface
@@ -25,11 +26,11 @@ class CacheMiddleware implements MiddlewareInterface
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $handler
      *
      * @return Response
      */
-    public function process(Request $request, DelegateInterface $delegate)
+    public function process(Request $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $uri = $request->getUri();
         $cacheKey= sprintf('%s://%s/%s', $uri->getScheme(), $uri->getAuthority(), $uri->getPath());
@@ -38,7 +39,7 @@ class CacheMiddleware implements MiddlewareInterface
         }
 
         /** @var Response $resp */
-        $resp = $delegate->process($request);
+        $resp = $handler->handle($request);
         $this->cache->save($cacheKey, $resp->getBody()->__toString());
         return $resp;
     }

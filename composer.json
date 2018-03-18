@@ -11,20 +11,22 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
         "doctrine/cache": "^1.6",
-        "http-interop/http-middleware": "^0.4.1",
-        "zendframework/zend-expressive": "^2.0",
-        "zendframework/zend-expressive-fastroute": "^2.0",
-        "zendframework/zend-expressive-helpers": "^3.0",
-        "zendframework/zend-expressive-twigrenderer": "^1.0",
+        "roave/security-advisories": "dev-master",
+        "zendframework/zend-diactoros": "^1.7.1",
+        "zendframework/zend-expressive": "^3.0",
+        "zendframework/zend-expressive-fastroute": "^3.0",
+        "zendframework/zend-expressive-helpers": "^5.0",
+        "zendframework/zend-expressive-twigrenderer": "^2.0",
         "zendframework/zend-servicemanager": "^3.3",
         "zendframework/zend-stdlib": "^3.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
-        "roave/security-advisories": "dev-master",
-        "symfony/var-dumper": "^4.0"
+        "symfony/var-dumper": "^4.0",
+        "zendframework/zend-component-installer": "^2.1",
+        "zendframework/zend-expressive-tooling": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -39,7 +41,8 @@
         "cs": "phpcs",
         "cs-fix": "phpcbf",
         "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php",
-        "test": "phpunit"
+        "test": "phpunit",
+        "expressive": "expressive"
     },
     "config": {
         "process-timeout": 0,

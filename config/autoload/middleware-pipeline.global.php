@@ -3,6 +3,8 @@ use Shlinkio\Website\Middleware\CacheMiddleware;
 use Shlinkio\Website\Middleware\RouteResultExtensionMiddleware;
 use Zend\Expressive\Container\ApplicationFactory;
 use Zend\Expressive\Helper;
+use Zend\Expressive\Router\Middleware\DispatchMiddleware;
+use Zend\Expressive\Router\Middleware\RouteMiddleware;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
 return [
@@ -19,10 +21,10 @@ return [
 
         'routing' => [
             'middleware' => [
-                ApplicationFactory::ROUTING_MIDDLEWARE,
+                RouteMiddleware::class,
                 RouteResultExtensionMiddleware::class,
                 Helper\UrlHelperMiddleware::class,
-                ApplicationFactory::DISPATCH_MIDDLEWARE,
+                DispatchMiddleware::class,
             ],
             'priority' => 1,
         ],

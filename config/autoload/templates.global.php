@@ -1,6 +1,8 @@
 <?php
 
 use Shlinkio\Website\Twig\Extension\RouteResultExtension;
+use Zend\Expressive\Twig\TwigExtension;
+use Zend\Expressive\Twig\TwigExtensionFactory;
 
 return [
     'templates' => [
@@ -14,9 +16,13 @@ return [
         'cache_dir' => 'data/cache/twig',
         'extensions' => [
             RouteResultExtension::class,
+            TwigExtension::class,
         ],
-        'globals' => [
-            'version' => '1.3.1',
+    ],
+
+    'dependencies' => [
+        'factories' => [
+            TwigExtension::class => TwigExtensionFactory::class,
         ],
     ],
 ];

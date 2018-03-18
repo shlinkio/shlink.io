@@ -1,10 +1,11 @@
 <?php
 namespace Shlinkio\Website\Middleware;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Shlinkio\Website\Twig\Extension\RouteResultExtension;
 use Zend\Expressive\Router\RouteResult;
 
@@ -25,11 +26,11 @@ class RouteResultExtensionMiddleware implements MiddlewareInterface
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $handler
      *
      * @return Response
      */
-    public function process(Request $request, DelegateInterface $delegate)
+    public function process(Request $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $result = $request->getAttribute(RouteResult::class, false);
 
@@ -37,6 +38,6 @@ class RouteResultExtensionMiddleware implements MiddlewareInterface
             $this->extension->setRouteResult($result);
         }
 
-        return $delegate->process($request);
+        return $handler->handle($request);
     }
 }
