@@ -2,6 +2,7 @@
 use Shlinkio\Website\Middleware\CacheMiddleware;
 use Shlinkio\Website\Middleware\RouteResultExtensionMiddleware;
 use Zend\Expressive\Container\ApplicationFactory;
+use Zend\Expressive\Handler\NotFoundHandler;
 use Zend\Expressive\Helper;
 use Zend\Expressive\Router\Middleware\DispatchMiddleware;
 use Zend\Expressive\Router\Middleware\RouteMiddleware;
@@ -31,7 +32,7 @@ return [
 
         'error' => [
             'middleware' => [
-                // Add error middleware here.
+                NotFoundHandler::class,
             ],
             'error'    => true,
             'priority' => -10000,

@@ -50,6 +50,7 @@ return [
                 => Container\ServerRequestErrorResponseGeneratorFactory::class,
             Router\Middleware\RouteMiddleware::class => Router\Middleware\RouteMiddlewareFactory::class,
             Router\Middleware\DispatchMiddleware::class => Router\Middleware\DispatchMiddlewareFactory::class,
+            Expressive\Handler\NotFoundHandler::class => Container\NotFoundHandlerFactory::class,
 
             // Actions
             Action\TemplateAction::class => Action\TemplateActionFactory::class,
