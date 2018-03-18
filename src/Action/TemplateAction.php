@@ -1,10 +1,10 @@
 <?php
 namespace Shlinkio\Website\Action;
 
-use Interop\Http\ServerMiddleware\DelegateInterface;
-use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
@@ -28,11 +28,11 @@ class TemplateAction implements MiddlewareInterface
      * to the next middleware component to create the response.
      *
      * @param Request $request
-     * @param DelegateInterface $delegate
+     * @param RequestHandlerInterface $handler
      *
      * @return Response
      */
-    public function process(Request $request, DelegateInterface $delegate)
+    public function process(Request $request, RequestHandlerInterface $handler): Response
     {
         // Generate the template name based on the path
         $path = $request->getUri()->getPath();
@@ -45,7 +45,7 @@ class TemplateAction implements MiddlewareInterface
                 'template' => $path,
             ]));
         } catch (\Twig_Error_Loader $e) {
-            return $delegate->process($request);
+            return $handler->handle($request);
         }
     }
 }
