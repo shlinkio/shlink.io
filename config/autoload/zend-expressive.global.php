@@ -1,9 +1,11 @@
 <?php
 
+use Zend\ConfigAggregator\ConfigAggregator;
+
 return [
     'debug' => false,
 
-    'config_cache_enabled' => true,
+    ConfigAggregator::ENABLE_CACHE => true,
 
     'zend-expressive' => [
         'error_handler' => [

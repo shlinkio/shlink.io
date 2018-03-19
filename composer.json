@@ -14,6 +14,8 @@
         "php": "^7.1",
         "doctrine/cache": "^1.6",
         "roave/security-advisories": "dev-master",
+        "zendframework/zend-config": "^3.1",
+        "zendframework/zend-config-aggregator": "^1.1",
         "zendframework/zend-diactoros": "^1.7.1",
         "zendframework/zend-expressive": "^3.0",
         "zendframework/zend-expressive-fastroute": "^3.0",
