@@ -1,22 +1,23 @@
-{% extends 'layout.html.twig' %}
+<?php $this->layout('layout') ?>
 
-{% block content %}
-    <!-- Header -->
-    {% include 'partials/small-header.html.twig' %}
+<?php $this->start('main') ?>
+    <?php $this->insert('partials/small-header') ?>
 
     <section id="one" class="wrapper">
         <div class="inner alt">
             <section class="special">
                 <div class="content">
-                    {% block error %}
+                    <?php if ($this->section('error')): ?>
+                        <?= $this->section('error') ?>
+                    <?php else: ?>
                         <h3><b>Oops!</b> This page does not exist.</h3>
-                    {% endblock %}
+                    <?php endif; ?>
                     <p>Use your browser's Back button to navigate to the page you have previously come from or just press this button.</p>
                     <ul class="actions">
-                        <li><a href="{{ path('template', {'slug': null}) }}" class="button special icon fa-home">Home</a></li>
+                        <li><a href="<?= $this->url('template', ['slug' => null]) ?>" class="button special icon fa-home">Home</a></li>
                     </ul>
                 </div>
             </section>
         </div>
     </section>
-{% endblock %}
+<?php $this->end() ?>

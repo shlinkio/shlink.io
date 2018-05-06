@@ -1,9 +1,11 @@
 <?php
 namespace Shlinkio\Website\Twig\Extension;
 
+use League\Plates\Engine;
+use League\Plates\Extension\ExtensionInterface;
 use Zend\Expressive\Router\RouteResult;
 
-class RouteResultExtension extends \Twig_Extension
+class RouteResultExtension implements ExtensionInterface
 {
     /**
      * @var RouteResult
@@ -11,31 +13,19 @@ class RouteResultExtension extends \Twig_Extension
     protected $routeResult;
 
     /**
-     * Returns the name of the extension.
-     *
-     * @return string The extension name
-     */
-    public function getName()
-    {
-        return static::class;
-    }
-
-    /**
      * @param RouteResult $routeResult
      * @return $this
      */
-    public function setRouteResult($routeResult)
+    public function setRouteResult($routeResult): self
     {
         $this->routeResult = $routeResult;
         return $this;
     }
 
-    public function getFunctions()
+    public function register(Engine $engine): void
     {
-        return [
-            new \Twig_SimpleFunction('current_route_name', [$this, 'getCurrentRouteName']),
-            new \Twig_SimpleFunction('current_route_params', [$this, 'getCurrentRouteParams']),
-        ];
+        $engine->registerFunction('current_route_name', [$this, 'getCurrentRouteName']);
+        $engine->registerFunction('current_route_params', [$this, 'getCurrentRouteParams']);
     }
 
     public function getCurrentRouteName()
@@ -44,15 +34,15 @@ class RouteResultExtension extends \Twig_Extension
         return $routeResult->isSuccess() ? $routeResult->getMatchedRouteName() : null;
     }
 
-    public function getCurrentRouteParams()
+    public function getCurrentRouteParams(): array
     {
         $routeResult = $this->getRouteResult();
         return $routeResult->isSuccess() ? $routeResult->getMatchedParams() : [];
     }
 
-    protected function getRouteResult()
+    private function getRouteResult(): RouteResult
     {
-        if (! isset($this->routeResult)) {
+        if ($this->routeResult === null) {
             throw new \RuntimeException('Route result has not been set');
         }
 

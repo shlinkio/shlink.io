@@ -41,10 +41,10 @@ class TemplateAction implements MiddlewareInterface
 
         // Try to render the template and return a 404 if not found
         try {
-            return new HtmlResponse($this->templateRenderer->render($path . '.html.twig', [
+            return new HtmlResponse($this->templateRenderer->render($path, [
                 'template' => $path,
             ]));
-        } catch (\Twig_Error_Loader $e) {
+        } catch (\LogicException $e) {
             return $handler->handle($request);
         }
     }

@@ -6,7 +6,11 @@
             Shorten URLs and serve them under your own short domain.
         </p>
         <ul class="actions">
-            <li><a href="{{ path('template', {"slug": "installation"}) }}" class="button special icon fa-server">Install</a></li>
+            <li>
+                <a href="<?= $this->url('template', ['slug' => 'installation']) ?>" class="button special icon fa-server">
+                    Install
+                </a>
+            </li>
             <li><a href="#one" class="button icon fa-chevron-down scrolly">Learn More</a></li>
         </ul>
     </div>

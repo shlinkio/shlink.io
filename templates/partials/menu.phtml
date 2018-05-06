@@ -1,0 +1,30 @@
+<?php
+$params = $this->current_route_params();
+$name = $this->current_route_name();
+$slug = $params['slug'] ?? '';
+?>
+<nav id="navbar">
+    <a class="logo" href="<?= $this->url('template', ['slug' => null]) ?>">
+        <img src="/images/shlink-logo-white.png">&nbsp;&nbsp;Shlink
+    </a>
+    <button class="menu-collapser"><i class="fa fa-bars"></i></button>
+    <ul class="menu">
+        <li class="<?= $slug === 'installation' ? 'active' : '' ?>">
+            <a href="<?= $this->url('template', ['slug' => 'installation']) ?>">
+                <i class="fa fa-server"></i>&nbsp;&nbsp;Installation
+            </a>
+        </li><li class="<?= $slug === 'api-docs' || $name === 'api-docs-section' ? 'active' : '' ?>">
+            <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">
+                <i class="fa fa-book"></i>&nbsp;&nbsp;API Docs
+            </a>
+        </li><li class="<?= $slug === 'apps' ? 'active' : '' ?>">
+            <a href="<?= $this->url('template', ['slug' => 'apps']) ?>">
+                <i class="fa fa-rocket"></i>&nbsp;&nbsp;Apps
+            </a>
+        </li><li>
+            <a href="https://github.com/shlinkio/shlink" target="_blank">
+                <i class="fa fa-github"></i>&nbsp;&nbsp;Fork me
+            </a>
+        </li>
+    </ul>
+</nav>

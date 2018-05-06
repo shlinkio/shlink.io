@@ -1,6 +1,6 @@
-{% extends 'api-docs.html.twig' %}
+<?php $this->layout('api-docs') ?>
 
-{% block apiContent %}
+<?php $this->start('apiContent') ?>
     <header>
         <h3>Language</h3>
     </header>
@@ -8,4 +8,4 @@
     <p>The language is just used to translate the human-friendly error messages, so it could be useful during development.</p>
     <p>You will have to set the language of your choice in the <code>Accept-Language</code>. For example <code>Accept-Language: es</code>.</p>
     <p>If an invalid language is provided, or no language is provided at all, english will be used.</p>
-{% endblock %}
+<?php $this->end() ?>

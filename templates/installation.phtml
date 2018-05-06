@@ -1,8 +1,7 @@
-{% extends 'layout.html.twig' %}
+<?php $this->layout('layout') ?>
 
-{% block content %}
-    <!-- Header -->
-    {% include 'partials/small-header.html.twig' %}
+<?php $this->start('main') ?>
+    <?php $this->insert('partials/small-header') ?>
 
     <section id="three" class="wrapper style2 special">
         <header class="major">
@@ -119,4 +118,4 @@
             </section>
         </div>
     </section>
-{% endblock %}
+<?php $this->end() ?>
