@@ -1,9 +1,0 @@
-{% extends 'error/404.html.twig' %}
-
-{% block error %}
-    {% if status == 404 %}
-        <h3><b>Oops!</b> This page does not exist.</h3>
-    {% else %}
-        <h3><b>Oops!</b> We encountered a <i>{{ status }}, {{ reason }}</i> error.</h3>
-    {% endif %}
-{% endblock %}

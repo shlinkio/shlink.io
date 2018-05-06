@@ -1,8 +1,7 @@
-{% extends 'layout.html.twig' %}
+<?php $this->layout('layout') ?>
 
-{% block content %}
-    <!-- Header -->
-    {% include 'partials/small-header.html.twig' %}
+<?php $this->start('main') ?>
+    <?php $this->insert('partials/small-header') ?>
 
     <section id="three" class="wrapper style2 special">
         <header class="major">
@@ -15,10 +14,12 @@
                 <div class="content">
                     <div class="row">
                         <div class="3u 12u$(medium)">
-                            {% include 'api-docs/side-menu.html.twig' %}
+                            <?php $this->insert('api-docs/side-menu') ?>
                         </div>
                         <div class="9u 12u$(medium) side-menu-contents">
-                            {% block apiContent %}
+                            <?php if ($this->section('apiContent')): ?>
+                                <?= $this->section('apiContent') ?>
+                            <?php else: ?>
                                 <header>
                                     <h3>REST API</h3>
                                 </header>
@@ -27,11 +28,11 @@
                                 <p>However, if an unexpected error occurs, the system could end returning HTML. To prevent this, always pass the <code>Accept</code> header with the <code>application/json</code> value.</p>
                                 <p>This API supports <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">CORS</a> (Cross domain), automatically generating the <code>Access-Control-*</code> headers and managing OPTIONS requests, so it can be consumed from web clients hosted on different domains.</p>
                                 <p>Follow the documentation in order to see how to manage errors and perform requests correctly.</p>
-                            {% endblock %}
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </section>
-{% endblock %}
+<?php $this->end() ?>

@@ -9,8 +9,8 @@ return [
 
     'zend-expressive' => [
         'error_handler' => [
-            'template_404'   => 'error/404.html.twig',
-            'template_error' => 'error/error.html.twig',
+            'template_404'   => 'error/404',
+            'template_error' => 'error/error',
         ],
     ],
 ];
