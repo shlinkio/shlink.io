@@ -1,6 +1,6 @@
 <?php
 
-use Shlinkio\Website\Twig\Extension\RouteResultExtension;
+use Shlinkio\Website\Template\Extension\RouteResultExtension;
 
 return [
 

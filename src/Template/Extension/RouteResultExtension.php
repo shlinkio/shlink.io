@@ -1,5 +1,5 @@
 <?php
-namespace Shlinkio\Website\Twig\Extension;
+namespace Shlinkio\Website\Template\Extension;
 
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;

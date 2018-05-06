@@ -4,7 +4,7 @@ use Doctrine\Common\Cache;
 use Shlinkio\Website\Action;
 use Shlinkio\Website\Factory\CacheDelegator;
 use Shlinkio\Website\Middleware;
-use Shlinkio\Website\Twig\Extension\RouteResultExtension;
+use Shlinkio\Website\Template\Extension\RouteResultExtension;
 use Zend\Expressive;
 
 return [

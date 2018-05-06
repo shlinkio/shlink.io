@@ -3,7 +3,7 @@ namespace Shlinkio\Website\Middleware;
 
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
-use Shlinkio\Website\Twig\Extension\RouteResultExtension;
+use Shlinkio\Website\Template\Extension\RouteResultExtension;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
