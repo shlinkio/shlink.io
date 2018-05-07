@@ -1,28 +1,20 @@
 <?php
 
-use Shlinkio\Website\Twig\Extension\RouteResultExtension;
-use Zend\Expressive\Twig\TwigExtension;
-use Zend\Expressive\Twig\TwigExtensionFactory;
+use Shlinkio\Website\Template\Extension\RouteResultExtension;
 
 return [
+
     'templates' => [
-        'extension' => 'html.twig',
+        'extension' => 'phtml',
         'paths' => [
             'templates',
         ],
     ],
 
-    'twig' => [
-        'cache_dir' => 'data/cache/twig',
+    'plates' => [
         'extensions' => [
             RouteResultExtension::class,
-            TwigExtension::class,
         ],
     ],
 
-    'dependencies' => [
-        'factories' => [
-            TwigExtension::class => TwigExtensionFactory::class,
-        ],
-    ],
 ];

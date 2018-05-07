@@ -1,0 +1,101 @@
+<?php $this->layout('layout') ?>
+
+<?php $this->start('main') ?>
+    <?php $this->insert('partials/small-header') ?>
+
+    <section id="three" class="wrapper style2 special">
+        <header class="major">
+            <h2>Features</h2>
+        </header>
+    </section>
+
+    <!-- Two -->
+    <section id="one" class="wrapper">
+        <div class="inner alt">
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-scissors feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>URL shortening</h3>
+                    <p>Obviously, Shlink wouldn't be any good if it wasn't capable of shortening URLs.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-bar-chart feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Visit stats</h3>
+                    <p>Track all the visits to your short URLs, including stats like location, browser or referer.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-envelope-o feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Emails tracking</h3>
+                    <p>Generate a 1px transparent image that can be used to track emails.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-exchange feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Third party integrations</h3>
+                    <p>
+                        Easily make third party tools use shlink to shorten URLs by using a
+                        <a target="_blank" href="/swagger-ui/index.html#/ShortCodes/get_v1_short_codes_shorten">single-request API endpoint</a>.
+                    </p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-puzzle-piece feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Custom slugs</h3>
+                    <p>Make your shortened URLs use a custom slug to easily identify campaigns.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-qrcode feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>QR Codes</h3>
+                    <p>Generate QR codes on the fly pointing to your short URLs.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-image feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Previews</h3>
+                    <p>Get previews in image format for any short URL.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-tags feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Tags</h3>
+                    <p>Tag your short URLs and classify them for later analytics.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image">
+                    <i class="fa fa-lock feature-image"></i>
+                </div>
+                <div class="content">
+                    <h3>Limited access</h3>
+                    <p>Limit access to short URLs, by date range and/or maximum number of visits.</p>
+                </div>
+            </section>
+        </div>
+    </section>
+<?php $this->end() ?>

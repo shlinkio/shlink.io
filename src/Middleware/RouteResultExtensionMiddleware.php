@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Shlinkio\Website\Twig\Extension\RouteResultExtension;
+use Shlinkio\Website\Template\Extension\RouteResultExtension;
 use Zend\Expressive\Router\RouteResult;
 
 class RouteResultExtensionMiddleware implements MiddlewareInterface
