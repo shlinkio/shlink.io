@@ -57,7 +57,7 @@ ssh root@shlink.io "mv $temp $remotepath"
 ssh root@shlink.io "chown www-data:www-data $remotepath/data/cache"
 
 # Restart nginx and php-fpm
-ssh root@shlink.io "service php7.1-fpm restart"
+ssh root@shlink.io "service php7.2-fpm restart"
 ssh root@shlink.io "service nginx restart"
 
 # Delete deploy artifacts
