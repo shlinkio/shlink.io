@@ -13,6 +13,10 @@ $slug = $params['slug'] ?? '';
             <a href="<?= $this->url('template', ['slug' => 'installation']) ?>">
                 <i class="fa fa-server"></i>&nbsp;&nbsp;Installation
             </a>
+        </li><li class="<?= $slug === 'features' ? 'active' : '' ?>">
+            <a href="<?= $this->url('template', ['slug' => 'features']) ?>">
+                <i class="fa fa-bolt"></i>&nbsp;&nbsp;Features
+            </a>
         </li><li class="<?= $slug === 'api-docs' || $name === 'api-docs-section' ? 'active' : '' ?>">
             <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">
                 <i class="fa fa-book"></i>&nbsp;&nbsp;API Docs
