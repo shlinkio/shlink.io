@@ -1,6 +1,6 @@
 <?php
 
-use Shlinkio\Website\Template\Extension\RouteResultExtension;
+use Shlinkio\Website\Template\Extension;
 
 return [
 
@@ -13,7 +13,8 @@ return [
 
     'plates' => [
         'extensions' => [
-            RouteResultExtension::class,
+            Extension\RouteResultExtension::class,
+            Extension\ConfigParamsExtension::class,
         ],
     ],
 
