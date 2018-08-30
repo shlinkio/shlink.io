@@ -26,8 +26,8 @@ $slug = $params['slug'] ?? '';
                 <i class="fa fa-rocket"></i>&nbsp;&nbsp;Apps
             </a>
         </li><li>
-            <a href="https://github.com/shlinkio/shlink" target="_blank">
-                <i class="fa fa-github"></i>&nbsp;&nbsp;Fork me
+            <a href="<?= $this->config('donate')['url'] ?>" target="_blank">
+                <i class="fa fa-paypal"></i>&nbsp;&nbsp;Donate
             </a>
         </li>
     </ul>
