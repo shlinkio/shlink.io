@@ -38,7 +38,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>Create an empty database (not necessary if you are going to use SQLite)</li>
+                        <li>Create an empty database (not necessary if you are going to use SQLite).</li>
                         <li>
                             Setup the application by running the <code>bin/install</code> script. It will guide you through the installation process.
                         </li>
@@ -47,6 +47,8 @@
                             Optionally, you can create a symlink to the <code>bin/cli</code> script in a folder which is in your path.<br>
                             For example <code>/usr/local/bin</code> for linux systems. This will allow you to easily run shlink from anywhere in the command line.
                         </li>
+                        <li>Generate your first API key by running <code>bin/cli api-key:generate</code>. You will need the key in order to interact with shlink's API.</li>
+                        <li>Finally access to <a href="https://app.shlink.io" target="_blank">https://app.shlink.io</a> and configure your server to start creating short URLs.</li>
                     </ul>
                 </div>
             </section>
@@ -71,7 +73,7 @@
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
         fastcgi_index index.php;
         include fastcgi.conf;
     }
@@ -107,13 +109,13 @@
                     <p>You can manually run the command <code>visit:process</code> which will process all the IPs from visits.</p>
                     <p>Alternatively, you could create an scheduled task which automatically runs that command so that the information is updated periodically.</p>
                     <p>This is an example cron job that could be created under a Unix system. It will run the command every hour, processing all pending IP addresses:</p>
-                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:process</code></p>
+                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:process -q</code></p>
 
                     <p>Something similar happens with page previews. Shlink is capable of generating the preview of a page behind a short code by appending the <b>/preview</b> path to a short URL. For example, <b>https://doma.in/abc123/preview</b>.</p>
                     <p>If you access that URL, the image will be generated and cached, but the first time, the request will take a little bit more time.</p>
                     <p>In order to prevent this, you can use the command <code>shortcode:process-previews</code>, which will generate all missing previews so that any later web request is faster</p>
                     <p>This command can be configured for a cron job too:</p>
-                    <p><code>30 * * * * /path/to/shlink/bin/cli shortcode:process-previews</code></p>
+                    <p><code>30 * * * * /path/to/shlink/bin/cli shortcode:process-previews -q</code></p>
                 </div>
             </section>
         </div>
