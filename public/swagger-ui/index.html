@@ -38,10 +38,16 @@
     <script src="./swagger-ui-standalone-preset.js"> </script>
     <script>
     window.onload = function() {
+      // Find latest tag on github
+      const req = new XMLHttpRequest();
+      req.open('GET', 'https://api.github.com/repos/shlinkio/shlink/tags', false);
+      req.send(null);
+      const tags = JSON.parse(req.responseText);
+      const latestTag = tags.shift();
 
       // Build a system
       const ui = SwaggerUIBundle({
-        url: "https://raw.githubusercontent.com/shlinkio/shlink/master/docs/swagger/swagger.json",
+        url: "https://raw.githubusercontent.com/shlinkio/shlink/" + (latestTag.name || 'master') + "/docs/swagger/swagger.json",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
