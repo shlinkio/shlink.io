@@ -4494,3 +4494,11 @@
     display: block;
     font-size: 9em;
 }
+
+code {
+    white-space: nowrap;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
