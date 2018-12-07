@@ -1728,7 +1728,7 @@
     }
 
     h4 {
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 1.5em;
     }
 
@@ -1800,6 +1800,7 @@
             line-height: 1.75em;
             padding: 1em 1.5em;
             overflow-x: auto;
+            white-space: pre;
         }
 
     hr {
@@ -3476,6 +3477,7 @@
         .wrapper.style3 {
             background-color: #f7f7f7;
             color: #999999;
+            padding: 2em 0 0;
         }
 
             .wrapper.style3 input[type="submit"],
