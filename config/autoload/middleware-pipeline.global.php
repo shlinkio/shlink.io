@@ -1,7 +1,6 @@
 <?php
-use Shlinkio\Website\Middleware\CacheMiddleware;
-use Shlinkio\Website\Middleware\RouteResultExtensionMiddleware;
-use Zend\Expressive\Container\ApplicationFactory;
+
+use Shlinkio\Website\Middleware;
 use Zend\Expressive\Handler\NotFoundHandler;
 use Zend\Expressive\Helper;
 use Zend\Expressive\Router\Middleware\DispatchMiddleware;
@@ -14,7 +13,8 @@ return [
         'always' => [
             'middleware' => [
                 ErrorHandler::class,
-                CacheMiddleware::class,
+                Middleware\CacheMiddleware::class,
+                Middleware\RedirectionMiddleware::class,
                 Helper\ServerUrlMiddleware::class,
             ],
             'priority' => 10000,
@@ -23,7 +23,7 @@ return [
         'routing' => [
             'middleware' => [
                 RouteMiddleware::class,
-                RouteResultExtensionMiddleware::class,
+                Middleware\RouteResultExtensionMiddleware::class,
                 Helper\UrlHelperMiddleware::class,
                 DispatchMiddleware::class,
             ],
