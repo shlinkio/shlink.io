@@ -22,6 +22,7 @@ return [
             // Middleware
             Middleware\CacheMiddleware::class => Middleware\CacheMiddlewareFactory::class,
             Middleware\RouteResultExtensionMiddleware::class => Middleware\RouteResultExtensionMiddlewareFactory::class,
+            Middleware\RedirectionMiddleware::class => Middleware\RedirectionMiddlewareFactory::class,
 
             // Template extensions
             Extension\ConfigParamsExtension::class => ConfigAbstractFactory::class,
