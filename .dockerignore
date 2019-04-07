@@ -1,0 +1,7 @@
+composer.lock
+vendor
+*.md
+php*.xml
+LICENSE
+config/autoload/*local*
+build
