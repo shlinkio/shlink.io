@@ -12,11 +12,11 @@
     ],
     "require": {
         "php": "^7.2",
-        "doctrine/cache": "^1.6",
+        "doctrine/cache": "^1.8",
         "roave/security-advisories": "dev-master",
         "zendframework/zend-config": "^3.1",
         "zendframework/zend-config-aggregator": "^1.1",
-        "zendframework/zend-diactoros": "^1.7.1",
+        "zendframework/zend-diactoros": "^2.1",
         "zendframework/zend-expressive": "^3.0",
         "zendframework/zend-expressive-fastroute": "^3.0",
         "zendframework/zend-expressive-helpers": "^5.0",
@@ -36,15 +36,7 @@
         }
     },
     "scripts": {
-        "check": [
-            "@cs",
-            "@test"
-        ],
-        "cs": "phpcs",
-        "cs-fix": "phpcbf",
-        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php",
-        "test": "phpunit",
-        "expressive": "expressive"
+        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"
     },
     "config": {
         "process-timeout": 0,
