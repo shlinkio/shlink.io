@@ -17,7 +17,7 @@
                         <h4>Requirements</h4>
                     </header>
                     <ul>
-                        <li>PHP 7.1 or greater with JSON, APCu, intl, curl, PDO and gd extensions enabled.</li>
+                        <li>PHP 7.2 or greater with JSON, APCu, intl, curl, PDO and gd extensions enabled.</li>
                         <li>MySQL, PostgreSQL or SQLite.</li>
                         <li>The <a href="https://www.swoole.co.uk/" target="_blank">swoole</a> PHP extension or the web server of your choice with PHP integration (Apache or Nginx).</li>
                     </ul>
@@ -86,7 +86,7 @@
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
         fastcgi_index index.php;
         include fastcgi.conf;
     }
