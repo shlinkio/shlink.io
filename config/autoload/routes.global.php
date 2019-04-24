@@ -1,9 +1,17 @@
 <?php
+declare(strict_types=1);
+
 use Shlinkio\Website\Action;
 
 return [
 
     'routes' => [
+        [
+            'name' => 'short-code-chars',
+            'path' => '/short-code-chars',
+            'middleware' => Action\ShortCodeCharsAction::class,
+            'allowed_methods' => ['GET'],
+        ],
         [
             'name' => 'template',
             'path' => '/[{slug}]',
