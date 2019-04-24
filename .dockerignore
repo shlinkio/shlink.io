@@ -5,3 +5,4 @@ php*.xml
 LICENSE
 config/autoload/*local*
 build
+docker-compose.*

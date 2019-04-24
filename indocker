@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Run docker container if it's not up yet
+if ! [[ $(docker ps | grep shlink_webstie) ]]; then
+    docker-compose up -d
+fi
+
+docker exec -it shlink_webstie /bin/sh -c "cd /home/shlinkio/www && $*"

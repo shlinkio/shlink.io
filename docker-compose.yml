@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    shlink_webstie:
+        container_name: shlink_webstie
+        image: composer:1.8.4
+        command: /bin/sh -c "cd /home/shlinkio/www && composer install && composer serve"
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./:/home/shlinkio/www
