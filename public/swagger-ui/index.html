@@ -37,17 +37,19 @@
     <script src="./swagger-ui-bundle.js"> </script>
     <script src="./swagger-ui-standalone-preset.js"> </script>
     <script>
-    window.onload = function() {
+    window.onload = async () => {
       // Find latest tag on github
-      const req = new XMLHttpRequest();
-      req.open('GET', 'https://api.github.com/repos/shlinkio/shlink/tags', false);
-      req.send(null);
-      const tags = JSON.parse(req.responseText);
-      const latestTag = tags.shift();
+      let url;
+      try {
+        const [{ name }] = await fetch('https://api.github.com/repos/shlinkio/shlink/tags').then(r => r.json());
+        url = `https://raw.githubusercontent.com/shlinkio/shlink/${name}/docs/swagger/swagger.json`
+      } catch (e) {
+        url = 'https://raw.githubusercontent.com/shlinkio/shlink/master/docs/swagger/swagger.json'
+      }
 
       // Begin Swagger UI call region
-      const ui = SwaggerUIBundle({
-        url: "https://raw.githubusercontent.com/shlinkio/shlink/" + (latestTag.name || 'master') + "/docs/swagger/swagger.json",
+      window.ui = SwaggerUIBundle({
+        url,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
@@ -57,11 +59,9 @@
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
         ],
-        layout: "StandaloneLayout"
-      })
+        layout: 'StandaloneLayout'
+      });
       // End Swagger UI call region
-
-      window.ui = ui
     }
   </script>
   </body>
