@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "doctrine/cache": "^1.8",
         "roave/security-advisories": "dev-master",
         "zendframework/zend-config": "^3.1",
