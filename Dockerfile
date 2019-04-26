@@ -19,6 +19,7 @@ RUN cd /shlink-website && \
     rm ./public/assets/js/skel.min.js && \
     rm ./public/assets/js/main.js && \
     rm ./package.json && \
+    rm ./package-lock.json && \
     rm -r node_modules && \
     rm ./Gruntfile.js
 

@@ -52,12 +52,12 @@ module.exports = grunt => {
             main: {
                 options: {
                     replacements: [{
-                        pattern: /(.js|.css)\?v/ig,
+                        pattern: /(.js|.css)\?v=/ig,
                         replacement: `$1?v=${currentTimestamp}`
                     }]
                 },
                 files : {
-                    'templates/layout.html.twig': ['templates/layout.html.twig']
+                    'templates/layout.phtml': ['templates/layout.phtml']
                 }
             }
         }
