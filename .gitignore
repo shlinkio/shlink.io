@@ -1,6 +1,7 @@
 .idea
 vendor/
 composer.lock
+package-lock.json
 build
 node_modules
 public/assets/js/main.min.js

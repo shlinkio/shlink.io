@@ -1,5 +1,7 @@
 composer.lock
+package-lock.json
 vendor
+node_modules
 *.md
 php*.xml
 LICENSE
