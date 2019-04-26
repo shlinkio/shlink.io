@@ -78,11 +78,13 @@
         });
     });
 
-    async function getLatestRelease() {
-        const { assets } = await fetch('https://api.github.com/repos/shlinkio/shlink/releases/latest').then(r => r.json());
-        const [{ browser_download_url }] = assets;
-
-        $('.download-shlink-btn').attr('href', browser_download_url);
+    function getLatestRelease() {
+        fetch('https://api.github.com/repos/shlinkio/shlink/releases/latest')
+          .then(function (r) { return r.json() })
+          .then(function (latestRelease) {
+              var url = latestRelease.assets[0].browser_download_url;
+              $('.download-shlink-btn').attr('href', url);
+          });
     }
 
 })(jQuery);
