@@ -66,7 +66,7 @@
                     <header>
                         <h4>Virtual hosts</h4>
                         <p>
-                            If you are serving shlink with a web server, you will need to configure the virtual hosts.
+                            If you want to serve shlink with a traditional web server, you will need to configure the virtual hosts.
                             <br><br>
                             These are samples for the most used web servers.
                         </p>
@@ -115,9 +115,9 @@
             <section class="spotlight text-only">
                 <div class="content">
                     <header>
-                        <h4>Shlink with swoole service</h4>
+                        <h4>Shlink with swoole</h4>
                         <p>
-                            If you want to server shlink with swoole, you should create a daemon script, in <code>/etc/init.d/shlink_swoole</code>.
+                            If you want to serve shlink with swoole, you should create a daemon script, in <code>/etc/init.d/shlink_swoole</code>.
                             <br><br>
                             You can use this sample, replacing <code>/path/to/shlink</code> by the path to your shlink installation:
                         </p>
@@ -197,17 +197,20 @@ esac</code>
                         <h4>Long-running tasks</h4>
                     </header>
 
-                    <p>Resolving the IP of a visitor in order to get its location involves performing a request to an external service, which gets time. For this reason, this task is not done in real time.</p>
-                    <p>You can manually run the command <code>visit:process</code> which will process all the IPs from visits.</p>
+                    <p>Resolving the IP of a visitor in order to get its location involves performing a request to an external service, which gets time. For this reason, this task is not done in real time when serving shlink with traditional web servers.</p>
+                    <p>You can manually run the command <code>visit:locate</code> which will process all the IPs from visits.</p>
                     <p>Alternatively, you could create an scheduled task which automatically runs that command so that the information is updated periodically.</p>
                     <p>This is an example cron job that could be created under a Unix system. It will run the command every hour, processing all pending IP addresses:</p>
-                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:process -q</code></p>
+                    <p><code>0 * * * * /path/to/shlink/bin/cli visit:locate -q</code></p>
+                    <blockquote>
+                        Notice that even though when using swoole visits are automatically processed just after redirecting users to the long URL, it might be a good idea to have previous scheduling in place, as a backup in case some of those asynchronous processes fail.
+                    </blockquote>
 
                     <p>Something similar happens with page previews. Shlink is capable of generating the preview of a page behind a short code by appending the <b>/preview</b> path to a short URL. For example, <b>https://doma.in/abc123/preview</b>.</p>
                     <p>If you access that URL, the image will be generated and cached, but the first time, the request will take a little bit more time.</p>
-                    <p>In order to prevent this, you can use the command <code>shortcode:process-previews</code>, which will generate all missing previews so that any later web request is faster</p>
+                    <p>In order to prevent this, you can use the command <code>short-url:process-previews</code>, which will generate all missing previews so that any later web request is faster</p>
                     <p>This command can be configured for a cron job too:</p>
-                    <p><code>30 * * * * /path/to/shlink/bin/cli shortcode:process-previews -q</code></p>
+                    <p><code>30 * * * * /path/to/shlink/bin/cli short-url:process-previews -q</code></p>
                 </div>
             </section>
         </div>
