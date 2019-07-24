@@ -1,0 +1,20 @@
+<?php $slug = $this->current_route_params()['slug'] ?? '' ?>
+<ul class="side-menu">
+    <li>
+        <a
+            href="<?= $this->url('getting-started-section', ['slug' => 'install-docker-image']) ?>"
+            class="<?= $slug === 'install-docker-image' ? 'selected' : '' ?>"
+        >
+            Install docker image
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('getting-started-section', ['slug' => 'install-dist-file']) ?>"
+            class="<?= $slug === 'install-dist-file' ? 'selected' : '' ?>"
+        >
+            Install from dist file
+        </a>
+    </li>
+    <li></li>
+</ul>

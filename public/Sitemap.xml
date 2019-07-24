@@ -4,7 +4,7 @@
         <loc>https://shlink.io/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/installation</loc>
+        <loc>https://shlink.io/documentation</loc>
     </url>
     <url>
         <loc>https://shlink.io/api-docs</loc>
@@ -17,9 +17,6 @@
     </url>
     <url>
         <loc>https://shlink.io/api-docs/authentication</loc>
-    </url>
-    <url>
-        <loc>https://shlink.io/api-docs/language</loc>
     </url>
     <url>
         <loc>https://shlink.io/api-docs/endpoints</loc>

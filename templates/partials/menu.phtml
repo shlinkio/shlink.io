@@ -9,17 +9,17 @@ $slug = $params['slug'] ?? '';
     </a>
     <button class="menu-collapser"><i class="fa fa-bars"></i></button>
     <ul class="menu">
-        <li class="<?= $slug === 'installation' ? 'active' : '' ?>">
-            <a href="<?= $this->url('template', ['slug' => 'installation']) ?>">
-                <i class="fa fa-server"></i>&nbsp;&nbsp;Installation
-            </a>
-        </li><li class="<?= $slug === 'features' ? 'active' : '' ?>">
+        <li class="<?= $slug === 'features' ? 'active' : '' ?>">
             <a href="<?= $this->url('template', ['slug' => 'features']) ?>">
                 <i class="fa fa-bolt"></i>&nbsp;&nbsp;Features
             </a>
+        </li><li class="<?= $slug === 'getting started' ? 'active' : '' ?>">
+            <a href="<?= $this->url('template', ['slug' => 'getting-started']) ?>">
+                <i class="fa fa-book"></i>&nbsp;&nbsp;Getting started
+            </a>
         </li><li class="<?= $slug === 'api-docs' || $name === 'api-docs-section' ? 'active' : '' ?>">
             <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">
-                <i class="fa fa-book"></i>&nbsp;&nbsp;API Docs
+                <i class="fa fa-server"></i>&nbsp;&nbsp;API Docs
             </a>
         </li><li class="<?= $slug === 'apps' ? 'active' : '' ?>">
             <a href="<?= $this->url('template', ['slug' => 'apps']) ?>">

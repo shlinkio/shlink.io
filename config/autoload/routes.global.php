@@ -24,6 +24,12 @@ return [
             'middleware' => Action\TemplateAction::class,
             'allowed_methods' => ['GET'],
         ],
+        [
+            'name' => 'getting-started-section',
+            'path' => '/getting-started/{slug}',
+            'middleware' => Action\TemplateAction::class,
+            'allowed_methods' => ['GET'],
+        ],
     ],
 
 ];

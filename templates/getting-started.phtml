@@ -1,0 +1,42 @@
+<?php $this->layout('layout') ?>
+
+<?php $this->start('main') ?>
+    <?php $this->insert('partials/small-header') ?>
+
+    <section id="three" class="wrapper style3 special">
+        <header class="major">
+            <h2>Getting started</h2>
+        </header>
+    </section>
+    <section id="one" class="wrapper">
+        <div class="inner alt">
+            <section class="spotlight text-only">
+                <div class="content">
+                    <div class="row">
+                        <div class="3u 12u$(medium)">
+                            <?php $this->insert('getting-started/partials/side-menu') ?>
+                        </div>
+                        <div class="9u 12u$(medium) side-menu-contents">
+                            <?php if ($this->section('docsContent')): ?>
+                                <?= $this->section('docsContent') ?>
+                            <?php else: ?>
+                                <p style="padding-top: .5em;">Shlink is a URL shortener which provides both a <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">REST</a> and CLI interfaces to interact with it.</p>
+                                <p>There are a few different ways to install and run shlink, depending on your needs and resources.</p>
+                                <ul>
+                                    <li>You can run Shlink in a container-based infrastructure, using the <a>docker image</a>.</li>
+                                    <li>
+                                        Alternatively you can <a>download a dist file</a> to host it in your machine and serve it with:
+                                        <ul>
+                                            <li><a>A classic web server</a> (like Apache or Nginx).</li>
+                                            <li><a>A non-blocking swoole server</a>.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+<?php $this->end() ?>

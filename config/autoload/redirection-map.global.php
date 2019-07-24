@@ -5,6 +5,7 @@ return [
 
     'redirection_map' => [
         '/api-docs/language' => '/api-docs',
+        '/installation' => '/getting-started',
     ],
 
 ];
