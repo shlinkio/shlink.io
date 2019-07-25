@@ -2479,6 +2479,13 @@
             margin-left: -1px;
         }
 
+        @media (min-width: 981px) {
+            .side-menu-container {
+                position: sticky;
+                top: 55px;
+            }
+        }
+
         ul.side-menu {
             list-style: none;
             padding-left: 0;
