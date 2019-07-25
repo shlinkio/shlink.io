@@ -1,5 +1,7 @@
 <?php $this->layout('layout') ?>
 
+<?php $this->start('pageTitle') ?> | Getting started<?php $this->end() ?>
+
 <?php $this->start('main') ?>
     <?php $this->insert('partials/small-header') ?>
 
@@ -17,18 +19,21 @@
                             <?php $this->insert('getting-started/partials/side-menu') ?>
                         </div>
                         <div class="9u 12u$(medium) side-menu-contents">
-                            <?php if ($this->section('docsContent')): ?>
-                                <?= $this->section('docsContent') ?>
+                            <?php if ($this->section('gettingStartedContent')): ?>
+                                <?= $this->section('gettingStartedContent') ?>
                             <?php else: ?>
-                                <p style="padding-top: .5em;">Shlink is a URL shortener which provides both a <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">REST</a> and CLI interfaces to interact with it.</p>
-                                <p>There are a few different ways to install and run shlink, depending on your needs and resources.</p>
+                                <header>
+                                    <h3>Running and serving Shlink</h3>
+                                </header>
+                                <p>Shlink is a URL shortener which provides both a <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">REST</a> and CLI interfaces to interact with it.</p>
+                                <p>There are a few different ways to install and run it, depending on your needs and resources.</p>
                                 <ul>
-                                    <li>You can run Shlink in a container-based infrastructure, using the <a>docker image</a>.</li>
+                                    <li>You can run Shlink in a container-based infrastructure, using the <a href="<?= $this->url('getting-started-section', ['slug' => 'install-docker-image']) ?>">docker image</a>.</li>
                                     <li>
-                                        Alternatively you can <a>download a dist file</a> to host it in your machine and serve it with:
+                                        Alternatively you can <a href="<?= $this->url('getting-started-section', ['slug' => 'install-dist-file']) ?>">download a dist file</a> to host it in your machine and serve it with:
                                         <ul>
-                                            <li><a>A classic web server</a> (like Apache or Nginx).</li>
-                                            <li><a>A non-blocking swoole server</a>.</li>
+                                            <li><a href="<?= $this->url('getting-started-section', ['slug' => 'serve-with-swoole']) ?>">A non-blocking swoole server</a>.</li>
+                                            <li><a href="<?= $this->url('getting-started-section', ['slug' => 'classic-web-server']) ?>">A classic web server</a> (like Apache or Nginx).</li>
                                         </ul>
                                     </li>
                                 </ul>

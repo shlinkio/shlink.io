@@ -16,5 +16,28 @@
             Install from dist file
         </a>
     </li>
-    <li></li>
+    <li>
+        <a
+            href="<?= $this->url('getting-started-section', ['slug' => 'serve-with-swoole']) ?>"
+            class="<?= $slug === 'serve-with-swoole' ? 'selected' : '' ?>"
+        >
+            Serve with swoole
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('getting-started-section', ['slug' => 'classic-web-server']) ?>"
+            class="<?= $slug === 'classic-web-server' ? 'selected' : '' ?>"
+        >
+            Classic web server
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('getting-started-section', ['slug' => 'long-running-tasks']) ?>"
+            class="<?= $slug === 'long-running-tasks' ? 'selected' : '' ?>"
+        >
+            Long-running tasks
+        </a>
+    </li>
 </ul>
