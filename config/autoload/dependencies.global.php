@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Doctrine\Common\Cache;
 use Shlinkio\Website\Action;
@@ -26,6 +27,7 @@ return [
 
             // Template extensions
             Extension\ConfigParamsExtension::class => ConfigAbstractFactory::class,
+            Extension\MenusExtension::class => ConfigAbstractFactory::class,
         ],
         'aliases' => [
             Cache\Cache::class => Cache\ApcuCache::class,
@@ -42,6 +44,7 @@ return [
 
     ConfigAbstractFactory::class => [
         Extension\ConfigParamsExtension::class => ['config'],
+        Extension\MenusExtension::class => ['config'],
     ],
 
 ];
