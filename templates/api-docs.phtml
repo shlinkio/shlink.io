@@ -11,7 +11,7 @@
                 <div class="content">
                     <div class="row">
                         <div class="3u 12u$(medium) side-menu-container">
-                            <?php $this->insert('api-docs/partials/side-menu') ?>
+                            <?= $this->render_menu('api-docs') ?>
                         </div>
                         <div class="9u 12u$(medium) side-menu-contents">
                             <?php if ($this->section('apiContent')): ?>

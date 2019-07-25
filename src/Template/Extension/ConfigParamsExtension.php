@@ -18,7 +18,7 @@ class ConfigParamsExtension implements ExtensionInterface
         $this->config = $config;
     }
 
-    public function register(Engine $engine)
+    public function register(Engine $engine): void
     {
         $engine->registerFunction('config', [$this, 'getConfigParam']);
     }

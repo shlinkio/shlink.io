@@ -15,6 +15,7 @@ return [
         'extensions' => [
             Extension\RouteResultExtension::class,
             Extension\ConfigParamsExtension::class,
+            Extension\MenusExtension::class,
         ],
     ],
 
