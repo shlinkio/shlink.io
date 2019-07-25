@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://shlink.io/Sitemap.xml
+Sitemap: https://shlink.io/sitemap.xml

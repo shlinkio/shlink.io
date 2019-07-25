@@ -24,6 +24,12 @@ return [
             'middleware' => Action\TemplateAction::class,
             'allowed_methods' => ['GET'],
         ],
+        [
+            'name' => 'documentation-section',
+            'path' => '/documentation/{slug}',
+            'middleware' => Action\TemplateAction::class,
+            'allowed_methods' => ['GET'],
+        ],
     ],
 
 ];

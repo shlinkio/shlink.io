@@ -1,0 +1,43 @@
+<?php $slug = $this->current_route_params()['slug'] ?? '' ?>
+<ul class="side-menu">
+    <li>
+        <a
+            href="<?= $this->url('documentation-section', ['slug' => 'install-docker-image']) ?>"
+            class="<?= $slug === 'install-docker-image' ? 'selected' : '' ?>"
+        >
+            Install docker image
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('documentation-section', ['slug' => 'install-dist-file']) ?>"
+            class="<?= $slug === 'install-dist-file' ? 'selected' : '' ?>"
+        >
+            Install from dist file
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('documentation-section', ['slug' => 'serve-with-swoole']) ?>"
+            class="<?= $slug === 'serve-with-swoole' ? 'selected' : '' ?>"
+        >
+            Serve with swoole
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('documentation-section', ['slug' => 'classic-web-server']) ?>"
+            class="<?= $slug === 'classic-web-server' ? 'selected' : '' ?>"
+        >
+            Classic web server
+        </a>
+    </li>
+    <li>
+        <a
+            href="<?= $this->url('documentation-section', ['slug' => 'long-running-tasks']) ?>"
+            class="<?= $slug === 'long-running-tasks' ? 'selected' : '' ?>"
+        >
+            Long-running tasks
+        </a>
+    </li>
+</ul>

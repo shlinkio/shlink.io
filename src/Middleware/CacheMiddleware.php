@@ -42,7 +42,9 @@ class CacheMiddleware implements MiddlewareInterface
         }
 
         $resp = $handler->handle($request);
-        $this->cache->save($cacheKey, (string) $resp->getBody());
+        if ($resp->getStatusCode() < 300) {
+            $this->cache->save($cacheKey, (string) $resp->getBody());
+        }
         return $resp;
     }
 }
