@@ -13,8 +13,8 @@ return [
         'always' => [
             'middleware' => [
                 ErrorHandler::class,
-                Middleware\CacheMiddleware::class,
                 Middleware\RedirectionMiddleware::class,
+                Middleware\CacheMiddleware::class,
                 Helper\ServerUrlMiddleware::class,
             ],
             'priority' => 10000,

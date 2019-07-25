@@ -4,7 +4,25 @@
         <loc>https://shlink.io/</loc>
     </url>
     <url>
+        <loc>https://shlink.io/features</loc>
+    </url>
+    <url>
         <loc>https://shlink.io/documentation</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/install-docker-image</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/install-dist-file</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/serve-with-swoole</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/classic-web-server</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/long-running-tasks</loc>
     </url>
     <url>
         <loc>https://shlink.io/api-docs</loc>
@@ -17,8 +35,5 @@
     </url>
     <url>
         <loc>https://shlink.io/api-docs/authentication</loc>
-    </url>
-    <url>
-        <loc>https://shlink.io/api-docs/endpoints</loc>
     </url>
 </urlset>

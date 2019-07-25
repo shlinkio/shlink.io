@@ -3782,7 +3782,7 @@
         border-top: 2px solid transparent;
         margin-bottom: -2px;
     }
-    #navbar .menu li:hover a {
+    #navbar .menu li:hover a, #navbar .menu li.active a {
         color: #fff;
     }
 
