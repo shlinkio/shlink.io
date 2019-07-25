@@ -25,8 +25,8 @@ return [
             'allowed_methods' => ['GET'],
         ],
         [
-            'name' => 'getting-started-section',
-            'path' => '/getting-started/{slug}',
+            'name' => 'documentation-section',
+            'path' => '/documentation/{slug}',
             'middleware' => Action\TemplateAction::class,
             'allowed_methods' => ['GET'],
         ],

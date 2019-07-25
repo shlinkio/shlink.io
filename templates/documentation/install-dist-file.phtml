@@ -1,6 +1,6 @@
-<?php $this->layout('getting-started') ?>
+<?php $this->layout('documentation') ?>
 
-<?php $this->start('gettingStartedContent') ?>
+<?php $this->start('documentationContent') ?>
     <header>
         <h3>Install using a dist file</h3>
     </header>
@@ -28,13 +28,20 @@
             </ul>
         </li>
         <li>Create an empty database (not necessary if you are going to use SQLite).</li>
+        <li>Recursively grant write permissions to the <code>data</code> directory.</li>
         <li>
             Setup the application by running the <code>bin/install</code> script. It will guide you through the installation process.
         </li>
-        <li>Recursively grant write permissions to the <code>data</code> directory.</li>
         <li>
             Optionally, you can create a symlink to the <code>bin/cli</code> script in a folder which is in your path.<br>
             For example <code>/usr/local/bin</code> for linux systems. This will allow you to easily run shlink from anywhere in the command line.
+        </li>
+        <li>
+            Configure your system to be able to serve Shlink:
+            <ul style="margin-bottom: 0">
+                <li><a href="<?= $this->url('documentation-section', ['slug' => 'serve-with-swoole']) ?>">Serve Shlink using swoole</a>.</li>
+                <li><a href="<?= $this->url('documentation-section', ['slug' => 'classic-web-server']) ?>">Serve Shlink with a classic web server</a>.</li>
+            </ul>
         </li>
         <li>Generate your first API key by running <code>bin/cli api-key:generate</code>. You will need the key in order to interact with shlink's API.</li>
         <li>Finally access to <a href="https://app.shlink.io" target="_blank">https://app.shlink.io</a> and configure your server to start creating short URLs.</li>
