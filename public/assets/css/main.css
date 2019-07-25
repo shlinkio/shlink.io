@@ -3901,6 +3901,10 @@
         min-height: 35em;
     }
 
+    #header.small h1 {
+        margin-top: .5em;
+    }
+
         #header input[type="submit"],
         #header input[type="reset"],
         #header input[type="button"],
@@ -4262,6 +4266,10 @@
 
         #header {
             padding: 2em 1.5em 0.1em 1.5em ;
+        }
+
+        #header.small {
+            padding: 2.5em 1.5em 0.1em 1.5em ;
         }
 
             #header .image {
