@@ -1,12 +1,19 @@
 <?php
-$currentSlug = $this->current_route_params()['slug'] ?? '';
 /**
  * @var array $items
  * @var string $menuName
  */
+
+$currentSlug = $this->current_route_params()['slug'] ?? '';
+$activeItemText = array_reduce($items, function (string $text, array $item) use ($currentSlug) {
+    return $currentSlug === $item['slug'] ? $item['text'] : $text;
+}, '');
 ?>
-<nav>
-    <ul class="side-menu">
+<nav class="side-menu-nav">
+    <button class="menu-collapser side-menu-collapser" data-menu=".<?= $menuName ?>-menu">
+        <?= $activeItemText ?> <i class="icon fa-chevron-down"></i>
+    </button>
+    <ul class="side-menu <?= $menuName ?>-menu">
         <?php foreach ($items as $item): ?>
             <li>
                 <a
