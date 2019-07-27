@@ -5,16 +5,18 @@ $currentSlug = $this->current_route_params()['slug'] ?? '';
  * @var string $menuName
  */
 ?>
-<ul class="side-menu">
-    <?php foreach ($items as $item): ?>
-        <li>
-            <a
-                href="<?= $item['link'] ?? $this->url($menuName . '-section', ['slug' => $item['slug']]) ?>"
-                class="<?= ! isset($item['link']) && $currentSlug === $item['slug'] ? 'selected' : '' ?>"
-                <?= isset($item['link']) ? 'target="_blank"' : '' ?>
-            >
-                <?= $item['text'] ?>
-            </a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+<nav>
+    <ul class="side-menu">
+        <?php foreach ($items as $item): ?>
+            <li>
+                <a
+                    href="<?= $item['link'] ?? $this->url($menuName . '-section', ['slug' => $item['slug']]) ?>"
+                    class="<?= ! isset($item['link']) && $currentSlug === $item['slug'] ? 'selected' : '' ?>"
+                    <?= isset($item['link']) ? 'target="_blank"' : '' ?>
+                >
+                    <?= $item['text'] ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</nav>

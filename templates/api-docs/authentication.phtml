@@ -11,7 +11,7 @@
         <p>Previous to shlink <b>v1.13.0</b>, it was also possible to call to the special <code>/rest/authenticate</code> endpoint, which expects an API key to be provided and returns a token which expires in a week.</p>
 
         <p>You had to pass it on every request in the <code>Authorization: Bearer [token]</code> header, and every response returned the <code>Authorization</code> header as well, with a refreshed token which will last another week.</p>
-        <p>This authentication method will keep working, but it is considered <b>deprecated</b>.</p>
+        <p>This authentication method will keep working on any Shlink v1.*, but it is considered <b>deprecated</b> and will be removed on v2.</p>
     </blockquote>
 
     <h4>Errors during authentication</h4>

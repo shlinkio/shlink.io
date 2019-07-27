@@ -28,12 +28,15 @@
         <loc>https://shlink.io/api-docs</loc>
     </url>
     <url>
-        <loc>https://shlink.io/apps</loc>
-    </url>
-    <url>
         <loc>https://shlink.io/api-docs/error-management</loc>
     </url>
     <url>
         <loc>https://shlink.io/api-docs/authentication</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/command-line-interface</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/apps</loc>
     </url>
 </urlset>

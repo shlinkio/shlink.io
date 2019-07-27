@@ -21,6 +21,10 @@ $slug = $params['slug'] ?? '';
             <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">
                 <i class="fa fa-server"></i>&nbsp;&nbsp;API Docs
             </a>
+        </li><li class="<?= $slug === 'command-line-interface' ? 'active' : '' ?>">
+            <a href="<?= $this->url('template', ['slug' => 'command-line-interface']) ?>">
+                <i class="fa fa-terminal"></i>&nbsp;&nbsp;CLI
+            </a>
         </li><li class="<?= $slug === 'apps' ? 'active' : '' ?>">
             <a href="<?= $this->url('template', ['slug' => 'apps']) ?>">
                 <i class="fa fa-rocket"></i>&nbsp;&nbsp;Apps

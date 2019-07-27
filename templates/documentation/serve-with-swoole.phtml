@@ -4,8 +4,9 @@
     <header>
         <h3>Serve Shlink using swoole</h3>
     </header>
-    <p>Shlink can be served using <a href="https://www.swoole.co.uk/" target="_blank">swoole</a>. Swoole provides a non-blocking I/O server similar to the one used for node.js applications, which lets web apps to be run once and kept in memory while serving requests</p>
-    <p>It is recommended to serve Shlink with swoole, since it is quite faster and has a few extra benefits (like running heavy tasks immediately after a request has been served).</p>
+    <p>Shlink can be served using <a href="https://www.swoole.co.uk/" target="_blank">swoole</a>.</p>
+    <p>Swoole provides a non-blocking I/O server similar to the one used for node.js applications, which lets web apps to be run once and kept in memory while serving requests</p>
+    <p>It is recommended to serve Shlink with swoole, since it is quite faster and has a few extra benefits (like running some heavy tasks immediately after a request has been served).</p>
     <p>In order to use swoole, you have to install the swoole PHP extension using Pecl: <code>pecl install swoole-4.3.2</code></p>
     <p>You will also need to create a daemon script, in <code>/etc/init.d/shlink_swoole</code></p>
     <p>You can use this sample, replacing <code>/path/to/shlink</code> by the path to your shlink installation:</p>
