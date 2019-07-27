@@ -7,7 +7,7 @@
 $currentSlug = $this->current_route_params()['slug'] ?? '';
 $activeItemText = array_reduce($items, function (string $text, array $item) use ($currentSlug) {
     return $currentSlug === $item['slug'] ? $item['text'] : $text;
-}, '');
+}, '<i>Select...</i>');
 ?>
 <nav class="side-menu-nav">
     <button class="menu-collapser side-menu-collapser" data-menu=".<?= $menuName ?>-menu">
