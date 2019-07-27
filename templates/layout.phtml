@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
     <head>
         <title>Shlink - The URL shortener<?= $this->section('pageTitle', '') ?></title>
         <meta charset="utf-8">
@@ -15,18 +15,8 @@
     </head>
     <body id="top">
         <?php $this->insert('partials/menu') ?>
-
         <?= $this->section('main', '') ?>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://github.com/shlinkio/shlink" target="_blank" class="icon fa-github"><span class="label">Twitter</span></a></li>
-                <li><a href="https://twitter.com/shlinkio" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="<?= $this->config('donate')['url'] ?>" target="_blank" class="icon fa-paypal"><span class="label">Donate</span></a></li>
-            </ul>
-            <p class="copyright">&copy; <?= date('Y') ?> Shlink. With <span class="fa fa-heart" title="love"></span> by <a href="https://www.alejandrocelaya.com" target="_blank">Alejandro Celaya</a> - Template from <a href="http://html5up.net">HTML5 UP</a></p>
-        </footer>
+        <?php $this->insert('partials/footer') ?>
 
         <!-- build:js /assets/js/main.min.js?v= -->
         <script src="/assets/js/jquery.min.js"></script>

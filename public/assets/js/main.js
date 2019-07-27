@@ -52,8 +52,9 @@
                 speed: 1500
             });
 
-        $navbar.find('.menu-collapser').click(function () {
-            $('.menu').stop().slideToggle();
+        $body.on('click', '.menu-collapser', function () {
+            var menuSelector = $(this).data('menu');
+            $(menuSelector).stop().slideToggle();
         });
 
         $window.scroll(function () {

@@ -14,11 +14,15 @@
                             <span class="maximize"></span>
                         </div>
 
-                        <img src="/images/shlink-cli-cropped.gif" alt="Command line interface" />
+                        <a href="<?= $this->url('template', ['slug' => 'command-line-interface']) ?>">
+                            <img src="/images/shlink-cli-cropped.gif" alt="Command line interface" />
+                        </a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>Command line interface</h3>
+                    <h3>
+                        <a href="<?= $this->url('template', ['slug' => 'command-line-interface']) ?>">Command line interface</a>
+                    </h3>
                     <p>Generate and manage short URLs from the command line.<br>List short codes, see visits or get the URL behind a short code.</p>
                 </div>
             </section>
@@ -32,11 +36,15 @@
                             <span class="maximize"></span>
                         </div>
 
-                        <img src="/images/shlink-rest-cropped.gif" alt="REST API" />
+                        <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">
+                            <img src="/images/shlink-rest-cropped.gif" alt="REST API" />
+                        </a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>REST API</h3>
+                    <h3>
+                        <a href="<?= $this->url('template', ['slug' => 'api-docs']) ?>">REST API</a>
+                    </h3>
                     <p>Access your shortened URLs from anywhere.<br>Simple authentication and easy to integrate.</p>
                 </div>
             </section>

@@ -30,12 +30,12 @@ return [
 
         'api-docs' => [
             [
-                'text' => 'Error Management',
-                'slug' => 'error-management',
-            ],
-            [
                 'text' => 'Authentication',
                 'slug' => 'authentication',
+            ],
+            [
+                'text' => 'Error Management',
+                'slug' => 'error-management',
             ],
             [
                 'text' => 'Endpoints',

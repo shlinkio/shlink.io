@@ -1,20 +1,29 @@
 <?php
-$currentSlug = $this->current_route_params()['slug'] ?? '';
 /**
  * @var array $items
  * @var string $menuName
  */
+
+$currentSlug = $this->current_route_params()['slug'] ?? '';
+$activeItemText = array_reduce($items, function (string $text, array $item) use ($currentSlug) {
+    return $currentSlug === $item['slug'] ? $item['text'] : $text;
+}, '<i>Select...</i>');
 ?>
-<ul class="side-menu">
-    <?php foreach ($items as $item): ?>
-        <li>
-            <a
-                href="<?= $item['link'] ?? $this->url($menuName . '-section', ['slug' => $item['slug']]) ?>"
-                class="<?= ! isset($item['link']) && $currentSlug === $item['slug'] ? 'selected' : '' ?>"
-                <?= isset($item['link']) ? 'target="_blank"' : '' ?>
-            >
-                <?= $item['text'] ?>
-            </a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+<nav class="side-menu-nav">
+    <button class="menu-collapser side-menu-collapser" data-menu=".<?= $menuName ?>-menu">
+        <?= $activeItemText ?> <i class="icon fa-chevron-down"></i>
+    </button>
+    <ul class="side-menu <?= $menuName ?>-menu">
+        <?php foreach ($items as $item): ?>
+            <li>
+                <a
+                    href="<?= $item['link'] ?? $this->url($menuName . '-section', ['slug' => $item['slug']]) ?>"
+                    class="<?= ! isset($item['link']) && $currentSlug === $item['slug'] ? 'selected' : '' ?>"
+                    <?= isset($item['link']) ? 'target="_blank"' : '' ?>
+                >
+                    <?= $item['text'] ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</nav>
