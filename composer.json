@@ -26,6 +26,8 @@
     },
     "require-dev": {
         "filp/whoops": "^2.0",
+        "phpstan/phpstan": "^0.11.14",
+        "shlinkio/php-coding-standard": "^1.2",
         "symfony/var-dumper": "^4.0",
         "zendframework/zend-component-installer": "^2.1",
         "zendframework/zend-expressive-tooling": "^1.0"
@@ -36,7 +38,23 @@
         }
     },
     "scripts": {
-        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"
+        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php",
+
+        "ci": [
+            "@cs",
+            "@stan"
+        ],
+
+        "cs": "phpcs",
+        "cs:fix": "phpcbf",
+        "stan": "phpstan analyse src config templates --level=6"
+    },
+    "scripts-descriptions": {
+        "serve": "<fg=blue;options=bold>Serves project with built-in web server</>",
+        "ci": "<fg=blue;options=bold>Alias for \"cs\" and \"stan\"</>",
+        "cs": "<fg=blue;options=bold>Checks coding styles</>",
+        "cs:fix": "<fg=blue;options=bold>Fixes coding styles, when possible</>",
+        "stan": "<fg=blue;options=bold>Inspects code with phpstan</>"
     },
     "config": {
         "process-timeout": 0,

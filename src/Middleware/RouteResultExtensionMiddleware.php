@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Shlinkio\Website\Middleware;
 
 use Psr\Http\Message\ResponseInterface as Response;
@@ -11,9 +13,7 @@ use Zend\Expressive\Router\RouteResult;
 
 class RouteResultExtensionMiddleware implements MiddlewareInterface
 {
-    /**
-     * @var RouteResultExtension
-     */
+    /** @var RouteResultExtension */
     private $extension;
 
     public function __construct(RouteResultExtension $extension)

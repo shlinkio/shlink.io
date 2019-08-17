@@ -5,7 +5,7 @@ namespace Shlinkio\Website\Template\Extension;
 
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;
-use Zend\Expressive\Template\TemplateRendererInterface;
+
 use function sprintf;
 
 class MenusExtension implements ExtensionInterface

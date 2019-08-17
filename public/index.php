@@ -6,6 +6,11 @@ namespace Shlinkio\Website;
 use Psr\Container\ContainerInterface;
 use Zend\Expressive\Application;
 
+use function chdir;
+use function dirname;
+
+use const PHP_SAPI;
+
 // Delegate static file requests back to the PHP built-in webserver
 if (PHP_SAPI === 'cli-server' && $_SERVER['SCRIPT_FILENAME'] !== __FILE__) {
     return false;
