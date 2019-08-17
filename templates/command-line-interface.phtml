@@ -44,12 +44,15 @@ Available commands:
  config
   config:generate-charset     [DEPRECATED] Generates a character set sample just by shuffling the default one, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ". Then it can be set in the SHORTCODE_CHARS environment variable
   config:generate-secret      [DEPRECATED] Generates a random secret string that can be used for JWT token encryption
+ db
+  db:create                   Creates the database needed for shlink to work. It will do nothing if the database already exists
+  db:migrate                  Runs database migrations, which will ensure the shlink database is up to date.
  short-url
   short-url:delete            [short-code:delete] Deletes a short URL
   short-url:generate          [shortcode:generate|short-code:generate] Generates a short URL for provided long URL and returns it
   short-url:list              [shortcode:list|short-code:list] List all short URLs
   short-url:parse             [shortcode:parse|short-code:parse] Returns the long URL behind a short code
-  short-url:process-previews  [shortcode:process-previews|short-code:process-previews] Processes and generates the previews for every URL, improving performance for later web requests.
+  short-url:process-previews  [shortcode:process-previews|short-code:process-previews] [DEPRECATED] Processes and generates the previews for every URL, improving performance for later web requests.
   short-url:visits            [shortcode:visits|short-code:visits] Returns the detailed visits information for provided short code
  tag
   tag:create                  Creates one or more tags.
