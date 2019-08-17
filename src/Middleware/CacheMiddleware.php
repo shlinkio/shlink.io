@@ -11,16 +11,15 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 
 use function in_array;
+use function sprintf;
 
 class CacheMiddleware implements MiddlewareInterface
 {
     private const EXCLUDED_PATHS = [
-        '/short-code-chars'
+        '/short-code-chars',
     ];
 
-    /**
-     * @var Cache
-     */
+    /** @var Cache */
     private $cache;
 
     public function __construct(Cache $cache)

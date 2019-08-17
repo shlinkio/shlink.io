@@ -1,0 +1,24 @@
+language: php
+
+branches:
+  only:
+    - /.*/
+
+php:
+  - '7.3'
+
+before_install:
+  - echo 'extension = apcu.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - phpenv config-rm xdebug.ini || return 0
+
+install:
+  - composer self-update
+  - composer install --no-interaction
+
+before_script:
+  - mkdir build
+  - export DOCKERFILE_CHANGED=$(git diff ${TRAVIS_COMMIT_RANGE:-origin/master} --name-only | grep Dockerfile)
+
+script:
+  - composer ci
+  - if [[ ! -z "$DOCKERFILE_CHANGED" ]]; then docker build -t shlink-website-image:temp . ; fi

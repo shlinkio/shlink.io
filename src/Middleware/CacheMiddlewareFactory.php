@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Shlinkio\Website\Middleware;
 
 use Doctrine\Common\Cache\Cache;
@@ -22,7 +24,7 @@ class CacheMiddlewareFactory implements FactoryInterface
      *     creating a service.
      * @throws ContainerException if any other error occurs
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $cache = $container->get(Cache::class);
         return new CacheMiddleware($cache);

@@ -8,9 +8,7 @@ use League\Plates\Extension\ExtensionInterface;
 
 class ConfigParamsExtension implements ExtensionInterface
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $config;
 
     public function __construct(array $config)

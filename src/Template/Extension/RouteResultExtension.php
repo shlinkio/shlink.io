@@ -1,15 +1,16 @@
 <?php
+declare(strict_types=1);
+
 namespace Shlinkio\Website\Template\Extension;
 
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;
+use RuntimeException;
 use Zend\Expressive\Router\RouteResult;
 
 class RouteResultExtension implements ExtensionInterface
 {
-    /**
-     * @var RouteResult
-     */
+    /** @var RouteResult */
     protected $routeResult;
 
     /**
@@ -43,7 +44,7 @@ class RouteResultExtension implements ExtensionInterface
     private function getRouteResult(): RouteResult
     {
         if ($this->routeResult === null) {
-            throw new \RuntimeException('Route result has not been set');
+            throw new RuntimeException('Route result has not been set');
         }
 
         return $this->routeResult;

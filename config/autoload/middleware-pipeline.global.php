@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Shlinkio\Website\Middleware;
 use Zend\Expressive\Handler\NotFoundHandler;
