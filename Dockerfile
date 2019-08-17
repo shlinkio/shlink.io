@@ -1,11 +1,11 @@
-FROM composer:1.8.4 as composer
+FROM composer:1.9.0 as composer
 COPY . /shlink-website
 RUN cd /shlink-website && \
     composer install --no-dev --optimize-autoloader --apcu-autoloader --prefer-dist --no-interaction --no-progress && \
     rm ./composer.*
 
 
-FROM node:10.15.3-alpine as node
+FROM node:12.8.1-alpine as node
 COPY --from=composer /shlink-website /shlink-website
 RUN cd /shlink-website && \
     npm install && \
@@ -24,7 +24,7 @@ RUN cd /shlink-website && \
     rm ./Gruntfile.js
 
 
-FROM php:7.3.4-fpm-alpine3.9
+FROM php:7.3.8-fpm-alpine3.10
 LABEL maintainer="Alejandro Celaya <alejandro@alejandrocelaya.com>"
 COPY --from=node /shlink-website /shlink-website
 
