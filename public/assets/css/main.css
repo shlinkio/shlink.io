@@ -4562,24 +4562,28 @@ button {
     outline: none;
 }
 
-.typeit-container {
+.typed-container {
     min-height: 200px;
     padding: 25px 3px 0;
     font-family: monospace;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: .55em;
+    line-height: 1.6em;
     overflow: auto;
     white-space: nowrap;
     font-weight: bold;
     color: #555;
 }
 
-.typeit-container .green {
+.typed-container .green {
     color: #77AA4E;
 }
-.typeit-container .yellow {
+.typed-container .yellow {
     color: #ddb035;
 }
-.typeit-container .black {
+.typed-container .black {
     color: #000;
+}
+
+.typed-hidden {
+    display: none;
 }

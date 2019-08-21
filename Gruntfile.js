@@ -16,7 +16,7 @@ module.exports = grunt => {
         'public/assets/js/jquery.scrolly.min.js',
         'public/assets/js/highlight.pack.js',
         'public/assets/js/skel.min.js',
-        'public/assets/js/typeit.min.js',
+        'public/assets/js/typed.min.js',
         'public/assets/js/main.js',
     ];
 
