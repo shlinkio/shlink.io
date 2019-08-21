@@ -2908,7 +2908,7 @@
             left: 1px;
         }
 
-        .spotlight .fake-browser-ui span {
+        .spotlight .fake-browser-ui .frame span {
             height: 10px;
             width: 10px;
             border-radius: 10px;
@@ -2917,13 +2917,13 @@
             margin: 0 0 0 4px;
         }
         
-        .spotlight .fake-browser-ui span.close {
+        .spotlight .fake-browser-ui .frame span.close {
             background-color: #C23824;
         }
-        .spotlight .fake-browser-ui span.minimize {
+        .spotlight .fake-browser-ui .frame span.minimize {
             background-color: #F2C600;
         }
-        .spotlight .fake-browser-ui span.maximize {
+        .spotlight .fake-browser-ui .frame span.maximize {
             background-color: #1AAF5D;
         }
 
@@ -4560,4 +4560,26 @@ blockquote p:last-child {
 
 button {
     outline: none;
+}
+
+.typeit-container {
+    min-height: 200px;
+    padding: 25px 3px 0;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 18px;
+    overflow: auto;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #555;
+}
+
+.typeit-container .green {
+    color: #77AA4E;
+}
+.typeit-container .yellow {
+    color: #ddb035;
+}
+.typeit-container .black {
+    color: #000;
 }

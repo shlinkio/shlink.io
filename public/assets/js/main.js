@@ -77,6 +77,47 @@
                 $selectedElementBody.slideDown();
             }
         });
+
+        var prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span> ';
+        new TypeIt('#cli-example', {
+            waitUntilVisible: true,
+            deleteSpeed: 0,
+            loop: true,
+            loopDelay: 2000
+        })
+          .options({ speed: 1 })
+          .type(prompt)
+          .options({ speed: 150 })
+          .type('shlink short-url:generate https://shlink.io')
+          .pause(300)
+          .options({ speed: 1 })
+          .break()
+          .type('Processed URL: <span class="green">https://shlink.io</span>')
+          .break()
+          .type('Generated URL: <span class="green">https://doma.in/rY9k</span>')
+          .pause(200)
+          .break()
+          .type(prompt)
+          .options({ speed: 150 })
+          .type('shlink short-url:parse rY9k')
+          .pause(200)
+          .options({ speed: 1 })
+          .break()
+          .type('Long URL: <span class="green">https://shlink.io</span>')
+          .pause(200)
+          .break()
+          .type(prompt)
+          .options({ speed: 150 })
+          .type('shlink short-url:visits rY9k')
+          .pause(200)
+          .options({ speed: 1 })
+          .break()
+          .type('+---------+------+------------+---------+')
+          .break()
+          .type('| <span class="green">Referer</span> | <span class="green">Date</span> | <span class="green">User agent</span> | <span class="green">Country</span> |')
+          .break()
+          .type('+---------+------+------------+---------+')
+          .go();
     });
 
     function getLatestRelease() {
