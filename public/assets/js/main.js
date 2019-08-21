@@ -86,7 +86,15 @@
             fadeOutDelay: 0,
             backDelay: 2000,
             strings: [
-              '`' + prompt + '` ^100 shlink short-url:generate https://shlink.io ^500 `<br>Processed URL: <span class="green">https://shlink.io</span><br>Generated URL: <span class="green">https://doma.in/rY9k</span><br>' + prompt + '` ^100 shlink short-url:parse rY9k ^250 `<br>Long URL: <span class="green">https://shlink.io</span><br>' + prompt + '` ^100 shlink short-url:visits rY9k ^250 `<br>+---------+------+------------+---------+<br>| <span class="green">Referer</span> | <span class="green">Date</span> | <span class="green">User agent</span> | <span class="green">Country</span> |<br>+---------+------+------------+---------+`'
+                '`' + prompt + '` ^100 shlink short-url:generate https://shlink.io ^500 '
+                + '`<br>Processed URL: <span class="green">https://shlink.io</span>'
+                + '<br>Generated URL: <span class="green">https://doma.in/rY9k</span>'
+                + '<br>' + prompt + '` ^100 shlink short-url:parse rY9k ^250 '
+                + '`<br>Long URL: <span class="green">https://shlink.io</span>'
+                + '<br>' + prompt + '` ^100 shlink short-url:visits rY9k ^250 '
+                + '`<br>+---------+------+------------+---------+'
+                + '<br>| <span class="green">Referer</span> | <span class="green">Date</span> | <span class="green">User agent</span> | <span class="green">Country</span> |'
+                + '<br>+---------+------+------------+---------+`'
             ]
         })
     });
