@@ -4563,7 +4563,6 @@ button {
 }
 
 .typed-container {
-    min-height: 200px;
     padding: 25px 3px 0;
     font-family: monospace;
     font-size: .55em;
@@ -4572,6 +4571,12 @@ button {
     white-space: nowrap;
     font-weight: bold;
     color: #555;
+}
+.typed-container.cli-example-container {
+    min-height: 200px;
+}
+.typed-container.rest-example-container {
+    min-height: 300px;
 }
 
 .typed-container .green {
@@ -4582,8 +4587,4 @@ button {
 }
 .typed-container .black {
     color: #000;
-}
-
-.typed-hidden {
-    display: none;
 }
