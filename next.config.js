@@ -4,7 +4,8 @@ const withFonts = require('next-fonts');
 module.exports = withCSS(
   withFonts({
     enableSvg: true,
-    env: {
+    exportTrailingSlash: true, // Makes pages to be exported as index.html files
+    env: { // Any of these vars can be accessed as process.env.{name}
       donateUrl: 'https://acel.me/donate',
       ga: 'UA-38351554-5'
     },
