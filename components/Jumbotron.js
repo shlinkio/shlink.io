@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const scrollOptions = { behavior: 'smooth', block: 'start' };
 const scrollToRef = (ref) => () => ref.current && ref.current.scrollIntoView(scrollOptions);
@@ -9,7 +9,7 @@ const Jumbotron = ({ scrollTo }) => (
     <div className="content">
       <h1>Shlink</h1>
       <p>
-        A self-hosted URL shortener.<br/>
+        A self-hosted URL shortener.<br />
         Shorten URLs and serve them under your own short domain.
       </p>
       <ul className="actions">

@@ -1,6 +1,6 @@
 import React from 'react';
-import Documentation from "./index";
-import Link from "next/link";
+import Link from 'next/link';
+import Documentation from './index';
 
 const LongRunningTasks = () => (
   <Documentation>

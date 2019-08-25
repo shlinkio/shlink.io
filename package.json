@@ -10,6 +10,8 @@
     "url": "https://github.com/shlinkio/shlink.io"
   },
   "scripts": {
+    "lint": "eslint components pages",
+    "lint:fix": "npm run lint -- --fix",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -27,5 +29,19 @@
     "react-dom": "^16.9.0",
     "react-highlight": "^0.12.0",
     "react-typed": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.11.1",
+    "eslint-config-adidas-babel": "^1.1.0",
+    "eslint-config-adidas-env": "^1.1.0",
+    "eslint-config-adidas-es6": "^1.2.0",
+    "eslint-config-adidas-react": "^1.1.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1"
   }
 }

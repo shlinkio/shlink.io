@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from "../components/Layout";
+import Layout from '../components/Layout';
 
 const Features = () => (
   <Layout pageTitle="Features">
@@ -41,7 +41,8 @@ const Features = () => (
             <p>
               Easily make third party tools use shlink to shorten URLs by using a
               <a target="_blank" href="/swagger-ui/index.html#/ShortCodes/get_v1_short_codes_shorten">single-request API
-                endpoint</a>.
+                endpoint
+              </a>.
             </p>
           </div>
         </section>
@@ -97,9 +98,12 @@ const Features = () => (
           <div className="content">
             <h3>Docker image</h3>
             <p>
-              Use the official <a target="_blank"
-                                   href="https://github.com/shlinkio/shlink/blob/master/docker/README.md">docker
-              image</a> to deploy shlink in a container-based infrastructure.
+              Use the official <a
+                target="_blank"
+                href="https://github.com/shlinkio/shlink/blob/master/docker/README.md"
+              >docker
+              image
+              </a> to deploy shlink in a container-based infrastructure.
             </p>
           </div>
         </section>

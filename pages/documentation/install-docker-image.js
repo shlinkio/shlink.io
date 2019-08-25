@@ -1,5 +1,5 @@
 import React from 'react';
-import Documentation from "./index";
+import Documentation from './index';
 
 const InstallDockerImage = () => (
   <Documentation>

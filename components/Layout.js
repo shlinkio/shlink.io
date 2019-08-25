@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Menu from './Menu';
 import Footer from './Footer';
-import SectionHeader from "./SectionHeader";
+import SectionHeader from './SectionHeader';
 
 import 'highlight.js/styles/atom-one-light.css';
 import 'font-awesome/css/font-awesome.css';

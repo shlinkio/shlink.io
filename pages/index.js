@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import Jumbotron from "../components/Jumbotron";
-import FakeBrowser from "../components/FakeBrowser";
-import Terminal from "../components/Terminal";
+import Jumbotron from '../components/Jumbotron';
+import FakeBrowser from '../components/FakeBrowser';
+import Terminal from '../components/Terminal';
 
 class Home extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Home extends React.Component {
   render() {
     return (
       <Layout>
-        <Jumbotron scrollTo={this.scrollTo}/>
+        <Jumbotron scrollTo={this.scrollTo} />
 
         <section className="wrapper" ref={this.scrollTo}>
           <div className="inner alt">
@@ -35,15 +35,18 @@ class Home extends React.Component {
               <p>Access your shortened URLs from anywhere.<br />Simple authentication and easy to integrate.</p>
             </Terminal>
 
-            <FakeBrowser inBrowser={<img src="/images/shlink-web-client.gif" alt="Shlink web client"/>}>
+            <FakeBrowser inBrowser={<img src="/images/shlink-web-client.gif" alt="Shlink web client" />}>
               <h3>Progressive web application</h3>
               <p>Manage shlink using this beautiful and intuitive <a target="_blank" href="https://app.shlink.io">progressive
-                web application</a>, or build your own.</p>
+                web application
+              </a>, or build your own.
+              </p>
             </FakeBrowser>
 
             <section className="special">
               <p>Shlink will track all the visits to your short URLs, saving detailed information and then
-                transparently redirecting the visitor to the long URL:</p>
+                transparently redirecting the visitor to the long URL:
+              </p>
               <ul className="icons labeled">
                 <li><span className="icon fa-arrow-circle-o-right"><span className="label">Referer</span></span></li>
                 <li><span className="icon fa-laptop"><span className="label">Remote IP address</span></span></li>
@@ -59,7 +62,7 @@ class Home extends React.Component {
               </header>
               <ul className="actions">
                 <li>
-                  <Link  href="/features">
+                  <Link href="/features">
                     <a className="button special icon fa-bolt">Features</a>
                   </Link>
                 </li>
@@ -79,12 +82,24 @@ class Home extends React.Component {
           </header>
           <p>
             Shlink is a PHP-based open source project, distributed under the <a
-            href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license and hosted on <a
-            href="https://github.com/shlinkio/shlink" target="_blank">Github</a>.<br />
+              href="https://opensource.org/licenses/MIT"
+              target="_blank"
+            >MIT
+            </a> license and hosted on <a
+                                                                               href="https://github.com/shlinkio/shlink" target="_blank"
+                                                                                                        >Github
+            </a>.<br />
             It is built with cutting edge technologies, such as <a
-            href="https://docs.zendframework.com/zend-expressive/" target="_blank">Zend Expressive</a>, <a
-            href="http://www.doctrine-project.org/projects/orm.html" target="_blank">Doctrine</a> or <a
-            href="http://symfony.com/doc/current/components/console.html" target="_blank">Symfony</a>.
+              href="https://docs.zendframework.com/zend-expressive/"
+              target="_blank"
+            >Zend Expressive
+            </a>, <a
+                                                                  href="http://www.doctrine-project.org/projects/orm.html" target="_blank"
+                                                                      >Doctrine
+            </a> or <a
+                    href="http://symfony.com/doc/current/components/console.html" target="_blank"
+                          >Symfony
+            </a>.
           </p>
         </section>
       </Layout>

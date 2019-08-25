@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from "../../components/Layout";
-import SectionMenu from "../../components/SectionMenu";
-import Link from "next/link";
+import Link from 'next/link';
+import Layout from '../../components/Layout';
+import SectionMenu from '../../components/SectionMenu';
 
 const menuItems = [
   {

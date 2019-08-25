@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from "../../components/Layout";
-import SectionMenu from "../../components/SectionMenu";
+import Layout from '../../components/Layout';
+import SectionMenu from '../../components/SectionMenu';
 
 const menuItems = [
   {
@@ -39,13 +39,19 @@ const ApiDocs = ({ children }) => (
 
                     <p>Shlink provides a REST API that can be used to integrate the short URLs management on any system or application.</p>
                     <p>All the requests return JSON-encoded responses and semantic status codes, so it should be easy to
-                      implement client apps that consume this API.</p>
+                      implement client apps that consume this API.
+                    </p>
                     <p>However, if an unexpected error occurs, the system could end returning HTML. To prevent this, always
-                      pass the <code>Accept</code> header with the <code>application/json</code> value.</p>
-                    <p>This API supports <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing"
-                                            target="_blank">CORS</a> (Cross domain), automatically generating
+                      pass the <code>Accept</code> header with the <code>application/json</code> value.
+                    </p>
+                    <p>This API supports <a
+                      href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing"
+                      target="_blank"
+                    >CORS
+                    </a> (Cross domain), automatically generating
                       the <code>Access-Control-*</code> headers and managing OPTIONS requests, so it can be consumed from
-                      web clients hosted on different domains.</p>
+                      web clients hosted on different domains.
+                    </p>
                     <p>Follow the documentation in order to see how to manage errors and perform requests correctly.</p>
                   </React.Fragment>
                 )}

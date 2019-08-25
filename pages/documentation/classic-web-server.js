@@ -1,6 +1,6 @@
 import React from 'react';
-import Documentation from './index';
 import Highlight from 'react-highlight';
+import Documentation from './index';
 
 const ClassicWebServer = () => (
   <Documentation>

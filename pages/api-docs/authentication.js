@@ -1,6 +1,6 @@
 import React from 'react';
-import ApiDocs from "./index";
-import Highlight from "react-highlight";
+import Highlight from 'react-highlight';
+import ApiDocs from './index';
 
 const Authentication = () => (
   <ApiDocs>

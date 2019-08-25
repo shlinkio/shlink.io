@@ -1,7 +1,7 @@
 import React from 'react';
-import Documentation from "./index";
-import Link from "next/link";
-import DownloadLatestBtn from "../../components/DownloadLatestBtn";
+import Link from 'next/link';
+import DownloadLatestBtn from '../../components/DownloadLatestBtn';
+import Documentation from './index';
 
 const InstallDistFile = () => (
   <Documentation>

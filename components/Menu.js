@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
 const Menu = ({ window = global.window }) => {
-  const [active, setActive] = useState(false);
+  const [ active, setActive ] = useState(false);
   const currentPage = useRouter().pathname;
 
   useEffect(() => {
     window.onscroll = () => setActive(window.scrollY >= 20);
-    return () => (window.onscroll = () => {})
+
+    return () => window.onscroll = () => {};
   }, []);
 
   return (
-    <nav id="navbar" className={classNames({ 'active': active })}>
+    <nav id="navbar" className={classNames({ active })}>
       <a className="logo" href="/">
         <img src="/images/shlink-logo-white.png" />&nbsp;&nbsp;Shlink
       </a>

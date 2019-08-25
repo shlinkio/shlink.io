@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import FakeBrowser from './FakeBrowser';
 import Typed from 'react-typed';
+import FakeBrowser from './FakeBrowser';
 
 const prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span>';
 const strings = {
   'cli-example': [
-    '`' + prompt + '` ^100 shlink short-url:generate https://shlink.io ^500 '
+    `\`${prompt}\` ^100 shlink short-url:generate https://shlink.io ^500 `
     + '`<br>Processed URL: <span class="green">https://shlink.io</span>'
     + '<br>Generated URL: <span class="green">https://doma.in/rY9k</span>'
-    + '<br>' + prompt + '` ^200 shlink short-url:parse rY9k ^250 '
+    + `<br>${prompt}\` ^200 shlink short-url:parse rY9k ^250 `
     + '`<br>Long URL: <span class="green">https://shlink.io</span>'
-    + '<br>' + prompt + '` ^200 shlink short-url:visits rY9k ^250 '
+    + `<br>${prompt}\` ^200 shlink short-url:visits rY9k ^250 `
     + '`<br>+---------+------+------------+---------+'
     + '<br>| <span class="green">Referer</span> | <span class="green">Date</span> | <span class="green">User agent</span> | <span class="green">Country</span> |'
-    + '<br>+---------+------+------------+---------+`'
+    + '<br>+---------+------+------------+---------+`',
   ],
   'rest-example': [
     '<span class="yellow">POST</span> https://doma.in/rest/v1/short-urls'
@@ -45,7 +45,7 @@ const strings = {
     + '<br>&nbsp;&nbsp;&nbsp;&nbsp;],'
     + '<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="black">"pagination"</span>: {},'
     + '<br>&nbsp;&nbsp;}`'
-    + '<br>}`'
+    + '<br>}`',
   ],
 };
 

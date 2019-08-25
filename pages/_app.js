@@ -1,4 +1,4 @@
-import App from 'next/app'
+import App from 'next/app';
 import Router from 'next/router';
 import withGA from 'next-ga';
 

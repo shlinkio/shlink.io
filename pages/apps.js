@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from "../components/Layout";
-import SectionHeader from "../components/SectionHeader";
+import Layout from '../components/Layout';
+import SectionHeader from '../components/SectionHeader';
 
 const Apps = () => (
   <Layout pageTitle="Apps">
