@@ -9,3 +9,12 @@ services:
             - "8080:8080"
         volumes:
             - ./:/home/shlinkio/www
+
+    shlink_webstie_node:
+        container_name: shlink_webstie_node
+        image: node:10.16.3-alpine
+        command: /bin/sh -c "cd /blog && npm install && npm run dev"
+        volumes:
+            - ./:/blog
+        ports:
+            - "3000:3000"

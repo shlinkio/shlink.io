@@ -6,5 +6,9 @@ node_modules
 php*.xml
 LICENSE
 config/autoload/*local*
-build
+/build
 docker-compose.*
+/.next/
+/out/
+npm-debug.log*
+/home
