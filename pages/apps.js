@@ -4,9 +4,7 @@ import SectionHeader from "../components/SectionHeader";
 
 const Apps = () => (
   <Layout currentPage="apps" pageTitle="Apps">
-    <SectionHeader>Apps</SectionHeader>
-
-    <section id="one" className="wrapper">
+    <section className="wrapper">
       <div className="inner alt">
         <section className="spotlight">
           <div className="image app">

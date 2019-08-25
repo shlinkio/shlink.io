@@ -41,9 +41,7 @@ const menuItems = [
 
 const ApiDocs = ({ children }) => (
   <Layout currentPage="api-docs" pageTitle="API Docs">
-    <SectionHeader>API Docs</SectionHeader>
-
-    <section id="one" className="wrapper">
+    <section className="wrapper">
       <div className="inner alt">
         <section className="spotlight text-only">
           <div className="content">

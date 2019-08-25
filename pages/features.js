@@ -4,9 +4,7 @@ import SectionHeader from "../components/SectionHeader";
 
 const Features = () => (
   <Layout currentPage="features" pageTitle="Features">
-    <SectionHeader>Features</SectionHeader>
-
-    <section id="one" className="wrapper">
+    <section className="wrapper">
       <div className="inner alt">
         <section className="spotlight">
           <div className="image">

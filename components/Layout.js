@@ -6,6 +6,7 @@ import Footer from './Footer';
 import 'highlight.js/styles/atom-one-light.css';
 import 'font-awesome/css/font-awesome.css';
 import '../public/assets/css/main.css';
+import SectionHeader from "./SectionHeader";
 
 const Layout = ({ children, currentPage, pageTitle }) => (
   <React.Fragment>
@@ -17,6 +18,7 @@ const Layout = ({ children, currentPage, pageTitle }) => (
     </Head>
 
     <Menu currentPage={currentPage} />
+    {pageTitle && <SectionHeader>{pageTitle}</SectionHeader>}
     {children}
     <Footer />
   </React.Fragment>
