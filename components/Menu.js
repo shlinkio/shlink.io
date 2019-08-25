@@ -15,7 +15,7 @@ const Menu = ({ window = global.window }) => {
   return (
     <nav id="navbar" className={classNames({ 'active': active })}>
       <a className="logo" href="/">
-        <img src="/static/images/shlink-logo-white.png" />&nbsp;&nbsp;Shlink
+        <img src="/images/shlink-logo-white.png" />&nbsp;&nbsp;Shlink
       </a>
 
       <button className="menu-collapser" data-menu=".main-menu"><i className="fa fa-bars" /></button>

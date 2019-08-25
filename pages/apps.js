@@ -8,7 +8,7 @@ const Apps = () => (
       <div className="inner alt">
         <section className="spotlight">
           <div className="image app">
-            <img src="/static/images/apps/shlink-web-client.png" alt="Shlink web client" />
+            <img src="/images/apps/shlink-web-client.png" alt="Shlink web client" />
           </div>
           <div className="content">
             <h3>

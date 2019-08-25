@@ -28,7 +28,7 @@ const Jumbotron = ({ scrollTo }) => (
       </ul>
     </div>
     <div className="image">
-      <img src="/static/images/shlink-logo-white.png" alt="Shlink logo" />
+      <img src="/images/shlink-logo-white.png" alt="Shlink logo" />
     </div>
   </header>
 );

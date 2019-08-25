@@ -16,26 +16,6 @@ const menuItems = [
     link: '/swagger-ui/index.html',
     external: true,
   },
-  // {
-  //   text: 'Install docker image',
-  //   link: '/api-docs/install-docker-image',
-  // },
-  // {
-  //   text: 'Install from dist file',
-  //   link: '/api-docs/install-dist-file',
-  // },
-  // {
-  //   text: 'Serve with swoole',
-  //   link: '/api-docs/serve-with-swoole',
-  // },
-  // {
-  //   text: 'Classic web server',
-  //   link: '/api-docs/classic-web-server',
-  // },
-  // {
-  //   text: 'Long-running tasks',
-  //   link: '/api-docs/long-running-tasks',
-  // },
 ];
 
 const ApiDocs = ({ children }) => (

@@ -35,7 +35,7 @@ class Home extends React.Component {
               <p>Access your shortened URLs from anywhere.<br />Simple authentication and easy to integrate.</p>
             </Terminal>
 
-            <FakeBrowser inBrowser={<img src="/static/images/shlink-web-client.gif" alt="Shlink web client"/>}>
+            <FakeBrowser inBrowser={<img src="/images/shlink-web-client.gif" alt="Shlink web client"/>}>
               <h3>Progressive web application</h3>
               <p>Manage shlink using this beautiful and intuitive <a target="_blank" href="https://app.shlink.io">progressive
                 web application</a>, or build your own.</p>

@@ -1,12 +1,6 @@
 version: '3'
 
 services:
-    shlink_webstie:
-        user: 1000:1000
-        volumes:
-            - /etc/passwd:/etc/passwd:ro
-            - /etc/group:/etc/group:ro
-
     shlink_webstie_node:
         user: 1000:1000
         volumes:
