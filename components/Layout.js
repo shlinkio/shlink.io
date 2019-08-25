@@ -8,7 +8,7 @@ import 'font-awesome/css/font-awesome.css';
 import '../public/assets/css/main.css';
 import SectionHeader from "./SectionHeader";
 
-const Layout = ({ children, currentPage, pageTitle }) => (
+const Layout = ({ children, pageTitle }) => (
   <React.Fragment>
     <Head>
       <title>Shlink - The URL shortener{pageTitle ? ` | ${pageTitle}` : ''}</title>
@@ -17,7 +17,7 @@ const Layout = ({ children, currentPage, pageTitle }) => (
       <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
     </Head>
 
-    <Menu currentPage={currentPage} />
+    <Menu />
     {pageTitle && <SectionHeader>{pageTitle}</SectionHeader>}
     {children}
     <Footer />

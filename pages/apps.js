@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import SectionHeader from "../components/SectionHeader";
 
 const Apps = () => (
-  <Layout currentPage="apps" pageTitle="Apps">
+  <Layout pageTitle="Apps">
     <section className="wrapper">
       <div className="inner alt">
         <section className="spotlight">

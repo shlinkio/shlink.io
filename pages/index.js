@@ -13,7 +13,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Layout currentPage="home">
+      <Layout>
         <Jumbotron scrollTo={this.scrollTo}/>
 
         <section className="wrapper" ref={this.scrollTo}>

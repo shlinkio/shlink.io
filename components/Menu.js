@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import classNames from 'classnames';
 
-const Menu = ({ currentPage, window = global.window }) => {
+const Menu = ({ window = global.window }) => {
   const [active, setActive] = useState(false);
+  const currentPage = useRouter().pathname;
 
   useEffect(() => {
     window.onscroll = () => setActive(window.scrollY >= 20);
@@ -18,27 +20,27 @@ const Menu = ({ currentPage, window = global.window }) => {
       <button className="menu-collapser" data-menu=".main-menu"><i className="fa fa-bars" /></button>
 
       <ul className="menu main-menu">
-        <li className={currentPage === 'features' ? 'active' : ''}>
+        <li className={currentPage.startsWith('/features') ? 'active' : ''}>
           <Link href="/features">
             <a><i className="fa fa-bolt" />&nbsp;&nbsp;Features</a>
           </Link>
         </li>
-        <li className={currentPage === 'documentation' ? 'active' : ''}>
+        <li className={currentPage.startsWith('/documentation') ? 'active' : ''}>
           <Link href="/documentation">
             <a><i className="fa fa-book" />&nbsp;&nbsp;Documentation</a>
           </Link>
         </li>
-        <li className={currentPage === 'command-line-interface' ? 'active' : ''}>
+        <li className={currentPage.startsWith('/command-line-interface') ? 'active' : ''}>
           <Link href="/command-line-interface">
             <a><i className="fa fa-terminal" />&nbsp;&nbsp;CLI</a>
           </Link>
         </li>
-        <li className={currentPage === 'api-docs' ? 'active' : ''}>
+        <li className={currentPage.startsWith('/api-docs') ? 'active' : ''}>
           <Link href="/api-docs">
             <a><i className="fa fa-server" />&nbsp;&nbsp;API Docs</a>
           </Link>
         </li>
-        <li className={currentPage === 'apps' ? 'active' : ''}>
+        <li className={currentPage.startsWith('/apps') ? 'active' : ''}>
           <Link href="/apps">
             <a><i className="fa fa-rocket" />&nbsp;&nbsp;Apps</a>
           </Link>
