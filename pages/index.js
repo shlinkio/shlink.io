@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Jumbotron from "../components/Jumbotron";
+import FakeBrowser from "../components/FakeBrowser";
+import Terminal from "../components/Terminal";
 
 class Home extends React.Component {
   constructor(props) {
@@ -16,69 +18,28 @@ class Home extends React.Component {
 
         <section className="wrapper" ref={this.scrollTo}>
           <div className="inner alt">
-            <section className="spotlight">
-              <div className="image">
-                <div className="fake-browser-ui">
-                  <div className="frame">
-                    <span className="close" />
-                    <span className="minimize" />
-                    <span className="maximize" />
-                  </div>
-                  <div className="typed-container cli-example-container"><span id="cli-example" /></div>
-                </div>
-              </div>
-              <div className="content">
-                <h3>
-                  <Link href="/command-line-interface">
-                    <a>Command line interface</a>
-                  </Link>
-                </h3>
-                <p>
-                  Generate and manage short URLs from the command line.<br />
-                  List short codes, see visits or get the URL behind a short code.
-                </p>
-              </div>
-            </section>
+            <Terminal id="cli-example">
+              <h3>
+                <Link href="/command-line-interface"><a>Command line interface</a></Link>
+              </h3>
+              <p>
+                Generate and manage short URLs from the command line.<br />
+                List short codes, see visits or get the URL behind a short code.
+              </p>
+            </Terminal>
 
-            <section className="spotlight">
-              <div className="image">
-                <div className="fake-browser-ui">
-                  <div className="frame">
-                    <span className="close" />
-                    <span className="minimize" />
-                    <span className="maximize" />
-                  </div>
-                  <div className="typed-container rest-example-container"><span id="rest-example" /></div>
-                </div>
-              </div>
-              <div className="content">
-                <h3>
-                  <Link href="/api-docs">
-                    <a>REST API</a>
-                  </Link>
-                </h3>
-                <p>Access your shortened URLs from anywhere.<br />Simple authentication and easy to integrate.</p>
-              </div>
-            </section>
+            <Terminal id="rest-example">
+              <h3>
+                <Link href="/api-docs"><a>REST API</a></Link>
+              </h3>
+              <p>Access your shortened URLs from anywhere.<br />Simple authentication and easy to integrate.</p>
+            </Terminal>
 
-            <section className="spotlight">
-              <div className="image">
-                <div className="fake-browser-ui">
-                  <div className="frame">
-                    <span className="close" />
-                    <span className="minimize" />
-                    <span className="maximize" />
-                  </div>
-
-                  <img src="/static/images/shlink-web-client.gif" alt="Shlink web client"/>
-                </div>
-              </div>
-              <div className="content">
-                <h3>Progressive web application</h3>
-                <p>Manage shlink using this beautiful and intuitive <a target="_blank" href="https://app.shlink.io">progressive
-                  web application</a>, or build your own.</p>
-              </div>
-            </section>
+            <FakeBrowser inBrowser={<img src="/static/images/shlink-web-client.gif" alt="Shlink web client"/>}>
+              <h3>Progressive web application</h3>
+              <p>Manage shlink using this beautiful and intuitive <a target="_blank" href="https://app.shlink.io">progressive
+                web application</a>, or build your own.</p>
+            </FakeBrowser>
 
             <section className="special">
               <p>Shlink will track all the visits to your short URLs, saving detailed information and then
