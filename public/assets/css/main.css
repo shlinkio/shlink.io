@@ -3788,7 +3788,7 @@
     right: 0;
     border-bottom: 2px solid transparent;
     background-color: #4696e5;
-    background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size1.svg");
+    background-image: url("/static/images/background/overlay.png"), url("/static/images/background/pattern-size1.svg");
     background-position: top left, center center;
     background-attachment: fixed, fixed;
     background-size: auto, cover;
@@ -3928,7 +3928,7 @@
         -webkit-justify-content: center;
         -ms-justify-content: center;
         justify-content: center;
-        background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size1.svg");
+        background-image: url("/static/images/background/overlay.png"), url("/static/images/background/pattern-size1.svg");
         background-position: top left, center center;
         background-attachment: fixed, fixed;
         background-size: auto, cover;
@@ -4198,7 +4198,7 @@
         @media screen and (max-width: 1280px) {
 
             #header {
-                background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size2.svg");
+                background-image: url("/static/images/background/overlay.png"), url("/static/images/background/pattern-size2.svg");
             }
 
         }
@@ -4242,7 +4242,7 @@
         @media screen and (max-width: 736px) {
 
             #header {
-                background-image: url("/assets/css/images/overlay.png"), url("/assets/css/images/pattern-size3.svg");
+                background-image: url("/static/images/background/overlay.png"), url("/static/images/background/pattern-size3.svg");
             }
 
                 #header h1 {

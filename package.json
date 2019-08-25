@@ -16,15 +16,18 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "next": "9.0.4",
-    "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "font-awesome": "^4.7.0",
+    "next": "^9.0.4",
+    "next-fonts": "^0.18.0",
+    "next-ga": "^2.3.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "grunt": "^1.0",
+    "grunt-contrib-cssmin": "^3.0",
     "grunt-contrib-uglify": "^4.0",
     "grunt-processhtml": "^0.4",
-    "grunt-contrib-cssmin": "^3.0",
     "grunt-string-replace": "^1.0"
   }
 }

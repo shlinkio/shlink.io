@@ -1,14 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import React from 'react';
+import Link from 'next/link';
+import Nav from '../components/nav';
+import Layout from '../components/Layout';
 
 const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-    </Head>
-
+  <Layout currentPage="home">
     <Nav />
 
     <div className='hero'>
@@ -85,7 +81,7 @@ const Home = () => (
         color: #333;
       }
     `}</style>
-  </div>
-)
+  </Layout>
+);
 
-export default Home
+export default Home;
