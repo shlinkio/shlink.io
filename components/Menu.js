@@ -9,7 +9,8 @@ const Menu = ({ window = global.window }) => {
 
   useEffect(() => {
     window.onscroll = () => setActive(window.scrollY >= 20);
-  }, [currentPage]);
+    return () => (window.onscroll = () => {})
+  }, []);
 
   return (
     <nav id="navbar" className={classNames({ 'active': active })}>
