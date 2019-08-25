@@ -49,17 +49,6 @@
             var menuSelector = $(this).data('menu');
             $(menuSelector).stop().slideToggle();
         });
-
-        $body.on('click', '.accordion-header', function () {
-            var $accordion = $(this).closest('.accordion'),
-                $selectedElementBody = $(this).closest('.accordion-item').find('.accordion-body'),
-                isAlreadyVisible = $selectedElementBody.is(':visible');
-
-            $accordion.find('.accordion-body').slideUp();
-            if (! isAlreadyVisible) {
-                $selectedElementBody.slideDown();
-            }
-        });
     });
 
     function getLatestRelease() {

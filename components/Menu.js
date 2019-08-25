@@ -34,7 +34,7 @@ const Menu = ({ currentPage, window = global.window }) => {
           </Link>
         </li>
         <li className={currentPage === 'api-docs' ? 'active' : ''}>
-          <Link href="api-docs">
+          <Link href="/api-docs">
             <a><i className="fa fa-server" />&nbsp;&nbsp;API Docs</a>
           </Link>
         </li>

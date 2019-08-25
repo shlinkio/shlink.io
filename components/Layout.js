@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Menu from './Menu';
 import Footer from './Footer';
 
-// import '../public/assets/css/highlightjs-github.min.css';
+import 'highlight.js/styles/atom-one-light.css';
 import 'font-awesome/css/font-awesome.css';
 import '../public/assets/css/main.css';
 
