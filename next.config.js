@@ -5,7 +5,8 @@ module.exports = withCSS(
   withFonts({
     enableSvg: true,
     env: {
-      donateUrl: 'https://acel.me/donate'
+      donateUrl: 'https://acel.me/donate',
+      ga: 'UA-38351554-5'
     }
   })
 );

@@ -1,87 +1,134 @@
 import React from 'react';
 import Link from 'next/link';
-import Nav from '../components/nav';
 import Layout from '../components/Layout';
+import Jumbotron from "../components/Jumbotron";
 
-const Home = () => (
-  <Layout currentPage="home">
-    <Nav />
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.scrollTo = props.scrollTo || React.createRef();
+  }
 
-    <div className='hero'>
-      <h1 className='title'>Welcome to Next.js!</h1>
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+  render() {
+    return (
+      <Layout currentPage="home">
+        <Jumbotron scrollTo={this.scrollTo}/>
 
-      <div className='row'>
-        <Link href='https://github.com/zeit/next.js#setup'>
-          <a className='card'>
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next.js on GitHub and in their examples.</p>
-          </a>
-        </Link>
-        <Link href='https://github.com/zeit/next.js/tree/master/examples'>
-          <a className='card'>
-            <h3>Examples &rarr;</h3>
-            <p>Find other example boilerplates on the Next.js GitHub.</p>
-          </a>
-        </Link>
-        <Link href='https://github.com/zeit/next.js'>
-          <a className='card'>
-            <h3>Create Next App &rarr;</h3>
-            <p>Was this tool helpful? Let us know how we can improve it!</p>
-          </a>
-        </Link>
-      </div>
-    </div>
+        <section className="wrapper" ref={this.scrollTo}>
+          <div className="inner alt">
+            <section className="spotlight">
+              <div className="image">
+                <div className="fake-browser-ui">
+                  <div className="frame">
+                    <span className="close" />
+                    <span className="minimize" />
+                    <span className="maximize" />
+                  </div>
+                  <div className="typed-container cli-example-container"><span id="cli-example" /></div>
+                </div>
+              </div>
+              <div className="content">
+                <h3>
+                  <Link href="/command-line-interface">
+                    <a>Command line interface</a>
+                  </Link>
+                </h3>
+                <p>
+                  Generate and manage short URLs from the command line.<br />
+                  List short codes, see visits or get the URL behind a short code.
+                </p>
+              </div>
+            </section>
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </Layout>
-);
+            <section className="spotlight">
+              <div className="image">
+                <div className="fake-browser-ui">
+                  <div className="frame">
+                    <span className="close" />
+                    <span className="minimize" />
+                    <span className="maximize" />
+                  </div>
+                  <div className="typed-container rest-example-container"><span id="rest-example" /></div>
+                </div>
+              </div>
+              <div className="content">
+                <h3>
+                  <Link href="/api-docs">
+                    <a>REST API</a>
+                  </Link>
+                </h3>
+                <p>Access your shortened URLs from anywhere.<br />Simple authentication and easy to integrate.</p>
+              </div>
+            </section>
+
+            <section className="spotlight">
+              <div className="image">
+                <div className="fake-browser-ui">
+                  <div className="frame">
+                    <span className="close" />
+                    <span className="minimize" />
+                    <span className="maximize" />
+                  </div>
+
+                  <img src="/static/images/shlink-web-client.gif" alt="Shlink web client"/>
+                </div>
+              </div>
+              <div className="content">
+                <h3>Progressive web application</h3>
+                <p>Manage shlink using this beautiful and intuitive <a target="_blank" href="https://app.shlink.io">progressive
+                  web application</a>, or build your own.</p>
+              </div>
+            </section>
+
+            <section className="special">
+              <p>Shlink will track all the visits to your short URLs, saving detailed information and then
+                transparently redirecting the visitor to the long URL:</p>
+              <ul className="icons labeled">
+                <li><span className="icon fa-arrow-circle-o-right"><span className="label">Referer</span></span></li>
+                <li><span className="icon fa-laptop"><span className="label">Remote IP address</span></span></li>
+                <li><span className="icon fa-globe"><span className="label">Location of the visitor</span></span></li>
+                <li><span className="icon fa-chrome"><span className="label">User agent</span></span></li>
+              </ul>
+            </section>
+
+            <section className="special">
+              <header>
+                <h4>What makes Shlink different</h4>
+                <p>Shlink adds a lot of features which are not usually available in other free services.</p>
+              </header>
+              <ul className="actions">
+                <li>
+                  <Link  href="/features">
+                    <a className="button special icon fa-bolt">Features</a>
+                  </Link>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <section className="wrapper style2 special">
+          <header className="major">
+            <h2>Why shlink?</h2>
+            <p>
+              The name is an abbreviation for "short link", but if you get the words "shrink" and "link" together,
+              the result is <b>shlink</b> too.<br />
+              It is also the sound made by a sword being unsheathed.
+            </p>
+          </header>
+          <p>
+            Shlink is a PHP-based open source project, distributed under the <a
+            href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> license and hosted on <a
+            href="https://github.com/shlinkio/shlink" target="_blank">Github</a>.<br />
+            It is built with cutting edge technologies, such as <a
+            href="https://docs.zendframework.com/zend-expressive/" target="_blank">Zend Expressive</a>, <a
+            href="http://www.doctrine-project.org/projects/orm.html" target="_blank">Doctrine</a> or <a
+            href="http://symfony.com/doc/current/components/console.html" target="_blank">Symfony</a>.
+          </p>
+        </section>
+      </Layout>
+    );
+  }
+}
 
 export default Home;

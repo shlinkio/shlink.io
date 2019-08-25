@@ -20,7 +20,7 @@ const Footer = () => (
       </li>
     </ul>
     <p className="copyright">
-      &copy; YEAR Shlink. With <span className="fa fa-heart" title="love" /> by{' '}
+      &copy; {new Date().getFullYear()} Shlink. With <span className="fa fa-heart" title="love" /> by{' '}
       <a href="https://www.alejandrocelaya.com" target="_blank">Alejandro Celaya</a> -
       Template from <a href="http://html5up.net">HTML5 UP</a>
     </p>
