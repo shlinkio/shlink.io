@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from "../../components/Layout";
-import SectionHeader from "../../components/SectionHeader";
 import SectionMenu from "../../components/SectionMenu";
 
 const menuItems = [
