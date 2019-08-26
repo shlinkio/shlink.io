@@ -19,15 +19,13 @@
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "no-invalid-this": "off",
+    "no-inline-comments": "off",
     "no-console": "warn",
     "template-curly-spacing": ["error", "never"],
     "no-warning-comments": "off",
     "no-magic-numbers": "off",
     "no-undefined": "off",
-    "indent": ["error", 2, {
-      "SwitchCase": 1
-    }
-    ],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/jsx-curly-spacing": ["error", "never"],
     "react/jsx-indent-props": ["error", 2],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],

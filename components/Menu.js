@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 const Menu = ({ window = global.window }) => {
   const [ active, setActive ] = useState(false);
+  const [ show, setShowSubmenu ] = useState(false);
   const currentPage = useRouter().pathname;
 
   useEffect(() => {
@@ -15,13 +16,15 @@ const Menu = ({ window = global.window }) => {
 
   return (
     <nav id="navbar" className={classNames({ active })}>
-      <a className="logo" href="/">
-        <img src="/images/shlink-logo-white.png" />&nbsp;&nbsp;Shlink
-      </a>
+      <Link href="/">
+        <a className="logo">
+          <img src="/images/shlink-logo-white.png" />&nbsp;&nbsp;Shlink
+        </a>
+      </Link>
 
-      <button className="menu-collapser" data-menu=".main-menu"><i className="fa fa-bars" /></button>
+      <button className="menu-collapser" onClick={() => setShowSubmenu(!show)}><i className="fa fa-bars" /></button>
 
-      <ul className="menu main-menu">
+      <ul className={classNames('menu main-menu', { show })}>
         <li className={currentPage.startsWith('/features') ? 'active' : ''}>
           <Link href="/features">
             <a><i className="fa fa-bolt" />&nbsp;&nbsp;Features</a>
