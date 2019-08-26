@@ -4,10 +4,6 @@ import Menu from './Menu';
 import Footer from './Footer';
 import SectionHeader from './SectionHeader';
 
-import 'highlight.js/styles/atom-one-light.css';
-import 'font-awesome/css/font-awesome.css';
-import '../assets/css/main.css';
-
 const Layout = ({ children, pageTitle }) => (
   <React.Fragment>
     <Head>
