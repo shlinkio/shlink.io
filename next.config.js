@@ -14,7 +14,8 @@ module.exports = withCSS(
       publicDirectory: true, // Makes all content in public dir to be served statically from the root
     },
     webpack(config) {
-      config.optimization.minimizer = [ new OptimizeCSSAssetsPlugin({}) ];
+      config.optimization.minimizer = config.optimization.minimizer || [];
+      config.optimization.minimizer.push(new OptimizeCSSAssetsPlugin({}));
 
       return config;
     },
