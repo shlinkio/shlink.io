@@ -1,5 +1,5 @@
-const withCSS = require('@zeit/next-css');
 const withFonts = require('next-fonts');
+const withCSS = require('./src/withCss'); // FIXME Own implementation used until this is fixed: https://github.com/zeit/next-plugins/issues/526
 
 module.exports = withCSS(
   withFonts({

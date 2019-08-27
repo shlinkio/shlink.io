@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "css-loader": "^3.0.0",
     "eslint": "^5.11.1",
     "eslint-config-adidas-babel": "^1.1.0",
     "eslint-config-adidas-env": "^1.1.0",
@@ -42,6 +43,8 @@
     "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "find-up": "^4.1.0",
+    "mini-css-extract-plugin": "^0.8.0"
   }
 }
