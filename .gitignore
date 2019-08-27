@@ -1,9 +1,8 @@
 .idea
-vendor/
-composer.lock
-package-lock.json
-build
+/build
 node_modules
-public/assets/js/main.min.js
-public/assets/css/main.min.css
 docker-compose.override.yml
+/.next/
+/out/
+npm-debug.log*
+home

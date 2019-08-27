@@ -1,10 +1,9 @@
-composer.lock
-package-lock.json
-vendor
 node_modules
-*.md
-php*.xml
+/*.md
 LICENSE
-config/autoload/*local*
-build
+/build
 docker-compose.*
+/.next/
+/out/
+npm-debug.log*
+/home

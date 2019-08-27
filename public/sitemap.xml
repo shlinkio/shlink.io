@@ -4,39 +4,39 @@
         <loc>https://shlink.io/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/features</loc>
+        <loc>https://shlink.io/features/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation</loc>
+        <loc>https://shlink.io/documentation/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/install-docker-image</loc>
+        <loc>https://shlink.io/documentation/install-docker-image/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/install-dist-file</loc>
+        <loc>https://shlink.io/documentation/install-dist-file/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/serve-with-swoole</loc>
+        <loc>https://shlink.io/documentation/serve-with-swoole/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/classic-web-server</loc>
+        <loc>https://shlink.io/documentation/classic-web-server/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/long-running-tasks</loc>
+        <loc>https://shlink.io/documentation/long-running-tasks/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/api-docs</loc>
+        <loc>https://shlink.io/api-docs/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/api-docs/error-management</loc>
+        <loc>https://shlink.io/api-docs/error-management/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/api-docs/authentication</loc>
+        <loc>https://shlink.io/api-docs/authentication/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/command-line-interface</loc>
+        <loc>https://shlink.io/command-line-interface/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/apps</loc>
+        <loc>https://shlink.io/apps/</loc>
     </url>
 </urlset>

@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-    shlink_webstie:
-        container_name: shlink_webstie
-        image: composer:1.8.4
-        command: /bin/sh -c "cd /home/shlinkio/www && composer install && composer serve"
-        ports:
-            - "8080:8080"
+    shlink_webstie_node:
+        container_name: shlink_webstie_node
+        image: node:10.16.3-alpine
+        command: /bin/sh -c "cd /shlink-website && npm install && npm run dev"
         volumes:
-            - ./:/home/shlinkio/www
+            - ./:/shlink-website
+        ports:
+            - "3000:3000"

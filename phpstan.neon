@@ -1,4 +1,0 @@
-parameters:
-	ignoreErrors:
-		- '#is not subtype of Throwable#'
-		- '#League\\Plates\\callback#'
