@@ -1,4 +1,5 @@
 const withFonts = require('next-fonts');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const withCSS = require('./src/withCss'); // FIXME Own implementation used until this is fixed: https://github.com/zeit/next-plugins/issues/526
 
 module.exports = withCSS(
@@ -11,6 +12,11 @@ module.exports = withCSS(
     },
     experimental: {
       publicDirectory: true, // Makes all content in public dir to be served statically from the root
+    },
+    webpack(config) {
+      config.optimization.minimizer = [ new OptimizeCSSAssetsPlugin({}) ];
+
+      return config;
     },
   })
 );
