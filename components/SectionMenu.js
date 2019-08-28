@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import ExternalLink from './ExternalLink';
+import { ExternalLink } from 'react-external-link';
 
 const SectionMenu = ({ items }) => {
   const activeItemPath = useRouter().pathname;
