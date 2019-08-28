@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink } from 'react-external-link';
 import Link from 'next/link';
 import DownloadLatestBtn from '../../components/DownloadLatestBtn';
 import Documentation from './index';
@@ -12,12 +13,12 @@ const InstallDistFile = () => (
     <ul>
       <li>
         PHP 7.2 or greater with JSON, intl, curl, PDO and gd extensions enabled (APCu extension is recommended if you
-        don't plan to use swoole).
+        {'don\'t'} plan to use swoole).
       </li>
       <li>MySQL, PostgreSQL or SQLite.</li>
       <li>
-        The <a href="https://www.swoole.co.uk/" target="_blank">swoole</a> PHP extension (if you plan to serve Shlink
-        with swoole) or the web server of your choice with PHP integration (Apache or Nginx).
+        The <ExternalLink href="https://www.swoole.co.uk/">swoole</ExternalLink> PHP extension (if you plan to serve
+        Shlink with swoole) or the web server of your choice with PHP integration (Apache or Nginx).
       </li>
     </ul>
 
@@ -55,11 +56,11 @@ const InstallDistFile = () => (
       </li>
       <li>
         Generate your first API key by running <code>bin/cli api-key:generate</code>. You will need the key in order
-        to interact with shlink's API.
+        to interact with {'shlink\'s'} API.
       </li>
       <li>
-        Finally access to <a href="https://app.shlink.io" target="_blank">https://app.shlink.io</a> and configure your
-        server to start creating short URLs.
+        Finally access to <ExternalLink href="https://app.shlink.io">https://app.shlink.io</ExternalLink> and configure
+        your server to start creating short URLs.
       </li>
     </ul>
   </Documentation>

@@ -9,7 +9,10 @@ const ClassicWebServer = () => (
     </header>
     <p>In order to be able to serve shlink, you need to put a web server with PHP integration in front of it.</p>
     <p>Both Apache and Nginx are officially supported, but other web servers should work as well.</p>
-    <p>Here you can find two simple examples of the virtual hosts needed for both Apache and Nginx (you may need to modify them depending on your setup).</p>
+    <p>
+        Here you can find two simple examples of the virtual hosts needed for both Apache and Nginx (you may need to
+        modify them depending on your setup).
+    </p>
 
     <h4>Nginx</h4>
     <Highlight className="nginx">

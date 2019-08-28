@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Typed from 'react-typed';
+import PropTypes from 'prop-types';
 import FakeBrowser from './FakeBrowser';
 
 const prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span>';
@@ -49,6 +50,11 @@ const strings = {
   ],
 };
 
+const propTypes = {
+  id: PropTypes.oneOf(Object.keys(strings)).isRequired,
+  children: PropTypes.node,
+};
+
 const Terminal = ({ children, id }) => {
   const typedOptions = {
     typeSpeed: 100,
@@ -65,5 +71,7 @@ const Terminal = ({ children, id }) => {
 
   return <FakeBrowser inBrowser={inBrowser}>{children}</FakeBrowser>;
 };
+
+Terminal.propTypes = propTypes;
 
 export default Terminal;

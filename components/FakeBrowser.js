@@ -1,4 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  children: PropTypes.node.isRequired,
+  inBrowser: PropTypes.node.isRequired,
+};
 
 const FakeBrowser = ({ children, inBrowser }) => (
   <section className="spotlight">
@@ -15,5 +21,7 @@ const FakeBrowser = ({ children, inBrowser }) => (
     <div className="content">{children}</div>
   </section>
 );
+
+FakeBrowser.propTypes = propTypes;
 
 export default FakeBrowser;

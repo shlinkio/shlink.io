@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 
 const Features = () => (
@@ -11,7 +12,7 @@ const Features = () => (
           </div>
           <div className="content">
             <h3>URL shortening</h3>
-            <p>Obviously, Shlink wouldn't be any good if it wasn't capable of shortening URLs.</p>
+            <p>Obviously, Shlink {'wouldn\'t'} be any good if it {'wasn\'t'} capable of shortening URLs.</p>
           </div>
         </section>
         <section className="spotlight">
@@ -98,12 +99,11 @@ const Features = () => (
           <div className="content">
             <h3>Docker image</h3>
             <p>
-              Use the official <a
-                target="_blank"
-                href="https://github.com/shlinkio/shlink/blob/master/docker/README.md"
-              >docker
-              image
-              </a> to deploy shlink in a container-based infrastructure.
+              Use the official{' '}
+              <ExternalLink href="https://github.com/shlinkio/shlink/blob/master/docker/README.md">
+                docker image
+              </ExternalLink>{' '}
+              to deploy shlink in a container-based infrastructure.
             </p>
           </div>
         </section>

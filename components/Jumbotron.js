@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 const scrollOptions = { behavior: 'smooth', block: 'start' };
 const scrollToRef = (ref) => () => ref.current && ref.current.scrollIntoView(scrollOptions);
+
+const propTypes = {
+  scrollTo: PropTypes.shape({
+    current: PropTypes.object,
+  }).isRequired,
+};
 
 const Jumbotron = ({ scrollTo }) => (
   <header id="header" className="big">
@@ -32,5 +39,7 @@ const Jumbotron = ({ scrollTo }) => (
     </div>
   </header>
 );
+
+Jumbotron.propTypes = propTypes;
 
 export default Jumbotron;

@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import ExternalLink from './ExternalLink';
+import PropTypes from 'prop-types';
+import { ExternalLink } from 'react-external-link';
+
+const propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    external: PropTypes.bool,
+  })).isRequired,
+};
 
 const SectionMenu = ({ items }) => {
   const activeItemPath = useRouter().pathname;
@@ -32,5 +41,7 @@ const SectionMenu = ({ items }) => {
     </nav>
   );
 };
+
+SectionMenu.propTypes = propTypes;
 
 export default SectionMenu;

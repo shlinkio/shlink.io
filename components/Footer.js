@@ -1,27 +1,28 @@
 import React from 'react';
+import { ExternalLink } from 'react-external-link';
 
 const Footer = () => (
   <footer id="footer">
     <ul className="icons">
       <li>
-        <a href="https://github.com/shlinkio/shlink" target="_blank" className="icon fa-github">
+        <ExternalLink href="https://github.com/shlinkio/shlink" className="icon fa-github">
           <span className="label">Github</span>
-        </a>
+        </ExternalLink>
       </li>
       <li>
-        <a href="https://twitter.com/shlinkio" target="_blank" className="icon fa-twitter">
+        <ExternalLink href="https://twitter.com/shlinkio" className="icon fa-twitter">
           <span className="label">Twitter</span>
-        </a>
+        </ExternalLink>
       </li>
       <li>
-        <a href={process.env.donateUrl} target="_blank" className="icon fa-paypal">
+        <ExternalLink href={process.env.donateUrl} className="icon fa-paypal">
           <span className="label">Donate</span>
-        </a>
+        </ExternalLink>
       </li>
     </ul>
     <p className="copyright">
       &copy; {new Date().getFullYear()} Shlink. With <span className="fa fa-heart" title="love" /> by{' '}
-      <a href="https://www.alejandrocelaya.com" target="_blank">Alejandro Celaya</a> -
+      <ExternalLink href="https://www.alejandrocelaya.com">Alejandro Celaya</ExternalLink> -
       Template from <a href="http://html5up.net">HTML5 UP</a>
     </p>
   </footer>

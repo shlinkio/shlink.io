@@ -7,7 +7,11 @@ const ErrorManagement = () => (
     <header>
       <h3>Error management</h3>
     </header>
-    <p>When an error occurs while performing a request to the REST API, all the responses contain an <code>error</code> and a <code>message</code> properties. The first one is a unique error code that never changes, and the second is a human-friendly error that helps to know what happened while debugging.</p>
+    <p>
+      When an error occurs while performing a request to the REST API, all the responses contain
+      an <code>error</code> and a <code>message</code> properties. The first one is a unique error code that never
+      changes, and the second is a human-friendly error that helps to know what happened while debugging.
+    </p>
 
     <Highlight className="json">
       {`{
@@ -16,8 +20,14 @@ const ErrorManagement = () => (
 }`}
     </Highlight>
 
-    <p>Error interpretation depends on the context and the endpoint. Every endpoint includes the documentation for its specific errors.</p>
-    <p>Depending on the error, a specific status code will be returned, using 400 for validation errors, 401 for authentication errors and 500 for other server or unexpected errors.</p>
+    <p>
+      Error interpretation depends on the context and the endpoint. Every endpoint includes the documentation for its
+      specific errors.
+    </p>
+    <p>
+      Depending on the error, a specific status code will be returned, using 400 for validation errors, 401 for
+      authentication errors and 500 for other server or unexpected errors.
+    </p>
     <p>An error will never have a status 200.</p>
   </ApiDocs>
 );
