@@ -12,7 +12,9 @@ const Menu = ({ window = global.window }) => {
   useEffect(() => {
     window.onscroll = () => setActive(window.scrollY >= 20);
 
-    return () => window.onscroll = () => {};
+    return () => {
+      window.onscroll = () => {};
+    };
   }, []);
 
   return (

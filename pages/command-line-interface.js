@@ -16,9 +16,10 @@ const CommandLineInterface = () => (
             <p>From creating, updating or listing short URLs, to manage API keys or handle the list of tags.</p>
 
             <h4>Commands</h4>
-            <p>Commands in shlink are contextually namespaced
-              in <code>api-key</code>, <code>short-url</code>, <code>tag</code> and <code>visit</code> (also <code>config</code>,
-              which commands are currently deprecated).
+            <p>
+              Commands in shlink are contextually namespaced
+              in <code>api-key</code>, <code>short-url</code>, <code>tag</code> and <code>visit</code> (
+              also <code>config</code>, which commands are currently deprecated).
             </p>
             <p>Running the <code>bin/cli</code> script you will see the full list of commands with a description for
               each one of them.
@@ -26,7 +27,7 @@ const CommandLineInterface = () => (
             <p>Running any command with the <code>-h</code> flag will display an extended help for that specific
               command, showing the list of arguments and a descriptive explanation on how to use it.
             </p>
-            <p>This is the full list of commands exposed by Shlink's CLI tool:</p>
+            <p>This is the full list of commands exposed by {'Shlink\'s'} CLI tool:</p>
 
             <Highlight>
               {`Usage:
