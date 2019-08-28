@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import SectionMenu from '../../components/SectionMenu';
 
@@ -25,6 +26,10 @@ const menuItems = [
     link: '/documentation/long-running-tasks',
   },
 ];
+
+const propTypes = {
+  children: PropTypes.node,
+};
 
 const Documentation = ({ children }) => (
   <Layout pageTitle="Documentation">
@@ -67,5 +72,7 @@ const Documentation = ({ children }) => (
     </section>
   </Layout>
 );
+
+Documentation.propTypes = propTypes;
 
 export default Documentation;

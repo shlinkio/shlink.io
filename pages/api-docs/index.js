@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../../components/Layout';
 import SectionMenu from '../../components/SectionMenu';
@@ -18,6 +19,10 @@ const menuItems = [
     external: true,
   },
 ];
+
+const propTypes = {
+  children: PropTypes.node,
+};
 
 const ApiDocs = ({ children }) => (
   <Layout pageTitle="API Docs">
@@ -67,5 +72,7 @@ const ApiDocs = ({ children }) => (
     </section>
   </Layout>
 );
+
+ApiDocs.propTypes = propTypes;
 
 export default ApiDocs;

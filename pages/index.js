@@ -1,10 +1,17 @@
 import React from 'react';
 import { ExternalLink } from 'react-external-link';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Jumbotron from '../components/Jumbotron';
 import FakeBrowser from '../components/FakeBrowser';
 import Terminal from '../components/Terminal';
+
+const propTypes = {
+  scrollTo: PropTypes.shape({
+    current: PropTypes.object,
+  }),
+};
 
 const Home = ({ scrollTo = React.createRef() }) => (
   <Layout>
@@ -85,5 +92,7 @@ const Home = ({ scrollTo = React.createRef() }) => (
     </section>
   </Layout>
 );
+
+Home.propTypes = propTypes;
 
 export default Home;

@@ -3,6 +3,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  window: PropTypes.shape({
+    scrollY: PropTypes.number.isRequired,
+    onscroll: PropTypes.func,
+  }),
+};
 
 const Menu = ({ window = global.window }) => {
   const [ active, setActive ] = useState(false);
@@ -62,5 +70,7 @@ const Menu = ({ window = global.window }) => {
     </nav>
   );
 };
+
+Menu.propTypes = propTypes;
 
 export default Menu;
