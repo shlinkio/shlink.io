@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink } from 'react-external-link';
 import Highlight from 'react-highlight';
 import Documentation from './index';
 
@@ -7,10 +8,19 @@ const ServeWithSwoole = () => (
     <header>
       <h3>Serve Shlink using swoole</h3>
     </header>
-    <p>Shlink can be served using <a href="https://www.swoole.co.uk/" target="_blank">swoole</a>.</p>
-    <p>Swoole provides a non-blocking I/O server similar to the one used for node.js applications, which lets web apps to be run once and kept in memory while serving requests</p>
-    <p>It is recommended to serve Shlink with swoole, since it is quite faster and has a few extra benefits (like running some heavy tasks immediately after a request has been served).</p>
-    <p>In order to use swoole, you have to install the swoole PHP extension using Pecl: <code>pecl install swoole-4.3.2</code></p>
+    <p>Shlink can be served using <ExternalLink href="https://www.swoole.co.uk/">swoole</ExternalLink>.</p>
+    <p>
+      Swoole provides a non-blocking I/O server similar to the one used for node.js applications, which lets web apps
+      to be run once and kept in memory while serving requests
+    </p>
+    <p>
+      It is recommended to serve Shlink with swoole, since it is quite faster and has a few extra benefits (like
+      running some heavy tasks immediately after a request has been served).
+    </p>
+    <p>
+      In order to use swoole, you have to install the swoole PHP extension using
+      Pecl: <code>pecl install swoole-4.3.2</code>
+    </p>
     <p>You will also need to create a daemon script, in <code>/etc/init.d/shlink_swoole</code></p>
     <p>You can use this sample, replacing <code>/path/to/shlink</code> by the path to your shlink installation:</p>
 
@@ -78,7 +88,10 @@ esac`}
       <li><code>sudo update-rc.d shlink_swoole enable</code></li>
       <li><code>/etc/init.d/shlink_swoole start</code></li>
     </ul>
-    <p>After that, you should be able to access shlink on port 8080. The service will be automatically run at system start-up, and all access logs will be written in <code>/var/log/shlink/shlink_swoole.log</code></p>
+    <p>
+      After that, you should be able to access shlink on port 8080. The service will be automatically run at system
+      start-up, and all access logs will be written in <code>/var/log/shlink/shlink_swoole.log</code>
+    </p>
   </Documentation>
 );
 

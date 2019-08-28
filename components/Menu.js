@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
+import { ExternalLink } from 'react-external-link';
 
 const Menu = ({ window = global.window }) => {
   const [ active, setActive ] = useState(false);
@@ -51,9 +52,9 @@ const Menu = ({ window = global.window }) => {
           </Link>
         </li>
         <li>
-          <a href={process.env.donateUrl} target="_blank">
+          <ExternalLink href={process.env.donateUrl}>
             <i className="fa fa-paypal" />&nbsp;&nbsp;Donate
-          </a>
+          </ExternalLink>
         </li>
       </ul>
     </nav>
