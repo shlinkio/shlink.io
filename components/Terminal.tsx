@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 import Typed from 'react-typed';
-import PropTypes from 'prop-types';
 import FakeBrowser from './FakeBrowser';
 
 const prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span>';
-const strings = {
+const strings: { [id: string]: string[] } = {
   'cli-example': [
     `\`${prompt}\` ^100 shlink short-url:generate https://shlink.io ^500 `
     + '`<br>Processed URL: <span class="green">https://shlink.io</span>'
@@ -50,12 +49,12 @@ const strings = {
   ],
 };
 
-const propTypes = {
-  id: PropTypes.oneOf(Object.keys(strings)).isRequired,
-  children: PropTypes.node,
-};
+interface TerminalProps {
+  id: string;
+  children: ReactNode;
+}
 
-const Terminal = ({ children, id }) => {
+const Terminal: FunctionComponent<TerminalProps> = ({ children, id }) => {
   const typedOptions = {
     typeSpeed: 100,
     loop: true,
@@ -65,13 +64,11 @@ const Terminal = ({ children, id }) => {
   };
   const inBrowser = (
     <div className={`typed-container ${id}-container`}>
-      <Typed {...typedOptions} strings={strings[id] || []} />
+      <Typed strings={strings[id] || []} {...typedOptions} />
     </div>
   );
 
   return <FakeBrowser inBrowser={inBrowser}>{children}</FakeBrowser>;
 };
-
-Terminal.propTypes = propTypes;
 
 export default Terminal;

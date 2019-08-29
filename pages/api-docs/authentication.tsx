@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Highlight from 'react-highlight';
-import ApiDocs from './index';
+import ApiDocs from '.';
 
-const Authentication = () => (
+const Authentication: FunctionComponent = () => (
   <ApiDocs>
     <header>
       <h3>Authentication</h3>

@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent, ReactNode } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../../components/Layout';
-import SectionMenu from '../../components/SectionMenu';
+import SectionMenu, { Item } from '../../components/SectionMenu';
 
-const menuItems = [
+const menuItems: Item[] = [
   {
     text: 'Authentication',
     link: '/api-docs/authentication',
@@ -20,11 +19,11 @@ const menuItems = [
   },
 ];
 
-const propTypes = {
-  children: PropTypes.node,
-};
+interface ApiDocsProps {
+  children: ReactNode;
+}
 
-const ApiDocs = ({ children }) => (
+const ApiDocs: FunctionComponent<ApiDocsProps> = ({ children }) => (
   <Layout pageTitle="API Docs">
     <section className="wrapper">
       <div className="inner alt">
@@ -72,7 +71,5 @@ const ApiDocs = ({ children }) => (
     </section>
   </Layout>
 );
-
-ApiDocs.propTypes = propTypes;
 
 export default ApiDocs;

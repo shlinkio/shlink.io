@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
-import Documentation from './index';
+import Documentation from '.';
 
-const InstallDockerImage = () => (
+const InstallDockerImage: FunctionComponent = () => (
   <Documentation>
     <header>
       <h3>Install using a docker image</h3>
@@ -11,7 +11,10 @@ const InstallDockerImage = () => (
       The docker image is probably the simplest installation use case, since it includes all dependencies and makes
       use of swoole to serve Shlink.
     </p>
-    <p>If you plan to deploy shlink in a container-based infrastructure, you can just use the official <ExternalLink href="https://github.com/shlinkio/shlink/blob/master/docker/README.md">docker image</ExternalLink>.</p>
+    <p>
+      If you plan to deploy shlink in a container-based infrastructure, you can just use the
+      official <ExternalLink href="https://github.com/shlinkio/shlink/blob/master/docker/README.md">docker image</ExternalLink>.
+    </p>
     <p>
       Once deployed, you will need to run <code>docker exec -it shlink_container shlink api-key:generate</code> in
       order to generate the first API key.

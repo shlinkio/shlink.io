@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
-import Documentation from './index';
+import Documentation from '.';
 
-const LongRunningTasks = () => (
+const LongRunningTasks: FunctionComponent = () => (
   <Documentation>
     <header>
       <h3>Long-running tasks</h3>
@@ -24,11 +24,16 @@ const LongRunningTasks = () => (
     </p>
     <p>You can of course run it manually from time to time, but it is a good idea to schedule its execution.</p>
     <blockquote>
-      When serving Shlink <Link href="/documentation/serve-with-swoole"><a>with swoole</a></Link>, locating visits is automatically done just after redirecting end users. However, it might be a good idea to have previous scheduling in place, as a backup in case some of those asynchronous processes fail.
+      When serving Shlink <Link href="/documentation/serve-with-swoole"><a>with swoole</a></Link>, locating visits is
+      automatically done just after redirecting end users. However, it might be a good idea to have previous scheduling
+      in place, as a backup in case some of those asynchronous processes fail.
     </blockquote>
 
     <h4>Generate page previews</h4>
-    <p>Shlink is capable of generating the preview of a page behind a short code by appending the <b>/preview</b> suffix to any short URL. For example, <b>https://doma.in/abc123/preview</b>.</p>
+    <p>
+      Shlink is capable of generating the preview of a page behind a short code by appending the <b>/preview</b> suffix
+      to any short URL. For example, <b>https://doma.in/abc123/preview</b>.
+    </p>
     <p>
       If you access any of those URLs, the image will be generated and cached, but the first time, the request will
       take a little bit more time.

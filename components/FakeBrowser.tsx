@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent, ReactNode } from 'react';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  inBrowser: PropTypes.node.isRequired,
-};
+interface FakeBrowserProps {
+  inBrowser: ReactNode;
+  children: ReactNode;
+}
 
-const FakeBrowser = ({ children, inBrowser }) => (
+const FakeBrowser: FunctionComponent<FakeBrowserProps> = ({ children, inBrowser }) => (
   <section className="spotlight">
     <div className="image">
       <div className="fake-browser-ui">
@@ -21,7 +20,5 @@ const FakeBrowser = ({ children, inBrowser }) => (
     <div className="content">{children}</div>
   </section>
 );
-
-FakeBrowser.propTypes = propTypes;
 
 export default FakeBrowser;

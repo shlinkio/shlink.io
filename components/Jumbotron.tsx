@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent, RefObject } from 'react';
 import Link from 'next/link';
 
-const scrollOptions = { behavior: 'smooth', block: 'start' };
-const scrollToRef = (ref) => () => ref.current && ref.current.scrollIntoView(scrollOptions);
-
-const propTypes = {
-  scrollTo: PropTypes.shape({
-    current: PropTypes.object,
-  }).isRequired,
+const scrollOptions: ScrollIntoViewOptions = { behavior: 'smooth', block: 'start' };
+const scrollToRef = (ref: RefObject<HTMLElement>) => (): void => {
+  ref.current && ref.current.scrollIntoView(scrollOptions);
 };
 
-const Jumbotron = ({ scrollTo }) => (
+interface JumbotronProps {
+  scrollTo: RefObject<HTMLElement>;
+}
+
+const Jumbotron: FunctionComponent<JumbotronProps> = ({ scrollTo }) => (
   <header id="header" className="big">
     <div className="content">
       <h1>Shlink</h1>
@@ -39,7 +38,5 @@ const Jumbotron = ({ scrollTo }) => (
     </div>
   </header>
 );
-
-Jumbotron.propTypes = propTypes;
 
 export default Jumbotron;
