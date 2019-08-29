@@ -9,7 +9,7 @@ const DownloadLatestBtn = () => {
 
   useEffect(() => {
     fetch(GITHUB_API)
-      .then((r) => r.json())
+      .then(async (r) => r.json())
       .then(({ assets }) => {
         const [{ browser_download_url }] = assets; // eslint-disable-line
 

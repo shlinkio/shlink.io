@@ -21,7 +21,7 @@ const Menu = ({ window = global.window }) => {
     window.onscroll = () => setActive(window.scrollY >= 20);
 
     return () => {
-      window.onscroll = () => {};
+      window.onscroll = undefined;
     };
   }, []);
 

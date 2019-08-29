@@ -5,8 +5,12 @@
     "adidas-env/node",
     "adidas-es6",
     "adidas-babel",
-    "adidas-react"
+    "adidas-react",
+    "adidas-typescript"
   ],
+  "parserOptions": {
+    "tsconfigRootDir": "."
+  },
   "globals": {
     "process": true,
     "setImmediate": true
@@ -23,7 +27,7 @@
     "no-console": "warn",
     "template-curly-spacing": ["error", "never"],
     "no-warning-comments": "off",
-    "no-magic-numbers": "off",
+    "@typescript-eslint/no-magic-numbers": "off",
     "no-undefined": "off",
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/jsx-curly-spacing": ["error", "never"],
