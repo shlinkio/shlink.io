@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { ExternalLink } from 'react-external-link';
 
-const propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    external: PropTypes.bool,
-  })).isRequired,
-};
+interface Item {
+  text: string;
+  link: string;
+  external?: boolean;
+}
 
-const SectionMenu = ({ items }) => {
+interface SectionMenu {
+  items: Item[];
+}
+
+const SectionMenu: FunctionComponent<SectionMenu> = ({ items }) => {
   const activeItemPath = useRouter().pathname;
-  const activeItemText = items.reduce(
+  const activeItemText = items.reduce<ReactNode>(
     (activeText, { text, link }) => activeItemPath === link ? text : activeText,
     <i>Select...</i>
   );
@@ -41,7 +42,5 @@ const SectionMenu = ({ items }) => {
     </nav>
   );
 };
-
-SectionMenu.propTypes = propTypes;
 
 export default SectionMenu;

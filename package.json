@@ -30,6 +30,7 @@
     "react-typed": "^1.2.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
     "@types/next": "^8.0.6",
     "@types/node": "^12.7.2",
     "@types/optimize-css-assets-webpack-plugin": "^5.0.0",

@@ -1,16 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent, ReactNode } from 'react';
 import Head from 'next/head';
 import Menu from './Menu';
 import Footer from './Footer';
 import SectionHeader from './SectionHeader';
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-  pageTitle: PropTypes.string,
-};
+interface LayoutProps {
+  pageTitle?: string;
+  children: ReactNode;
+}
 
-const Layout = ({ children, pageTitle }) => (
+const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => (
   <React.Fragment>
     <Head>
       <title>Shlink - The URL shortener{pageTitle ? ` | ${pageTitle}` : ''}</title>
@@ -25,7 +24,5 @@ const Layout = ({ children, pageTitle }) => (
     <Footer />
   </React.Fragment>
 );
-
-Layout.propTypes = propTypes;
 
 export default Layout;

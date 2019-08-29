@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
-import PropTypes from 'prop-types';
 
-const propTypes = {
-  window: PropTypes.shape({
-    scrollY: PropTypes.number.isRequired,
-    onscroll: PropTypes.func,
-  }),
-};
-
-const Menu = ({ window = global.window }) => {
+// FIXME Make window object to be passed as prop
+const Menu: FunctionComponent = () => {
   const [ active, setActive ] = useState(false);
   const [ show, setShowSubmenu ] = useState(false);
-  const currentPage = useRouter().pathname;
+  const { pathname: currentPage } = useRouter();
 
   useEffect(() => {
     window.onscroll = () => setActive(window.scrollY >= 20);
 
     return () => {
-      window.onscroll = undefined;
+      window.onscroll = null;
     };
   }, []);
 
@@ -62,7 +55,7 @@ const Menu = ({ window = global.window }) => {
           </Link>
         </li>
         <li>
-          <ExternalLink href={process.env.donateUrl}>
+          <ExternalLink href={process.env.donateUrl || ''}>
             <i className="fa fa-paypal" />&nbsp;&nbsp;Donate
           </ExternalLink>
         </li>
@@ -70,7 +63,5 @@ const Menu = ({ window = global.window }) => {
     </nav>
   );
 };
-
-Menu.propTypes = propTypes;
 
 export default Menu;

@@ -38,6 +38,15 @@
     "react/no-did-update-set-state": "off",
     "react/display-name": "off",
     "@typescript-eslint/no-magic-numbers": "off",
-    "@typescript-eslint/explicit-function-return-type": ["error", { "allowTypedFunctionExpressions": true }]
-  }
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/array-type": ["error", "array"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
 }
