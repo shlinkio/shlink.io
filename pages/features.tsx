@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 
-const Features = () => (
+const Features: FunctionComponent = () => (
   <Layout pageTitle="Features">
     <section className="wrapper">
       <div className="inner alt">

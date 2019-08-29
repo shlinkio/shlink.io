@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
 
-interface Item {
+export interface Item {
   text: string;
   link: string;
   external?: boolean;

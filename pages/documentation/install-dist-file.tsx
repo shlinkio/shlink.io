@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Link from 'next/link';
 import DownloadLatestBtn from '../../components/DownloadLatestBtn';
-import Documentation from './index';
+import Documentation from '.';
 
-const InstallDistFile = () => (
+const InstallDistFile: FunctionComponent = () => (
   <Documentation>
     <header>
       <h3>Install using a dist file</h3>
@@ -45,7 +45,7 @@ const InstallDistFile = () => (
       </li>
       <li>
         Configure your system to be able to serve Shlink:
-        <ul style={{ 'margin-bottom': 0 }}>
+        <ul style={{ marginBottom: 0 }}>
           <li>
             <Link href="/documentation/serve-with-swoole"><a>Serve Shlink using swoole</a></Link>.
           </li>

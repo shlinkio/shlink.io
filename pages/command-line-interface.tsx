@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Highlight from 'react-highlight';
 import Layout from '../components/Layout';
 
-const CommandLineInterface = () => (
+const CommandLineInterface: FunctionComponent = () => (
   <Layout pageTitle="Command Line Interface">
     <section id="one" className="wrapper">
       <div className="inner alt">
@@ -29,7 +29,7 @@ const CommandLineInterface = () => (
             </p>
             <p>This is the full list of commands exposed by {'Shlink\'s'} CLI tool:</p>
 
-            <Highlight>
+            <Highlight className="">
               {`Usage:
   command [options] [arguments]
 

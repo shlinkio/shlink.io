@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 
 const BASE62 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const shuffle = (str) => str.split('').sort(() => 0.5 - Math.random()).join('');
+const shuffle = (str: string): string => str.split('').sort(() => 0.5 - Math.random()).join('');
 
-const ShortCodeChars = () => {
+const ShortCodeChars: FunctionComponent = () => {
   const [ charset, setCharset ] = useState('');
 
   useEffect(() => setCharset(shuffle(BASE62)), []);

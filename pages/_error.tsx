@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 
-const Error = () => (
+const Error: FunctionComponent = () => (
   <Layout pageTitle="404">
     <section id="one" className="wrapper">
       <div className="inner alt">

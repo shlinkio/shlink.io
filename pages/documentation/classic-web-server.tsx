@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Highlight from 'react-highlight';
-import Documentation from './index';
+import Documentation from '.';
 
-const ClassicWebServer = () => (
+const ClassicWebServer: FunctionComponent = () => (
   <Documentation>
     <header>
       <h3>Serve Shlink with a classic web server</h3>

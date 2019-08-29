@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Highlight from 'react-highlight';
-import Documentation from './index';
+import Documentation from '.';
 
-const ServeWithSwoole = () => (
+const ServeWithSwoole: FunctionComponent = () => (
   <Documentation>
     <header>
       <h3>Serve Shlink using swoole</h3>
