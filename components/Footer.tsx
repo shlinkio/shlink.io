@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 
-const Footer = () => (
+const Footer: FunctionComponent = () => (
   <footer id="footer">
     <ul className="icons">
       <li>
@@ -15,7 +15,7 @@ const Footer = () => (
         </ExternalLink>
       </li>
       <li>
-        <ExternalLink href={process.env.donateUrl} className="icon fa-paypal">
+        <ExternalLink href={process.env.donateUrl || ''} className="icon fa-paypal">
           <span className="label">Donate</span>
         </ExternalLink>
       </li>

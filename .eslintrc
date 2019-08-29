@@ -27,15 +27,17 @@
     "no-console": "warn",
     "template-curly-spacing": ["error", "never"],
     "no-warning-comments": "off",
-    "@typescript-eslint/no-magic-numbers": "off",
     "no-undefined": "off",
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/jsx-curly-spacing": ["error", "never"],
     "react/jsx-indent-props": ["error", 2],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
     "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/no-array-index-key": "off",
     "react/no-did-update-set-state": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "@typescript-eslint/no-magic-numbers": "off",
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowTypedFunctionExpressions": true }]
   }
 }
