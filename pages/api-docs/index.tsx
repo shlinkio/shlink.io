@@ -14,7 +14,7 @@ const menuItems: Item[] = [
   },
   {
     text: 'Endpoints',
-    link: '/swagger-ui/index.html',
+    link: 'https://api-spec.shlink.io',
     external: true,
   },
 ];

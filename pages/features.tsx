@@ -41,9 +41,9 @@ const Features: FunctionComponent = () => (
             <h3>Third party integrations</h3>
             <p>
               Easily make third party tools use shlink to shorten URLs by using a
-              <a target="_blank" href="/swagger-ui/index.html#/ShortCodes/get_v1_short_codes_shorten">single-request API
-                endpoint
-              </a>.
+              <ExternalLink href="https://api-spec.shlink.io#/ShortCodes/get_v1_short_codes_shorten">
+                single-request API endpoint
+              </ExternalLink>.
             </p>
           </div>
         </section>
