@@ -1,11 +1,6 @@
 {
   "extends": [
-    "adidas-env/browser",
-    "adidas-env/module",
-    "adidas-env/node",
-    "adidas-babel",
-    "adidas-react",
-    "adidas-typescript"
+    "@shlinkio/js-coding-standard"
   ],
   "parserOptions": {
     "tsconfigRootDir": "."
@@ -13,39 +8,5 @@
   "globals": {
     "process": true,
     "setImmediate": true
-  },
-  "settings": {
-    "react": {
-      "version": "16.9"
-    }
-  },
-  "rules": {
-    "comma-dangle": ["error", "always-multiline"],
-    "no-invalid-this": "off",
-    "no-inline-comments": "off",
-    "no-console": "warn",
-    "template-curly-spacing": ["error", "never"],
-    "no-warning-comments": "off",
-    "no-undefined": "off",
-    "indent": ["error", 2, { "SwitchCase": 1 }],
-    "react/jsx-curly-spacing": ["error", "never"],
-    "react/jsx-indent-props": ["error", 2],
-    "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
-    "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "react/no-array-index-key": "off",
-    "react/no-did-update-set-state": "off",
-    "react/display-name": "off",
-    "@typescript-eslint/no-magic-numbers": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/array-type": ["error", "array"]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.tsx"],
-      "rules": {
-        "react/prop-types": "off"
-      }
-    }
-  ]
+  }
 }
