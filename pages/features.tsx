@@ -40,8 +40,8 @@ const Features: FunctionComponent = () => (
           <div className="content">
             <h3>Third party integrations</h3>
             <p>
-              Easily make third party tools use shlink to shorten URLs by using a
-              <ExternalLink href="https://api-spec.shlink.io#/ShortCodes/get_v1_short_codes_shorten">
+              Easily make third party tools use shlink to shorten URLs by using a{' '}
+              <ExternalLink href="https://api-spec.shlink.io/#/Short%20URLs/shortenUrl">
                 single-request API endpoint
               </ExternalLink>.
             </p>
