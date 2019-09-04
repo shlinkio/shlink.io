@@ -10,8 +10,10 @@
     "url": "https://github.com/shlinkio/shlink.io"
   },
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx components pages",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx components pages test",
     "lint:fix": "npm run lint -- --fix",
+    "test": "jest --colors",
+    "test:cover": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -31,7 +33,10 @@
   },
   "devDependencies": {
     "@shlinkio/eslint-config-js-coding-standard": "^1.0.1",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
     "@types/classnames": "^2.2.9",
+    "@types/jest": "^24.0.18",
     "@types/next": "^8.0.6",
     "@types/node": "^12.7.2",
     "@types/optimize-css-assets-webpack-plugin": "^5.0.0",
@@ -43,11 +48,13 @@
     "eslint": "^5.11.1",
     "eslint-loader": "^2.1.1",
     "find-up": "^4.1.0",
+    "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^0.18.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prop-types": "^15.7.2",
+    "ts-jest": "^24.0.2",
     "typescript": "~3.5.3"
   }
 }

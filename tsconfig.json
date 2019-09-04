@@ -24,7 +24,8 @@
     "isolatedModules": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.*"
   ],
   "include": [
     "*.d.ts",
