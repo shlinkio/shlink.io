@@ -6,3 +6,4 @@ docker-compose.override.yml
 /out/
 npm-debug.log*
 home
+coverage
