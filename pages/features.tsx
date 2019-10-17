@@ -12,7 +12,7 @@ const Features: FunctionComponent = () => (
           </div>
           <div className="content">
             <h3>URL shortening</h3>
-            <p>Obviously, Shlink {'wouldn\'t'} be any good if it {'wasn\'t'} capable of shortening URLs.</p>
+            <p>Obviously, Shlink would not be any good if it {'wasn\'t'} capable of shortening URLs.</p>
           </div>
         </section>
         <section className="spotlight">
@@ -67,15 +67,6 @@ const Features: FunctionComponent = () => (
         </section>
         <section className="spotlight">
           <div className="image">
-            <i className="fa fa-image feature-image" />
-          </div>
-          <div className="content">
-            <h3>Previews</h3>
-            <p>Get previews in image format for any short URL.</p>
-          </div>
-        </section>
-        <section className="spotlight">
-          <div className="image">
             <i className="fa fa-tags feature-image" />
           </div>
           <div className="content">
@@ -94,7 +85,7 @@ const Features: FunctionComponent = () => (
         </section>
         <section className="spotlight">
           <div className="image">
-            <i className="fa fa-rocket feature-image" />
+            <i className="fa fa-cubes feature-image" />
           </div>
           <div className="content">
             <h3>Docker image</h3>
@@ -104,6 +95,18 @@ const Features: FunctionComponent = () => (
                 docker image
               </ExternalLink>{' '}
               to deploy shlink in a container-based infrastructure.
+            </p>
+          </div>
+        </section>
+        <section className="spotlight">
+          <div className="image">
+            <i className="fa fa-link feature-image" />
+          </div>
+          <div className="content">
+            <h3>Multi-domain</h3>
+            <p>
+              Serve multiple short domains under the same shlink instance. You can even use the same custom slug on
+              more than one domain.
             </p>
           </div>
         </section>
