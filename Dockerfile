@@ -1,4 +1,4 @@
-FROM node:10.16.3-alpine as node
+FROM node:12.11.0-alpine as node
 COPY . /shlink-website
 RUN cd /shlink-website && \
     npm install && \
