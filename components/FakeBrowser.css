@@ -1,0 +1,31 @@
+.fake-browser-ui .frame {
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 5px;
+    left: 1px;
+}
+
+.fake-browser-ui .frame span {
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    background-color: #eee;
+    float: left;
+    margin: 0 0 0 4px;
+}
+
+.fake-browser-ui .frame span.close {
+    background-color: #C23824;
+}
+.fake-browser-ui .frame span.minimize {
+    background-color: #F2C600;
+}
+.fake-browser-ui .frame span.maximize {
+    background-color: #1AAF5D;
+}
+
+.fake-browser-ui img {
+    border-radius: 0 0 2px 2px;
+    margin-top: 24px;
+}

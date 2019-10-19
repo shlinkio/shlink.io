@@ -1,6 +1,12 @@
 module.exports = {
+  globals: {
+    'ts-jest': {
+      babelConfig: '.babelrc',
+    },
+  },
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.css$': 'jest-transform-css',
   },
   moduleFileExtensions: [ 'ts', 'tsx', 'js', 'jsx' ],
   coverageDirectory: '<rootDir>/coverage',

@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react';
+import './FakeBrowser.css';
 
 interface FakeBrowserProps {
   inBrowser: ReactNode;

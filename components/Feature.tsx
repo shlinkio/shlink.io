@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
+import './Feature.css';
 
 interface FeatureProps {
   icon: string;
