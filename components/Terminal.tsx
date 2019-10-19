@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import Typed from 'react-typed';
 import FakeBrowser from './FakeBrowser';
+import './Terminal.css';
 
 const prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span>';
 const strings: { [id: string]: string[] } = {
@@ -63,7 +64,7 @@ const Terminal: FunctionComponent<TerminalProps> = ({ children, id }) => {
     backDelay: 2000,
   };
   const inBrowser = (
-    <div className={`typed-container ${id}-container`}>
+    <div className={`terminal ${id}`}>
       <Typed strings={strings[id] || []} {...typedOptions} />
     </div>
   );

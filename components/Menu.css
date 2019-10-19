@@ -1,0 +1,133 @@
+#navbar {
+    min-height: 50px;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid transparent;
+    background-color: #4696e5;
+    background-image: url("/images/background/overlay.png"), url("/images/background/pattern-size1.svg");
+    background-position: top left, center center;
+    background-attachment: fixed, fixed;
+    background-size: auto, cover;
+    z-index: 10;
+    -webkit-transition: border .3s ease-in-out;
+    -moz-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
+}
+#navbar.active {
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+#navbar .logo {
+    float: left;
+    font-weight: bold;
+    color: white;
+    border-top: 2px solid transparent;
+}
+#navbar .menu {
+    float: right;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#navbar .menu li {
+    font-weight: normal;
+    display: inline-block;
+    color: #d0e4f8;
+    padding: 0;
+}
+#navbar .menu li.active a {
+    border-bottom: 2px solid white !important;
+}
+#navbar .menu li a {
+    border-top: 2px solid transparent;
+    margin-bottom: -2px;
+}
+#navbar .menu li:hover a, #navbar .menu li.active a {
+    color: #fff;
+}
+
+@media (max-width: 736px) {
+    #navbar .menu li.active a {
+        border-bottom-color: transparent !important;
+        position: relative;
+    }
+    #navbar .menu li.active a:after {
+        content: '\f00c';
+        position: absolute;
+        right: 10px;
+        color: inherit;
+        font-family: FontAwesome;
+    }
+}
+
+#navbar a {
+    display: block;
+    height: 100%;
+    padding: 9px 15px;
+    line-height: 32px;
+    background-color: transparent;
+    border: none;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+#navbar a:hover {
+    background: rgba(255, 255, 255, .15);
+}
+#navbar .logo img {
+    height: 28px;
+    vertical-align: middle;
+}
+
+#navbar .menu-collapser {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    font-size: 26px;
+    padding: 0 8px;
+    height: 34px;
+    border: none;
+    background-color: transparent;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+    color: #d0e4f8 !important;
+    display: none;
+    outline: none;
+}
+#navbar .menu-collapser:hover,
+#navbar .menu-collapser:active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+#navbar .menu-collapser .fa {
+    display: block;
+}
+
+@media (max-width: 736px) {
+    #navbar .menu-collapser {
+        display: block;
+    }
+
+    #navbar .menu:not(.show) {
+        display: none;
+    }
+
+    #navbar .menu {
+        float: none;
+        clear: both;
+        width: 100%;
+    }
+
+    #navbar .menu li {
+        display: block;
+    }
+}

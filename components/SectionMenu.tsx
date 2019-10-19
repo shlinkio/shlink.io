@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
+import './SectionMenu.css';
 
 export interface Item {
   text: string;

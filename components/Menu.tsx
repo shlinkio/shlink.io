@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
+import './Menu.css';
 
 // FIXME Make window object to be passed as prop
 const Menu: FunctionComponent = () => {
