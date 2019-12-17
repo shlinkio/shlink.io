@@ -33,7 +33,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
           site_name: siteName, // eslint-disable-line
           images: [
             {
-              url: 'https://shlink.io/images/shlink-hero.jpg',
+              url: 'https://shlink.io/images/shlink-hero.png',
               height: 240,
               width: 625,
             },
