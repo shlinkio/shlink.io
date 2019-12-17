@@ -41,8 +41,10 @@ const Authentication: FunctionComponent = () => (
     </p>
     <Highlight className="json">
       {`{
-  "error": "INVALID_API_KEY",
-  "message": "Provided API key does not exist or is invalid"
+  "type": "INVALID_API_KEY",
+  "detail": "Provided API key does not exist or is invalid",
+  "title": "Invalid API key",
+  "status": 401
 }`}
     </Highlight>
 
@@ -52,8 +54,10 @@ const Authentication: FunctionComponent = () => (
     </p>
     <Highlight className="json">
       {`{
-  "error": "INVALID_AUTH_TOKEN",
-  "message": "Missing or invalid auth token provided. Perform a new authentication request and send provided token on every new request on the \\"Authorization\\" header"
+  "type": "INVALID_AUTH_TOKEN",
+  "detail": "Missing or invalid auth token provided. Perform a new authentication request and send provided token on every new request on the \\"Authorization\\" header",
+  "title": "Invalid auth token",
+  "status": 401
 }`}
     </Highlight>
 
@@ -64,14 +68,18 @@ const Authentication: FunctionComponent = () => (
     </p>
     <Highlight className="json">
       {`{
-  "error": "INVALID_AUTHORIZATION",
-  "message": "You need to provide the Bearer type in the Authorization header."
+  "type": "INVALID_AUTHORIZATION",
+  "detail": "You need to provide the Bearer type in the Authorization header.",
+  "title": "Invalid authorization",
+  "status": 401
 }`}
     </Highlight>
     <Highlight className="json">
       {`{
-  "error": "INVALID_AUTHORIZATION",
-  "message": "Provided authorization type &lt;type&gt; is not supported. Use Bearer instead."
+  "type": "INVALID_AUTHORIZATION",
+  "detail": "Provided authorization type &lt;type&gt; is not supported. Use Bearer instead.",
+  "title": "Invalid authorization",
+  "status": 401
 }`}
     </Highlight>
   </ApiDocs>
