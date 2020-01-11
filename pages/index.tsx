@@ -82,8 +82,8 @@ const Home: FunctionComponent<HomeProps> = ({ scrollTo = React.createRef() }) =>
         Shlink is a PHP-based open source project, distributed under
         the <ExternalLink href="https://opensource.org/licenses/MIT">MIT</ExternalLink> license and hosted
         on <ExternalLink href="https://github.com/shlinkio/shlink">Github</ExternalLink>.<br />
-        It is built with cutting edge technologies, such as <ExternalLink href="https://docs.zendframework.com/zend-expressive/">Zend Expressive</ExternalLink>,{' '}
-        <ExternalLink href="http://www.doctrine-project.org/projects/orm.html">Doctrine</ExternalLink> or{' '}
+        It is built with cutting edge technologies, such as <ExternalLink href="https://docs.mezzio.dev/mezzio/">Mezzio</ExternalLink>{' '}
+        (formerly Zend Expressive), <ExternalLink href="http://www.doctrine-project.org/projects/orm.html">Doctrine</ExternalLink> and{' '}
         <ExternalLink href="http://symfony.com/doc/current/components/console.html">Symfony</ExternalLink>.
       </p>
     </section>
