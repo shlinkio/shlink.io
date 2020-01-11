@@ -35,7 +35,7 @@ const ServeWithSwoole: FunctionComponent = () => (
 # Description:       Shlink non-blocking server with swoole
 ### END INIT INFO
 
-SCRIPT=/path/to/shlink/vendor/bin/zend-expressive-swoole\\ start
+SCRIPT=/path/to/shlink/vendor/bin/mezzio-swoole\\ start
 RUNAS=root
 
 PIDFILE=/var/run/shlink_swoole.pid
