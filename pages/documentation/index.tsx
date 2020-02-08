@@ -24,6 +24,10 @@ const menuItems: Item[] = [
     text: 'Long-running tasks',
     link: '/documentation/long-running-tasks',
   },
+  {
+    text: 'Multiple domains',
+    link: '/documentation/multiple-domains',
+  },
 ];
 
 interface DocumentationProps {
