@@ -23,3 +23,13 @@ button {
     float: right;
     margin-left: 10px;
 }
+
+.hljs {
+    margin: 0;
+}
+
+@media screen and (max-width: 736px) and (orientation: portrait) {
+    .spotlight .content {
+        text-align: left !important;
+    }
+}

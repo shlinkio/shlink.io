@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
 import { ExternalLink } from 'react-external-link';
 import Link from 'next/link';
+import Highlight from 'react-highlight';
 import Menu from './Menu';
 import Footer from './Footer';
 import SectionHeader from './SectionHeader';
@@ -125,6 +126,9 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
             const Component = href && href.startsWith('http') ? ExternalLink : Link;
 
             return <Component {...props} />;
+          },
+          code(props: any) {
+            return <Highlight {...props} />;
           },
         }}
       >
