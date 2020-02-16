@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import ClassicWebServerContent from '../../content/documentation/classic-web-server.mdx';
+import Content from '../../components/Content';
 import Documentation from './index';
 
 const ClassicWebServer: FunctionComponent = () => (
   <Documentation>
-    <header>
-      <h2>Serve Shlink with a classic web server</h2>
-    </header>
-
-    <ClassicWebServerContent />
+    <Content title="Serve Shlink with a classic web server">
+      <ClassicWebServerContent />
+    </Content>
   </Documentation>
 );
 

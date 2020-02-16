@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import Layout from '../../components/Layout';
 import SectionMenu, { Item } from '../../components/SectionMenu';
 import GettingStartedContent from '../../content/documentation/getting-started.mdx';
+import Content from '../../components/Content';
 
 const menuItems: Item[] = [
   {
@@ -48,13 +49,9 @@ const Documentation: FunctionComponent<DocumentationProps> = ({ children }) => (
 
               <div className="9u 12u$(medium) side-menu-contents">
                 {children || (
-                  <React.Fragment>
-                    <header>
-                      <h2>Getting started</h2>
-                    </header>
-
+                  <Content title="Getting started">
                     <GettingStartedContent />
-                  </React.Fragment>
+                  </Content>
                 )}
               </div>
 

@@ -1,14 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import InstallDistFileContent from '../../content/documentation/install-dist-file.mdx';
+import Content from '../../components/Content';
 import Documentation from './index';
 
 const InstallDistFile: FunctionComponent = () => (
   <Documentation>
-    <header>
-      <h2>Install using a dist file</h2>
-    </header>
-
-    <InstallDistFileContent />
+    <Content title="Install using a dist file">
+      <InstallDistFileContent />
+    </Content>
   </Documentation>
 );
 
