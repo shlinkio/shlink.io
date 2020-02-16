@@ -4,7 +4,7 @@ import Documentation from '.';
 const MultipleDomains: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Multiple domains</h3>
+      <h3>Using multiple domains</h3>
     </header>
 
     <p>

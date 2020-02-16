@@ -12,10 +12,10 @@ const InstallDistFile: FunctionComponent = () => (
     <p>If you are going to host Shlink yourself, you need to make sure your server fulfils its requirements:</p>
     <ul>
       <li>
-        PHP 7.2 or greater with JSON, intl, curl, PDO and gd extensions enabled (APCu extension is recommended if you
-        {'don\'t'} plan to use swoole).
+        PHP 7.4 or greater with JSON, curl, PDO and gd extensions enabled (APCu extension is recommended if you
+        don&apos;t plan to use swoole).
       </li>
-      <li>MySQL, PostgreSQL or SQLite.</li>
+      <li>MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.</li>
       <li>
         The <ExternalLink href="https://www.swoole.co.uk/">swoole</ExternalLink> PHP extension (if you plan to serve
         Shlink with swoole) or the web server of your choice with PHP integration (Apache or Nginx).
