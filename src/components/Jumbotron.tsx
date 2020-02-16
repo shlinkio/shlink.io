@@ -15,7 +15,7 @@ const Jumbotron: FunctionComponent<JumbotronProps> = ({ scrollTo }) => (
     <div className="content">
       <h1>Shlink</h1>
       <p>
-        A self-hosted URL shortener.<br />
+        The self-hosted URL shortener.<br />
         Shorten URLs and serve them under your own short domain.
       </p>
       <ul className="actions">

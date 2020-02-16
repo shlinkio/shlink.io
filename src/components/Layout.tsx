@@ -17,7 +17,7 @@ interface LayoutProps {
 const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
   const siteName = 'Shlink - The URL shortener';
   const title = `${siteName}${pageTitle ? ` | ${pageTitle}` : ''}`;
-  const description = 'A self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
+  const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
 
   return (
     <React.Fragment>
