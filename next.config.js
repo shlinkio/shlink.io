@@ -8,7 +8,7 @@ module.exports = withPlugins([ withCSS, withFonts, withMDX ], {
   enableSvg: true,
   exportTrailingSlash: true, // Makes pages to be exported as index.html files
   env: { // Any of these vars can be accessed as process.env.{name}
-    donateUrl: 'https://acel.me/donate',
+    donateUrl: 'https://slnk.to/donate',
     ga: 'UA-38351554-5',
   },
   experimental: {
