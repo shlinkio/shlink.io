@@ -11,8 +11,8 @@ module.exports = {
   moduleFileExtensions: [ 'ts', 'tsx', 'js', 'jsx' ],
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: [
-    'components/**/*.tsx',
-    'pages/**/*.tsx',
+    'src/components/**/*.tsx',
+    'src/pages/**/*.tsx',
   ],
   testMatch: [ '<rootDir>/test/**/*.(test|spec).{js,jsx,ts,tsx}' ],
   testEnvironment: 'jsdom',

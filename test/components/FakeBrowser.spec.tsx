@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import FakeBrowser from '../../components/FakeBrowser';
+import FakeBrowser from '../../src/components/FakeBrowser';
 
 describe('<FakeBrowser />', () => {
   afterEach(cleanup);

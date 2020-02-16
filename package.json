@@ -10,7 +10,7 @@
     "url": "https://github.com/shlinkio/shlink.io"
   },
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx components pages test",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/components src/pages test",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --colors",
     "test:cover": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
@@ -23,7 +23,7 @@
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "highlight.js": "^9.15.10",
-    "next": "^9.0.4",
+    "next": "^9.2.1",
     "next-ga": "^2.3.4",
     "next-seo": "^2.1.2",
     "react": "^16.9.0",

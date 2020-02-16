@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Highlight from 'react-highlight';
 import { ExternalLink } from 'react-external-link';
-import ApiDocs from '.';
+import ApiDocs from './index';
 
 const ErrorManagement: FunctionComponent = () => (
   <ApiDocs>

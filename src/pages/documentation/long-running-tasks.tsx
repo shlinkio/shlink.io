@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
-import Documentation from '.';
+import Documentation from './index';
 
 const LongRunningTasks: FunctionComponent = () => (
   <Documentation>

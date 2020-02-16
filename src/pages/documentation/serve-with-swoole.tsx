@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Highlight from 'react-highlight';
-import Documentation from '.';
+import Documentation from './index';
 
 const ServeWithSwoole: FunctionComponent = () => (
   <Documentation>

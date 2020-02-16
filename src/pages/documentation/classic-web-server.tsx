@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Highlight from 'react-highlight';
-import Documentation from '.';
+import Documentation from './index';
 
 const ClassicWebServer: FunctionComponent = () => (
   <Documentation>

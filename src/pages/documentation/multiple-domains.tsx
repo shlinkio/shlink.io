@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Documentation from '.';
+import Documentation from './index';
 
 const MultipleDomains: FunctionComponent = () => (
   <Documentation>

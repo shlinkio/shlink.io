@@ -1,7 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 const withFonts = require('next-fonts');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const withCSS = require('./src/withCss'); // FIXME Own implementation used until this is fixed: https://github.com/zeit/next-plugins/issues/526
+const withCSS = require('./src/utils/withCss'); // FIXME Own implementation used until this is fixed: https://github.com/zeit/next-plugins/issues/526
 
 module.exports = withPlugins([ withCSS, withFonts ], {
   enableSvg: true,

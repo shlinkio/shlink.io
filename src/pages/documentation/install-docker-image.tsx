@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
-import Documentation from '.';
+import Documentation from './index';
 
 const InstallDockerImage: FunctionComponent = () => (
   <Documentation>

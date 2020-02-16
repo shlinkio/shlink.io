@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Link from 'next/link';
 import DownloadLatestBtn from '../../components/DownloadLatestBtn';
-import Documentation from '.';
+import Documentation from './index';
 
 const InstallDistFile: FunctionComponent = () => (
   <Documentation>
