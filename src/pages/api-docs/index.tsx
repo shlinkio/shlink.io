@@ -1,7 +1,8 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import { ExternalLink } from 'react-external-link';
 import Layout from '../../components/Layout';
 import SectionMenu, { Item } from '../../components/SectionMenu';
+import Content from '../../components/Content';
+import RestApiContent from '../../content/api-docs/rest-api.mdx';
 
 const menuItems: Item[] = [
   {
@@ -37,30 +38,9 @@ const ApiDocs: FunctionComponent<ApiDocsProps> = ({ children }) => (
 
               <div className="9u 12u$(medium) side-menu-contents">
                 {children || (
-                  <React.Fragment>
-                    <header>
-                      <h2>REST API</h2>
-                    </header>
-
-                    <p>
-                      Shlink provides a REST API that can be used to integrate the short URLs management on any system
-                      or application.
-                    </p>
-                    <p>
-                      All the requests return JSON-encoded responses and semantic status codes, so it should be easy to
-                      implement client apps that consume this API.
-                    </p>
-                    <p>
-                      However, if an unexpected error occurs, the system could end returning HTML. To prevent this,
-                      always pass the <code>Accept</code> header with the <code>application/json</code> value.
-                    </p>
-                    <p>
-                      This API supports <ExternalLink href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</ExternalLink> (Cross
-                      domain), automatically generating the <code>Access-Control-*</code> headers and managing OPTIONS
-                      requests, so it can be consumed from web clients hosted on different domains.
-                    </p>
-                    <p>Follow the documentation in order to see how to manage errors and perform requests correctly.</p>
-                  </React.Fragment>
+                  <Content title="REST API">
+                    <RestApiContent />
+                  </Content>
                 )}
               </div>
 
