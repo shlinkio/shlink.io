@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import Link from 'next/link';
 import Layout from '../../components/Layout';
 import SectionMenu, { Item } from '../../components/SectionMenu';
+import GettingStartedContent from '../../content/documentation/getting-started.mdx';
 
 const menuItems: Item[] = [
   {
@@ -52,31 +52,8 @@ const Documentation: FunctionComponent<DocumentationProps> = ({ children }) => (
                     <header>
                       <h2>Getting started</h2>
                     </header>
-                    <p>
-                      Shlink is a URL shortener which provides both
-                      a <a href="/api-docs">REST</a> and CLI interfaces to interact with it.
-                    </p>
-                    <p>There are a couple of ways to install and run it, depending on your needs and resources.</p>
-                    <ul>
-                      <li>
-                        You can run Shlink in a container-based infrastructure, using
-                        the <Link href="/documentation/install-docker-image"><a>docker image</a></Link>.
-                      </li>
-                      <li>
-                        Alternatively you
-                        can <Link href="/documentation/install-dist-file"><a>download a dist file</a></Link> to host
-                        it in your machine and serve it with:
-                        <ul>
-                          <li>
-                            <Link href="/documentation/serve-with-swoole"><a>A non-blocking swoole server</a></Link>.
-                          </li>
-                          <li>
-                            <Link href="/documentation/classic-web-server"><a>A classic web server</a></Link> (like
-                            Apache or Nginx).
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+
+                    <GettingStartedContent />
                   </React.Fragment>
                 )}
               </div>

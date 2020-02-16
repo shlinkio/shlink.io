@@ -1,6 +1,9 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
+import { MDXProvider } from '@mdx-js/react';
+import { ExternalLink } from 'react-external-link';
+import Link from 'next/link';
 import Menu from './Menu';
 import Footer from './Footer';
 import SectionHeader from './SectionHeader';
@@ -115,7 +118,18 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
 
       <Menu />
       {pageTitle && <SectionHeader>{pageTitle}</SectionHeader>}
-      {children}
+      <MDXProvider
+        components={{
+          a(props: any) {
+            const { href } = props;
+            const Component = href && href.startsWith('http') ? ExternalLink : Link;
+
+            return <Component {...props} />;
+          },
+        }}
+      >
+        {children}
+      </MDXProvider>
       <Footer />
     </React.Fragment>
   );
