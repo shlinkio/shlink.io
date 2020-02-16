@@ -1,0 +1,9 @@
+The docker image is probably the simplest installation use case, since it includes all dependencies and makes use of swoole to serve Shlink.
+
+If you plan to deploy shlink in a container-based infrastructure, you can just use the official [docker image](https://github.com/shlinkio/shlink/blob/master/docker/README.md).
+
+Once deployed, you will need to run `docker exec -it shlink_container shlink api-key:generate` in order to generate the first API key.
+
+Finally access to [shlink-web-client](https://app.shlink.io) and configure your server to start creating short URLs.
+
+> If you want, you can also host shlink-web-client yourself as a [docker container](https://hub.docker.com/r/shlinkio/shlink-web-client/).
