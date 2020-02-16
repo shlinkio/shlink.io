@@ -3,11 +3,11 @@ import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
 import { ExternalLink } from 'react-external-link';
-import Link from 'next/link';
 import Highlight from 'react-highlight';
 import Menu from './Menu';
 import Footer from './Footer';
 import SectionHeader from './SectionHeader';
+import InternalLink from './InternalLink';
 
 interface LayoutProps {
   pageTitle?: string;
@@ -123,7 +123,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
         components={{
           a(props: any) {
             const { href } = props;
-            const Component = href && href.startsWith('http') ? ExternalLink : Link;
+            const Component = href && href.startsWith('http') ? ExternalLink : InternalLink;
 
             return <Component {...props} />;
           },

@@ -22,12 +22,12 @@ const menuItems: Item[] = [
     link: '/documentation/classic-web-server',
   },
   {
-    text: 'Long-running tasks',
-    link: '/documentation/long-running-tasks',
-  },
-  {
     text: 'Multiple domains',
     link: '/documentation/multiple-domains',
+  },
+  {
+    text: 'Long-running tasks',
+    link: '/documentation/long-running-tasks',
   },
 ];
 
