@@ -4,7 +4,7 @@ import Documentation from './index';
 const MultipleDomains: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Using multiple domains</h3>
+      <h2>Using multiple domains</h2>
     </header>
 
     <p>
@@ -17,7 +17,7 @@ const MultipleDomains: FunctionComponent = () => (
       is visited.
     </p>
 
-    <h4>Management</h4>
+    <h3>Management</h3>
     <p>
       When you create a short URL it is possible to optionally pass a <code>domain</code> param. If you don not pass it,
       the short URL will be created for the default domain (the one provided during Shlink&apos;s installation or in
@@ -92,7 +92,7 @@ const MultipleDomains: FunctionComponent = () => (
       </li>
     </ul>
 
-    <h4>Visits</h4>
+    <h3>Visits</h3>
     <p>
       Before adding support for multiple domains, you could point as many domains as you wanted to Shlink, and they
       would have always worked for existing short codes/slugs.
@@ -131,7 +131,7 @@ const MultipleDomains: FunctionComponent = () => (
       <li>Any other short URL visited exactly as it was configured will, of course, resolve as expected.</li>
     </ul>
 
-    <h4>Special redirects</h4>
+    <h3>Special redirects</h3>
     <p>
       It is currently possible to configure some special redirects when the base domain is visited, a URL does not
       match, or an invalid/disabled short URL is visited.

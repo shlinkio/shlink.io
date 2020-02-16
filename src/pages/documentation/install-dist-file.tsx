@@ -7,7 +7,7 @@ import Documentation from './index';
 const InstallDistFile: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Install using a dist file</h3>
+      <h2>Install using a dist file</h2>
     </header>
     <p>If you are going to host Shlink yourself, you need to make sure your server fulfils its requirements:</p>
     <ul>
@@ -22,7 +22,7 @@ const InstallDistFile: FunctionComponent = () => (
       </li>
     </ul>
 
-    <h4>Installation steps</h4>
+    <h3>Installation steps</h3>
     <ul>
       <li>
         Download the latest distributable file and decompress it at the location of your choice

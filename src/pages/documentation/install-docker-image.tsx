@@ -5,7 +5,7 @@ import Documentation from './index';
 const InstallDockerImage: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Install using a docker image</h3>
+      <h2>Install using a docker image</h2>
     </header>
     <p>
       The docker image is probably the simplest installation use case, since it includes all dependencies and makes

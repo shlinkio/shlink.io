@@ -5,7 +5,7 @@ import ApiDocs from './index';
 const Authentication: FunctionComponent = () => (
   <ApiDocs>
     <header>
-      <h3>Authentication</h3>
+      <h2>Authentication</h2>
     </header>
     <p>
       All endpoints require authentication. In order to do it, always provide
@@ -34,7 +34,7 @@ const Authentication: FunctionComponent = () => (
       </p>
     </blockquote>
 
-    <h4>Errors during authentication</h4>
+    <h3>Errors during authentication</h3>
     <p>
       When using the <code>X-Api-Key</code> mechanism, if no API key is provided or it is invalid, the server will
       return this, with status 401.

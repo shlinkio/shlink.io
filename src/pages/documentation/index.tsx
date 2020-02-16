@@ -50,7 +50,7 @@ const Documentation: FunctionComponent<DocumentationProps> = ({ children }) => (
                 {children || (
                   <React.Fragment>
                     <header>
-                      <h3>Getting started</h3>
+                      <h2>Getting started</h2>
                     </header>
                     <p>
                       Shlink is a URL shortener which provides both

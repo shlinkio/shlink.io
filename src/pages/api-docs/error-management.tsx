@@ -6,7 +6,7 @@ import ApiDocs from './index';
 const ErrorManagement: FunctionComponent = () => (
   <ApiDocs>
     <header>
-      <h3>Error management</h3>
+      <h2>Error management</h2>
     </header>
     <p>
       {'Shlink\'s'} REST API implements

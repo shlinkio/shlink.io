@@ -6,7 +6,7 @@ import Documentation from './index';
 const ServeWithSwoole: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Serve Shlink using swoole</h3>
+      <h2>Serve Shlink using swoole</h2>
     </header>
     <p>Shlink can be served using <ExternalLink href="https://www.swoole.co.uk/">swoole</ExternalLink>.</p>
     <p>

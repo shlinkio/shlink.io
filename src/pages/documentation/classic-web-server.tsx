@@ -5,7 +5,7 @@ import Documentation from './index';
 const ClassicWebServer: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Serve Shlink with a classic web server</h3>
+      <h2>Serve Shlink with a classic web server</h2>
     </header>
     <p>In order to be able to serve shlink, you need to put a web server with PHP integration in front of it.</p>
     <p>Both Apache and Nginx are officially supported, but other web servers should work as well.</p>
@@ -14,7 +14,7 @@ const ClassicWebServer: FunctionComponent = () => (
         modify them depending on your setup).
     </p>
 
-    <h4>Nginx</h4>
+    <h3>Nginx</h3>
     <Highlight className="nginx">
       {`server {
     server_name doma.in;
@@ -40,7 +40,7 @@ const ClassicWebServer: FunctionComponent = () => (
 }`}
     </Highlight>
 
-    <h4>Apache</h4>
+    <h3>Apache</h3>
     <Highlight className="apache">
       {`<VirtualHost *:80>
     ServerName doma.in

@@ -39,7 +39,7 @@ const ApiDocs: FunctionComponent<ApiDocsProps> = ({ children }) => (
                 {children || (
                   <React.Fragment>
                     <header>
-                      <h3>REST API</h3>
+                      <h2>REST API</h2>
                     </header>
 
                     <p>

@@ -9,13 +9,13 @@ const CommandLineInterface: FunctionComponent = () => (
         <section className="spotlight text-only">
           <div className="content">
             <header>
-              <h3>Interacting with Shlink from the CLI</h3>
+              <h2>Interacting with Shlink from the CLI</h2>
             </header>
 
             <p>Shlink provides a CLI tool which exposes a set of commands to perform a variety of operations.</p>
             <p>From creating, updating or listing short URLs, to manage API keys or handle the list of tags.</p>
 
-            <h4>Commands</h4>
+            <h3>Commands</h3>
             <p>
               Commands in shlink are contextually namespaced
               in <code>api-key</code>, <code>short-url</code>, <code>tag</code> and <code>visit</code> (

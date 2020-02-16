@@ -5,7 +5,7 @@ import Documentation from './index';
 const LongRunningTasks: FunctionComponent = () => (
   <Documentation>
     <header>
-      <h3>Long-running tasks</h3>
+      <h2>Long-running tasks</h2>
     </header>
 
     <p>
@@ -17,7 +17,7 @@ const LongRunningTasks: FunctionComponent = () => (
       configure when and how often should they be executed.
     </p>
 
-    <h4>Locate visits</h4>
+    <h3>Locate visits</h3>
     <p>
       Shlink provides the command <code>visit:locate</code> which will process all the IP addresses from visits in
       order to locate them.
@@ -28,23 +28,6 @@ const LongRunningTasks: FunctionComponent = () => (
       automatically done just after redirecting end users. However, it might be a good idea to have previous scheduling
       in place, as a backup in case some of those asynchronous processes fail.
     </blockquote>
-
-    <h4>Generate page previews</h4>
-    <p>
-      Shlink is capable of generating the preview of a page behind a short code by appending the <b>/preview</b> suffix
-      to any short URL. For example, <b>https://doma.in/abc123/preview</b>.
-    </p>
-    <p>
-      If you access any of those URLs, the image will be generated and cached, but the first time, the request will
-      take a little bit more time.
-    </p>
-    <p>
-      In order to pre-generate those previews, you can use the command <code>short-url:process-previews</code>, which
-      will generate all missing previews so that any later request resolves faster.
-    </p>
-    <p>
-      Scheduling the execution of that command might be a good idea if you are planning to make use of these previews.
-    </p>
 
     <hr />
 
