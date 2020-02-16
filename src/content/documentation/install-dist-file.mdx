@@ -1,0 +1,25 @@
+import DownloadLatestBtn from '../../components/DownloadLatestBtn';
+
+If you are going to host Shlink yourself, you need to make sure your server fulfils its requirements:
+
+* PHP 7.4 or greater with JSON, curl, PDO and gd extensions enabled (APCu extension is recommended if you don't plan to use swoole).
+* MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
+* The [swoole](https://www.swoole.co.uk/) PHP extension (if you plan to serve Shlink with swoole) or the web server of your choice with PHP integration (like Apache or Nginx).
+
+### Installation steps
+
+* Download the latest distributable file and decompress it at the location of your choice
+  <ul className="actions" style={{ textAlign: 'center', margin: '1em 0' }}>
+    <li>
+      <DownloadLatestBtn />
+    </li>
+  </ul>
+* Create an empty database (not necessary if you are going to use SQLite).
+* Recursively grant write permissions to the `data` directory.
+* Setup the application by running the `bin/install` script. It will guide you through the installation process.
+* Optionally, you can create a symlink to the `bin/cli` script in a folder which is in your path.<br />For example `/usr/local/bin` for linux systems. This will allow you to easily run shlink from anywhere in the command line.
+* Configure your system to be able to serve Shlink:
+    * [Serve Shlink using swoole](/documentation/serve-with-swoole).
+    * [Serve Shlink with a classic web server](/documentation/classic-web-server).
+* Generate your first API key by running `bin/cli api-key:generate`. You will need the key in order to interact with shlink's API.
+* Finally access to https://app.shlink.io and configure your server to start creating short URLs.

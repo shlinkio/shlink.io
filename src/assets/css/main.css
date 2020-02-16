@@ -10,6 +10,10 @@ button {
     outline: none;
 }
 
+li > ul {
+    margin-bottom: 0;
+}
+
 .image.app img {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -22,4 +26,14 @@ button {
 .external-app-link i {
     float: right;
     margin-left: 10px;
+}
+
+.hljs {
+    margin: 0;
+}
+
+@media screen and (max-width: 736px) and (orientation: portrait) {
+    .spotlight .content {
+        text-align: left !important;
+    }
 }

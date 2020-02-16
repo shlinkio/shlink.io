@@ -55,7 +55,7 @@ const Home: FunctionComponent<HomeProps> = ({ scrollTo = React.createRef() }) =>
 
         <section className="special">
           <header>
-            <h4>What makes Shlink different</h4>
+            <h4>What makes Shlink different?</h4>
             <p>Shlink adds a lot of features which are not usually available in other free services.</p>
           </header>
           <ul className="actions">

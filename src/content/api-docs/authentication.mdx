@@ -1,0 +1,16 @@
+All endpoints require authentication. In order to do it, always provide a `X-Api-Key: {api_key}` header on every request.
+
+API keys are generated (and managed) from the command line. Run the `api-key:generate` command to get a new and valid API key.
+
+### Errors during authentication
+
+When performing an API call, if no API key is provided or it is invalid/disabled/expired, the server will return this response payload, with status 401.
+
+```json
+{
+  "type": "INVALID_API_KEY",
+  "detail": "Provided API key does not exist or is invalid",
+  "title": "Invalid API key",
+  "status": 401
+}
+```

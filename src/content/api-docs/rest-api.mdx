@@ -1,0 +1,9 @@
+Shlink provides a REST API that can be used to integrate the short URLs management on any system or application.
+
+All the requests return JSON-encoded responses and semantic status codes, so it should be easy to implement client apps that consume this API.
+
+However, if an unexpected error occurs, the system could end returning HTML. To prevent this, always pass the `Accept` header with the `application/json` value.
+
+This API supports [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (aka cross domain), automatically generating required `Access-Control-*` headers and managing pre-flight (`OPTIONS`) requests, so it can be consumed from web clients hosted on different domains.
+
+Follow the documentation in order to see how to manage errors and perform requests correctly.
