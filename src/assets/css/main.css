@@ -10,6 +10,10 @@ button {
     outline: none;
 }
 
+li > ul {
+    margin-bottom: 0;
+}
+
 .image.app img {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
