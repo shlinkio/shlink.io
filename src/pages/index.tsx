@@ -15,7 +15,7 @@ const Home: FunctionComponent<HomeProps> = () => (
 
     <section className="theme-bg-light pb-4 pt-4">
       <div className="container">
-        <div className="item pt-5 mb-5">
+        <div className="item py-4 py-md-5">
           <div className="row">
             <div className="col-12 col-md-5 mb-3 mb-md-0 align-self-center">
               <div className="content pr-5">
@@ -42,21 +42,23 @@ const Home: FunctionComponent<HomeProps> = () => (
           </div>
         </div>
 
-        <div className="item pt-5 mb-5">
+        <div className="item py-4 py-md-5">
           <div className="row">
-            <div className="col-12 col-md-5 order-md-1 pl-md-5 align-self-center">
+            <div className="col-12 col-md-5 mb-3 mb-md-0 order-md-1 pl-md-5 align-self-center">
               <div className="content pr-5">
                 <h3 className="heading">REST API</h3>
                 <div className="desc">
-                  <p>Access your shortened URLs from anywhere. Simple authentication and easy to integrate.</p>
-                  <div className="cta-link mt-3">
-                    <Link href="/rest-api">
-                      <a className="btn btn-secondary btn-sm">
-                        View Docs
-                        <i className="fa fa-arrow-circle-right ml-2" />
-                      </a>
-                    </Link>
-                  </div>
+                  <p>
+                    Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
+                    <div className="cta-link mt-3">
+                      <Link href="/rest-api">
+                        <a className="btn btn-secondary btn-sm">
+                          View Docs
+                          <i className="fa fa-arrow-circle-right ml-2" />
+                        </a>
+                      </Link>
+                    </div>
+                  </p>
                 </div>
               </div>
             </div>
@@ -66,9 +68,9 @@ const Home: FunctionComponent<HomeProps> = () => (
           </div>
         </div>
 
-        <div className="item py-5">
+        <div className="item py-4 py-md-5">
           <div className="row">
-            <div className="col-12 col-md-5 pl-md-5 align-self-center">
+            <div className="col-12 col-md-5 mb-3 mb-md-0 pl-md-5 align-self-center">
               <div className="content pr-5">
                 <h3 className="heading">Progressive web app</h3>
                 <div className="desc">
