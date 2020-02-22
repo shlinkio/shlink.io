@@ -7,7 +7,7 @@ const Footer: FunctionComponent = () => (
     <div className="container text-center py-5">
       <hr />
 
-      <SocialList type="unstyled" className="mb-4" />
+      <SocialList type="unstyled" className="mb-4 mt-5" />
 
       <p className="copyright">
         &copy; {new Date().getFullYear()} Shlink. With <span className="fa fa-heart" title="love" /> by{' '}

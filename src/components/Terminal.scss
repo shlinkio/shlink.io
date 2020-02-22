@@ -1,17 +1,18 @@
 .terminal {
     padding: 25px 3px 0;
     font-family: monospace;
-    font-size: .55em;
+    font-size: .8em;
     line-height: 1.6em;
     overflow: auto;
     white-space: nowrap;
     font-weight: bold;
     color: #555;
+    background-color: white;
 }
-.terminal.cli-example {
+.terminal.cli {
     min-height: 200px;
 }
-.terminal.rest-example {
+.terminal.rest {
     min-height: 300px;
 }
 

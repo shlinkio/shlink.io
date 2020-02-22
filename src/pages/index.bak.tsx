@@ -12,7 +12,7 @@ interface HomeProps {
 
 const Home: FunctionComponent<HomeProps> = ({ scrollTo = React.createRef() }) => (
   <Layout>
-    <Jumbotron scrollTo={scrollTo} />
+    <Jumbotron />
 
     <section className="wrapper" ref={scrollTo}>
       <div className="inner alt">

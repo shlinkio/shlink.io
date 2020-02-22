@@ -12,7 +12,7 @@ const Jumbotron: FunctionComponent = () => (
           </h1>
           <div className="site-tagline mb-4">
             Keep control over all your shortened URLs, by serving them under your own domains, using this simple yet
-            powerful URL shortener.
+            powerful tool.
           </div>
           <div className="cta-btns mb-lg-3">
             <Link href="/documentation">

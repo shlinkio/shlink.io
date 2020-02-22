@@ -1,11 +1,15 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent } from 'react';
 import Typed from 'react-typed';
 import FakeBrowser from './FakeBrowser';
 import './Terminal.scss';
 
+interface IStrings {
+  cli: string[];
+  rest: string[];
+}
 const prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span>';
-const strings: { [id: string]: string[] } = {
-  'cli-example': [
+const strings: IStrings = {
+  cli: [
     `\`${prompt}\` ^100 shlink short-url:generate https://shlink.io ^500 `
     + '`<br>Processed URL: <span class="green">https://shlink.io</span>'
     + '<br>Generated URL: <span class="green">https://doma.in/rY9k</span>'
@@ -16,7 +20,7 @@ const strings: { [id: string]: string[] } = {
     + '<br>| <span class="green">Referer</span> | <span class="green">Date</span> | <span class="green">User agent</span> | <span class="green">Country</span> |'
     + '<br>+---------+------+------------+---------+`',
   ],
-  'rest-example': [
+  rest: [
     '<span class="yellow">POST</span> https://doma.in/rest/v1/short-urls'
     + '<br><span class="black">Accept:</span> application/json'
     + '<br><span class="black">X-Api-Key:</span> `f3713597-8b14-4144-a49c-b26eb6e06b09`'
@@ -51,11 +55,10 @@ const strings: { [id: string]: string[] } = {
 };
 
 interface TerminalProps {
-  id: string;
-  children: ReactNode;
+  id: keyof IStrings;
 }
 
-const Terminal: FunctionComponent<TerminalProps> = ({ children, id }) => {
+const Terminal: FunctionComponent<TerminalProps> = ({ id }) => {
   const typedOptions = {
     typeSpeed: 100,
     loop: true,
@@ -63,13 +66,14 @@ const Terminal: FunctionComponent<TerminalProps> = ({ children, id }) => {
     fadeOutDelay: 0,
     backDelay: 2000,
   };
-  const inBrowser = (
-    <div className={`terminal ${id}`}>
-      <Typed strings={strings[id] || []} {...typedOptions} />
-    </div>
-  );
 
-  return <FakeBrowser inBrowser={inBrowser}>{children}</FakeBrowser>;
+  return (
+    <FakeBrowser>
+      <div className={`terminal ${id}`}>
+        <Typed strings={strings[id] || []} {...typedOptions} />
+      </div>
+    </FakeBrowser>
+  );
 };
 
 export default Terminal;
