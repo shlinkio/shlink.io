@@ -1,9 +1,8 @@
 import React, { FunctionComponent, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { ExternalLink } from 'react-external-link';
 import { Collapse, NavbarToggler } from 'reactstrap';
-import './Menu.css';
+import SocialList from './SocialList';
 
 const Menu: FunctionComponent = () => {
   const [ collapsed, setCollapsed ] = useState(true);
@@ -33,19 +32,7 @@ const Menu: FunctionComponent = () => {
           </NavbarToggler>
 
           <Collapse isOpen={!collapsed} navbar>
-            <ul className="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">
-              <li className="list-inline-item">
-                <ExternalLink href="https://github.com/shlinkio/shlink">
-                  <i className="fa fa-github fa-fw" />
-                </ExternalLink>
-              </li>
-              <li className="list-inline-item">
-                <ExternalLink href="https://twitter.com/shlinkio"><i className="fa fa-twitter fa-fw" /></ExternalLink>
-              </li>
-              <li className="list-inline-item">
-                <ExternalLink href={process.env.donateUrl || ''}><i className="fa fa-paypal fa-fw" /></ExternalLink>
-              </li>
-            </ul>
+            <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5" />
 
             <ul className="navbar-nav ml-lg-auto">
               <li className="nav-item mr-lg-4">

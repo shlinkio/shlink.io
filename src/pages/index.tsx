@@ -1,5 +1,6 @@
 import React, { FunctionComponent, RefObject } from 'react';
 import Layout from '../components/Layout';
+import Jumbotron from '../components/Jumbotron';
 
 interface HomeProps {
   scrollTo?: RefObject<HTMLElement>;
@@ -7,7 +8,7 @@ interface HomeProps {
 
 const Home: FunctionComponent<HomeProps> = () => (
   <Layout>
-    <React.Fragment />
+    <Jumbotron />
   </Layout>
 );
 

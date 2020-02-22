@@ -3,3 +3,19 @@
 .logo-icon {
   width: 40px;
 }
+
+.hero-figure {
+  max-width: 340px;
+}
+
+.site-jumbotron-text {
+  text-align: right;
+
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+}
+
+.indivisible {
+  white-space: nowrap;
+}
