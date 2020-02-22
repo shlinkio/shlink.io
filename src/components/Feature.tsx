@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import './Feature.css';
+import './Feature.scss';
 import InternalLink from './InternalLink';
 
 interface FeatureProps {

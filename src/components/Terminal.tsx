@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import Typed from 'react-typed';
 import FakeBrowser from './FakeBrowser';
-import './Terminal.css';
+import './Terminal.scss';
 
 const prompt = '{<span class="yellow">15:32</span>} <span class="black">~$</span>';
 const strings: { [id: string]: string[] } = {
