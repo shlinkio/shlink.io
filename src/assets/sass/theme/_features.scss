@@ -1,0 +1,131 @@
+.features-tab {
+	.nav-item {
+		margin-right: 1rem;
+		margin-bottom: 1rem;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	.nav-link {
+		padding: 0.8rem 1.5rem;
+		color: $theme-text-color-secondary;
+		.svg-inline--fa {
+			color: $theme-text-color-secondary;
+		}
+		
+		&:hover {
+			color: $theme-text-color-primary;
+		}
+
+	}
+	.nav-link.active, .show>.nav-link {
+		background: none;
+		@include box-shadow(0 1rem 3rem rgba(0,0,0,0.175));
+		color: #fff;
+		background: $theme-color-primary;
+		font-weight: bold;
+		.svg-inline--fa {
+			color: rgba(256, 256, 256, 0.6);
+		}
+		
+	}
+}
+
+.feature-pane-heading {
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.zigzag-layout {
+	.item {
+		
+		.heading {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+
+	}
+}
+
+.umbrella-layout {
+	.item {
+		.heading {
+			font-size: 1.5rem;
+		}
+		.card {
+			border: none;
+			height: 100%;
+		}
+	}
+}
+
+.carousel-layout {
+    .heading {
+	    font-size: 1.5rem;
+    }
+	a.carousel-nav-link {
+		color: $theme-text-color-secondary;
+		&:hover {
+			text-decoration: none;
+			color: $theme-text-color-secondary;
+			background: $theme-bg-light;
+		}
+		&:focus, &:active {
+			background: $theme-bg-light;
+		}
+	}
+	
+	.card-title {
+		font-size: 	1rem;
+	}
+	
+	.card {
+		height: 100%;
+	}
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	.menu-animate {
+	    animation-duration: 0.3s;
+	    -webkit-animation-duration: 0.3s;
+	    animation-fill-mode: both;
+	    -webkit-animation-fill-mode: both;
+	}
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+
+/* We occasionally use media queries that go in the other direction */
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .features-tab .nav-item {
+	    margin-right: 0;
+    }
+    .features-tab .nav-link {
+	    padding: 0.5rem 0.8rem;
+	    margin-right: 0;
+    }
+	
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { }
+
+

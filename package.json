@@ -22,6 +22,8 @@
   "dependencies": {
     "@mdx-js/loader": "^1.5.5",
     "@next/mdx": "^9.2.1",
+    "@types/reactstrap": "^8.4.1",
+    "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "highlight.js": "^9.15.10",
@@ -32,7 +34,8 @@
     "react-dom": "^16.9.0",
     "react-external-link": "^1.0.1",
     "react-highlight": "^0.12.0",
-    "react-typed": "^1.2.0"
+    "react-typed": "^1.2.0",
+    "reactstrap": "^8.4.1"
   },
   "devDependencies": {
     "@shlinkio/eslint-config-js-coding-standard": "^1.0.1",
@@ -46,6 +49,7 @@
     "@types/react": "^16.9.2",
     "@types/react-highlight": "^0.12.1",
     "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "babel-eslint": "^10.0.3",
     "css-loader": "^3.0.0",
     "eslint": "^5.11.1",
@@ -56,8 +60,10 @@
     "mini-css-extract-plugin": "^0.8.0",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^0.18.0",
+    "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prop-types": "^15.7.2",
+    "sass-loader": "^8.0.2",
     "ts-jest": "^24.0.2",
     "typescript": "~3.5.3"
   }

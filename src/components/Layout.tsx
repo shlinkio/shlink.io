@@ -51,7 +51,12 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
       />
 
       <Head>
+        <title>{title}</title>
         <meta name="theme-color" content="#4696e5" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap"
+        />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon.png" />

@@ -1,0 +1,360 @@
+.site-headline {
+	font-size: 3rem;
+}
+
+.site-tagline {
+	font-size: 1.125rem;
+}
+
+
+.section-title {
+	font-size: 2rem;
+}
+.section-intro {
+	font-size: 1.125rem;
+	color: lighten($theme-text-color-secondary, 15%);
+}
+
+.hero-figure {
+	max-width: 100%;
+}
+
+.benefits-section {
+	.item {
+		margin-bottom: 2rem;
+		
+		.icon-holder {
+			width: 60px;
+			height: 60px;
+			background: $theme-bg-light;
+			display: inline-block;
+			@include border-radius(50%);
+			padding-top: 15px;
+			
+			.svg-inline--fa {
+				color: $theme-color-primary;
+				font-size: 1.75rem;
+			}
+		}
+	}
+	.item-inner {
+		padding: 1.5rem;
+		@include box-shadow(0 .125rem .25rem rgba(0,0,0,.075));
+		border: 1px solid $theme-bg-light;
+		height: 100%;
+		background: #fff;
+	}
+}
+
+
+.how-section {
+	.icon-holder {
+		text-align: center;
+		img {
+			max-width: 200px;
+			height: auto;
+			position: relative;
+			//filter:hue-rotate(30deg);
+		}
+
+	}
+	
+}
+
+.step-count {
+	@include border-radius(50%);
+	background: $theme-bg-light;
+	color: $theme-color-primary;
+	width: 36px;
+	height: 36px;
+	font-size: 1.25rem;
+	padding-top: 0.3rem;
+	display: inline-block;
+	text-align: center;
+}
+
+.logos-section {
+	.item {
+		@include opacity(0.4);
+		
+		img {
+			width: 150px;
+			height: auto;
+		}
+	
+	}
+
+}
+
+.integration-list {
+	.item {
+		img {
+			width: 100px;
+			height: auto;
+			background: white;
+		}
+	}
+	
+}
+
+
+.features-section {
+	.tab-heading {
+		display: block;
+		font-weight: bold;
+	}
+	
+	.tab-icon {
+		background: $theme-bg-light;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		display: inline-block;
+		@include border-radius(50%);
+		padding-top: 7px;
+		color: $theme-color-primary;
+		font-size: 1.125rem;
+		position: relative;
+		top: 2px;
+	}
+    .tab-heading-desc {
+	    display: block;
+	    max-height: 0;
+	    overflow: hidden;
+        @include opacity(0);
+        @include transition (opacity 0.2s, max-height 0.4s, padding 0.4s);
+        
+    }
+    .nav-link {
+	    display: inline-block;
+	    color: $theme-text-color-primary;
+	    padding: 1.5rem;
+	    cursor: pointer;
+	    
+	    &.active {
+		    background: $theme-bg-light;
+	    }
+    }
+    .nav-link.active {
+	    @include box-shadow(0 .125rem .25rem rgba(0,0,0,.075));
+	    .tab-icon {
+		    background: white;
+	    }
+	    .tab-heading-desc {
+		    max-height: 9999px;
+		    @include opacity(1);
+		    padding-top: 0.5rem;
+	    }
+    }
+    
+    
+    .caption {
+	    @include border-radius(50px);
+        padding: 1.5rem;
+        display: inline-block;
+        position: relative;
+        z-index:10;
+    }
+    
+    
+    .figure {
+	    position: relative;
+	    text-align: center;
+	    padding: 2rem;
+	    .figure-img {
+		    width: 600px;
+		    //margin: 0 auto;
+		    display: inline-block;
+	    }
+        
+    }
+
+}
+
+
+.section-subheading {
+	@include opacity(0.8);
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+
+
+.testimonial-carousel {
+	
+	.item {
+		padding: 0.25rem;
+	}
+	
+	.item-inner {
+		border: 1px solid $theme-bg-light;
+	}
+	
+	.source-holder {
+		padding: 1rem;
+		font-size: 0.875rem;
+		position: relative;
+		
+		.name {
+			font-weight: bold;
+		}
+		.info a{
+			color: $theme-text-color-secondary;
+			font-size: 0.75rem;
+		}
+	}
+	
+	.source-icon {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		font-size: 1.25rem;
+		.fa-twitter {
+			color: $twitter-color;
+		}
+		.fa-github {
+			color: $github-color;
+		}
+		.fa-product-hunt {
+			color: $producthunt-color;
+		}
+		.fa-facebook{
+			color: $facebook-color;
+		}
+		.fa-wordpress {
+			color: $wordpress-color;
+		}
+	}
+	.quote-holder {
+		padding: 1rem;
+		padding-top: 0;
+	}
+	
+	.quote-content {
+		font-size: 0.875rem;
+	}
+
+	img.source-profile {
+		max-width: 50px;
+		@include border-radius(50%);
+	}
+}
+
+.owl-theme .owl-dots .owl-dot {
+	span {
+		width: 8px;
+	    height: 8px;
+	    background: lighten($theme-color-primary, 35%);
+
+	}
+	&:hover {
+		span {
+			background: lighten($theme-color-primary, 10%);
+		}
+	}
+	&.active {
+		span {
+			background: lighten($theme-color-primary, 10%);
+		}
+		
+	}
+}
+
+.cta-section {
+	.container {
+		position: relative;
+		z-index: 10;
+	}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+	.top-line-lg {
+		position: relative;
+		&:before {
+			content: "";
+			display: inline-block;
+			width: 160px;
+	        height:80px;
+	        z-index: -1;
+	        background: transparent;
+	        border: none;
+	        border-top: dashed 2px lighten($theme-color-primary, 30%);
+	        padding: 30px;
+	        border-radius: 50%;
+	        position: absolute;
+	        right: -80px;
+	        top: -10px;
+			
+		}
+	}
+	
+	.bottom-line-lg {
+		position: relative;
+		&:before {
+			content: "";
+			display: inline-block;
+			width: 160px;
+	        height:80px;
+	        z-index: -1;
+	        background: transparent;
+	        border: none;
+	        border-bottom: dashed 2px lighten($theme-color-primary, 30%);
+	        padding: 30px;
+	        border-radius: 50%;
+	        position: absolute;
+	        right: -80px;
+	        bottom: -10px;
+			
+		}
+	}
+
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+	.hero-figure {
+		max-width: 460px;
+	}
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	.hero-figure {
+		max-width: 100%;
+	}
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+
+/* We occasionally use media queries that go in the other direction */
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    .site-headline {
+	    font-size: 2.5rem;
+    }
+    
+    .section-title {
+	    font-size: 1.875rem;
+    }
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { }
+
+
+
+	
