@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import GettingStartedContent from '../../content/documentation/getting-started.mdx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList } from '@fortawesome/free-solid-svg-icons';
 
 export interface Item {
   text: string;
@@ -20,10 +21,11 @@ const menuItems: Item[] = [
   { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
 ];
 
-const windowIsLarge = (): boolean => typeof window !== 'undefined' && window.matchMedia('(min-width: 1200px)').matches;
+const windowIsLarge = (): boolean => window.matchMedia('(min-width: 1200px)').matches;
 
 const Documentation: FunctionComponent = ({ children }) => {
-  const [ isSidebarVisible, setSidebarVisible ] = useState(windowIsLarge());
+  const { pathname: currentPage } = useRouter();
+  const [ isSidebarVisible, setSidebarVisible ] = useState(true);
   const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
   const getSidebarClasses = () => ({ 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible });
 
@@ -53,7 +55,7 @@ const Documentation: FunctionComponent = ({ children }) => {
           <nav id="docs-nav" className="docs-nav navbar">
             <ul className="section-items list-unstyled nav flex-column pb-3">
               {menuItems.map(({ text, link }) => (
-                <li className="nav-item section-title" key={text}>
+                <li className={classNames('nav-item section-title', { active: currentPage.includes(link) })} key={text}>
                   <Link className="nav-link" href={link}>
                     {text}
                   </Link>
