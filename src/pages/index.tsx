@@ -138,6 +138,8 @@ const Home: FunctionComponent = () => (
             <ExternalLink href="http://symfony.com/doc/current/components/console.html">Symfony</ExternalLink>.
           </small>
         </p>
+
+        <hr className="mt-5" />
       </div>
     </section>
   </Layout>
