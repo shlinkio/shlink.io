@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
+import './Jumbotron.scss';
 
 const Jumbotron: FunctionComponent = () => (
   <section className="hero-section py-3 py-md-5">

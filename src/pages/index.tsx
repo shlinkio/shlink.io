@@ -1,92 +1,70 @@
-import React, { FunctionComponent, RefObject } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 import Link from 'next/link';
+import classNames from 'classnames';
+import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import Jumbotron from '../components/Jumbotron';
 import Terminal from '../components/Terminal';
-import { ExternalLink } from 'react-external-link';
 
-interface HomeProps {
-  scrollTo?: RefObject<HTMLElement>;
+interface ItemProps {
+  title: string;
+  block: ReactNode;
+  reverse?: boolean;
 }
 
-const Home: FunctionComponent<HomeProps> = () => (
+const Item: FunctionComponent<ItemProps> = ({ title, children, block, reverse }) => (
+  <div className="item py-4 py-md-5">
+    <div className="row">
+      <div className={classNames('col-12 col-md-5 mb-3 mb-md-0 align-self-center', { 'order-md-1 pl-md-5': reverse })}>
+        <div className="content pr-5">
+          <h3 className="heading">{title}</h3>
+          <div className="desc">
+            <p>{children}</p>
+          </div>
+        </div>
+      </div>
+      <div className="col-12 col-md-7">{block}</div>
+    </div>
+  </div>
+);
+
+const Home: FunctionComponent = () => (
   <Layout>
     <Jumbotron />
 
     <section className="theme-bg-light pb-4 pt-4">
       <div className="container">
-        <div className="item py-4 py-md-5">
-          <div className="row">
-            <div className="col-12 col-md-5 mb-3 mb-md-0 align-self-center">
-              <div className="content pr-5">
-                <h3 className="heading">Command line</h3>
-                <div className="desc">
-                  <p>
-                    Generate and manage short URLs from the command line. List short codes, see visits or get the URL
-                    behind a short code.
-                    <div className="cta-link mt-3">
-                      <Link href="/command-line-interface">
-                        <a className="btn btn-secondary btn-sm">
-                          View Docs
-                          <i className="fa fa-arrow-circle-right ml-2" />
-                        </a>
-                      </Link>
-                    </div>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-7">
-              <Terminal id="cli" />
-            </div>
-          </div>
-        </div>
 
-        <div className="item py-4 py-md-5">
-          <div className="row">
-            <div className="col-12 col-md-5 mb-3 mb-md-0 order-md-1 pl-md-5 align-self-center">
-              <div className="content pr-5">
-                <h3 className="heading">REST API</h3>
-                <div className="desc">
-                  <p>
-                    Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
-                    <div className="cta-link mt-3">
-                      <Link href="/rest-api">
-                        <a className="btn btn-secondary btn-sm">
-                          View Docs
-                          <i className="fa fa-arrow-circle-right ml-2" />
-                        </a>
-                      </Link>
-                    </div>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-7">
-              <Terminal id="rest" />
-            </div>
+        <Item title="Command line" block={<Terminal id="cli" />}>
+          Generate and manage short URLs from the command line. List short codes, see visits or get the URL
+          behind a short code.
+          <div className="cta-link mt-3">
+            <Link href="/command-line-interface">
+              <a className="btn btn-secondary btn-sm">
+                View Docs
+                <i className="fa fa-arrow-circle-right ml-2" />
+              </a>
+            </Link>
           </div>
-        </div>
+        </Item>
 
-        <div className="item py-4 py-md-5">
-          <div className="row">
-            <div className="col-12 col-md-5 mb-3 mb-md-0 pl-md-5 align-self-center">
-              <div className="content pr-5">
-                <h3 className="heading">Progressive web app</h3>
-                <div className="desc">
-                  <p>
-                    Manage Shlink using this beautiful and
-                    intuitive <ExternalLink href="https://app.shlink.io" className="theme-link">progressive web application</ExternalLink>,
-                    or build your own.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-7">
-              <Terminal id="rest" />
-            </div>
+        <Item title="REST API" block={<Terminal id="rest" />} reverse>
+          Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
+          <div className="cta-link mt-3">
+            <Link href="/rest-api">
+              <a className="btn btn-secondary btn-sm">
+                View Docs
+                <i className="fa fa-arrow-circle-right ml-2" />
+              </a>
+            </Link>
           </div>
-        </div>
+        </Item>
+
+        <Item title="Progressive web app" block={<span />}>
+          Manage Shlink using this beautiful and
+          intuitive <ExternalLink href="https://app.shlink.io" className="theme-link">progressive web application</ExternalLink>,
+          or build your own.
+        </Item>
       </div>
     </section>
 
