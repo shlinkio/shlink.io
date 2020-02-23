@@ -2,12 +2,10 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
-import { ExternalLink } from 'react-external-link';
 import Highlight from 'react-highlight';
 import Menu from './Menu';
 import Footer from './Footer';
-import SectionHeader from './SectionHeader';
-import InternalLink from './InternalLink';
+import Link from './Link';
 
 interface LayoutProps {
   pageTitle?: string;
@@ -16,7 +14,7 @@ interface LayoutProps {
 
 const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
   const siteName = 'Shlink - The URL shortener';
-  const title = `${siteName}${pageTitle ? ` | ${pageTitle}` : ''}`;
+  const title = `${siteName}${pageTitle ? ` — ${pageTitle}` : ''}`;
   const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
 
   return (
@@ -123,14 +121,10 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
       </Head>
 
       <Menu />
-      {pageTitle && <SectionHeader>{pageTitle}</SectionHeader>}
       <MDXProvider
         components={{
           a(props: any) {
-            const { href } = props;
-            const Component = href && href.startsWith('http') ? ExternalLink : InternalLink;
-
-            return <Component {...props} />;
+            return <Link {...props} />;
           },
           code(props: any) {
             return <Highlight {...props} />;

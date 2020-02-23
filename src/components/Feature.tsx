@@ -1,27 +1,31 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import './Feature.scss';
-import InternalLink from './InternalLink';
+import Link from './Link';
 
 interface FeatureProps {
-  icon: string;
   title: string;
-  href?: string;
+  icon: string;
+  link?: string;
+  className?: string;
 }
 
-const Feature: FunctionComponent<FeatureProps> = ({ icon, title, href, children }) => (
-  <section className="spotlight">
-    <div className="image">
-      <i className={classNames('fa', 'feature-image', icon)} />
+const Feature: FunctionComponent<FeatureProps> = ({ title, children, link, icon, className }) => (
+  <div className={classNames('item col-12 col-md-6 col-lg-3', className)}>
+    <div className="item-inner rounded">
+      <div className="icon-holder text-center mx-auto mb-3">
+        <i className={classNames(`fa fa-${icon}`)} />
+      </div>
+      <h5 className="mb-3">{title}</h5>
+      <div>
+        <p>{children}</p>
+      </div>
+      {link && (
+        <div className="mt-2">
+          <Link href={link}>Learn more &rarr;</Link>
+        </div>
+      )}
     </div>
-    <div className="content">
-      <h3>
-        {!href && title}
-        {href && <InternalLink href={href}>{title}</InternalLink>}
-      </h3>
-      <p>{children}</p>
-    </div>
-  </section>
+  </div>
 );
 
 export default Feature;

@@ -1,17 +1,31 @@
 import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
-import { Collapse, NavbarToggler } from 'reactstrap';
+import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
+import { useRouter } from 'next/router';
 import SocialList from './SocialList';
 import InternalLink from './InternalLink';
+
+interface MenuItemProps {
+  to: string;
+  active: boolean;
+  isLast?: boolean;
+}
+
+const MenuItem: FunctionComponent<MenuItemProps> = ({ to, children, isLast, active }) => (
+  <li className={classNames('nav-item', { 'mr-lg-0': isLast, 'mr-lg-4': !isLast, active })}>
+    <InternalLink href={to} className="nav-link">{children}</InternalLink>
+  </li>
+);
 
 const Menu: FunctionComponent = () => {
   const [ collapsed, setCollapsed ] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
+  const { pathname: currentPage } = useRouter();
 
   return (
     <header className="header fixed-top">
       <div className="container-fluid position-relative">
-        <nav className="navbar navbar-expand-lg">
+        <Navbar expand="lg">
           <div className="site-logo">
             <InternalLink href="/" className="navbar-brand">
               <img
@@ -33,24 +47,16 @@ const Menu: FunctionComponent = () => {
             <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5" />
 
             <ul className="navbar-nav ml-lg-auto">
-              <li className="nav-item mr-lg-4">
-                <InternalLink href="/features" className="nav-link">Features</InternalLink>
-              </li>
-              <li className="nav-item mr-lg-4">
-                <InternalLink href="/documentation" className="nav-link">Docs</InternalLink>
-              </li>
-              <li className="nav-item mr-lg-4">
-                <InternalLink href="/command-line-interface" className="nav-link">CLI</InternalLink>
-              </li>
-              <li className="nav-item mr-lg-4">
-                <InternalLink href="/api-docs" className="nav-link">API Docs</InternalLink>
-              </li>
-              <li className="nav-item mr-lg-0">
-                <InternalLink href="/apps" className="nav-link">Apps</InternalLink>
-              </li>
+              <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
+              <MenuItem to="/documentation" active={currentPage.startsWith('/documentation')}>Docs</MenuItem>
+              <MenuItem to="/command-line-interface" active={currentPage.startsWith('/command-line-interface')}>
+                CLI
+              </MenuItem>
+              <MenuItem to="/api-docs" active={currentPage.startsWith('/api-docs')}>API Docs</MenuItem>
+              <MenuItem to="/apps" active={currentPage.startsWith('/apps')} isLast>Apps</MenuItem>
             </ul>
           </Collapse>
-        </nav>
+        </Navbar>
 
       </div>
     </header>

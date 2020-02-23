@@ -7,12 +7,7 @@ import Terminal from '../components/Terminal';
 import Indivisible from '../components/Indivisible';
 import InternalLink from '../components/InternalLink';
 import FakeBrowser from '../components/FakeBrowser';
-
-interface HowWorksItemProps {
-  title: string;
-  icon: string;
-  link: string;
-}
+import Feature from '../components/Feature';
 
 interface MainItemProps {
   title: string;
@@ -32,23 +27,6 @@ const MainItem: FunctionComponent<MainItemProps> = ({ title, children, block, re
         </div>
       </div>
       <div className="col-12 col-md-7">{block}</div>
-    </div>
-  </div>
-);
-
-const HowWorksItem: FunctionComponent<HowWorksItemProps> = ({ title, children, link, icon }) => (
-  <div className="item col-12 col-md-6 col-lg-3">
-    <div className="item-inner rounded">
-      <div className="icon-holder text-center mx-auto mb-3">
-        <i className={classNames(`fa fa-${icon}`)} />
-      </div>
-      <h5 className="mb-3">{title}</h5>
-      <div>
-        <p>{children}</p>
-      </div>
-      <div className="mt-2">
-        <InternalLink href={link}>Learn more &rarr;</InternalLink>
-      </div>
     </div>
   </div>
 );
@@ -119,24 +97,21 @@ const Home: FunctionComponent = () => (
       <div className="container">
         <h3 className="mb-5 text-center font-weight-bold section-title">How does it work</h3>
         <div className="row">
-          <HowWorksItem title="Install" icon="cloud-download" link="/documentation">
+          <Feature title="Install" icon="cloud-download" link="/documentation">
             Download a dist file and <Indivisible>self-host</Indivisible> Shlink yourself, or just drop the
             docker image on your container-based infrastructure.
-          </HowWorksItem>
-
-          <HowWorksItem title="Shrink" icon="crop" link="/documentation">
+          </Feature>
+          <Feature title="Shrink" icon="crop" link="/documentation">
             You can convert a long URL into a short one by letting Shlink generate a unique short code for you, or by
             providing a custom <Indivisible>human-friendly</Indivisible> slug.
-          </HowWorksItem>
-
-          <HowWorksItem title="Share" icon="share" link="/documentation">
+          </Feature>
+          <Feature title="Share" icon="share" link="/documentation">
             Publish your short URLs in social networks, send them via email or use them on your marketing campaigns.
-          </HowWorksItem>
-
-          <HowWorksItem title="Track" icon="bar-chart" link="/documentation">
+          </Feature>
+          <Feature title="Track" icon="bar-chart" link="/documentation">
             Every time a user clicks on a short URL, shlink will collect anonymized visit stats, geolocate the
             visitor and
-          </HowWorksItem>
+          </Feature>
         </div>
       </div>
     </section>
