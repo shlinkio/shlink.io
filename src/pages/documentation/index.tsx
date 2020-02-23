@@ -1,66 +1,78 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
+import classNames from 'classnames';
 import Layout from '../../components/Layout';
-import SectionMenu, { Item } from '../../components/SectionMenu';
+import Link from '../../components/Link';
 import GettingStartedContent from '../../content/documentation/getting-started.mdx';
-import Content from '../../components/Content';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 
-const menuItems: Item[] = [
-  {
-    text: 'Install docker image',
-    link: '/documentation/install-docker-image',
-  },
-  {
-    text: 'Install from dist file',
-    link: '/documentation/install-dist-file',
-  },
-  {
-    text: 'Serve with swoole',
-    link: '/documentation/serve-with-swoole',
-  },
-  {
-    text: 'Classic web server',
-    link: '/documentation/classic-web-server',
-  },
-  {
-    text: 'Multiple domains',
-    link: '/documentation/multiple-domains',
-  },
-  {
-    text: 'Long-running tasks',
-    link: '/documentation/long-running-tasks',
-  },
-];
-
-interface DocumentationProps {
-  children: ReactNode;
+export interface Item {
+  text: string;
+  link: string;
 }
 
-const Documentation: FunctionComponent<DocumentationProps> = ({ children }) => (
-  <Layout pageTitle="Documentation">
-    <section className="wrapper">
-      <div className="inner alt">
-        <section className="spotlight text-only">
-          <div className="content">
-            <div className="row">
+const menuItems: Item[] = [
+  { text: 'Install docker image', link: '/documentation/install-docker-image' },
+  { text: 'Install from dist file', link: '/documentation/install-dist-file' },
+  { text: 'Serve with swoole', link: '/documentation/serve-with-swoole' },
+  { text: 'Classic web server', link: '/documentation/classic-web-server' },
+  { text: 'Multiple domains', link: '/documentation/multiple-domains' },
+  { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
+];
 
-              <div className="3u 12u$(medium) side-menu-container">
-                <SectionMenu items={menuItems} />
-              </div>
+const windowIsLarge = (): boolean => typeof window !== 'undefined' && window.matchMedia('(min-width: 1200px)').matches;
 
-              <div className="9u 12u$(medium) side-menu-contents">
-                {children || (
-                  <Content title="Getting started">
-                    <GettingStartedContent />
-                  </Content>
-                )}
-              </div>
+const Documentation: FunctionComponent = ({ children }) => {
+  const [ isSidebarVisible, setSidebarVisible ] = useState(windowIsLarge());
+  const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
+  const getSidebarClasses = () => ({ 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible });
 
-            </div>
+  useLayoutEffect(() => {
+    const determineSidebarState = () => setSidebarVisible(windowIsLarge());
+
+    window.addEventListener('resize', determineSidebarState);
+    determineSidebarState();
+
+    return () => window.removeEventListener('resize', toggleSidebar);
+  }, []);
+
+  return (
+    <Layout pageTitle="Documentation">
+      <div className="docs-wrapper">
+        <div className="docs-logo-wrapper">
+          <button
+            className="docs-sidebar-toggler docs-sidebar-visible mr-2 d-xl-none"
+            type="button"
+            onClick={toggleSidebar}
+          >
+            <FontAwesomeIcon icon={faList} />
+          </button>
+        </div>
+
+        <div className={classNames('docs-sidebar', getSidebarClasses())}>
+          <nav id="docs-nav" className="docs-nav navbar">
+            <ul className="section-items list-unstyled nav flex-column pb-3">
+              {menuItems.map(({ text, link }) => (
+                <li className="nav-item section-title" key={text}>
+                  <Link className="nav-link" href={link}>
+                    {text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div className="docs-content">
+          <div className="container">
+            <article className="docs-article">
+              {children || <GettingStartedContent />}
+            </article>
           </div>
-        </section>
+        </div>
       </div>
-    </section>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export default Documentation;

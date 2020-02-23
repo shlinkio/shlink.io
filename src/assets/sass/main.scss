@@ -19,3 +19,26 @@
 .svg-inline--fa.fa-w-16 {
   width: 1em;
 }
+
+.docs-article {
+  h1, h2 {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    margin: 1.5rem 0 1rem;
+  }
+}
+
+.docs-logo-wrapper {
+  top: 80px;
+  position: fixed;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+li > ul {
+  margin-bottom: 0;
+}
