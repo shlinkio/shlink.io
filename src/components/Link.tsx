@@ -2,8 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import InternalLink from './InternalLink';
 
-interface LinkProps {
+export interface LinkProps {
   href: string;
+  className?: string;
 }
 
 const Link: FunctionComponent<LinkProps> = (props) => {

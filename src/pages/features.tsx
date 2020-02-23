@@ -12,19 +12,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../components/Layout';
 import Feature from '../components/Feature';
+import SectionHeader from '../components/SectionHeader';
 
 const Features: FunctionComponent = () => (
   <Layout pageTitle="Features">
-    <div className="page-header theme-bg-dark py-5 text-center position-relative">
-      <div className="theme-bg-shapes-right" />
-      <div className="theme-bg-shapes-left" />
-      <div className="container">
-        <h1 className="page-heading single-col-max mx-auto">Features</h1>
-        <div className="page-intro single-col-max mx-auto">
-          These are some of the main features you will be able to find on Shlink.
-        </div>
-      </div>
-    </div>
+    <SectionHeader title="Features">
+      These are some of the main features you will be able to find on Shlink.
+    </SectionHeader>
 
     <section className="how-works-section theme-bg-light py-5">
       <div className="container">
