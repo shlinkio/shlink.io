@@ -1,11 +1,11 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import Link from 'next/link';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import Jumbotron from '../components/Jumbotron';
 import Terminal from '../components/Terminal';
 import Indivisible from '../components/Indivisible';
+import InternalLink from '../components/InternalLink';
 
 interface HowWorksItemProps {
   title: string;
@@ -46,7 +46,7 @@ const HowWorksItem: FunctionComponent<HowWorksItemProps> = ({ title, children, l
         <p>{children}</p>
       </div>
       <div className="mt-2">
-        <Link href={link}><a>Learn more &rarr;</a></Link>
+        <InternalLink href={link}>Learn more &rarr;</InternalLink>
       </div>
     </div>
   </div>
@@ -58,29 +58,24 @@ const Home: FunctionComponent = () => (
 
     <section className="theme-bg-light pb-4 pt-4">
       <div className="container">
-
         <MainItem title="Command line" block={<Terminal id="cli" />}>
           Generate and manage short URLs from the command line. List short codes, see visits or get the URL
           behind a short code.
           <div className="cta-link mt-3">
-            <Link href="/command-line-interface">
-              <a className="btn btn-secondary btn-sm">
-                View Docs
-                <i className="fa fa-arrow-circle-right ml-2" />
-              </a>
-            </Link>
+            <InternalLink href="/command-line-interface" className="btn btn-secondary btn-sm">
+              View Docs
+              <i className="fa fa-arrow-circle-right ml-2" />
+            </InternalLink>
           </div>
         </MainItem>
 
         <MainItem title="REST API" block={<Terminal id="rest" />} reverse>
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
-            <Link href="/rest-api">
-              <a className="btn btn-secondary btn-sm">
-                View Docs
-                <i className="fa fa-arrow-circle-right ml-2" />
-              </a>
-            </Link>
+            <InternalLink href="/rest-api" className="btn btn-secondary btn-sm">
+              View Docs
+              <i className="fa fa-arrow-circle-right ml-2" />
+            </InternalLink>
           </div>
         </MainItem>
 
@@ -102,11 +97,9 @@ const Home: FunctionComponent = () => (
           and <Indivisible>self-hosted</Indivisible> services.
         </div>
         <div className="pt-3 text-center">
-          <Link href="/features">
-            <a className="btn btn-light">
-              Features <i className="fa fa-arrow-circle-right ml-2" />
-            </a>
-          </Link>
+          <InternalLink href="/features" className="btn btn-light">
+            Features <i className="fa fa-arrow-circle-right ml-2" />
+          </InternalLink>
         </div>
       </div>
     </section>

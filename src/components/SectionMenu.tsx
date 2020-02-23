@@ -1,9 +1,9 @@
 import React, { FunctionComponent, ReactNode, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
 import './SectionMenu.scss';
+import InternalLink from './InternalLink';
 
 export interface Item {
   text: string;
@@ -33,9 +33,9 @@ const SectionMenu: FunctionComponent<SectionMenu> = ({ items }) => {
           <li key={link}>
             {external && <ExternalLink href={link}>{text}</ExternalLink>}
             {!external && (
-              <Link href={link}>
-                <a className={classNames({ selected: activeItemPath === link })}>{text}</a>
-              </Link>
+              <InternalLink href={link} className={classNames({ selected: activeItemPath === link })}>
+                {text}
+              </InternalLink>
             )}
           </li>
         ))}

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import Link from 'next/link';
 import Indivisible from './Indivisible';
+import InternalLink from './InternalLink';
 import './Jumbotron.scss';
 
 const Jumbotron: FunctionComponent = () => (
@@ -16,18 +16,14 @@ const Jumbotron: FunctionComponent = () => (
             powerful tool.
           </div>
           <div className="cta-btns mb-lg-3">
-            <Link href="/documentation">
-              <a className="btn btn-primary mr-2 mb-3">
-                Get Started
-                <i className="fa fa-arrow-circle-right ml-2" />
-              </a>
-            </Link>
-            <Link href="/features">
-              <a className="btn btn-secondary mb-3">
-                Features
-                <i className="fa fa-arrow-circle-right ml-2" />
-              </a>
-            </Link>
+            <InternalLink href="/documentation" className="btn btn-primary mr-2 mb-3">
+              Get Started
+              <i className="fa fa-arrow-circle-right ml-2" />
+            </InternalLink>
+            <InternalLink href="/features" className="btn btn-secondary mb-3">
+              Features
+              <i className="fa fa-arrow-circle-right ml-2" />
+            </InternalLink>
           </div>
         </div>
         <div className="col-12 col-lg-5 text-center align-self-center">
