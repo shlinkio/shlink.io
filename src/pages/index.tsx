@@ -6,6 +6,7 @@ import Jumbotron from '../components/Jumbotron';
 import Terminal from '../components/Terminal';
 import Indivisible from '../components/Indivisible';
 import InternalLink from '../components/InternalLink';
+import FakeBrowser from '../components/FakeBrowser';
 
 interface HowWorksItemProps {
   title: string;
@@ -52,6 +53,12 @@ const HowWorksItem: FunctionComponent<HowWorksItemProps> = ({ title, children, l
   </div>
 );
 
+const ShlinkWebClientVideo: FunctionComponent = () => (
+  <FakeBrowser>
+    <video src="/videos/shlink-web-client.mp4" style={{ maxWidth: '100%' }} autoPlay loop />
+  </FakeBrowser>
+);
+
 const Home: FunctionComponent = () => (
   <Layout>
     <Jumbotron />
@@ -79,10 +86,14 @@ const Home: FunctionComponent = () => (
           </div>
         </MainItem>
 
-        <MainItem title="Progressive web app" block={<span />}>
-          Manage Shlink using this beautiful and
-          intuitive <ExternalLink href="https://app.shlink.io" className="theme-link">progressive web application</ExternalLink>,
-          or build your own.
+        <MainItem title="Progressive web app" block={<ShlinkWebClientVideo />}>
+          Manage multiple Shlink instances using this beautiful and
+          intuitive progressive web application.
+          <div className="cta-link mt-3">
+            <ExternalLink href="https://app.shlink.io" className="btn btn-secondary btn-sm">
+              Go <i className="fa fa-arrow-circle-right ml-2" />
+            </ExternalLink>
+          </div>
         </MainItem>
       </div>
     </section>

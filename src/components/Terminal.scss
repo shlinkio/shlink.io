@@ -1,5 +1,5 @@
 .terminal {
-    padding: 25px 3px 0;
+    padding: 0 3px;
     font-family: monospace;
     font-size: .8em;
     line-height: 1.6em;
@@ -10,10 +10,10 @@
     background-color: white;
 }
 .terminal.cli {
-    min-height: 200px;
+    min-height: 175px;
 }
 .terminal.rest {
-    min-height: 300px;
+    min-height: 275px;
 }
 
 .terminal .green {
