@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Indivisible from './Indivisible';
 import InternalLink from './InternalLink';
 import './Jumbotron.scss';
@@ -18,11 +20,11 @@ const Jumbotron: FunctionComponent = () => (
           <div className="cta-btns mb-lg-3">
             <InternalLink href="/documentation" className="btn btn-primary mr-2 mb-3">
               Get Started
-              <i className="fa fa-arrow-circle-right ml-2" />
+              <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
             <InternalLink href="/features" className="btn btn-secondary mb-3">
               Features
-              <i className="fa fa-arrow-circle-right ml-2" />
+              <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
         </div>

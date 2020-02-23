@@ -1,6 +1,9 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
+import { faChartBar } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight, faCloudDownloadAlt, faCropAlt, faShare } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../components/Layout';
 import Jumbotron from '../components/Jumbotron';
 import Terminal from '../components/Terminal';
@@ -48,8 +51,7 @@ const Home: FunctionComponent = () => (
           behind a short code.
           <div className="cta-link mt-3">
             <InternalLink href="/command-line-interface" className="btn btn-secondary btn-sm">
-              View Docs
-              <i className="fa fa-arrow-circle-right ml-2" />
+              View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
         </MainItem>
@@ -58,8 +60,7 @@ const Home: FunctionComponent = () => (
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
             <InternalLink href="/rest-api" className="btn btn-secondary btn-sm">
-              View Docs
-              <i className="fa fa-arrow-circle-right ml-2" />
+              View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
         </MainItem>
@@ -69,7 +70,7 @@ const Home: FunctionComponent = () => (
           intuitive progressive web application.
           <div className="cta-link mt-3">
             <ExternalLink href="https://app.shlink.io" className="btn btn-secondary btn-sm">
-              Go <i className="fa fa-arrow-circle-right ml-2" />
+              Go <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </ExternalLink>
           </div>
         </MainItem>
@@ -87,7 +88,7 @@ const Home: FunctionComponent = () => (
         </div>
         <div className="pt-3 text-center">
           <InternalLink href="/features" className="btn btn-light">
-            Features <i className="fa fa-arrow-circle-right ml-2" />
+            Features <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
           </InternalLink>
         </div>
       </div>
@@ -97,18 +98,18 @@ const Home: FunctionComponent = () => (
       <div className="container">
         <h3 className="mb-5 text-center font-weight-bold section-title">How does it work</h3>
         <div className="row">
-          <Feature title="Install" icon="cloud-download" link="/documentation">
+          <Feature title="Install" icon={faCloudDownloadAlt} link="/documentation">
             Download a dist file and <Indivisible>self-host</Indivisible> Shlink yourself, or just drop the
             docker image on your container-based infrastructure.
           </Feature>
-          <Feature title="Shrink" icon="crop" link="/documentation">
+          <Feature title="Shrink" icon={faCropAlt} link="/documentation">
             You can convert a long URL into a short one by letting Shlink generate a unique short code for you, or by
             providing a custom <Indivisible>human-friendly</Indivisible> slug.
           </Feature>
-          <Feature title="Share" icon="share" link="/documentation">
+          <Feature title="Share" icon={faShare} link="/documentation">
             Publish your short URLs in social networks, send them via email or use them on your marketing campaigns.
           </Feature>
-          <Feature title="Track" icon="bar-chart" link="/documentation">
+          <Feature title="Track" icon={faChartBar} link="/documentation">
             Every time a user clicks on a short URL, shlink will collect anonymized visit stats, geolocate the
             visitor and
           </Feature>

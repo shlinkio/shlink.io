@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faPaypal, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 interface SocialListProps {
   type: 'inline' | 'unstyled';
@@ -11,14 +13,18 @@ const SocialList: FunctionComponent<SocialListProps> = ({ type, className }) => 
   <ul className={classNames(`social-list list-${type}`, className)}>
     <li className="list-inline-item">
       <ExternalLink href="https://github.com/shlinkio/shlink">
-        <i className="fa fa-github fa-fw" />
+        <FontAwesomeIcon icon={faGithub} fixedWidth />
       </ExternalLink>
     </li>
     <li className="list-inline-item">
-      <ExternalLink href="https://twitter.com/shlinkio"><i className="fa fa-twitter fa-fw" /></ExternalLink>
+      <ExternalLink href="https://twitter.com/shlinkio">
+        <FontAwesomeIcon icon={faTwitter} fixedWidth />
+      </ExternalLink>
     </li>
     <li className="list-inline-item">
-      <ExternalLink href={process.env.donateUrl || ''}><i className="fa fa-paypal fa-fw" /></ExternalLink>
+      <ExternalLink href={process.env.donateUrl || ''}>
+        <FontAwesomeIcon icon={faPaypal} fixedWidth />
+      </ExternalLink>
     </li>
   </ul>
 );

@@ -7,3 +7,15 @@
 .indivisible {
   white-space: nowrap;
 }
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
