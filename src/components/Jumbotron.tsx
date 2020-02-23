@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
+import Indivisible from './Indivisible';
 import './Jumbotron.scss';
 
 const Jumbotron: FunctionComponent = () => (
@@ -8,8 +9,7 @@ const Jumbotron: FunctionComponent = () => (
       <div className="row">
         <div className="site-jumbotron-text col-12 col-lg-7 pt-3 mb-5 mb-lg-0 align-self-center">
           <h1 className="site-headline font-weight-bold mb-3">
-            The definitive <span className="indivisible">self-hosted</span>{' '}
-            <span className="indivisible">URL shortener</span>
+            The definitive <Indivisible>self-hosted</Indivisible> <Indivisible>URL shortener</Indivisible>
           </h1>
           <div className="site-tagline mb-4">
             Keep control over all your shortened URLs, by serving them under your own domains, using this simple yet

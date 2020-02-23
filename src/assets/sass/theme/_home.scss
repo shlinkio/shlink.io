@@ -19,7 +19,7 @@
 	max-width: 100%;
 }
 
-.benefits-section {
+.how-works-section {
 	.item {
 		margin-bottom: 2rem;
 		
@@ -31,7 +31,7 @@
 			@include border-radius(50%);
 			padding-top: 15px;
 			
-			.svg-inline--fa {
+			.svg-inline--fa, .fa {
 				color: $theme-color-primary;
 				font-size: 1.75rem;
 			}
