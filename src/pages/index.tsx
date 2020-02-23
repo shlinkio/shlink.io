@@ -1,5 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
-import classNames from 'classnames';
+import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import { faChartBar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,36 +8,9 @@ import Jumbotron from '../components/Jumbotron';
 import Terminal from '../components/Terminal';
 import Indivisible from '../components/Indivisible';
 import InternalLink from '../components/InternalLink';
-import FakeBrowser from '../components/FakeBrowser';
 import Feature from '../components/Feature';
-
-interface MainItemProps {
-  title: string;
-  block: ReactNode;
-  reverse?: boolean;
-}
-
-const MainItem: FunctionComponent<MainItemProps> = ({ title, children, block, reverse }) => (
-  <div className="item py-4 py-md-5">
-    <div className="row">
-      <div className={classNames('col-12 col-md-5 mb-3 mb-md-0 align-self-center', { 'order-md-1 pl-md-5': reverse })}>
-        <div className="content pr-5">
-          <h3 className="heading">{title}</h3>
-          <div className="desc">
-            <p>{children}</p>
-          </div>
-        </div>
-      </div>
-      <div className="col-12 col-md-7">{block}</div>
-    </div>
-  </div>
-);
-
-const ShlinkWebClientVideo: FunctionComponent = () => (
-  <FakeBrowser>
-    <video src="/videos/shlink-web-client.mp4" style={{ maxWidth: '100%' }} autoPlay loop />
-  </FakeBrowser>
-);
+import SectionItem from '../components/SectionItem';
+import ShlinkWebClientVideo from '../components/ShlinkWebClientVideo';
 
 const Home: FunctionComponent = () => (
   <Layout>
@@ -46,7 +18,7 @@ const Home: FunctionComponent = () => (
 
     <section className="theme-bg-light pb-4 pt-4">
       <div className="container">
-        <MainItem title="Command line" block={<Terminal id="cli" />}>
+        <SectionItem title="Command line" block={<Terminal id="cli" />}>
           Generate and manage short URLs from the command line. List short codes, see visits or get the URL
           behind a short code.
           <div className="cta-link mt-3">
@@ -54,18 +26,18 @@ const Home: FunctionComponent = () => (
               View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
-        </MainItem>
+        </SectionItem>
 
-        <MainItem title="REST API" block={<Terminal id="rest" />} reverse>
+        <SectionItem title="REST API" block={<Terminal id="rest" />} reverse>
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
             <InternalLink href="/rest-api" className="btn btn-secondary btn-sm">
               View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
-        </MainItem>
+        </SectionItem>
 
-        <MainItem title="Progressive web app" block={<ShlinkWebClientVideo />}>
+        <SectionItem title="Progressive web app" block={<ShlinkWebClientVideo />}>
           Manage multiple Shlink instances using this beautiful and
           intuitive progressive web application.
           <div className="cta-link mt-3">
@@ -73,7 +45,7 @@ const Home: FunctionComponent = () => (
               Go <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </ExternalLink>
           </div>
-        </MainItem>
+        </SectionItem>
       </div>
     </section>
 
