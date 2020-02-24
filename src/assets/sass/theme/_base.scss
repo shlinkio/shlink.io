@@ -1,0 +1,686 @@
+/* ============= Base ============= */
+
+/*********** Theme Variables **********/
+$theme-width-restrict: 780px;
+
+
+/*********** Theme Generic **********/
+body {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $theme-text-color-secondary;
+    padding-top: 69px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Poppins', sans-serif;
+	color: $theme-text-color-primary;
+	font-weight: 600;
+}
+
+code {
+	background: $theme-bg-light;
+	color: $theme-text-color-primary;
+	padding: 0.25rem 0.375rem;
+	@include border-radius(0.25rem);
+}
+
+
+.table-bordered th, .table-bordered td {
+	border-color: $theme-divider;
+}
+
+.table th, .table td {
+	border-color: $theme-divider;
+}
+
+.table thead th {
+	border-color: $theme-divider;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: $smoky-white;
+}
+
+.table-dark th, .table-dark td, .table-dark thead th {
+	border-color: lighten($theme-text-color-primary, 20%);
+}
+
+.popover {
+	border-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-left>.arrow::before, .bs-popover-auto[x-placement^="left"]>.arrow::before {
+	border-left-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-right>.arrow::before, .bs-popover-auto[x-placement^="right"]>.arrow::before {
+	border-right-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-top>.arrow::before, .bs-popover-auto[x-placement^="top"]>.arrow::before {
+	border-top-color: darken($theme-bg-light, 5%);
+}
+.bs-popover-bottom>.arrow::before, .bs-popover-auto[x-placement^="bottom"]>.arrow::before {
+	border-bottom-color: darken($theme-bg-light, 5%);
+}
+
+a.theme-link {
+	color: $theme-text-color-primary;
+	text-decoration: underline;
+    -webkit-text-decoration-color: rgba($theme-text-color-primary,0.3);
+    text-decoration-color: rgba($theme-text-color-primary,0.3);
+    &:hover {
+	    color: $theme-color-primary;
+	    -webkit-text-decoration-color: rgba($theme-color-primary,0.8);
+	        text-decoration-color: rgba($theme-color-primary,0.8);
+    }
+}
+
+.btn {
+	font-weight: 600;
+	padding: 0.6rem 1.25rem;
+	@include transition (all 0.4s ease-in-out);
+	border: none;
+	&:hover, &:active, &:focus {
+		box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 12px 24px -6px rgba(0,0,0,0.15);
+	}
+}
+
+.btn:focus, .btn.focus {
+	box-shadow: none !important;
+}
+
+.btn-primary {
+   background: $theme-color-primary;
+}
+
+.btn-secondary {
+	background: $theme-text-color-secondary;
+	color: #fff;
+}
+
+.btn-light {
+	background: $theme-bg-light;
+	color: $theme-color-primary;
+	&:hover {
+		background: $theme-bg-light;
+		color: $theme-color-primary;
+	}
+}
+
+
+.form-control {
+	padding-top: 0.875rem;
+	padding-bottom: 0.875rem;
+	height: 2.75rem;
+	border-color: darken($theme-bg-light, 5%);
+	&:focus {
+		box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+		outline: none;
+	}
+}
+
+/* prevent owl carousel FOUC */
+.owl-item {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+
+
+.error {
+	color: $theme-error;
+}
+
+.theme-icon-holder {
+	display: inline-block;
+	background: $theme-bg-light;
+	color: $theme-color-primary;
+	width: 32px;
+	height: 32px;
+	padding-top: 4px;
+	font-size: 1rem;
+	text-align: center;
+	@include border-radius(50%);
+	
+	.svg-inline---fa {
+		color: $theme-color-primary;
+	}
+}
+
+.theme-bg-light {
+	background: $theme-bg-light;
+}
+
+.theme-bg-dark {
+	background: $theme-bg-dark;
+}
+
+.theme-bg-shapes-right {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	right: 0;
+	top: 0;
+	overflow:hidden;
+	&:before {
+		content: "";
+		width: 300px;
+	    height: 150px;
+	    background: rgba(256, 256, 256, 0.1);
+	    position: absolute;
+	    right: -60px;
+	    top: 0;
+	    @include border-radius(4px);
+	    @include skew(25,-10);
+        @include transform-origin(top left);
+	}
+	
+	&:after {
+		content: "";
+		width: 150px;
+	    height: 600px;
+	    background: rgba(256, 256, 256, 0.15);
+	    position: absolute;
+	    right: 0px;
+	    top: 30px;
+	    @include border-radius(6px);
+	    @include skew(25,10);
+        @include transform-origin(top left);
+	}
+}
+
+.theme-bg-shapes-left {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	right: 0;
+	top: 0;
+	overflow:hidden;
+	&:before {
+		content: "";
+		width: 300px;
+	    height: 150px;
+	    background: rgba(256, 256, 256, 0.1);
+	    position: absolute;
+	    left: -90px;
+	    top: 0;
+	    @include border-radius(6px);
+	    @include skew(25,-12);
+        @include transform-origin(top left);
+	}
+	
+	&:after {
+		content: "";
+		width: 150px;
+	    height: 600px;
+	    background: rgba(256, 256, 256, 0.15);
+	    position: absolute;
+	    left: 0px;
+	    top: 30px;
+	    @include border-radius(4px);
+	    @include skew(-25,10);
+        @include transform-origin(top left);
+	}
+}
+
+
+
+/*********** Theme Utilities **********/
+
+.border-radius-0 {
+	@include border-radius(0);
+}
+
+
+.font-style-normal {
+	font-style: normal !important;
+}
+
+
+.single-col-max {
+	max-width: $single-col-max;
+}
+
+.tech-icons {
+	font-size: 1.875rem;
+	color: $theme-color-primary;
+	
+	.fa-angular {
+		color: #CA3327;
+	}
+	.fa-js-square, .fa-js {
+		color: #F1DE4F;
+	}
+	.fa-react {
+		color: #62D4FA;
+	}
+	.fa-vuejs {
+		color: #64B687;
+	}
+	.nodejs {
+		color: #55AC63;
+	}
+	.fa-python {
+		color: #456E9C;
+	}
+	.fa-php {
+		color: #777BAF;
+	}
+	.fa-java {
+		color: #2E68AB;
+	}
+	.fa-html5, .fa-html5-alt {
+		color: #DE6E3C;
+	}
+	.fa-css3, .fa-css3-alt {
+		color: #53A7DC;
+	}
+	.fa-sass {
+		color: #BF6B97;
+	}
+	.fa-less {
+		color: #324B7C
+	}
+	.fa-gulp {
+		color: #C9514E;
+	}
+	.fa-grunt {
+		color: #EFAC42;
+	}
+	.fa-npm {
+		color: #BB443E;
+	}
+	.fa-sketch {
+		color: #fa6400;
+	}
+	.fa-bootstrap {
+		color: #7952b3;
+	}
+	.fa-stripe, .fa-cc-stripe {
+		color: #6972DE;
+	}
+	.fa-paypal, .fa-cc-paypal {
+		color: #449AD8;
+	}
+	.fa-cc-apple-pay, .fa-apple-pay {
+		color: black;
+	}
+	.fa-github, .fa-github-alt, .fa-github-square {
+		color: #24292e;
+	}
+	.fa-linux {
+		
+	}
+	.fa-firefox {
+		color: #EFA239;
+	}
+	.fa-chrome {
+		color: #4B9F65;
+	}
+}
+
+/* Header */
+
+.site-logo {
+    .logo-text {
+	    color: $theme-text-color-primary;
+	    font-size: 1.5rem;
+	    font-weight:bold;
+    }
+    
+    .text-alt {
+	    font-weight:300;
+    }
+	.navbar-brand {
+		font-size: 2rem;
+		font-weight: 600;
+		padding-top: 0;
+	}
+
+}
+
+
+.navbar {
+	font-size: 1rem;
+	padding: 0.5rem 0;
+
+	.dropdown-toggle::after {
+		vertical-align: 0.3em;
+		position: relative;
+		top: 0.2rem;
+	}
+	.navbar-toggler {
+		border: none;
+	    padding: 0;
+	    font-size: inherit;
+        &:focus {
+		    outline: none;
+	    }
+	}
+		
+	.nav-link {
+		color: $theme-text-color-secondary;
+		font-weight: 500;
+		
+		&:hover {
+			color: $theme-text-color-primary;
+		}
+		
+	}
+	
+	.active {
+		.nav-link {
+			color: $theme-text-color-primary;
+		}
+	}
+	
+	.dropdown-menu {
+		border-color: $theme-divider;
+		padding: 0;
+		&:after {
+			content: "";
+		    display: block;
+		    width: 0;
+		    height: 0;
+		    border-left: 8px solid transparent;
+		    border-right: 8px solid transparent;
+		    border-bottom: 8px solid #fff;
+		    position: absolute;
+		    right: 2rem;
+		    top: -8px;
+		}
+		&:before {
+			content: "";
+		    display: block;
+		    width: 0;
+		    height: 0;
+		    border-left: 8px solid transparent;
+		    border-right: 8px solid transparent;
+		    border-bottom: 8px solid $theme-divider;
+		    position: absolute;
+		    right: 2rem;
+		    top: -9px;
+		}
+	}
+	.dropdown-item {
+		font-size: 0.875rem;
+		padding: 0.75rem 2rem;
+		&.has-icon {
+			padding-left: 1rem;
+		}
+		.theme-icon-holder {
+			font-size: 0.75rem;
+			padding-top: 0.5rem;
+		}
+		
+		&:hover, &:active, &.active,  {
+			color: $theme-color-primary;
+			background: $theme-bg-light;
+			.theme-icon-holder {
+				background: $theme-color-primary;
+				color: #fff;
+			}
+		}
+		
+	}
+}
+
+
+
+/* Page headers */
+.page-header {
+	&.theme-bg-dark {
+		.page-heading {
+			color: #fff;
+		}
+		.page-intro {
+			color: #fff;
+			@include opacity(0.8);
+		}
+	}
+}
+
+/* Animated Hamburger Icon for Bootstrap */
+
+.navbar-toggler {
+    position: relative;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: 0;
+}
+
+.navbar-toggler span {
+   display: block;
+   background-color: $theme-color-primary;
+   height: 3px;
+   width: 24px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   -webkit-transform: rotate(0deg);
+   -moz-transform: rotate(0deg);
+   -o-transform: rotate(0deg);
+   transform: rotate(0deg);
+   position: relative;
+   left: 0;
+   @include opacity(1);
+   @include border-radius(1px);
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+   -webkit-transition: transform .35s ease-in-out;
+   -moz-transition: transform .35s ease-in-out;
+   -o-transition: transform .35s ease-in-out;
+   transition: transform .35s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    @include opacity(0.9);
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    height: 12px;
+    visibility: hidden;
+    background-color: transparent;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    opacity: 0.9;
+}
+
+
+
+.social-list {
+	li {
+		font-size: 1.125rem;
+		background: $theme-bg-light;
+		width: 32px;
+		height: 32px;
+		text-align: center;
+		@include border-radius(50%);
+		padding-top: 2px;
+		a {
+			color: lighten($theme-color-primary, 10%);
+			&:hover {
+				color: $theme-color-primary;
+			}
+		}
+		
+		&:not(:last-child) {
+			margin-right: 0.875rem;
+		}
+	}
+}
+
+.header {
+	@include box-shadow(0 1px 4px 0 rgba(0,0,0,.1));
+	background: #fff;
+}
+
+/* Footer */
+.footer {
+    .footer-col {
+	    font-size: 0.875rem;
+	    .col-heading {
+		    font-size: 1rem;
+		    margin-bottom: 1rem;
+		    color: $theme-text-color-secondary;
+	    }
+	    a {
+		    color: $theme-text-color-secondary;
+	    }
+	    
+	    li {
+		    margin-bottom: 0.5rem;
+	    }
+	    
+    }
+	.copyright {
+		font-size: 0.875rem;
+	}
+	
+	
+	
+}
+
+.newsletter-section {
+	.section-intro {
+		font-size: 1rem;
+	}
+	
+}
+
+.signup-form .form-control{
+    width: 320px;
+    
+}
+
+
+/* Page related */
+.page-heading {
+	font-size: 2.5rem;
+}
+.page-intro {
+	font-size: 1.125rem;
+}
+
+
+/* dropdown menu animation */
+@keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform:translateY(0rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+	.menu-animate {
+	    animation-duration: 0.3s;
+	    -webkit-animation-duration: 0.3s;
+	    animation-fill-mode: both;
+	    -webkit-animation-fill-mode: both;
+	}
+	/* Make dropdown menu drop on hover */
+	.navbar .dropdown:hover > .dropdown-menu {
+	    display: block;
+	}
+	.navbar  .dropdown > .dropdown-toggle:active {
+	    /*Without this, clicking will make it sticky*/
+	    pointer-events: none;
+	}
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {  }
+
+
+/* We occasionally use media queries that go in the other direction */
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    .signup-form .form-control{
+	    width: inherit;
+	    
+	}
+
+    .signup-form .form-group {
+	    width: 100%;
+	    
+    }
+	
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+	.navbar .dropdown-menu {
+		@include box-shadow(none !important);
+		border: none;
+		&:before, &:after {
+			display: none;
+		}
+	}
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { }
+
+
+

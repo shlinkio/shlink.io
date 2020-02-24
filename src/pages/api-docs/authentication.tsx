@@ -1,14 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import Content from '../../components/Content';
 import AuthenticationContent from '../../content/api-docs/authentication.mdx';
-import ApiDocs from './index';
+import Documentation from '../documentation';
 
 const Authentication: FunctionComponent = () => (
-  <ApiDocs>
-    <Content title="Authentication">
-      <AuthenticationContent />
-    </Content>
-  </ApiDocs>
+  <Documentation>
+    <AuthenticationContent />
+  </Documentation>
 );
 
 export default Authentication;

@@ -1,25 +1,15 @@
-import React, { FunctionComponent, ReactNode } from 'react';
-import './FakeBrowser.css';
+import React, { FunctionComponent } from 'react';
+import './FakeBrowser.scss';
 
-interface FakeBrowserProps {
-  inBrowser: ReactNode;
-  children: ReactNode;
-}
-
-const FakeBrowser: FunctionComponent<FakeBrowserProps> = ({ children, inBrowser }) => (
-  <section className="spotlight">
-    <div className="image">
-      <div className="fake-browser-ui">
-        <div className="frame">
-          <span className="close" />
-          <span className="minimize" />
-          <span className="maximize" />
-        </div>
-        {inBrowser}
-      </div>
+const FakeBrowser: FunctionComponent = ({ children }) => (
+  <div className="fake-browser-ui">
+    <div className="frame">
+      <span className="close" />
+      <span className="minimize" />
+      <span className="maximize" />
     </div>
-    <div className="content">{children}</div>
-  </section>
+    {children}
+  </div>
 );
 
 export default FakeBrowser;

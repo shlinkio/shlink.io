@@ -6,7 +6,7 @@ module.exports = {
   },
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.css$': 'jest-transform-css',
+    '^.+\\.scss$': 'jest-transform-css',
   },
   moduleFileExtensions: [ 'ts', 'tsx', 'js', 'jsx' ],
   coverageDirectory: '<rootDir>/coverage',

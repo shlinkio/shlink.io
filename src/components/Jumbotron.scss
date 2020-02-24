@@ -1,0 +1,11 @@
+.site-jumbotron-text {
+  text-align: right;
+
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+}
+
+.hero-figure {
+  max-width: 340px;
+}

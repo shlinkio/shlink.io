@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { ExternalLink } from 'react-external-link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 const DEFAULT_LINK = 'https://github.com/shlinkio/shlink/releases/latest';
 const GITHUB_API = 'https://api.github.com/repos/shlinkio/shlink/releases/latest';
@@ -19,8 +21,8 @@ const DownloadLatestBtn: FunctionComponent = () => {
   }, []);
 
   return (
-    <ExternalLink href={link} className="button special icon fa-download download-shlink-btn">
-      Download
+    <ExternalLink href={link} className="btn btn-primary download-shlink-btn">
+      <FontAwesomeIcon icon={faDownload} className="mr-2" /> Download
     </ExternalLink>
   );
 };

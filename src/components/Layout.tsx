@@ -2,21 +2,20 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
-import { ExternalLink } from 'react-external-link';
 import Highlight from 'react-highlight';
-import Menu from './Menu';
+import Menu, { MenuProps } from './Menu';
 import Footer from './Footer';
-import SectionHeader from './SectionHeader';
-import InternalLink from './InternalLink';
+import Link from './Link';
 
-interface LayoutProps {
+interface LayoutProps extends MenuProps {
   pageTitle?: string;
   children: ReactNode;
+  noFooter?: boolean;
 }
 
-const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
+const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuToggle, noFooter = false }) => {
   const siteName = 'Shlink - The URL shortener';
-  const title = `${siteName}${pageTitle ? ` | ${pageTitle}` : ''}`;
+  const title = `${siteName}${pageTitle ? ` — ${pageTitle}` : ''}`;
   const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
 
   return (
@@ -51,7 +50,12 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
       />
 
       <Head>
+        <title>{title}</title>
         <meta name="theme-color" content="#4696e5" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap"
+        />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon.png" />
@@ -117,15 +121,11 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
         <meta name="msapplication-square310x310logo" content="/icons/icon-310x310.png" />
       </Head>
 
-      <Menu />
-      {pageTitle && <SectionHeader>{pageTitle}</SectionHeader>}
+      <Menu leftMenuToggle={leftMenuToggle} />
       <MDXProvider
         components={{
           a(props: any) {
-            const { href } = props;
-            const Component = href && href.startsWith('http') ? ExternalLink : InternalLink;
-
-            return <Component {...props} />;
+            return <Link {...props} />;
           },
           code(props: any) {
             return <Highlight {...props} />;
@@ -134,7 +134,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
       >
         {children}
       </MDXProvider>
-      <Footer />
+      {!noFooter && <Footer />}
     </React.Fragment>
   );
 };

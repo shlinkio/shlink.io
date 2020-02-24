@@ -7,8 +7,9 @@ describe('<SectionHeader />', () => {
   afterEach(cleanup);
 
   it('properly renders provided children inside a title', () => {
-    const { getByText } = render(<SectionHeader>This is the title</SectionHeader>);
+    const { getByText } = render(<SectionHeader title="Some title">This is the subtitle</SectionHeader>);
 
-    expect(getByText('This is the title')).toBeInTheDocument();
+    expect(getByText('This is the subtitle')).toBeInTheDocument();
+    expect(getByText('Some title')).toBeInTheDocument();
   });
 });

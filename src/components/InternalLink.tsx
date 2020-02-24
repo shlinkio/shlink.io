@@ -1,13 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
+import { LinkProps } from './Link';
 
-interface InternalLinkProps {
-  href: string;
-}
-
-const InternalLink: FunctionComponent<InternalLinkProps> = ({ children, href, ...rest }) => (
+const InternalLink: FunctionComponent<LinkProps> = ({ children, href, className, ...rest }) => (
   <Link href={href} {...rest}>
-    <a>{children}</a>
+    <a className={className}>{children}</a>
   </Link>
 );
 

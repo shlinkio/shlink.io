@@ -1,31 +1,32 @@
 import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
+import SectionHeader from '../components/SectionHeader';
+import SectionItem from '../components/SectionItem';
+import ShlinkWebClientVideo from '../components/ShlinkWebClientVideo';
+import Indivisible from '../components/Indivisible';
 
 const Apps: FunctionComponent = () => (
   <Layout pageTitle="Apps">
-    <section className="wrapper">
-      <div className="inner alt">
-        <section className="spotlight">
-          <div className="image app">
-            <img src="/images/apps/shlink-web-client.png" alt="Shlink web client" />
-          </div>
-          <div className="content">
-            <h3>
-              Shlink web client
-              <ExternalLink className="external-app-link" href="https://github.com/shlinkio/shlink-web-client/releases/latest">
-                <i className="fa fa-external-link" />
-              </ExternalLink>
-            </h3>
-            <p>
-              Manage any number of Shlink servers with this React progressive web application.
-              <br />
-              See beautiful charts with your visit stats and easily create new short URLs.
-              <br />
-              You can self-host it yourself or try it from <ExternalLink href="https://app.shlink.io" />.
-            </p>
-          </div>
-        </section>
+    <SectionHeader title="Apps">
+      A curated list of either official or third-party apps that can be integrated with Shlink.
+    </SectionHeader>
+
+    <section className="theme-bg-light pb-4 pt-4">
+      <div className="container">
+        <SectionItem title="Shlink web client" block={<ShlinkWebClientVideo />}>
+          <p>
+            Manage any number of Shlink servers with this <Indivisible>React-based</Indivisible> progressive web
+            application.
+          </p>
+          <p>
+            See beautiful charts with your visit stats and easily create new short URLs.
+          </p>
+          <p>
+            You can <ExternalLink href="https://github.com/shlinkio/shlink-web-client">self-host</ExternalLink> it
+            yourself or try it from <ExternalLink href="https://app.shlink.io" />
+          </p>
+        </SectionItem>
       </div>
     </section>
   </Layout>

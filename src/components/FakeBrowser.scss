@@ -1,3 +1,11 @@
+.fake-browser-ui {
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px #e6e6e6;
+    padding-top: 25px;
+    background-color: white;
+}
+
 .fake-browser-ui .frame {
     display: block;
     height: 15px;

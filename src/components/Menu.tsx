@@ -1,67 +1,70 @@
-import React, { useState, useEffect, FunctionComponent } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React, { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
-import { ExternalLink } from 'react-external-link';
-import './Menu.css';
+import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
+import { useRouter } from 'next/router';
+import SocialList from './SocialList';
+import InternalLink from './InternalLink';
 
-// FIXME Make window object to be passed as prop
-const Menu: FunctionComponent = () => {
-  const [ active, setActive ] = useState(false);
-  const [ show, setShowSubmenu ] = useState(false);
+interface MenuItemProps {
+  to: string;
+  active: boolean;
+  isLast?: boolean;
+}
+
+const MenuItem: FunctionComponent<MenuItemProps> = ({ to, children, isLast, active }) => (
+  <li className={classNames('nav-item', { 'mr-lg-0': isLast, 'mr-lg-4': !isLast, active })}>
+    <InternalLink href={to} className="nav-link">{children}</InternalLink>
+  </li>
+);
+
+export interface MenuProps {
+  leftMenuToggle?: ReactNode;
+}
+
+const Menu: FunctionComponent<MenuProps> = ({ leftMenuToggle }) => {
+  const [ collapsed, setCollapsed ] = useState(true);
+  const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();
 
-  useEffect(() => {
-    window.onscroll = () => setActive(window.scrollY >= 20);
-
-    return () => {
-      window.onscroll = null;
-    };
-  }, []);
-
   return (
-    <nav id="navbar" className={classNames({ active })}>
-      <Link href="/">
-        <a className="logo">
-          <img src="/images/shlink-logo-white.png" />&nbsp;&nbsp;Shlink
-        </a>
-      </Link>
+    <header className="header fixed-top">
+      <div className="container-fluid position-relative">
+        <Navbar expand="lg">
+          <div className="site-logo">
+            {leftMenuToggle}
+            <InternalLink href="/" className="navbar-brand">
+              <img
+                className="logo-icon mr-2"
+                src="/images/shlink-logo-blue.svg"
+                alt="logo"
+              />
+              <span className="logo-text">Shlink</span>
+            </InternalLink>
+          </div>
 
-      <button className="menu-collapser" onClick={() => setShowSubmenu(!show)}><i className="fa fa-bars" /></button>
+          <NavbarToggler className={classNames({ collapsed })} onClick={toggleCollapsed}>
+            <span />
+            <span />
+            <span />
+          </NavbarToggler>
 
-      <ul className={classNames('menu main-menu', { show })}>
-        <li className={currentPage.startsWith('/features') ? 'active' : ''}>
-          <Link href="/features">
-            <a><i className="fa fa-bolt" />&nbsp;&nbsp;Features</a>
-          </Link>
-        </li>
-        <li className={currentPage.startsWith('/documentation') ? 'active' : ''}>
-          <Link href="/documentation">
-            <a><i className="fa fa-book" />&nbsp;&nbsp;Documentation</a>
-          </Link>
-        </li>
-        <li className={currentPage.startsWith('/command-line-interface') ? 'active' : ''}>
-          <Link href="/command-line-interface">
-            <a><i className="fa fa-terminal" />&nbsp;&nbsp;CLI</a>
-          </Link>
-        </li>
-        <li className={currentPage.startsWith('/api-docs') ? 'active' : ''}>
-          <Link href="/api-docs">
-            <a><i className="fa fa-server" />&nbsp;&nbsp;API Docs</a>
-          </Link>
-        </li>
-        <li className={currentPage.startsWith('/apps') ? 'active' : ''}>
-          <Link href="/apps">
-            <a><i className="fa fa-rocket" />&nbsp;&nbsp;Apps</a>
-          </Link>
-        </li>
-        <li>
-          <ExternalLink href={process.env.donateUrl || ''}>
-            <i className="fa fa-paypal" />&nbsp;&nbsp;Donate
-          </ExternalLink>
-        </li>
-      </ul>
-    </nav>
+          <Collapse isOpen={!collapsed} navbar>
+            <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5" />
+
+            <ul className="navbar-nav ml-lg-auto">
+              <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
+              <MenuItem to="/documentation" active={currentPage.startsWith('/documentation')}>Docs</MenuItem>
+              <MenuItem to="/command-line-interface" active={currentPage.startsWith('/command-line-interface')}>
+                CLI
+              </MenuItem>
+              <MenuItem to="/api-docs" active={currentPage.startsWith('/api-docs')}>API Docs</MenuItem>
+              <MenuItem to="/apps" active={currentPage.startsWith('/apps')} isLast>Apps</MenuItem>
+            </ul>
+          </Collapse>
+        </Navbar>
+
+      </div>
+    </header>
   );
 };
 

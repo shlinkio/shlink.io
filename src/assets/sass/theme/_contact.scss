@@ -1,0 +1,18 @@
+.options-section {
+	.media {
+		border: 1px solid $theme-divider;
+		.theme-icon-holder {
+			width: 60px;
+			height: 60px;
+			font-size: 1.75rem;
+			padding-top: .5rem;
+		}
+	}
+}
+
+.contact-form {
+	.error {
+		font-size: 0.875rem;
+		padding-top: 1rem;
+	}
+}

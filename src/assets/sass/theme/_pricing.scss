@@ -1,0 +1,222 @@
+.plans-section {
+	
+	
+	.plan-header {
+		padding: 2rem 1rem;
+		background: $theme-bg-light;
+	}
+	.plan-title {
+		font-size: 1.125rem;
+		text-transform: uppercase;
+	}
+	.plan-cost {
+		position: relative;
+		margin-bottom: 1rem;
+		display: inline-block;
+
+		.number {
+			font-size: 3rem;
+			color: $theme-text-color-primary;
+		}
+
+		.currency {
+			color: lighten($theme-text-color-secondary, 20%);
+			font-size: 1rem;
+			position: absolute;
+			top: 0.75rem;
+			left: -0.875rem;
+		}
+		.unit {
+			color: lighten($theme-text-color-secondary, 20%);
+			font-size: 0.75rem;
+			position: absolute;
+			right: -3rem;
+			bottom: 1rem;
+
+		}
+		.plan-cost-yearly {
+			.unit {
+				right: -2.25rem;
+			}
+		}
+	}
+	
+	.plan-content {
+		padding: 1rem;
+		
+	}
+	.plan-intro {
+		padding: 0.5rem;
+		font-size: 0.875rem;
+	}
+	.plan-desc {
+		li {
+			position: relative;
+			font-size: 0.875rem;
+			padding: 0.5rem;
+			border-bottom: 1px solid $theme-divider;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		.info-popover-trigger {
+			position: absolute;
+			right: 0;
+			top: 0.5rem;
+			width: 20px;
+			height: 20px;
+			font-size: 0.7rem;
+			padding-top: 0.1rem;
+			outline: none;
+			cursor: pointer;
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
+
+
+/* Plan monthly/yearly radio switch */
+.plan-switch-intro {
+	font-size: 1rem;
+}
+.radio-switch {
+  position: relative;
+  display: inline-block; // flexbox fallback
+  display: inline-flex;
+  padding: 0.3rem;
+  @include border-radius(5rem);
+  border: 1px solid $theme-divider;
+
+}
+
+.radio-switch-item {
+  position: relative;
+  display: inline-block; // flexbox fallback
+  height: 2.5rem;
+  width: 6rem;
+}
+
+.radio-switch-label {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  display: block;
+  @include border-radius(5rem);
+  line-height: 2.5;
+  text-align: center; 
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  transition: all 0.3s;
+
+  .radio-switch-input:checked ~ & {
+    color: #fff;
+  }
+
+}
+
+.radio-switch-marker {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -100%;
+  @include border-radius(5rem);
+  background-color: $theme-color-primary;
+  height: 2.5rem;
+  width: 6rem;
+  @include transition (all 0.4s ease-in-out);
+
+  .radio-switch-input:checked ~ & {
+    transform: translateX(100%);
+  }
+}
+
+
+.testimonial-card-columns {
+	
+	.card {
+		border-color: $theme-divider;
+	}
+	
+	.card-body {
+		padding: 0.25rem;
+	}
+	
+	.source-holder {
+		padding: 1rem;
+		font-size: 0.875rem;
+		position: relative;
+		
+		.name {
+			font-weight: bold;
+		}
+		.info a{
+			color: $theme-text-color-secondary;
+			font-size: 0.75rem;
+		}
+	}
+	
+	.source-icon {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		font-size: 1.25rem;
+		.fa-twitter {
+			color: $twitter-color;
+		}
+		.fa-github {
+			color: $github-color;
+		}
+		.fa-product-hunt {
+			color: $producthunt-color;
+		}
+		.fa-facebook{
+			color: $facebook-color;
+		}
+		.fa-wordpress {
+			color: $wordpress-color;
+		}
+	}
+	.quote-holder {
+		padding: 1rem;
+		padding-top: 0;
+	}
+	
+	.quote-content {
+		font-size: 0.875rem;
+	}
+
+	img.source-profile {
+		max-width: 50px;
+		@include border-radius(50%);
+	}
+}
+
+
+
+.faq-accordion  {
+	.card-title {
+		font-size: 1rem;
+		font-weight: 500;
+		position: relative;
+		
+		a {
+			color: $theme-text-color-primary;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	
+	.card-toggle {
+		.svg-inline--fa {
+			position: absolute;
+			right: 0;
+			top: 0.15rem;
+			font-size: 1rem;
+			color: lighten($theme-color-primary, 15%);
+		}
+	}
+}

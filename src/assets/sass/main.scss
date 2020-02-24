@@ -1,0 +1,72 @@
+@import "theme/theme";
+
+.logo-icon {
+  width: 40px;
+}
+
+.indivisible {
+  white-space: nowrap;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em;
+}
+
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+
+.docs-article {
+  h1, h2 {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    margin: 1.5rem 0 1rem;
+  }
+}
+
+.docs-logo-wrapper {
+  top: 80px;
+  position: fixed;
+}
+
+.docs-content {
+  padding-bottom: 0;
+}
+
+.docs-sidebar {
+  .nav-item:not(.section-title) + .section-title {
+    margin-top: 1rem;
+  }
+}
+
+.docs-menu-toggle {
+  display: none;
+  vertical-align: text-bottom;
+  margin-right: 1em;
+
+  @media (max-width: 1199px) {
+    display: inline-block !important;
+  }
+}
+
+blockquote {
+  padding: .7rem 1.2rem;
+  margin: 0 0 20px;
+  border-left: .3rem solid #eee;
+  background-color: #f9f9f9;
+  color: #848d96;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+li > ul {
+  margin-bottom: 0;
+}

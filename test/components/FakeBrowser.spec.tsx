@@ -7,9 +7,8 @@ describe('<FakeBrowser />', () => {
   afterEach(cleanup);
 
   it('properly renders inBrowser and children', () => {
-    const { getByText } = render(<FakeBrowser inBrowser={<span>Inside the browser</span>}>My contents</FakeBrowser>);
+    const { getByText } = render(<FakeBrowser><span>Inside the browser</span></FakeBrowser>);
 
     expect(getByText('Inside the browser')).toBeInTheDocument();
-    expect(getByText('My contents')).toBeInTheDocument();
   });
 });
