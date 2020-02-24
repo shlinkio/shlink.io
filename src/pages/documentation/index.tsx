@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faLaptopCode, faList, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faLaptopCode, faTerminal } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { NavbarToggler } from 'reactstrap';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
@@ -60,12 +61,26 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ active, link, children, ic
   </li>
 );
 
+interface LeftMenuToggleProps {
+  collapsed: boolean;
+  toggleSidebar: () => void;
+}
+
+const LeftMenuToggle: FunctionComponent<LeftMenuToggleProps> = ({ collapsed, toggleSidebar }) => (
+  <NavbarToggler className={classNames('docs-menu-toggle', { collapsed })} onClick={toggleSidebar}>
+    <span />
+    <span />
+    <span />
+  </NavbarToggler>
+);
+
 const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
   const [ isSidebarVisible, setSidebarVisible ] = useState(true);
   const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
   const determineSidebarState = () => setSidebarVisible(windowIsLarge());
   const getSidebarClasses = () => ({ 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible });
+  const leftMenuToggle = <LeftMenuToggle collapsed={!isSidebarVisible} toggleSidebar={toggleSidebar} />;
 
   useLayoutEffect(() => {
     window.addEventListener('resize', determineSidebarState);
@@ -75,18 +90,8 @@ const Documentation: FunctionComponent = ({ children }) => {
   }, []);
 
   return (
-    <Layout pageTitle="Documentation" noFooter>
+    <Layout pageTitle="Documentation" leftMenuToggle={leftMenuToggle} noFooter>
       <div className="docs-wrapper">
-        <div className="docs-logo-wrapper">
-          <button
-            className="docs-sidebar-toggler docs-sidebar-visible mr-2 d-xl-none"
-            type="button"
-            onClick={toggleSidebar}
-          >
-            <FontAwesomeIcon icon={faList} />
-          </button>
-        </div>
-
         <div className={classNames('docs-sidebar', getSidebarClasses())}>
           <nav id="docs-nav" className="docs-nav navbar">
             <ul className="section-items list-unstyled nav flex-column pb-3">

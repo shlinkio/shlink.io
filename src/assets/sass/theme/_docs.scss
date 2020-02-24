@@ -161,7 +161,7 @@ $docs-sidebar-size: 300px;
 		display: block;
 	}
 	&.sidebar-hidden {
-		@include transform(translateX(-$docs-sidebar-size));
+		@include transform(translateX(-($docs-sidebar-size + 10px)));
 		display: block;
 	}
 }

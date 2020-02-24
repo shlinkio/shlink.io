@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
 import { useRouter } from 'next/router';
@@ -17,7 +17,11 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ to, children, isLast, acti
   </li>
 );
 
-const Menu: FunctionComponent = () => {
+export interface MenuProps {
+  leftMenuToggle?: ReactNode;
+}
+
+const Menu: FunctionComponent<MenuProps> = ({ leftMenuToggle }) => {
   const [ collapsed, setCollapsed ] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();
@@ -27,6 +31,7 @@ const Menu: FunctionComponent = () => {
       <div className="container-fluid position-relative">
         <Navbar expand="lg">
           <div className="site-logo">
+            {leftMenuToggle}
             <InternalLink href="/" className="navbar-brand">
               <img
                 className="logo-icon mr-2"
