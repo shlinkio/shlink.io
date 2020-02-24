@@ -55,6 +55,14 @@
   }
 }
 
+blockquote {
+  padding: .7rem 1.2rem;
+  margin: 0 0 20px;
+  border-left: .3rem solid #eee;
+  background-color: #f9f9f9;
+  color: #848d96;
+}
+
 blockquote p:last-child {
   margin-bottom: 0;
 }

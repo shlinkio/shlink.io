@@ -109,12 +109,9 @@ This is the complete list of supported env vars:
 * `TASK_WORKER_NUM`: The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16.
 * `VISITS_WEBHOOKS`: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
 * `DEFAULT_SHORT_CODES_LENGTH`: The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
-* `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).
-
-    This is important when running more than one Shlink instance ([Multi instance considerations](#multi-instance-considerations)). If not provided, Shlink stores locks on every instance separately.
-
-    If more than one server is provided, Shlink will expect them to be configured as a [redis cluster](https://redis.io/topics/cluster-tutorial).
-
+* `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).<br />
+    This is important when running more than one Shlink instance ([Multi instance considerations](#multi-instance-considerations)). If not provided, Shlink stores locks on every instance separately.<br />
+    If more than one server is provided, Shlink will expect them to be configured as a [redis cluster](https://redis.io/topics/cluster-tutorial).<br />
     In the future, these redis servers could be used for other caching operations performed by shlink.
 
 An example using all env vars could look like this:
