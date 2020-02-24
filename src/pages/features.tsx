@@ -24,17 +24,16 @@ const Features: FunctionComponent = () => (
       <div className="container">
         <div className="row">
           <Feature title="URL shortening" icon={faCropAlt}>
-            Obviously, Shlink would not be any good if it wasn&apos;t capable of shortening URLs.
+            Obviously, Shlink would not be any good if it was not capable of shortening URLs.
           </Feature>
           <Feature title="Visit stats" icon={faChartBar}>
-            Track all the visits to your short URLs, including stats like location, browser or referer.
+            Track all the visits to your short URLs, including stats like location, visitor&apos;s browser or referrer.
           </Feature>
           <Feature title="Custom slugs" icon={faPuzzlePiece}>
-            Personalize your short URLs by using a custom slug to easily identify campaigns.
+            Personalize your short URLs by using custom slugs. This will help you easily identify campaigns.
           </Feature>
-          <Feature title="Multi-domain" icon={faLink}>
-            Serve multiple short domains under the same shlink instance. You can even use the same custom slug on more
-            than one domain.
+          <Feature title="Multi-domain" icon={faLink} link="/documentation/multiple-domains">
+            Serve multiple short domains under the same shlink instance. You can even use the same custom slugs.
           </Feature>
           <Feature title="QR Codes" icon={faQrcode}>
             Generate QR codes on the fly pointing to your short URLs.
@@ -48,7 +47,7 @@ const Features: FunctionComponent = () => (
           <Feature
             title="Docker image"
             icon={faDocker}
-            link="https://github.com/shlinkio/shlink/blob/master/docker/README.md"
+            link="/documentation/install-docker-image"
           >
             Use the official docker image to deploy shlink in a container-based infrastructure.
           </Feature>

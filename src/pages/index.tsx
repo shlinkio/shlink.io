@@ -31,7 +31,7 @@ const Home: FunctionComponent = () => (
         <SectionItem title="REST API" block={<Terminal id="rest" />} reverse>
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
-            <InternalLink href="/rest-api" className="btn btn-secondary btn-sm">
+            <InternalLink href="/api-docs" className="btn btn-secondary btn-sm">
               View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
@@ -74,14 +74,14 @@ const Home: FunctionComponent = () => (
             Download a dist file and <Indivisible>self-host</Indivisible> Shlink yourself, or just drop the
             docker image on your container-based infrastructure.
           </Feature>
-          <Feature title="Shrink" icon={faCropAlt} link="/documentation">
+          <Feature title="Shrink" icon={faCropAlt}>
             You can convert a long URL into a short one by letting Shlink generate a unique short code for you, or by
             providing a custom <Indivisible>human-friendly</Indivisible> slug.
           </Feature>
-          <Feature title="Share" icon={faShare} link="/documentation">
+          <Feature title="Share" icon={faShare}>
             Publish your short URLs in social networks, send them via email or use them on your marketing campaigns.
           </Feature>
-          <Feature title="Track" icon={faChartBar} link="/documentation">
+          <Feature title="Track" icon={faChartBar}>
             Every time a user clicks on a short URL, shlink will collect anonymized visit stats, geolocate the
             visitor and
           </Feature>
