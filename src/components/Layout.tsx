@@ -10,9 +10,10 @@ import Link from './Link';
 interface LayoutProps {
   pageTitle?: string;
   children: ReactNode;
+  noFooter?: boolean;
 }
 
-const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
+const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, noFooter = false }) => {
   const siteName = 'Shlink - The URL shortener';
   const title = `${siteName}${pageTitle ? ` — ${pageTitle}` : ''}`;
   const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
@@ -133,7 +134,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle }) => {
       >
         {children}
       </MDXProvider>
-      <Footer />
+      {!noFooter && <Footer />}
     </React.Fragment>
   );
 };

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import GettingStartedContent from '../../content/documentation/getting-started.mdx';
+import Footer from '../../components/Footer';
 
 export interface Item {
   text: string;
@@ -27,11 +28,10 @@ const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
   const [ isSidebarVisible, setSidebarVisible ] = useState(true);
   const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
+  const determineSidebarState = () => setSidebarVisible(windowIsLarge());
   const getSidebarClasses = () => ({ 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible });
 
   useLayoutEffect(() => {
-    const determineSidebarState = () => setSidebarVisible(windowIsLarge());
-
     window.addEventListener('resize', determineSidebarState);
     determineSidebarState();
 
@@ -39,7 +39,7 @@ const Documentation: FunctionComponent = ({ children }) => {
   }, []);
 
   return (
-    <Layout pageTitle="Documentation">
+    <Layout pageTitle="Documentation" noFooter>
       <div className="docs-wrapper">
         <div className="docs-logo-wrapper">
           <button
@@ -70,7 +70,10 @@ const Documentation: FunctionComponent = ({ children }) => {
             <article className="docs-article">
               {children || <GettingStartedContent />}
             </article>
+
           </div>
+
+          <Footer />
         </div>
       </div>
     </Layout>

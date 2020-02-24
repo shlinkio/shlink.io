@@ -1,3 +1,5 @@
+$docs-sidebar-size: 300px;
+
 .main-search-box {
 	max-width: 600px;
 }
@@ -75,7 +77,7 @@
 .docs-branding {
 	min-height: 69px;
 	.top-search-box {
-		width: 300px;
+		width: $docs-sidebar-size;
 	}
 }
 
@@ -129,7 +131,7 @@
 
 .docs-sidebar {
 	display: none;
-	width: 300px;
+	width: $docs-sidebar-size;
 	position: fixed;
 	z-index: 10;
 	top: 69px;
@@ -159,7 +161,7 @@
 		display: block;
 	}
 	&.sidebar-hidden {
-		@include transform(translateX(-300px));
+		@include transform(translateX(-$docs-sidebar-size));
 		display: block;
 	}
 }
@@ -232,7 +234,7 @@
 
 
 .docs-content {
-	margin-left: 300px;
+	margin-left: $docs-sidebar-size;
 	padding-bottom: 500px;
 }
 
