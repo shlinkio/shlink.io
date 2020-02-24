@@ -39,6 +39,12 @@
   padding-bottom: 0;
 }
 
+.docs-sidebar {
+  .nav-item:not(.section-title) + .section-title {
+    margin-top: 1rem;
+  }
+}
+
 blockquote p:last-child {
   margin-bottom: 0;
 }

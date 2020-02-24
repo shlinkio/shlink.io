@@ -11,15 +11,32 @@ import Footer from '../../components/Footer';
 export interface Item {
   text: string;
   link: string;
+  submenu?: Item[];
 }
 
 const menuItems: Item[] = [
-  { text: 'Install docker image', link: '/documentation/install-docker-image' },
-  { text: 'Install from dist file', link: '/documentation/install-dist-file' },
-  { text: 'Serve with swoole', link: '/documentation/serve-with-swoole' },
-  { text: 'Classic web server', link: '/documentation/classic-web-server' },
-  { text: 'Multiple domains', link: '/documentation/multiple-domains' },
-  { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
+  {
+    text: 'Docs',
+    link: '/documentation',
+    submenu: [
+      { text: 'Install docker image', link: '/documentation/install-docker-image' },
+      { text: 'Install from dist file', link: '/documentation/install-dist-file' },
+      { text: 'Serve with swoole', link: '/documentation/serve-with-swoole' },
+      { text: 'Classic web server', link: '/documentation/classic-web-server' },
+      { text: 'Multiple domains', link: '/documentation/multiple-domains' },
+      { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
+    ],
+  },
+  { text: 'Command line interface', link: '/command-line-interface' },
+  {
+    text: 'REST API',
+    link: '/api-docs',
+    submenu: [
+      { text: 'Authentication', link: '/api-docs/authentication' },
+      { text: 'Error management', link: '/api-docs/error-management' },
+      { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
+    ],
+  },
 ];
 
 const windowIsLarge = (): boolean => window.matchMedia('(min-width: 1200px)').matches;
@@ -54,12 +71,21 @@ const Documentation: FunctionComponent = ({ children }) => {
         <div className={classNames('docs-sidebar', getSidebarClasses())}>
           <nav id="docs-nav" className="docs-nav navbar">
             <ul className="section-items list-unstyled nav flex-column pb-3">
-              {menuItems.map(({ text, link }) => (
-                <li className={classNames('nav-item section-title', { active: currentPage.includes(link) })} key={text}>
-                  <Link className="nav-link" href={link}>
-                    {text}
-                  </Link>
-                </li>
+              {menuItems.map(({ text, link, submenu = [] }) => (
+                <React.Fragment key={text}>
+                  <li className={classNames('nav-item section-title', { active: currentPage === link })}>
+                    <Link className="nav-link" href={link}>
+                      {text}
+                    </Link>
+                  </li>
+                  {submenu.map(({ text, link }) => (
+                    <li className={classNames('nav-item', { active: currentPage === link })} key={text}>
+                      <Link className="nav-link" href={link}>
+                        {text}
+                      </Link>
+                    </li>
+                  ))}
+                </React.Fragment>
               ))}
             </ul>
           </nav>
