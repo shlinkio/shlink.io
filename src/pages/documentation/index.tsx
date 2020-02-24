@@ -2,7 +2,7 @@ import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faLaptopCode, faTerminal } from '@fortawesome/free-solid-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { NavbarToggler } from 'reactstrap';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
