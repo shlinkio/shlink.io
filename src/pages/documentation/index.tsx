@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faLaptopCode, faList, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
@@ -11,6 +12,7 @@ import Footer from '../../components/Footer';
 export interface Item {
   text: string;
   link: string;
+  icon?: IconProp;
   submenu?: Item[];
 }
 
@@ -18,6 +20,7 @@ const menuItems: Item[] = [
   {
     text: 'Docs',
     link: '/documentation',
+    icon: faBook,
     submenu: [
       { text: 'Install docker image', link: '/documentation/install-docker-image' },
       { text: 'Install from dist file', link: '/documentation/install-dist-file' },
@@ -27,10 +30,11 @@ const menuItems: Item[] = [
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
     ],
   },
-  { text: 'Command line interface', link: '/command-line-interface' },
+  { text: 'Command line interface', link: '/command-line-interface', icon: faTerminal },
   {
     text: 'REST API',
     link: '/api-docs',
+    icon: faLaptopCode,
     submenu: [
       { text: 'Authentication', link: '/api-docs/authentication' },
       { text: 'Error management', link: '/api-docs/error-management' },
@@ -40,6 +44,21 @@ const menuItems: Item[] = [
 ];
 
 const windowIsLarge = (): boolean => window.matchMedia('(min-width: 1200px)').matches;
+
+interface MenuItemProps {
+  link: string;
+  active: boolean;
+  icon?: IconProp;
+}
+
+const MenuItem: FunctionComponent<MenuItemProps> = ({ active, link, children, icon }) => (
+  <li className={classNames('nav-item', { 'section-title': icon })}>
+    <Link className={classNames('nav-link', { active })} href={link}>
+      {icon && <span className="theme-icon-holder mr-2"><FontAwesomeIcon icon={icon} /></span>}
+      {children}
+    </Link>
+  </li>
+);
 
 const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
@@ -71,19 +90,15 @@ const Documentation: FunctionComponent = ({ children }) => {
         <div className={classNames('docs-sidebar', getSidebarClasses())}>
           <nav id="docs-nav" className="docs-nav navbar">
             <ul className="section-items list-unstyled nav flex-column pb-3">
-              {menuItems.map(({ text, link, submenu = [] }) => (
+              {menuItems.map(({ text, link, icon, submenu = [] }) => (
                 <React.Fragment key={text}>
-                  <li className={classNames('nav-item section-title', { active: currentPage === link })}>
-                    <Link className="nav-link" href={link}>
-                      {text}
-                    </Link>
-                  </li>
+                  <MenuItem link={link} active={currentPage === link} icon={icon}>
+                    {text}
+                  </MenuItem>
                   {submenu.map(({ text, link }) => (
-                    <li className={classNames('nav-item', { active: currentPage === link })} key={text}>
-                      <Link className="nav-link" href={link}>
-                        {text}
-                      </Link>
-                    </li>
+                    <MenuItem link={link} active={currentPage === link} key={text}>
+                      {text}
+                    </MenuItem>
                   ))}
                 </React.Fragment>
               ))}
