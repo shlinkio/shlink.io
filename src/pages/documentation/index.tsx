@@ -76,10 +76,10 @@ const LeftMenuToggle: FunctionComponent<LeftMenuToggleProps> = ({ collapsed, tog
 
 const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
-  const [ isSidebarVisible, setSidebarVisible ] = useState(true);
+  const [ isSidebarVisible, setSidebarVisible ] = useState(false);
   const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
   const determineSidebarState = () => setSidebarVisible(windowIsLarge());
-  const getSidebarClasses = () => ({ 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible });
+  const sidebarClasses = { 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible };
   const leftMenuToggle = <LeftMenuToggle collapsed={!isSidebarVisible} toggleSidebar={toggleSidebar} />;
 
   useLayoutEffect(() => {
@@ -92,7 +92,7 @@ const Documentation: FunctionComponent = ({ children }) => {
   return (
     <Layout pageTitle="Documentation" leftMenuToggle={leftMenuToggle} noFooter>
       <div className="docs-wrapper">
-        <div className={classNames('docs-sidebar', getSidebarClasses())}>
+        <div className={classNames('docs-sidebar', sidebarClasses)}>
           <nav id="docs-nav" className="docs-nav navbar">
             <ul className="section-items list-unstyled nav flex-column pb-3">
               {menuItems.map(({ text, link, icon, submenu = [] }) => (
@@ -111,7 +111,7 @@ const Documentation: FunctionComponent = ({ children }) => {
           </nav>
         </div>
 
-        <div className="docs-content">
+        <div className="docs-content" onClick={determineSidebarState}>
           <div className="container">
             <article className="docs-article">
               {children || <GettingStartedContent />}
