@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import RestApiContent from '../../content/api-docs/rest-api.mdx';
-import Documentation from '../documentation';
+import RestApiContent from '../../../content/api-docs/rest-api.mdx';
+import Documentation from '../index';
 
 const ApiDocs: FunctionComponent = () => (
   <Documentation>

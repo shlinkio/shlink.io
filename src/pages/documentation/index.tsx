@@ -31,14 +31,14 @@ const menuItems: Item[] = [
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
     ],
   },
-  { text: 'Command line interface', link: '/command-line-interface', icon: faTerminal },
+  { text: 'Command line interface', link: '/documentation/command-line-interface', icon: faTerminal },
   {
     text: 'REST API',
-    link: '/api-docs',
+    link: '/documentation/api-docs',
     icon: faLaptopCode,
     submenu: [
-      { text: 'Authentication', link: '/api-docs/authentication' },
-      { text: 'Error management', link: '/api-docs/error-management' },
+      { text: 'Authentication', link: '/documentation/api-docs/authentication' },
+      { text: 'Error management', link: '/documentation/api-docs/error-management' },
       { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
     ],
   },

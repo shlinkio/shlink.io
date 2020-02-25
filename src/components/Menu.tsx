@@ -25,6 +25,9 @@ const Menu: FunctionComponent<MenuProps> = ({ leftMenuToggle }) => {
   const [ collapsed, setCollapsed ] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();
+  const isBaseDocsActive = currentPage.startsWith('/documentation')
+    && !currentPage.includes('command-line-interface')
+    && !currentPage.includes('api-docs');
 
   return (
     <header className="header fixed-top">
@@ -53,11 +56,11 @@ const Menu: FunctionComponent<MenuProps> = ({ leftMenuToggle }) => {
 
             <ul className="navbar-nav ml-lg-auto">
               <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
-              <MenuItem to="/documentation" active={currentPage.startsWith('/documentation')}>Docs</MenuItem>
-              <MenuItem to="/command-line-interface" active={currentPage.startsWith('/command-line-interface')}>
+              <MenuItem to="/documentation" active={isBaseDocsActive}>Docs</MenuItem>
+              <MenuItem to="/documentation/command-line-interface" active={currentPage.includes('/command-line-interface')}>
                 CLI
               </MenuItem>
-              <MenuItem to="/api-docs" active={currentPage.startsWith('/api-docs')}>API Docs</MenuItem>
+              <MenuItem to="/documentation/api-docs" active={currentPage.includes('/api-docs')}>API Docs</MenuItem>
               <MenuItem to="/apps" active={currentPage.startsWith('/apps')} isLast>Apps</MenuItem>
             </ul>
           </Collapse>

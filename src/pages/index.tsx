@@ -22,7 +22,7 @@ const Home: FunctionComponent = () => (
           Generate and manage short URLs from the command line. List short codes, see visits or get the URL
           behind a short code.
           <div className="cta-link mt-3">
-            <InternalLink href="/command-line-interface" className="btn btn-secondary btn-sm">
+            <InternalLink href="/documentation/command-line-interface" className="btn btn-secondary btn-sm">
               View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
@@ -31,7 +31,7 @@ const Home: FunctionComponent = () => (
         <SectionItem title="REST API" block={<Terminal id="rest" />} reverse>
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
-            <InternalLink href="/api-docs" className="btn btn-secondary btn-sm">
+            <InternalLink href="/documentation/api-docs" className="btn btn-secondary btn-sm">
               View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
