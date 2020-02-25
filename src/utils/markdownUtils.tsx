@@ -57,25 +57,5 @@ const h4 = (props: any) => {
     </h4>
   );
 };
-const h5 = (props: any) => {
-  const { children, ...rest } = props;
 
-  return (
-    <h5 {...rest}>
-      <TitleAnchors title={children} />
-      {children}
-    </h5>
-  );
-};
-const h6 = (props: any) => {
-  const { children, ...rest } = props;
-
-  return (
-    <h6 {...rest}>
-      <TitleAnchors title={children} />
-      {children}
-    </h6>
-  );
-};
-
-export const markdownComponents = { a, code, h1, h2, h3, h4, h5, h6 };
+export const markdownComponents = { a, code, h1, h2, h3, h4 };

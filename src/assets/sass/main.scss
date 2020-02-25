@@ -82,6 +82,28 @@
   }
 }
 
+.docs-sidebar {
+  overflow: visible;
+}
+.docs-nav {
+  height: calc(100vh - 145px);
+
+  /* Forefox scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.2) $smoky-white;;
+  scrollbar-width: thin;
+
+  /* Chrome webkit scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: $smoky-white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.125);
+    @include border-radius(0.5rem);
+  }
+}
+
 blockquote {
   padding: .7rem 1.2rem;
   margin: 0 0 20px;

@@ -9,6 +9,7 @@ import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import GettingStartedContent from '../../content/documentation/getting-started.mdx';
 import Footer from '../../components/Footer';
+import DocsSearch from '../../components/DocsSearch';
 
 export interface Item {
   text: string;
@@ -76,7 +77,7 @@ const LeftMenuToggle: FunctionComponent<LeftMenuToggleProps> = ({ collapsed, tog
 
 const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
-  const [ isSidebarVisible, setSidebarVisible ] = useState(false);
+  const [ isSidebarVisible, setSidebarVisible ] = useState(true);
   const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
   const determineSidebarState = () => setSidebarVisible(windowIsLarge());
   const sidebarClasses = { 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible };
@@ -93,7 +94,11 @@ const Documentation: FunctionComponent = ({ children }) => {
     <Layout pageTitle="Documentation" leftMenuToggle={leftMenuToggle} noFooter>
       <div className="docs-wrapper">
         <div className={classNames('docs-sidebar', sidebarClasses)}>
-          <nav id="docs-nav" className="docs-nav navbar">
+          <div className="top-search-box p-3">
+            <DocsSearch />
+          </div>
+
+          <nav id="docs-nav" className="docs-nav navbar align-items-start">
             <ul className="section-items list-unstyled nav flex-column pb-3">
               {menuItems.map(({ text, link, icon, submenu = [] }) => (
                 <React.Fragment key={text}>
@@ -116,7 +121,6 @@ const Documentation: FunctionComponent = ({ children }) => {
             <article className="docs-article">
               {children || <GettingStartedContent />}
             </article>
-
           </div>
 
           <Footer />
