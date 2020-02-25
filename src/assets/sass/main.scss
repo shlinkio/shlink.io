@@ -38,6 +38,21 @@
 .docs-content {
   padding-bottom: 0;
 
+  h1, h2, h3, h4, h5, h6 {
+    &:hover .anchor {
+      display: inline-block;
+    }
+  }
+
+  .anchor {
+    display: none;
+    color: inherit;
+    font-size: 1.2rem;
+    margin-left: -1.7rem;
+    vertical-align: middle;
+    padding-right: .5rem;
+  }
+
   .hidden-title-anchor {
     display: block;
     position: relative;
