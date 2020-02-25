@@ -82,8 +82,8 @@ const Home: FunctionComponent = () => (
             Publish your short URLs in social networks, send them via email or use them on your marketing campaigns.
           </Feature>
           <Feature title="Track" icon={faChartBar}>
-            Every time a user clicks on a short URL, shlink will collect anonymized visit stats, geolocate the
-            visitor and
+            Every time a user clicks on a short URL, Shlink will collect anonymized visit stats and geolocate the
+            visitor.
           </Feature>
         </div>
       </div>
