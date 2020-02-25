@@ -2,10 +2,10 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
-import Highlight from 'react-highlight';
+import { markdownComponents } from '../utils/markdownUtils';
+import { openGraph, twitter } from '../utils/seoUtils';
 import Menu, { MenuProps } from './Menu';
 import Footer from './Footer';
-import Link from './Link';
 
 interface LayoutProps extends MenuProps {
   pageTitle?: string;
@@ -23,30 +23,8 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuT
       <NextSeo
         description={description}
         title={title}
-        twitter={{
-          site: '@shlinkio',
-          handle: '@acelayaa',
-          cardType: 'summary_large_image',
-        }}
-        openGraph={{
-          title,
-          description,
-          type: 'website',
-          url: 'https://shlink.io',
-          site_name: siteName, // eslint-disable-line
-          images: [
-            {
-              url: 'https://shlink.io/images/shlink-hero.png',
-              height: 240,
-              width: 625,
-            },
-            {
-              url: 'https://pbs.twimg.com/profile_banners/760406054354186240/1470831159/1500x500',
-              height: 1500,
-              width: 1500,
-            },
-          ],
-        }}
+        twitter={twitter}
+        openGraph={openGraph(title, description, siteName)}
       />
 
       <Head>
@@ -122,18 +100,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuT
       </Head>
 
       <Menu leftMenuToggle={leftMenuToggle} />
-      <MDXProvider
-        components={{
-          a(props: any) {
-            return <Link {...props} />;
-          },
-          code(props: any) {
-            return <Highlight {...props} />;
-          },
-        }}
-      >
-        {children}
-      </MDXProvider>
+      <MDXProvider components={markdownComponents}>{children}</MDXProvider>
       {!noFooter && <Footer />}
     </React.Fragment>
   );
