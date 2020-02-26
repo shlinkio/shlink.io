@@ -86,7 +86,6 @@ const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
   const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
-  const hideSidebar = () => setSidebarVisible('hidden');
   const leftMenuToggle = <LeftMenuToggle collapsed={sidebarState !== 'displayed'} toggleSidebar={toggleSidebar} />;
 
   return (
@@ -115,7 +114,7 @@ const Documentation: FunctionComponent = ({ children }) => {
           </nav>
         </div>
 
-        <div className="docs-content" onClick={hideSidebar}>
+        <div className="docs-content">
           <div className="container">
             <article className="docs-article">
               {children || <GettingStartedContent />}
