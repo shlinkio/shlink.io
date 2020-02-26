@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faLaptopCode, faTerminal } from '@fortawesome/free-solid-svg-icons';
@@ -45,8 +45,6 @@ const menuItems: Item[] = [
   },
 ];
 
-const windowIsLarge = (): boolean => window.matchMedia('(min-width: 1200px)').matches;
-
 interface MenuItemProps {
   link: string;
   active: boolean;
@@ -75,25 +73,26 @@ const LeftMenuToggle: FunctionComponent<LeftMenuToggleProps> = ({ collapsed, tog
   </NavbarToggler>
 );
 
+type SidebarState = 'initial' | 'displayed' | 'hidden';
+const classesForState = (state: SidebarState) => {
+  if (state === 'initial') {
+    return null;
+  }
+
+  return { 'sidebar-visible': state === 'displayed', 'sidebar-hidden': state === 'hidden' };
+};
+
 const Documentation: FunctionComponent = ({ children }) => {
   const { pathname: currentPage } = useRouter();
-  const [ isSidebarVisible, setSidebarVisible ] = useState(true);
-  const toggleSidebar = () => setSidebarVisible(!isSidebarVisible);
-  const determineSidebarState = () => setSidebarVisible(windowIsLarge());
-  const sidebarClasses = { 'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible };
-  const leftMenuToggle = <LeftMenuToggle collapsed={!isSidebarVisible} toggleSidebar={toggleSidebar} />;
-
-  useLayoutEffect(() => {
-    window.addEventListener('resize', determineSidebarState);
-    determineSidebarState();
-
-    return () => window.removeEventListener('resize', toggleSidebar);
-  }, []);
+  const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
+  const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
+  const hideSidebar = () => setSidebarVisible('hidden');
+  const leftMenuToggle = <LeftMenuToggle collapsed={sidebarState !== 'displayed'} toggleSidebar={toggleSidebar} />;
 
   return (
     <Layout pageTitle="Documentation" leftMenuToggle={leftMenuToggle} noFooter>
       <div className="docs-wrapper">
-        <div className={classNames('docs-sidebar', sidebarClasses)}>
+        <div className={classNames('docs-sidebar', classesForState(sidebarState))}>
           <div className="top-search-box p-3">
             <DocsSearch />
           </div>
@@ -116,7 +115,7 @@ const Documentation: FunctionComponent = ({ children }) => {
           </nav>
         </div>
 
-        <div className="docs-content" onClick={determineSidebarState}>
+        <div className="docs-content" onClick={hideSidebar}>
           <div className="container">
             <article className="docs-article">
               {children || <GettingStartedContent />}

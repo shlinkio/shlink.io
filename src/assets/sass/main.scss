@@ -84,7 +84,15 @@
 
 .docs-sidebar {
   overflow: visible;
+  @include transform(translateX(0));
+  display: block;
+
+  @media (max-width: 1199px){
+    @include transform(translateX(-($docs-sidebar-size + 10px)));
+    display: block;
+  }
 }
+
 .docs-nav {
   height: calc(100vh - 145px);
 
