@@ -5,6 +5,7 @@ import './DocsSearch.scss';
 
 const DocsSearch: FunctionComponent = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const inputSelectorId = 'search-docs';
 
   useLayoutEffect(() => {
     const docsearch = require('docsearch.js/dist/npm');
@@ -12,7 +13,7 @@ const DocsSearch: FunctionComponent = () => {
     docsearch({
       apiKey: 'b43050cae2aa5185ad2c6b7ec271333e',
       indexName: 'shlink',
-      inputSelector: '#search-docs',
+      inputSelector: `#${inputSelectorId}`,
       debug: false,
     });
   }, []);
@@ -24,7 +25,7 @@ const DocsSearch: FunctionComponent = () => {
         placeholder="Search the docs..."
         name="search"
         className="form-control search-input"
-        id="search-docs"
+        id={inputSelectorId}
         ref={inputRef}
       />
       <span className="btn search-btn docs-search-btn" onClick={() => inputRef.current && inputRef.current.focus()}>
