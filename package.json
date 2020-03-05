@@ -14,10 +14,12 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --colors",
     "test:cover": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
+    "purge": "purgecss --config ./purgecss.config.js --output ./out/_next/static/css",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "npm run build && next export"
+    "export": "npm run build && next export",
+    "export:prod": "npm run export && npm run purge"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
@@ -68,6 +70,7 @@
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prop-types": "^15.7.2",
+    "purgecss": "^2.1.0",
     "sass-loader": "^8.0.2",
     "ts-jest": "^24.0.2",
     "typescript": "~3.5.3"
