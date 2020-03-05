@@ -1,0 +1,6 @@
+@import "../assets/sass/theme/vars";
+
+.docs-search-btn {
+  cursor: text;
+  color: lighten($theme-text-color-secondary, 15%) !important;
+}

@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~highlight.js/scss/atom-one-dark.scss";
+@import "~docsearch.js/dist/npm/styles/main";
 @import "theme/theme";
 
 .logo-icon {
@@ -112,6 +115,10 @@
   }
 }
 
+.hljs {
+  padding: .7em;
+}
+
 blockquote {
   padding: .7rem 1.2rem;
   margin: 0 0 20px;
@@ -126,4 +133,8 @@ blockquote p:last-child {
 
 li > ul {
   margin-bottom: 0;
+}
+
+a {
+  color: $theme-color-primary;
 }

@@ -97,8 +97,6 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuT
         <meta name="msapplication-square144x144logo" content="/icons/icon-144x144.png" />
         <meta name="msapplication-square150x150logo" content="/icons/icon-150x150.png" />
         <meta name="msapplication-square310x310logo" content="/icons/icon-310x310.png" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" />
       </Head>
 
       <Menu leftMenuToggle={leftMenuToggle} />
