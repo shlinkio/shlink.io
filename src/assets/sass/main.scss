@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@import "~highlight.js/scss/atom-one-light.scss";
+@import "~highlight.js/scss/atom-one-dark.scss";
 @import "~docsearch.js/dist/npm/styles/main";
 @import "theme/theme";
 
@@ -113,6 +113,10 @@
     background-color: rgba(0, 0, 0, 0.125);
     @include border-radius(0.5rem);
   }
+}
+
+.hljs {
+  padding: .7em;
 }
 
 blockquote {
