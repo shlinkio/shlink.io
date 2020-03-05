@@ -130,3 +130,7 @@ blockquote p:last-child {
 li > ul {
   margin-bottom: 0;
 }
+
+a {
+  color: $theme-color-primary;
+}
