@@ -96,7 +96,7 @@ const Documentation: FunctionComponent = ({ children }) => {
             <DocsSearch />
           </div>
 
-          <nav id="docs-nav" className="docs-nav navbar align-items-start">
+          <nav className="docs-nav navbar align-items-start">
             <ul className="section-items list-unstyled nav flex-column pb-3">
               {menuItems.map(({ text, link, icon, submenu = [] }) => (
                 <React.Fragment key={text}>
