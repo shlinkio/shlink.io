@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+[[ -z $TRAVIS_TAG ]] && DOCKER_TAG='latest' || DOCKER_TAG=${TRAVIS_TAG#?}
+
+docker build -t shlinkio/shlink-web-client:${DOCKER_TAG} .
+docker push shlinkio/shlink-web-client:${DOCKER_TAG}

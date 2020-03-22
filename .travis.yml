@@ -17,3 +17,9 @@ script:
   - npm run lint
   - npm run test
   - if [[ -z $TRAVIS_TAG ]]; then docker build -t shlink-website:test . ; fi
+
+deploy:
+  - provider: script
+    script: bash ./scripts/docker/build
+    on:
+      condition: $TRAVIS_PULL_REQUEST == 'false'
