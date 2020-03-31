@@ -35,7 +35,7 @@
     "classnames": "^2.2.6",
     "docsearch.js": "^2.6.3",
     "highlight.js": "^9.15.10",
-    "next": "^9.2.1",
+    "next": "^9.3.2",
     "next-ga": "^2.3.4",
     "next-seo": "^2.1.2",
     "react": "^16.9.0",
