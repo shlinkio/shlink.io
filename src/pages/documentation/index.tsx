@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faLaptopCode, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faLaptopCode, faTerminal, faCogs } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { NavbarToggler } from 'reactstrap';
 import { useRouter } from 'next/router';
@@ -41,6 +41,15 @@ const menuItems: Item[] = [
       { text: 'Authentication', link: '/documentation/api-docs/authentication' },
       { text: 'Error management', link: '/documentation/api-docs/error-management' },
       { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
+    ],
+  },
+  {
+    text: 'Integrations',
+    link: '/documentation/integrations',
+    icon: faCogs,
+    submenu: [
+      { text: 'Short Menu for Mac', link: '/documentation/integrations/short-menu-mac' },
+      { text: 'Short Menu for iOS', link: '/documentation/integrations/short-menu-ios' },
     ],
   },
 ];
