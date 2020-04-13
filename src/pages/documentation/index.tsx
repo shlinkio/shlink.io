@@ -29,6 +29,7 @@ const menuItems: Item[] = [
       { text: 'Serve with swoole', link: '/documentation/serve-with-swoole' },
       { text: 'Classic web server', link: '/documentation/classic-web-server' },
       { text: 'Multiple domains', link: '/documentation/multiple-domains' },
+      { text: 'Real-time updates', link: '/documentation/real-time-updates' },
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
     ],
   },

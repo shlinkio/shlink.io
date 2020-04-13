@@ -42,6 +42,10 @@
     margin: 0 auto;
     display: block;
   }
+
+  blockquote strong {
+    color: inherit;
+  }
 }
 
 .docs-logo-wrapper {
