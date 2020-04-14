@@ -97,7 +97,7 @@ Also, JWTs returned to consumers will only have permission to subscribe to updat
 
 This is the list of topics to which consumers can subscribe to, together with their payloads:
 
-* *A short URL receives a new visit.*
+* *Any short URL receives a new visit.*
 
     Topic: `https://shlink.io/new_visit`,
 
@@ -138,5 +138,49 @@ This is the list of topics to which consumers can subscribe to, together with th
       }
     }
     ```
+
+* *A specific short URL receives a new visit.*
+
+    Topic: `https://shlink.io/new_visit/{shortCode}`,
+
+    Payload:
+
+    ```json
+    {
+      "shortUrl": {
+        "shortCode": "12C18",
+        "shortUrl": "https://doma.in/12C18",
+        "longUrl": "https://store.steampowered.com",
+        "dateCreated": "2016-08-21T20:34:16+02:00",
+        "visitsCount": 328,
+        "tags": [
+          "games",
+          "tech"
+        ],
+        "meta": {
+          "validSince": "2017-01-21T00:00:00+02:00",
+          "validUntil": null,
+          "maxVisits": 100
+        },
+        "domain": null
+      },
+      "visit": {
+        "referer": "https://t.co",
+        "date": "2015-08-20T05:05:03+04:00",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+        "visitLocation": {
+          "cityName": "Cupertino",
+          "countryCode": "US",
+          "countryName": "United States",
+          "latitude": 37.3042,
+          "longitude": -122.0946,
+          "regionName": "California",
+          "timezone": "America/Los_Angeles"
+        }
+      }
+    }
+    ```
+
+    > Remember that the `shortCode` does not uniquely identify a short URL, as the same one could be used for several domains. You should always introspect the `shortUrl.domain` property in order to verify it is the one you want.
 
 > The integration with mercure is available since Shlink **v2.2.0** and shlink-web-client **v2.5.0**.
