@@ -1,0 +1,26 @@
+## Pre-configuring servers
+
+The first time you access shlink-web-client from a browser, you will have to configure the list of shlink servers you want to manage, and they will be saved in the local storage.
+
+Those servers can be exported and imported in other browsers, but if for some reason you need some servers to be there from the beginning, starting with shlink-web-client 2.1.0, you can provide a `servers.json` file in the project root folder (the same containing the `index.html`, `favicon.ico`, etc) with a structure like this:
+
+```json
+[
+  {
+    "name": "Main server",
+    "url": "https://doma.in",
+    "apiKey": "09c972b7-506b-49f1-a19a-d729e22e599c"
+  },
+  {
+    "name": "Local",
+    "url": "http://localhost:8080",
+    "apiKey": "580d0b42-4dea-419a-96bf-6c876b901451"
+  }
+]
+```
+
+> The list can contain as many servers as you need.
+
+If you are using the shlink-web-client docker image, you can mount the `servers.json` file in a volume inside `/usr/share/nginx/html`, which is the app's document root inside the container.
+
+    docker run --name shlink-web-client -p 8000:80 -v ${PWD}/servers.json:/usr/share/nginx/html/servers.json shlinkio/shlink-web-client
