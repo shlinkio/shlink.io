@@ -1,9 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import InstallDockerImageContent from '../../content/documentation/install-docker-image.mdx';
-import Documentation from './index';
+import Breadcrumb from '../../components/Breadcrumb';
+import Documentation, { Item } from './index';
+
+const breadcrumbItems: Item[] = [{ text: 'Getting started', link: '/documentation' }];
 
 const InstallDockerImage: FunctionComponent = () => (
   <Documentation>
+    <Breadcrumb prevElements={breadcrumbItems}>Install docker image</Breadcrumb>
     <InstallDockerImageContent />
   </Documentation>
 );

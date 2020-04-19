@@ -1,9 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import LongRunningTasksContent from '../../content/documentation/long-running-tasks.mdx';
-import Documentation from './index';
+import Breadcrumb from '../../components/Breadcrumb';
+import Documentation, { Item } from './index';
+
+const breadcrumbItems: Item[] = [{ text: 'Getting started', link: '/documentation' }];
 
 const LongRunningTasks: FunctionComponent = () => (
   <Documentation>
+    <Breadcrumb prevElements={breadcrumbItems}>Long-running tasks</Breadcrumb>
     <LongRunningTasksContent />
   </Documentation>
 );
