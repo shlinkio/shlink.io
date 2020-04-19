@@ -51,7 +51,6 @@ const menuItems: Item[] = [
     submenu: [
       { text: 'Installation', link: '/documentation/shlink-web-client/installation' },
       { text: 'Serve in sub path', link: '/documentation/shlink-web-client/serve-in-sub-path' },
-      { text: 'Creating servers', link: '/documentation/shlink-web-client/creating-servers' },
       { text: 'Pre-configuring servers', link: '/documentation/shlink-web-client/pre-configuring-servers' },
     ],
   },
