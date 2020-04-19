@@ -1,0 +1,12 @@
+@import "../assets/sass/theme/vars";
+
+.breadcrumb {
+  background-color: #f9fbfe;
+  border-radius: 0;
+  border-left: 3px solid $theme-info-color;
+  margin-bottom: 2rem;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}

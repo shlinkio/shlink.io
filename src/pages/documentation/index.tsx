@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faLaptopCode, faTerminal, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faLaptopCode, faTerminal, faCogs, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { NavbarToggler } from 'reactstrap';
 import { useRouter } from 'next/router';
@@ -42,6 +42,16 @@ const menuItems: Item[] = [
       { text: 'Authentication', link: '/documentation/api-docs/authentication' },
       { text: 'Error management', link: '/documentation/api-docs/error-management' },
       { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
+    ],
+  },
+  {
+    text: 'Shlink web client',
+    link: '/documentation/shlink-web-client',
+    icon: faMobileAlt,
+    submenu: [
+      { text: 'Installation', link: '/documentation/shlink-web-client/installation' },
+      { text: 'Serve in sub path', link: '/documentation/shlink-web-client/serve-in-sub-path' },
+      { text: 'Pre-configuring servers', link: '/documentation/shlink-web-client/pre-configuring-servers' },
     ],
   },
   {

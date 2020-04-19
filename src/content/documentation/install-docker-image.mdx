@@ -1,3 +1,5 @@
+import Callout from '../../components/Callout';
+
 ## Install using a docker image
 
 The docker image is probably the simplest installation use case, since it includes all dependencies and makes use of [swoole](https://www.swoole.co.uk/) to serve Shlink.
@@ -273,4 +275,6 @@ Versioning on this docker image works as follows:
 * `stable`: always holds the latest stable tag. For example, if latest shlink version is 2.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v2.0.0
 * `latest`: always holds the latest contents in master, and it's considered unstable and not suitable for production.
 
-> **Important**: The docker image was introduced with shlink v1.15.0, so there are no official images previous to that versions.
+<Callout type="warning">
+    The docker image was introduced with shlink v1.15.0, so there are no official images previous to that versions.
+</Callout>

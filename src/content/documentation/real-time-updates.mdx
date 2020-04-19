@@ -1,3 +1,6 @@
+import Callout from '../../components/Callout';
+import Link from '../../components/Link';
+
 ## Real-time updates
 
 Once your Shlink instance is set-up, you may want to enable real-time updates to be sent to third parties when certain events occur.
@@ -7,7 +10,9 @@ Currently, Shlink supports two ways to do that.
 * Integrating with a [mercure hub server](#mercure-hub-server) to be able to subscribe to server-sent events.
 * Configuring some [webhooks](#webhooks) that will be notified with new visits.
 
-> **Important!** Real-time updates only work when [serving Shlink with swoole](/documentation/serve-with-swoole), which is the case if you are using the [docker image](/documentation/install-docker-image).
+<Callout type="warning">
+    Real-time updates only work when <Link href="/documentation/serve-with-swoole">serving Shlink with swoole</Link>, which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
+</Callout>
 
 ### Mercure hub server
 
@@ -43,7 +48,9 @@ This flow ensures the JWT key is never leaked by accident, and you need to have 
 
 Also, JWTs returned to consumers will only have permission to subscribe to updates. Only Shlink will be able to publish updates.
 
-> If you use shlink-web-client to interact with your Shlink instance, it will work out of the box and consume updates from mercure, updating the UI in real-time where applicable.
+<Callout type="info">
+    If you use shlink-web-client to interact with your Shlink instance, it will work out of the box and consume updates from mercure, updating the UI in real-time where applicable.
+</Callout>
 
 #### Topics and payloads
 
