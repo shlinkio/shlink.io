@@ -3,7 +3,6 @@ import RealTimeUpdatesContent from '../../content/documentation/real-time-update
 import Breadcrumb from '../../components/Breadcrumb';
 import Documentation, { Item } from './index';
 
-
 const breadcrumbItems: Item[] = [{ text: 'Getting started', link: '/documentation' }];
 
 const RealTimeUpdates: FunctionComponent = () => (
