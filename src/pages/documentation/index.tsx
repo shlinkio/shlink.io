@@ -50,8 +50,7 @@ const menuItems: Item[] = [
     icon: faCogs,
     submenu: [
       { text: 'Short Menu for Mac', link: '/documentation/integrations/short-menu-mac' },
-
-      // { text: 'Short Menu for iOS', link: '/documentation/integrations/short-menu-ios' },
+      { text: 'Short Menu for iOS', link: '/documentation/integrations/short-menu-ios' },
     ],
   },
 ];
