@@ -2,12 +2,12 @@
 
 Shlink's REST API implements the [Problem Details](https://tools.ietf.org/html/rfc7807) standard for error management.
 
-Because of this, all error responses will have `Content-Type: application/problem+json`, and the payload will have at least the next properties:
+Because of this, all error responses will have `Content-Type: application/problem+json`, and the payload will have at least these properties:
 
 * `type`: A unique error code identifying the error.
 * `detail`: A human-friendly description of the error.
 * `title`: A short unique error title.
-* `status`: The same value returned as the responses status code.
+* `status`: The same value returned as the response status code.
 
 ```json
 {
