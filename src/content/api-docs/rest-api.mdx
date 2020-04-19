@@ -1,11 +1,27 @@
 ## REST API
 
-Shlink provides a REST API that can be used to integrate the short URLs management on any system or application.
+Shlink provides a REST API that can be used to integrate the short URLs management on any consuming system or application.
 
-All the requests return JSON-encoded responses and semantic status codes, so it should be easy to implement client apps that consume this API.
+### Content negotiation
 
-However, if an unexpected error occurs, the system could end returning HTML. To prevent this, always pass the `Accept` header with the `application/json` value.
+All the requests return JSON-encoded responses by default, together with semantic status codes, so it should be easy to implement client apps that consume this API.
 
-This API supports [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (aka cross domain), automatically generating required `Access-Control-*` headers and managing pre-flight (`OPTIONS`) requests, so it can be consumed from web clients hosted on different domains.
+However, if an unexpected error occurs, the system could end up returning HTML. To prevent this, always pass the header `Accept: application/json`.
+
+### CORS
+
+This API supports [**C**ross-**O**rigin **R**esource **S**haring](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (aka cross domain) out of the box.
+
+It will automatically generate the required `Access-Control-*` headers and manage pre-flight (`OPTIONS`) requests, so it can be transparently consumed from web clients hosted on different domains.
+
+### Expected formats
+
+The API tries to be consistent on expected and returned formats, but these are some basic guidelines:
+
+* All error response follow the [Problem Details](https://tools.ietf.org/html/rfc7807) standard. You can find further information in [Error management](/documentation/api-docs/error-management).
+* All returned dates will have the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format with offset from UTC (for example, `2020-01-23T05:16:00+02:00`).
+* Any endpoint accepting dates will also expect the same format, usually resulting in `400 Bad Request` response when this is not fulfilled.
+
+---
 
 Follow the documentation in order to see how to manage errors and perform requests correctly.
