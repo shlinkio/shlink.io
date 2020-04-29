@@ -1,0 +1,31 @@
+import Callout from '../../components/Callout';
+
+## GeoLite2 license key
+
+Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) database, by [MaxMind](https://www.maxmind.com), to geolocate visits to your short URLs.
+
+In order to ensure the data is up-to-date, it downloads new versions of the database regularly.
+
+However, in order to do this, Shlink needs a GeoLite2 license key. These licenses are free, and Shlink includes a default one since v1.21.1, when the license conditions changed.
+
+The problem of using the default license key is that there are daily download limits, and if many users are sharing this, it's very likely to reach those limits.
+
+Because of that, since v2.1.4, it is possible, and **strongly recommended**, to provide your own GeoLite2 license key to Shlink.
+
+<Callout type="warning">
+    Shlink 3.0, when released, will no longer provide a default license key, and you will have to provide your own.
+</Callout>
+
+### Generate a license key
+
+In order to generate the license key, follow these steps.
+
+* Create a MaxMind [account for GeoLite2](https://www.maxmind.com/en/geolite2/signup).
+* Generate a [license key](https://www.maxmind.com/en/accounts/current/license-key). Its **important** that you save the value, as you will not be able to recover it afterwards.
+
+### Provide the license key to Shlink
+
+Once you have your license key, you will need to provide it to Shlink.
+
+* If you are using the docker image, use the `GEOLITE_LICENSE_KEY` env var.
+* In other cases, you will be asked to provide the license key when installing or updating Shlink.
