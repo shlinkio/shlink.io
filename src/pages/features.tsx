@@ -9,7 +9,10 @@ import {
   faLock,
   faExchangeAlt,
   faCropAlt,
+  faScroll,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
+import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import Feature from '../components/Feature';
 import SectionHeader from '../components/SectionHeader';
@@ -51,7 +54,14 @@ const Features: FunctionComponent = () => (
           >
             Use the official docker image to deploy shlink in a container-based infrastructure.
           </Feature>
-          <Feature title="Email tracking" icon={faEnvelope} className="offset-lg-3">
+          <Feature title="Real-time updates" icon={faPaperPlane} link="/documentation/real-time-updates">
+            Make third party systems be notified as soon as new visits happen, by using webhooks
+            or a <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> server.
+          </Feature>
+          <Feature title="GDPR compliant" icon={faScroll}>
+            IP addresses are anonymized by default, making Shlink compliant with different data protection regulations.
+          </Feature>
+          <Feature title="Email tracking" icon={faEnvelope}>
             Generate a 1px transparent image that can be used to track emails.
           </Feature>
           <Feature
