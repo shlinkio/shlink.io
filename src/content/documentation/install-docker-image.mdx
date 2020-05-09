@@ -151,7 +151,7 @@ docker run \
 
 A few env vars have been already used in previous examples, but this image supports others that can be used to customize its behavior.
 
-This is the complete list of supported env vars:
+This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced:
 
 * `SHORT_DOMAIN_HOST`: The custom short domain used for this shlink instance. For example **doma.in**.
 * `SHORT_DOMAIN_SCHEMA`: Either **http** or **https**.
@@ -168,19 +168,23 @@ This is the complete list of supported env vars:
 * `DISABLE_TRACK_PARAM`: The name of a query param that can be used to visit short URLs avoiding the visit to be tracked. This feature won't be available if not value is provided.
 * `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. Defaults to `15`.
 * `VALIDATE_URLS`: Boolean which tells if shlink should validate a status 20x is returned (after following redirects) when trying to shorten a URL. Defaults to `false`.
-* `INVALID_SHORT_URL_REDIRECT_TO`: If a URL is provided here, when a user tries to access an invalid short URL, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `REGULAR_404_REDIRECT_TO`: If a URL is provided here, when a user tries to access a URL not matching any one supported by the router, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `BASE_URL_REDIRECT_TO`: If a URL is provided here, when a user tries to access Shlink's base URL, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `BASE_PATH`: The base path from which you plan to serve shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
-* `WEB_WORKER_NUM`: The amount of concurrent http requests this shlink instance will be able to server. Defaults to 16.
-* `TASK_WORKER_NUM`: The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16.
-* `VISITS_WEBHOOKS`: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
-* `DEFAULT_SHORT_CODES_LENGTH`: The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
+* `BASE_PATH` *(v1.19.0)* : The base path from which you plan to serve shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
+* `INVALID_SHORT_URL_REDIRECT_TO` *(v1.20.0)* : If a URL is provided here, when a user tries to access an invalid short URL, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
+* `REGULAR_404_REDIRECT_TO` *(v1.20.0)* : If a URL is provided here, when a user tries to access a URL not matching any one supported by the router, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
+* `BASE_URL_REDIRECT_TO` *(v1.20.0)* : If a URL is provided here, when a user tries to access Shlink's base URL, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
+* `WEB_WORKER_NUM` *(v1.21.0)* : The amount of concurrent http requests this shlink instance will be able to server. Defaults to 16.
+* `TASK_WORKER_NUM` *(v1.21.0)* : The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16.
+* `VISITS_WEBHOOKS` *(v1.21.0)* : A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
+* `DEFAULT_SHORT_CODES_LENGTH` *(v2.1.0)* : The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
+* `GEOLITE_LICENSE_KEY` *(v2.1.4)* : The license key used to download new GeoLite2 database files. This is not mandatory, as a default license key is provided, but it is **strongly recommended** that you provide your own. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it.
 * `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).
-* `MERCURE_PUBLIC_HUB_URL`: The public URL of a mercure hub server to which Shlink will sent updates. This URL will also be served to consumers that want to subscribe to those updates.
-* `MERCURE_INTERNAL_HUB_URL`: An internal URL for a mercure hub. Will be used only when publishing updates to mercure, and does not need to be public. If this is not provided but `MERCURE_PUBLIC_HUB_URL` was, the former one will be used to publish updates.
-* `MERCURE_JWT_SECRET`: The secret key that was provided to the mercure hub server, in order to be able to generate valid JWTs for publishing/subscribing to that server.
-* `GEOLITE_LICENSE_KEY`: The license key used to download new GeoLite2 database files. This is not mandatory, as a default license key is provided, but it is **strongly recommended** that you provide your own. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it.
+* `MERCURE_PUBLIC_HUB_URL` *(v2.2.0)* : The public URL of a mercure hub server to which Shlink will sent updates. This URL will also be served to consumers that want to subscribe to those updates.
+* `MERCURE_INTERNAL_HUB_URL` *(v2.2.0)* : An internal URL for a mercure hub. Will be used only when publishing updates to mercure, and does not need to be public. If this is not provided but `MERCURE_PUBLIC_HUB_URL` was, the former one will be used to publish updates.
+* `MERCURE_JWT_SECRET` *(v2.2.0)* : The secret key that was provided to the mercure hub server, in order to be able to generate valid JWTs for publishing/subscribing to that server.
+* `ANONYMIZE_REMOTE_ADDR` *(v2.2.0)* : Tells if IP addresses from visitors should be obfuscated before storing them in the database. Default value is `true`.
+<Callout type="warning">
+    Setting this to <b>false</b> will make your Shlink instance no longer be in compliance with the GDPR and other similar data protection regulations.
+</Callout>
 
 An example using all env vars could look like this:
 
@@ -212,6 +216,7 @@ docker run \
     -e "MERCURE_PUBLIC_HUB_URL=https://example.com" \
     -e "MERCURE_INTERNAL_HUB_URL=http://my-mercure-hub.prod.svc.cluster.local" \
     -e MERCURE_JWT_SECRET=super_secret_key \
+    -e ANONYMIZE_REMOTE_ADDR=false \
     shlinkio/shlink:stable
 ```
 
@@ -256,7 +261,8 @@ The whole configuration should have this format, but it can be split into multip
     "geolite_license_key": "kjh23ljkbndskj345",
     "mercure_public_hub_url": "https://example.com",
     "mercure_internal_hub_url": "http://my-mercure-hub.prod.svc.cluster.local",
-    "mercure_jwt_secret": "super_secret_key"
+    "mercure_jwt_secret": "super_secret_key",
+    "anonymize_remote_addr": false
 }
 ```
 
