@@ -46,6 +46,11 @@
   blockquote strong, a strong {
     color: inherit;
   }
+
+  li .callout-block {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
 }
 
 .docs-logo-wrapper {
