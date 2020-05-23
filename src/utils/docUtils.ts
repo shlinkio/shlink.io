@@ -62,6 +62,38 @@ interface BreadcrumbInfo {
 }
 
 const breadcrumbsMap: Record<string, BreadcrumbInfo> = {
+  '/documentation/install-docker-image': {
+    title: 'Install docker image',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/install-dist-file': {
+    title: 'Install from dist file',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/serve-with-swoole': {
+    title: 'Serve with swoole',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/classic-web-server': {
+    title: 'Classic web server',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/multiple-domains': {
+    title: 'Multiple domains',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/real-time-updates': {
+    title: 'Real-time updates',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/geolite-license-key': {
+    title: 'GeoLite2 license key',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
+  '/documentation/long-running-tasks': {
+    title: 'Long-running tasks',
+    breadcrumbItems: [{ text: 'Getting started', link: '/documentation' }],
+  },
   '/documentation/command-line-interface': {
     title: 'Command line interface',
     breadcrumbItems: [{ text: 'Docs', link: '/documentation' }],

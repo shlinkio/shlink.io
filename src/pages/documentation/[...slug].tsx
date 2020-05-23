@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { breadcrumbForPath } from '../../utils/docUtils';
 import Breadcrumb from '../../components/Breadcrumb';
-import Documentation from './index';
+import Documentation from '.';
 
 const ClassicWebServer: FunctionComponent = () => {
   const { query, asPath } = useRouter();
@@ -13,7 +13,6 @@ const ClassicWebServer: FunctionComponent = () => {
 
   return (
     <Documentation>
-      Foo
       <Breadcrumb prevElements={breadcrumbItems}>{title}</Breadcrumb>
       <Content />
     </Documentation>
