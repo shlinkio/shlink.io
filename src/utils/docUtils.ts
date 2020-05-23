@@ -97,7 +97,7 @@ const resolveBreadcrumbsMapSubRoutes = (acc: BreadcrumbsMap, prevRoutes: Route[]
   return acc;
 };
 
-const breadcrumbsMap: BreadcrumbsMap = docsRoutes.reduce<BreadcrumbsMap>(
+export const breadcrumbsMap: BreadcrumbsMap = docsRoutes.reduce<BreadcrumbsMap>(
   (acc: BreadcrumbsMap, route: Route) => resolveBreadcrumbsMapSubRoutes(acc, [], route),
   {},
 );
