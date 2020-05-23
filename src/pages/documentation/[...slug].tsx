@@ -21,11 +21,20 @@ const DocumentationSlug: FunctionComponent = () => {
   );
 };
 
+interface NextJsPath {
+  params: {
+    slug: string[];
+  };
+}
+
+const urlToNextJsPath = (path: string): NextJsPath => ({
+  params: { slug: path.split('/').splice(2) },
+});
+const slugIsNotEmpty = ({ params }: NextJsPath) => params.slug.length > 0;
+
 // This allows defining which are the routes that should be statically generated, based on the breadcrumbs map
 export const getStaticPaths = async () => ({
-  paths: Object.keys(breadcrumbsMap).map((path) => ({
-    params: { slug: path.split('/').splice(2) },
-  })),
+  paths: Object.keys(breadcrumbsMap).map(urlToNextJsPath).filter(slugIsNotEmpty),
   fallback: false,
 });
 

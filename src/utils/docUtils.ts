@@ -85,6 +85,10 @@ interface BreadcrumbInfo {
 type BreadcrumbsMap = Record<string, BreadcrumbInfo>;
 
 const resolveBreadcrumbsMapSubRoutes = (acc: BreadcrumbsMap, prevRoutes: Route[], route: Route): BreadcrumbsMap => {
+  if (route.link.startsWith('http')) {
+    return acc;
+  }
+
   acc[route.link] = {
     title: route.text,
     breadcrumbItems: prevRoutes,
