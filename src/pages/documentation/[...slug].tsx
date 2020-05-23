@@ -2,14 +2,16 @@ import React, { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { breadcrumbForPath } from '../../utils/docUtils';
+import { useCurrentPath } from '../../utils/pathUtils';
 import Breadcrumb from '../../components/Breadcrumb';
 import Documentation from '.';
 
 const ClassicWebServer: FunctionComponent = () => {
-  const { query, asPath } = useRouter();
+  const { query } = useRouter();
+  const currentPath = useCurrentPath();
   const { slug = [] } = query as { slug?: string[] };
   const Content = dynamic(import(`../../content/documentation/${slug.join('/')}.mdx`));
-  const { breadcrumbItems, title } = breadcrumbForPath(asPath);
+  const { breadcrumbItems, title } = breadcrumbForPath(currentPath);
 
   return (
     <Documentation>

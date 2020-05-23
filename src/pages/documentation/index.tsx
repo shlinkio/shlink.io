@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { NavbarToggler } from 'reactstrap';
-import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
 import GettingStartedContent from '../../content/documentation/getting-started.mdx';
 import Footer from '../../components/Footer';
 import DocsSearch from '../../components/DocsSearch';
 import { menuItems } from '../../utils/docUtils';
+import { useCurrentPath } from '../../utils/pathUtils';
 
 interface MenuItemProps {
   link: string;
@@ -49,7 +49,7 @@ const classesForState = (state: SidebarState) => {
 };
 
 const Documentation: FunctionComponent = ({ children }) => {
-  const { asPath: currentPage } = useRouter();
+  const currentPage = useCurrentPath();
   const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
   const leftMenuToggle = <LeftMenuToggle collapsed={sidebarState !== 'displayed'} toggleSidebar={toggleSidebar} />;
