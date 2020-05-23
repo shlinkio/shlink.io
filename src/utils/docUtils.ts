@@ -84,6 +84,24 @@ const breadcrumbsMap: Record<string, BreadcrumbInfo> = {
       { text: 'REST API', link: '/documentation/api-docs' },
     ],
   },
+  '/documentation/integrations': {
+    title: 'Integrations',
+    breadcrumbItems: [{ text: 'Docs', link: '/documentation' }],
+  },
+  '/documentation/integrations/short-menu-mac': {
+    title: 'Short Menu for Mac',
+    breadcrumbItems: [
+      { text: 'Docs', link: '/documentation' },
+      { text: 'Integrations', link: '/documentation/integrations' },
+    ],
+  },
+  '/documentation/integrations/short-menu-ios': {
+    title: 'Short Menu for iOS',
+    breadcrumbItems: [
+      { text: 'Docs', link: '/documentation' },
+      { text: 'Integrations', link: '/documentation/integrations' },
+    ],
+  },
 };
 
 export const breadcrumbForPath = (path: string): BreadcrumbInfo =>

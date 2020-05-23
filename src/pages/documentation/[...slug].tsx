@@ -13,6 +13,7 @@ const ClassicWebServer: FunctionComponent = () => {
 
   return (
     <Documentation>
+      Foo
       <Breadcrumb prevElements={breadcrumbItems}>{title}</Breadcrumb>
       <Content />
     </Documentation>
