@@ -5,7 +5,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
-import GettingStartedContent from '../../content/documentation/getting-started.mdx';
+import GettingStartedContent from '../../content/documentation/index.mdx';
 import Footer from '../../components/Footer';
 import DocsSearch from '../../components/DocsSearch';
 import { menuItems } from '../../utils/docUtils';
@@ -64,12 +64,12 @@ const Documentation: FunctionComponent = ({ children }) => {
 
           <nav className="docs-nav navbar align-items-start">
             <ul className="section-items list-unstyled nav flex-column pb-3">
-              {menuItems.map(({ text, link, icon, submenu = [] }) => (
+              {menuItems.map(({ text, link, menuIcon, subRoutes = [] }) => (
                 <React.Fragment key={text}>
-                  <MenuItem link={link} active={currentPage === link} icon={icon}>
+                  <MenuItem link={link} active={currentPage === link} icon={menuIcon}>
                     {text}
                   </MenuItem>
-                  {submenu.map(({ text, link }) => (
+                  {subRoutes.map(({ text, link }) => (
                     <MenuItem link={link} active={currentPage === link} key={text}>
                       {text}
                     </MenuItem>
