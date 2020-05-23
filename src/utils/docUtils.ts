@@ -84,6 +84,31 @@ const breadcrumbsMap: Record<string, BreadcrumbInfo> = {
       { text: 'REST API', link: '/documentation/api-docs' },
     ],
   },
+  '/documentation/shlink-web-client': {
+    title: 'Shlink web client',
+    breadcrumbItems: [{ text: 'Docs', link: '/documentation' }],
+  },
+  '/documentation/shlink-web-client/installation': {
+    title: 'Installation',
+    breadcrumbItems: [
+      { text: 'Docs', link: '/documentation' },
+      { text: 'Shlink web client', link: '/documentation/shlink-web-client' },
+    ],
+  },
+  '/documentation/shlink-web-client/serve-in-sub-path': {
+    title: 'Serve in sub path',
+    breadcrumbItems: [
+      { text: 'Docs', link: '/documentation' },
+      { text: 'Shlink web client', link: '/documentation/shlink-web-client' },
+    ],
+  },
+  '/documentation/shlink-web-client/pre-configuring-servers': {
+    title: 'Pre-configuring servers',
+    breadcrumbItems: [
+      { text: 'Docs', link: '/documentation' },
+      { text: 'Shlink web client', link: '/documentation/shlink-web-client' },
+    ],
+  },
   '/documentation/integrations': {
     title: 'Integrations',
     breadcrumbItems: [{ text: 'Docs', link: '/documentation' }],
