@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import InstallationContent from '../../../content/shlink-web-client/installation.mdx';
-import Documentation, { Item } from '../index';
+import { Item } from '../../../utils/docUtils';
+import Documentation from '../index';
 import Breadcrumb from '../../../components/Breadcrumb';
 
 const breadcrumbItems: Item[] = [

@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import GeoLiteLicenseKeyContent from '../../content/documentation/geolite-license-key.mdx';
 import Breadcrumb from '../../components/Breadcrumb';
-import Documentation, { Item } from './index';
+import { Item } from '../../utils/docUtils';
+import Documentation from './index';
 
 const breadcrumbItems: Item[] = [{ text: 'Getting started', link: '/documentation' }];
 

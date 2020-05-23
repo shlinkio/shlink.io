@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Breadcrumb as BsBreadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Item } from '../pages/documentation';
+import { Item } from '../utils/docUtils';
 import Link from './Link';
 import './Breadcrumb.scss';
 

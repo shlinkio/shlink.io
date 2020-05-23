@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import IntegrationsContent from '../../../content/integrations/integrations.mdx';
-import Documentation, { Item } from '../index';
+import { Item } from '../../../utils/docUtils';
+import Documentation from '../index';
 import Breadcrumb from '../../../components/Breadcrumb';
 
 const breadcrumbItems: Item[] = [{ text: 'Docs', link: '/documentation' }];
