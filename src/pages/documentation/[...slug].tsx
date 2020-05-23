@@ -6,11 +6,11 @@ import { useCurrentPath } from '../../utils/pathUtils';
 import Breadcrumb from '../../components/Breadcrumb';
 import Documentation from '.';
 
-const ClassicWebServer: FunctionComponent = () => {
+const DocumentationSlug: FunctionComponent = () => {
   const { query } = useRouter();
   const currentPath = useCurrentPath();
   const { slug = [] } = query as { slug?: string[] };
-  const Content = dynamic(import(`../../content/documentation/${slug.join('/')}.mdx`));
+  const Content = dynamic(async () => import(`../../content/documentation/${slug.join('/')}.mdx`));
   const { breadcrumbItems, title } = breadcrumbForPath(currentPath);
 
   return (
@@ -21,4 +21,4 @@ const ClassicWebServer: FunctionComponent = () => {
   );
 };
 
-export default ClassicWebServer;
+export default DocumentationSlug;

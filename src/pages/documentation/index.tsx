@@ -64,12 +64,12 @@ const Documentation: FunctionComponent = ({ children }) => {
 
           <nav className="docs-nav navbar align-items-start">
             <ul className="section-items list-unstyled nav flex-column pb-3">
-              {menuItems.map(({ text, link, icon, submenu = [] }) => (
+              {menuItems.map(({ text, link, menuIcon, subRoutes = [] }) => (
                 <React.Fragment key={text}>
-                  <MenuItem link={link} active={currentPage === link} icon={icon}>
+                  <MenuItem link={link} active={currentPage === link} icon={menuIcon}>
                     {text}
                   </MenuItem>
-                  {submenu.map(({ text, link }) => (
+                  {subRoutes.map(({ text, link }) => (
                     <MenuItem link={link} active={currentPage === link} key={text}>
                       {text}
                     </MenuItem>

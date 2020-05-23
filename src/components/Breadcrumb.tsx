@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { Breadcrumb as BsBreadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Item } from '../utils/docUtils';
+import { Route } from '../utils/docUtils';
 import Link from './Link';
 import './Breadcrumb.scss';
 
 interface BreadcrumbProps {
-  prevElements: Item[];
+  prevElements: Route[];
 }
 
 const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({ children, prevElements }) => (
