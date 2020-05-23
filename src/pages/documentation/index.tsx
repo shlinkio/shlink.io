@@ -5,7 +5,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';
 import Link from '../../components/Link';
-import GettingStartedContent from '../../content/documentation/getting-started.mdx';
+import GettingStartedContent from '../../content/documentation/index.mdx';
 import Footer from '../../components/Footer';
 import DocsSearch from '../../components/DocsSearch';
 import { menuItems } from '../../utils/docUtils';
