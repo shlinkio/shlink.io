@@ -11,8 +11,8 @@ const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-li
   return (
     <Tag {...rest}>
       <a className="hidden-title-anchor" id={link} />
-      <a href={`#${link}`} className="anchor"><FontAwesomeIcon icon={faLink} /></a>
-      {children}
+      <span className="anchor"><FontAwesomeIcon icon={faLink} /></span>
+      <a href={`#${link}`}>{children}</a>
     </Tag>
   );
 };
