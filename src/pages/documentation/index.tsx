@@ -1,30 +1,11 @@
 import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';
-import Link from '../../components/Link';
 import GettingStartedContent from '../../content/documentation/index.mdx';
 import Footer from '../../components/Footer';
 import DocsSearch from '../../components/DocsSearch';
-import { menuItems } from '../../utils/docUtils';
-import { useCurrentPath } from '../../utils/pathUtils';
-
-interface MenuItemProps {
-  link: string;
-  active: boolean;
-  icon?: IconProp;
-}
-
-const MenuItem: FunctionComponent<MenuItemProps> = ({ active, link, children, icon }) => (
-  <li className={classNames('nav-item', { 'section-title': icon })}>
-    <Link className={classNames('nav-link', { active })} href={link}>
-      {icon && <span className="theme-icon-holder mr-2"><FontAwesomeIcon icon={icon} /></span>}
-      {children}
-    </Link>
-  </li>
-);
+import DocsMenu from '../../components/DocsMenu';
 
 interface LeftMenuToggleProps {
   collapsed: boolean;
@@ -49,7 +30,6 @@ const classesForState = (state: SidebarState) => {
 };
 
 const Documentation: FunctionComponent = ({ children }) => {
-  const currentPage = useCurrentPath();
   const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
   const leftMenuToggle = <LeftMenuToggle collapsed={sidebarState !== 'displayed'} toggleSidebar={toggleSidebar} />;
@@ -62,22 +42,7 @@ const Documentation: FunctionComponent = ({ children }) => {
             <DocsSearch />
           </div>
 
-          <nav className="docs-nav navbar align-items-start">
-            <ul className="section-items list-unstyled nav flex-column pb-3">
-              {menuItems.map(({ text, link, menuIcon, subRoutes = [] }) => (
-                <React.Fragment key={text}>
-                  <MenuItem link={link} active={currentPage === link} icon={menuIcon}>
-                    {text}
-                  </MenuItem>
-                  {subRoutes.map(({ text, link }) => (
-                    <MenuItem link={link} active={currentPage === link} key={text}>
-                      {text}
-                    </MenuItem>
-                  ))}
-                </React.Fragment>
-              ))}
-            </ul>
-          </nav>
+          <DocsMenu />
         </div>
 
         <div className="docs-content">

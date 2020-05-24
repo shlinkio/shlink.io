@@ -1,4 +1,4 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { faBook, faCogs, faLaptopCode, faMobileAlt, faTerminal } from '@fortawesome/free-solid-svg-icons';
 import { clone } from 'ramda';
 
