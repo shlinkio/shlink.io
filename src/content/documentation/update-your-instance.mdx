@@ -1,0 +1,34 @@
+import Callout from '../../components/Callout';
+
+## Update your Shlink instance
+
+Shlink is designed so that updating an installation to a newer version is as easy as possible, without loosing any data while doing it.
+
+However, the process may defer depending on how you installed Shlink.
+
+### Update a docker image
+
+This is probably the simplest use case.
+
+When a new shlink version is released, it will come together with a new docker image tag.
+
+You will just need to use the new one in order to get updated. The image itself will take care of updating the database, if needed, without loosing data in the process.
+
+Env vars will be backwards compatible, and only major releases may drop support for some of the existing ones, but when this happens, documentation will be provided on how to migrate.
+
+### Updating a self-hosted instance.
+
+If you are hosting Shlink manually, whether it is served with swoole or not, you probably started by running the `cli/install` helper tool, which gets your instance set-up.
+
+There's an updating counterpart of this tool, `cli/update`. With it, you will be able to import the configuration from your previous installation folder, and provide any new configuration options. Any configuration option you previously provided will be kept the same.
+
+That said, the process you should follow would be this:
+
+1. Rename your existing Shlink directory to something else (ie. `shlink` -> `shlink-old`).
+2. Download and extract the new version of Shlink, and set the directory name to that of the old version (ie. `shlink`).
+3. Run the `bin/update` script in the new version's directory to migrate your configuration over. You will be asked to provide the path to the old instance (ie. `shlink-old`).
+4. If you are using shlink with swoole, restart the service by running `/etc/init.d/shlink_swoole restart`.
+
+<Callout type="warning">
+    It is recommended that you don't skip too many versions at a time when updating Shlink. If you have to, make sure to back-up your database beforehand, in case the process needs to be rolled back.
+</Callout>
