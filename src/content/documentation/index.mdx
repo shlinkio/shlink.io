@@ -1,10 +1,33 @@
 ## Getting started
 
-Shlink is a URL shortener which provides both a [REST](/documentation/api-docs) and a [CLI](/documentation/command-line-interface) interface to interact with it.
+Shlink is a self-hosted URL shortener which provides both a [REST](/documentation/api-docs) and a [CLI](/documentation/command-line-interface) interface to interact with it.
 
-There are a couple of ways to install and run it, depending on your needs and resources.
+Additionally, there's also an official [Shlink web client](/documentation/shlink-web-client) which, by making use of Shlink's REST API, provides a beautiful web UI to handle multiple Shlink instances.
 
-You can run Shlink in a container-based infrastructure, using the [docker image](/documentation/install-docker-image), but you can also [download a dist file](/documentation/install-dist-file) to host it in your machine and serve it with:
+This documentation will walk you through the process of getting both Shlink and shlink-web-client installed, using one of the many available approaches.
 
-* [A non-blocking swoole server](/documentation/serve-with-swoole).
-* [A classic web server](/documentation/classic-web-server) (like Apache or Nginx).
+You will also learn how it is architected, how to use it once installed, and answers to frequently asked questions.
+
+### Table of contents
+
+* [Getting started](/documentation)
+    * [Install docker image](/documentation/install-docker-image)
+    * [Install from dist file](/documentation/install-dist-file)
+    * [Serve with swoole](/documentation/serve-with-swoole)
+    * [Classic web a classic server](/documentation/classic-web-server)
+    * [Using multiple domains](/documentation/multiple-domains)
+    * [Real-time updates](/documentation/real-time-updates)
+    * [GeoLite2 license key](/documentation/geolite-license-key)
+    * [Long-running tasks](/documentation/long-running-tasks)
+* [Command line interface](/documentation/command-line-interface)
+* [REST API](/documentation/api-docs)
+    * [Authentication](/documentation/api-docs/authentication)
+    * [Error management](/documentation/api-docs/error-management)
+    * [Endpoints - API spec](https://api-spec.shlink.io/)
+* [Shlink web client](/documentation/shlink-web-client)
+    * [Installation](/documentation/shlink-web-client/installation)
+    * [Serve in sub path](/documentation/shlink-web-client/serve-in-sub-path)
+    * [Pre-configuring servers](/documentation/shlink-web-client/pre-configuring-servers)
+* [3rd party integrations](/documentation/integrations)
+    * [Short Menu for Mac](/documentation/integrations/short-menu-mac)
+    * [Short Menu for iOS](/documentation/integrations/short-menu-ios)
