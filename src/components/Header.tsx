@@ -17,11 +17,11 @@ const MenuItem: FunctionComponent<MenuItemProps> = ({ to, children, isLast, acti
   </li>
 );
 
-export interface MenuProps {
+export interface HeaderProps {
   leftMenuToggle?: ReactNode;
 }
 
-const Menu: FunctionComponent<MenuProps> = ({ leftMenuToggle }) => {
+const Header: FunctionComponent<HeaderProps> = ({ leftMenuToggle }) => {
   const [ collapsed, setCollapsed ] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();
@@ -67,4 +67,4 @@ const Menu: FunctionComponent<MenuProps> = ({ leftMenuToggle }) => {
   );
 };
 
-export default Menu;
+export default Header;

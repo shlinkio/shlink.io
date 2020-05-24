@@ -4,10 +4,10 @@ import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
 import { markdownComponents } from '../utils/markdownUtils';
 import { openGraph, twitter } from '../utils/seoUtils';
-import Menu, { MenuProps } from './Menu';
+import Header, { HeaderProps } from './Header';
 import Footer from './Footer';
 
-interface LayoutProps extends MenuProps {
+interface LayoutProps extends HeaderProps {
   pageTitle?: string;
   children: ReactNode;
   noFooter?: boolean;
@@ -99,7 +99,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuT
         <meta name="msapplication-square310x310logo" content="/icons/icon-310x310.png" />
       </Head>
 
-      <Menu leftMenuToggle={leftMenuToggle} />
+      <Header leftMenuToggle={leftMenuToggle} />
       <MDXProvider components={markdownComponents}>{children}</MDXProvider>
       {!noFooter && <Footer />}
     </React.Fragment>
