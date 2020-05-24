@@ -23,6 +23,7 @@ const docsRoutes: Route[] = [
       { text: 'Real-time updates', link: '/documentation/real-time-updates' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
+      { text: 'Update your instance', link: '/documentation/update-your-instance' },
       { text: 'Command line interface', link: '/documentation/command-line-interface', menuIcon: faTerminal },
       {
         text: 'REST API',
