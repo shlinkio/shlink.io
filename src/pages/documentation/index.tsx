@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';
@@ -6,6 +6,7 @@ import GettingStartedContent from '../../content/documentation/index.mdx';
 import Footer from '../../components/Footer';
 import DocsSearch from '../../components/DocsSearch';
 import DocsMenu from '../../components/DocsMenu';
+import { useCurrentPath } from '../../utils/pathUtils';
 
 interface LeftMenuToggleProps {
   collapsed: boolean;
@@ -30,9 +31,14 @@ const classesForState = (state: SidebarState) => {
 };
 
 const Documentation: FunctionComponent = ({ children }) => {
+  const currentPath = useCurrentPath();
   const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
   const leftMenuToggle = <LeftMenuToggle collapsed={sidebarState !== 'displayed'} toggleSidebar={toggleSidebar} />;
+
+  useEffect(() => {
+    sidebarState !== 'initial' && setSidebarVisible('hidden');
+  }, [ currentPath ]);
 
   return (
     <Layout pageTitle="Documentation" leftMenuToggle={leftMenuToggle} noFooter>
