@@ -17,7 +17,7 @@ So based on this, to run shlink on a local docker service, you should run a comm
 
 ```bash
 docker run \
-    --name shlink_container \
+    --name my_shlink \
     -p 8080:8080 \
     -e SHORT_DOMAIN_HOST=doma.in \
     -e SHORT_DOMAIN_SCHEMA=https \
@@ -29,22 +29,22 @@ docker run \
 
 Once the shlink container is running, you can interact with the CLI tool by running `shlink` with any of the supported commands.
 
-For example, if the container is called `shlink_container`, you can generate a new API key with:
+For example, if the container is called `my_shlink`, you can generate a new API key with:
 
 ```bash
-docker exec -it shlink_container shlink api-key:generate
+docker exec -it my_shlink shlink api-key:generate
 ```
 
 Or you can list all tags with:
 
 ```bash
-docker exec -it shlink_container shlink tag:list
+docker exec -it my_shlink shlink tag:list
 ```
 
 Or locate remaining visits with:
 
 ```bash
-docker exec -it shlink_container shlink visit:locate
+docker exec -it my_shlink shlink visit:locate
 ```
 
 All shlink commands will work the same way.
@@ -52,7 +52,7 @@ All shlink commands will work the same way.
 You can also list all available commands just by running this:
 
 ```bash
-docker exec -it shlink_container shlink
+docker exec -it my_shlink shlink
 ```
 
 ### Use an external DB
@@ -78,7 +78,7 @@ Taking this into account, you could run shlink on a local docker service like th
 
 ```bash
 docker run \
-    --name shlink \
+    --name my_shlink \
     -p 8080:8080 \
     -e SHORT_DOMAIN_HOST=doma.in \
     -e SHORT_DOMAIN_SCHEMA=https \
@@ -94,7 +94,7 @@ You could even link to a local database running on a different container:
 
 ```bash
 docker run \
-    --name shlink \
+    --name my_shlink \
     -p 8080:8080 \
     [...] \
     -e DB_HOST=some_mysql_container \
@@ -134,7 +134,7 @@ So in order to run shlink with mercure integration, you would do it like this:
 
 ```bash
 docker run \
-    --name shlink \
+    --name my_shlink \
     -p 8080:8080 \
     -e SHORT_DOMAIN_HOST=doma.in \
     -e SHORT_DOMAIN_SCHEMA=https \
@@ -190,7 +190,7 @@ An example using all env vars could look like this:
 
 ```bash
 docker run \
-    --name shlink \
+    --name my_shlink \
     -p 8080:8080 \
     -e SHORT_DOMAIN_HOST=doma.in \
     -e SHORT_DOMAIN_SCHEMA=https \
@@ -271,7 +271,7 @@ The whole configuration should have this format, but it can be split into multip
 Once created just run shlink with the volume:
 
 ```bash
-docker run --name shlink -p 8080:8080 -v ${PWD}/my/config/dir:/etc/shlink/config/params shlinkio/shlink:stable
+docker run --name my_shlink -p 8080:8080 -v ${PWD}/my/config/dir:/etc/shlink/config/params shlinkio/shlink:stable
 ```
 
 ### Multi instance considerations
