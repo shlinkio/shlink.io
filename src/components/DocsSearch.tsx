@@ -14,7 +14,7 @@ const DocsSearch: FunctionComponent = () => {
       apiKey: 'b43050cae2aa5185ad2c6b7ec271333e',
       indexName: 'shlink',
       inputSelector: `#${inputSelectorId}`,
-      debug: false,
+      debug: process.env.NODE_ENV === 'development',
     });
   }, []);
 
