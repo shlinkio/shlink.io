@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/shlinkio/shlink.io.svg?style=flat-square)](https://travis-ci.org/shlinkio/shlink.io)
 [![Docker build status](https://img.shields.io/docker/cloud/build/shlinkio/shlink-website.svg?style=flat-square)](https://hub.docker.com/r/shlinkio/shlink-website/)
 [![GitHub tag](https://img.shields.io/github/tag/shlinkio/shlink.io.svg?style=flat-square)](https://github.com/shlinkio/shlink.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/shlinkio/shlink.io.svg?style=flat-square)](https://github.com/shlinkio/shlink.io/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/shlinkio/shlink.io.svg?style=flat-square)](https://github.com/shlinkio/shlink.io/blob/main/LICENSE)
 [![Paypal Donate](https://img.shields.io/badge/Donate-paypal-blue.svg?style=flat-square&logo=paypal&colorA=cccccc)](https://slnk.to/donate)
 
 This is [shlink](https://shlink.io)'s project website. A statically build website created with [next.js](https://nextjs.org/).
