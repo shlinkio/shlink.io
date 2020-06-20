@@ -185,6 +185,8 @@ This is the complete list of supported env vars. Right next to their name you wi
 <Callout type="warning">
     Setting this to <b>false</b> will make your Shlink instance no longer be in compliance with the GDPR and other similar data protection regulations.
 </Callout>
+* `REDIRECT_STATUS_CODE` *(v2.3.0)* : Either **301** or **302**. Used to determine if redirects from short to long URLs should be done with a 301 or 302 status. Defaults to 302.
+* `REDIRECT_CACHE_LIFETIME` *(v2.3.0)* : Allows to set the amount of seconds that redirects should be cached when redirect status is 301. Default values is 30.
 
 An example using all env vars could look like this:
 
@@ -217,6 +219,8 @@ docker run \
     -e "MERCURE_INTERNAL_HUB_URL=http://my-mercure-hub.prod.svc.cluster.local" \
     -e MERCURE_JWT_SECRET=super_secret_key \
     -e ANONYMIZE_REMOTE_ADDR=false \
+    -e REDIRECT_STATUS_CODE=301 \
+    -e REDIRECT_CACHE_LIFETIME=90 \
     shlinkio/shlink:stable
 ```
 
@@ -262,7 +266,9 @@ The whole configuration should have this format, but it can be split into multip
     "mercure_public_hub_url": "https://example.com",
     "mercure_internal_hub_url": "http://my-mercure-hub.prod.svc.cluster.local",
     "mercure_jwt_secret": "super_secret_key",
-    "anonymize_remote_addr": false
+    "anonymize_remote_addr": false,
+    "redirect_status_code": 301,
+    "redirect_cache_lifetime": 90
 }
 ```
 
