@@ -1,3 +1,5 @@
+import Callout from '../../../components/Callout';
+
 ## Pre-configuring servers
 
 The first time you access shlink-web-client from a browser, you will have to configure the list of shlink servers you want to manage, and they will be saved in the local storage.
@@ -24,3 +26,10 @@ Those servers can be exported and imported in other browsers, but if for some re
 If you are using the shlink-web-client docker image, you can mount the `servers.json` file in a volume inside `/usr/share/nginx/html`, which is the app's document root inside the container.
 
     docker run --name shlink-web-client -p 8000:80 -v ${PWD}/servers.json:/usr/share/nginx/html/servers.json shlinkio/shlink-web-client
+
+<Callout type="warning">
+    <b>Be extremely careful when using this feature.</b><br />
+    Due to shlink-web-client's client-side nature, the file needs to be accessible from the browser.<br />
+    Because of that, make sure you use this only when you self-host shlink-web-client, and you know only trusted people will have access to it.<br />
+    Failing to do this could cause your API keys to end up being exposed.
+</Callout>
