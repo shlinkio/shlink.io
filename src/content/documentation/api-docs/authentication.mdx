@@ -6,9 +6,13 @@ All endpoints require authentication. In order to do it, always provide a `X-Api
 
 API keys are generated (and managed) from the command line. Run the `api-key:generate` command to get a new and valid API key.
 
-This command optionally accepts an expiration date through the `--expirationDate`|`-e` modifier: `api-key:generate -e 2020-01-01`.
+This command optionally accepts an expiration date through the `--expirationDate`|`-e` modifier:
 
-Disabling existing API keys is also possible, through the `api-key:disable` command: `api-key:disable 1ae89449-f8d2-4b44-baf7-dd7eb0b05017`.
+    shlink api-key:generate -e 2020-01-01
+
+Disabling existing API keys is also possible, through the `api-key:disable` command:
+
+    shlink api-key:disable 1ae89449-f8d2-4b44-baf7-dd7eb0b05017
 
 > Both disabled and expired API keys will be considered invalid by Shlink, rejecting any request done with them.
 
