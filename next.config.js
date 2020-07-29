@@ -6,6 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = withPlugins([ withSass, withFonts, withMDX ], {
   enableSvg: true,
+  trailingSlash: true,
   exportTrailingSlash: true, // Makes pages to be exported as index.html files
   env: { // Any of these vars can be accessed as process.env.{name}
     donateUrl: 'https://slnk.to/donate',
