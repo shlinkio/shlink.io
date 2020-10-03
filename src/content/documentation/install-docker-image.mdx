@@ -187,15 +187,17 @@ This is the complete list of supported env vars. Right next to their name you wi
 </Callout>
 * `REDIRECT_STATUS_CODE` *(v2.3.0)* : Either **301** or **302**. Used to determine if redirects from short to long URLs should be done with a 301 or 302 status. Defaults to 302.
 * `REDIRECT_CACHE_LIFETIME` *(v2.3.0)* : Allows to set the amount of seconds that redirects should be cached when redirect status is 301. Default values is 30.
+* `PORT` *(v2.4.0)* : Can be used to set the port in which shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var). 
 
 An example using all env vars could look like this:
 
 ```bash
 docker run \
     --name my_shlink \
-    -p 8080:8080 \
+    -p 8080:8888 \
     -e SHORT_DOMAIN_HOST=doma.in \
     -e SHORT_DOMAIN_SCHEMA=https \
+    -e PORT=8888 \
     -e DB_DRIVER=mysql \
     -e DB_NAME=shlink \
     -e DB_USER=root \
@@ -268,7 +270,8 @@ The whole configuration should have this format, but it can be split into multip
     "mercure_jwt_secret": "super_secret_key",
     "anonymize_remote_addr": false,
     "redirect_status_code": 301,
-    "redirect_cache_lifetime": 90
+    "redirect_cache_lifetime": 90,
+    "port": 8888
 }
 ```
 
@@ -279,6 +282,12 @@ Once created just run shlink with the volume:
 ```bash
 docker run --name my_shlink -p 8080:8080 -v ${PWD}/my/config/dir:/etc/shlink/config/params shlinkio/shlink:stable
 ```
+
+## Multi-architecture
+
+Starting on v2.3.0, Shlink's docker image is built for multiple architectures.
+
+The only limitation is that images for architectures other than `amd64` will not have support for Microsoft SQL databases, since there are no official binaries.
 
 ### Multi instance considerations
 
