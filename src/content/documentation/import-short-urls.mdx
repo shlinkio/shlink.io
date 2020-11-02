@@ -1,0 +1,63 @@
+## Import short URLs
+
+Since it's quite possible that you are already using some other URL shortener, starting with v2.4.0, it is possible to import short URLs directly into Shlink.
+
+Import is performed from the command line, by running the `short-urls:import` command.
+
+This command will guide you through the import process, asking you to provide the source from which you want to import, together with all required information for this process to succeed.
+
+```
+$ bin/cli short-url:import
+
+  What is the source you want to import from:
+   [0] bitly
+```
+
+#### Supported sources
+
+These are the sources from which you can currently import:
+
+* [Bit.ly](/documentation/import-short-urls#bitly)
+
+### Bitly
+
+Bitly's importing is done through their API. That means that, depending on how many URLs you need to import, you could hit some of the API limits.
+
+However, they allow up to 150 requests per minute for free accounts, and the number is even higher for paid plans.
+
+On every API call, 50 URLs are imported, which means you won't hit the limit if you have less than 7500 URLs.
+
+If you hit the limit, shlink will print a "continue token" that can be used to skip already imported URLs, and therefore, avoid the limit to be hit again.
+
+When you have waited a couple of minutes for the limit to clear, you can run the import command again, but providing the "continue token" when requested.
+
+The command can be run as many times as you want, both with and without "continue token", as Shlink is smart enough to not import the same link more than once, ensuring data consistency.
+
+```
+$ bin/cli short-url:import bitly
+
+  What is your Bit.ly's API access token? (you can generate one here https://bitly.is/accesstoken):
+  > ****************************
+
+  Do you want to import short-codes/slugs as they are? Otherwise, new unique short-codes will be generated for every imported URL. (yes/no) [yes]:
+  > y
+
+  Do you want to import tags? (yes/no) [yes]:
+  > y
+
+  Do you want to import custom domains? (any domain other than bit.ly) (yes/no) [no]:
+  > y
+
+  Do you want to keep the original creation date? Otherwise, all imported URLs will have current date as its creation date (yes/no) [yes]:
+  > n
+
+  Do you want to ignore archived URLs? (yes/no) [no]:
+  > n
+
+  If you already run this command once and a warning was displayed, you might have been provided with a "continue token". If that's the case, paste it here. If this is the first time you run this command, ignore this:
+  >
+
+  https://www.shlink.io/documentation: Imported
+  https://docs.mezzio.dev/: Skipped
+  https://www.example.com/foo/bar: Imported
+```
