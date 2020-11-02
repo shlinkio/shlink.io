@@ -7,10 +7,10 @@ import {
   faQrcode,
   faTags,
   faLock,
-  faExchangeAlt,
   faCropAlt,
   faScroll,
   faPaperPlane,
+  faFileImport,
 } from '@fortawesome/free-solid-svg-icons';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
@@ -64,12 +64,8 @@ const Features: FunctionComponent = () => (
           <Feature title="Email tracking" icon={faEnvelope}>
             Generate a 1px transparent image that can be used to track emails.
           </Feature>
-          <Feature
-            title="Third party integrations"
-            icon={faExchangeAlt}
-            link="https://api-spec.shlink.io/#/Short%20URLs/shortenUrl"
-          >
-            Easily make third party tools use shlink to shorten URLs by using a single-request API endpoint.
+          <Feature title="Third party imports" icon={faFileImport} link="/documentation/import-short-urls">
+            Import your existing short URLs from third parties like bit.ly.
           </Feature>
         </div>
       </div>

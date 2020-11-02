@@ -20,6 +20,7 @@ const docsRoutes: Route[] = [
       { text: 'Serve with swoole', link: '/documentation/serve-with-swoole' },
       { text: 'Classic web server', link: '/documentation/classic-web-server' },
       { text: 'Multiple domains', link: '/documentation/multiple-domains' },
+      { text: 'Import short URLs', link: '/documentation/import-short-urls' },
       { text: 'Real-time updates', link: '/documentation/real-time-updates' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
