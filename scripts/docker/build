@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+REF=$1
+[[ "${REF}" == *"main"* ]] && DOCKER_TAG="latest" || DOCKER_TAG=${REF#refs/tags/v}
 
-[[ -z $TRAVIS_TAG ]] && DOCKER_TAG='latest' || DOCKER_TAG=${TRAVIS_TAG#?}
-
-docker build -t shlinkio/shlink-website:${DOCKER_TAG} .
+docker build -t shlinkio/shlink-website:${DOCKER_TAG} -t ghcr.io/shlinkio/shlink-website:${DOCKER_TAG} .
 docker push shlinkio/shlink-website:${DOCKER_TAG}
+docker push ghcr.io/shlinkio/shlink-website:${DOCKER_TAG}
