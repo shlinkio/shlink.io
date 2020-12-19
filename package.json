@@ -13,7 +13,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src/components src/pages test",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --colors",
-    "test:cover": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
+    "test:ci": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
     "purge": "purgecss --config ./purgecss.config.js --output ./out/_next/static/css",
     "dev": "next dev",
     "build": "next build",
@@ -39,7 +39,7 @@
     "ramda": "^0.27.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-external-link": "^1.0.1",
+    "react-external-link": "^1.2.0",
     "react-ga": "^3.2.0",
     "react-highlight": "^0.12.0",
     "react-typed": "^1.2.0",
@@ -76,6 +76,6 @@
     "sass": "^1.28.0",
     "sass-loader": "^10.0.4",
     "ts-jest": "^26.4.3",
-    "typescript": "^4.0.5"
+    "typescript": "^4.1.3"
   }
 }
