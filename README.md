@@ -1,6 +1,6 @@
 # shlink.io
 
-[![Build Status](https://img.shields.io/github/workflow/status/hlinkio/shlink.io/Continuous%20integration/main?logo=github&style=flat-square)](https://github.com/hlinkio/shlink.io/actions?query=workflow%3A%22Continuous+integration%22)
+[![Build Status](https://img.shields.io/github/workflow/status/shlinkio/shlink.io/Continuous%20integration/main?logo=github&style=flat-square)](https://github.com/shlinkio/shlink.io/actions?query=workflow%3A%22Continuous+integration%22)
 [![Docker build status](https://img.shields.io/docker/cloud/build/shlinkio/shlink-website.svg?style=flat-square)](https://hub.docker.com/r/shlinkio/shlink-website/)
 [![GitHub tag](https://img.shields.io/github/tag/shlinkio/shlink.io.svg?style=flat-square)](https://github.com/shlinkio/shlink.io/releases/latest)
 [![GitHub license](https://img.shields.io/github/license/shlinkio/shlink.io.svg?style=flat-square)](https://github.com/shlinkio/shlink.io/blob/main/LICENSE)
