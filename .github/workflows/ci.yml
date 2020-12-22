@@ -36,4 +36,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - run: docker build -t shlink-website:test .
+      - uses: marceloprado/has-changed-path@v1
+        id: changed-dockerfile
+        with:
+          paths: ./Dockerfile
+      - if: ${{ steps.changed-dockerfile.outputs.changed == 'true' }}
+        run: docker build -t shlink-website:test .
+      - if: ${{ steps.changed-dockerfile.outputs.changed != 'true' }}
+        run: echo "Dockerfile didn't change. Skipped"
