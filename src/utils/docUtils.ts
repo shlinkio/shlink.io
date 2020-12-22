@@ -42,6 +42,7 @@ const docsRoutes: Route[] = [
       { text: 'Multiple domains', link: '/documentation/advanced/multiple-domains' },
       { text: 'Import short URLs', link: '/documentation/advanced/import-short-urls' },
       { text: 'Real-time updates', link: '/documentation/advanced/real-time-updates' },
+      { text: 'Using a reverse proxy', link: '/documentation/advanced/exposing-through-reverse-proxy' },
     ],
   },
   { text: 'Command line interface', link: '/documentation/command-line-interface', menuIcon: faTerminal },

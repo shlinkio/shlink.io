@@ -24,6 +24,10 @@
 }
 
 .docs-article {
+  a {
+    word-break: break-word;
+  }
+
   h1, h2 {
     margin-bottom: 2rem;
   }
