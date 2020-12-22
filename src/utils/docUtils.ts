@@ -1,5 +1,13 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
-import { faBook, faCogs, faLaptopCode, faMobileAlt, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBook,
+  faCogs,
+  faLaptopCode,
+  faMobileAlt,
+  faTerminal,
+  faExclamationTriangle,
+  faShieldAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import { clone } from 'ramda';
 
 export interface Route {
@@ -9,76 +17,81 @@ export interface Route {
   subRoutes?: Route[];
 }
 
+const docsRoute: Route = { text: 'Docs', link: '/documentation' };
+
 const docsRoutes: Route[] = [
   {
-    text: 'Docs',
-    link: '/documentation',
+    ...docsRoute,
+    text: 'Getting started',
     menuIcon: faBook,
     subRoutes: [
       { text: 'Install docker image', link: '/documentation/install-docker-image' },
       { text: 'Install from dist file', link: '/documentation/install-dist-file' },
       { text: 'Serve with swoole', link: '/documentation/serve-with-swoole' },
       { text: 'Classic web server', link: '/documentation/classic-web-server' },
-      { text: 'Multiple domains', link: '/documentation/multiple-domains' },
-      { text: 'Import short URLs', link: '/documentation/import-short-urls' },
-      { text: 'Real-time updates', link: '/documentation/real-time-updates' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
       { text: 'Update your instance', link: '/documentation/update-your-instance' },
-      { text: 'Command line interface', link: '/documentation/command-line-interface', menuIcon: faTerminal },
-      {
-        text: 'REST API',
-        link: '/documentation/api-docs',
-        menuIcon: faLaptopCode,
-        subRoutes: [
-          { text: 'Authentication', link: '/documentation/api-docs/authentication' },
-          { text: 'Error management', link: '/documentation/api-docs/error-management' },
-          { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
-        ],
-      },
-      {
-        text: 'Shlink web client',
-        link: '/documentation/shlink-web-client',
-        menuIcon: faMobileAlt,
-        subRoutes: [
-          { text: 'Installation', link: '/documentation/shlink-web-client/installation' },
-          { text: 'Serve in sub path', link: '/documentation/shlink-web-client/serve-in-sub-path' },
-          { text: 'Pre-configuring servers', link: '/documentation/shlink-web-client/pre-configuring-servers' },
-        ],
-      },
-      {
-        text: 'Integrations',
-        link: '/documentation/integrations',
-        menuIcon: faCogs,
-        subRoutes: [
-          { text: 'Short Menu for Mac', link: '/documentation/integrations/short-menu-mac' },
-          { text: 'Short Menu for iOS', link: '/documentation/integrations/short-menu-ios' },
-          { text: 'GNOME Shell extension', link: '/documentation/integrations/gnome-shell-extension' },
-        ],
-      },
     ],
+  },
+  {
+    text: 'Advanced',
+    link: '/documentation/advanced',
+    menuIcon: faShieldAlt,
+    subRoutes: [
+      { text: 'Multiple domains', link: '/documentation/advanced/multiple-domains' },
+      { text: 'Import short URLs', link: '/documentation/advanced/import-short-urls' },
+      { text: 'Real-time updates', link: '/documentation/advanced/real-time-updates' },
+      { text: 'Using a reverse proxy', link: '/documentation/advanced/exposing-through-reverse-proxy' },
+    ],
+  },
+  { text: 'Command line interface', link: '/documentation/command-line-interface', menuIcon: faTerminal },
+  {
+    text: 'REST API',
+    link: '/documentation/api-docs',
+    menuIcon: faLaptopCode,
+    subRoutes: [
+      { text: 'Authentication', link: '/documentation/api-docs/authentication' },
+      { text: 'Error management', link: '/documentation/api-docs/error-management' },
+      { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
+    ],
+  },
+  {
+    text: 'Shlink web client',
+    link: '/documentation/shlink-web-client',
+    menuIcon: faMobileAlt,
+    subRoutes: [
+      { text: 'Installation', link: '/documentation/shlink-web-client/installation' },
+      { text: 'Serve in sub path', link: '/documentation/shlink-web-client/serve-in-sub-path' },
+      { text: 'Pre-configuring servers', link: '/documentation/shlink-web-client/pre-configuring-servers' },
+    ],
+  },
+  {
+    text: 'Integrations',
+    link: '/documentation/integrations',
+    menuIcon: faCogs,
+    subRoutes: [
+      { text: 'Short Menu for Mac', link: '/documentation/integrations/short-menu-mac' },
+      { text: 'Short Menu for iOS', link: '/documentation/integrations/short-menu-ios' },
+      { text: 'GNOME Shell extension', link: '/documentation/integrations/gnome-shell-extension' },
+    ],
+  },
+  {
+    text: 'Troubleshooting',
+    link: '/documentation/troubleshooting',
+    menuIcon: faExclamationTriangle,
   },
 ];
 
-const collectMenuRoutes = (routes: Route[]): Route[] =>
-  routes.reduce<Route[]>((firstLevelItems: Route[], item: Route) => {
-    if (item.menuIcon) {
-      firstLevelItems.push(item);
-    }
+export const menuItems: Route[] = clone(docsRoutes);
 
-    if (item.subRoutes) {
-      const subRoutesWithMenu = collectMenuRoutes(item.subRoutes);
+export const menuItemsForPath = (path?: string) => {
+  if (!path) {
+    return menuItems;
+  }
 
-      // Remove from the sub routes, all routes which have been pulled to the first level
-      item.subRoutes = item.subRoutes.filter((route) => !subRoutesWithMenu.includes(route));
-
-      return [ ...firstLevelItems, ...subRoutesWithMenu ];
-    }
-
-    return firstLevelItems;
-  }, []);
-
-export const menuItems: Route[] = collectMenuRoutes(clone(docsRoutes));
+  return menuItems.find(({ link }) => link === path)?.subRoutes ?? [];
+}
 
 interface BreadcrumbInfo {
   breadcrumbItems: Route[];
@@ -87,6 +100,8 @@ interface BreadcrumbInfo {
 
 type BreadcrumbsMap = Record<string, BreadcrumbInfo>;
 
+const startsWithDocs = (routes: Route[]): boolean => routes[0]?.link === docsRoute.link;
+
 const resolveBreadcrumbsMapSubRoutes = (acc: BreadcrumbsMap, prevRoutes: Route[], route: Route): BreadcrumbsMap => {
   if (route.link.startsWith('http')) {
     return acc;
@@ -94,7 +109,7 @@ const resolveBreadcrumbsMapSubRoutes = (acc: BreadcrumbsMap, prevRoutes: Route[]
 
   acc[route.link] = {
     title: route.text,
-    breadcrumbItems: prevRoutes,
+    breadcrumbItems: startsWithDocs(prevRoutes) ? prevRoutes : [ docsRoute, ...prevRoutes ],
   };
 
   if (route.subRoutes) {

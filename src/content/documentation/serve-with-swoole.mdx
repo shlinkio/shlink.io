@@ -82,35 +82,4 @@ After that, you should be able to access shlink on port 8080. The service will b
 
 Event though previous steps are enough to make Shlink usable, there are still a couple of missing things to make it production-ready.
 
-* Using a standard HTTP port (80, 443), so that users don't have to explicitly set the port in the URL.
-* Using an HTTPS certificate that keeps your users' data safe.
-
-It is possible to achieve both just by tweaking swoole, but it is recommended to, instead, put a standard HTTP server in front of it, like nginx or apache, as swoole implements only a subset of the HTTP standard.
-
-Here you can find some docs on how to do it with the most used web servers:
-
-* Nginx: https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/
-* Apache: https://httpd.apache.org/docs/trunk/en/howto/reverse_proxy.html
-* Caddy: https://caddyserver.com/docs/quick-starts/reverse-proxy
-
-Example nginx configuration to use as a reverse proxy in front of swoole, with SSL enabled:
-
-```nginx
-server {
-    listen 443 ssl;
-    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-
-    server_name example.com;
-    charset utf-8;
-
-    location / {
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_pass http://localhost:8080;
-        proxy_read_timeout 90s;
-    }
-}
-```
+Follow [the instructions](/documentation/advanced/exposing-through-reverse-proxy) to configure a reverse proxy in front of Shlink.
