@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from 'react';
-import { menuItems, Route } from '../utils/docUtils';
+import React, { FC } from 'react';
+import { menuItemsForPath, Route } from '../utils/docUtils';
 import Link from './Link';
 
-const MenuItem: FunctionComponent<{ link: string }> = ({ link, children }) => (
+const MenuItem: FC<{ link: string }> = ({ link, children }) => (
   <li>
     <Link href={link}>{children}</Link>
   </li>
 );
 
-const List: FunctionComponent<{ items: Route[] }> = ({ items }) => (
+const List: FC<{ items: Route[] }> = ({ items }) => (
   <ul>
     {items.map(({ text, link, subRoutes }) => (
       <React.Fragment key={text}>
@@ -21,6 +21,7 @@ const List: FunctionComponent<{ items: Route[] }> = ({ items }) => (
   </ul>
 );
 
-const DocsTableOfContents: FunctionComponent = () => <List items={menuItems} />;
+const DocsTableOfContents: FC<{ parentLink?: string }> = ({ parentLink }) =>
+  <List items={menuItemsForPath(parentLink)} />;
 
 export default DocsTableOfContents;
