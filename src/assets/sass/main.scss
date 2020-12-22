@@ -106,6 +106,22 @@
 }
 
 .docs-sidebar {
+  .section-items {
+    min-width: 250px;
+  }
+
+  .nav-item.section-title {
+    position: relative;
+  }
+
+  .nav-item.section-title .section-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
   .nav-item:not(.section-title) + .section-title {
     margin-top: 1rem;
   }
