@@ -1,10 +1,10 @@
-FROM node:14.15.0-alpine as node
+FROM node:14.15-alpine as node
 COPY . /shlink-website
 RUN cd /shlink-website && \
     npm install && \
     npm run export:prod
 
-FROM nginx:1.19.1-alpine
+FROM nginx:1.19-alpine
 LABEL maintainer="Alejandro Celaya <alejandro@alejandrocelaya.com>"
 RUN rm -r /usr/share/nginx/html && rm /etc/nginx/conf.d/default.conf
 COPY --from=node /shlink-website/out /usr/share/nginx/html
