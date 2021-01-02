@@ -54,7 +54,7 @@ const Features: FunctionComponent = () => (
           >
             Use the official docker image to deploy shlink in a container-based infrastructure.
           </Feature>
-          <Feature title="Real-time updates" icon={faPaperPlane} link="/documentation/real-time-updates">
+          <Feature title="Real-time updates" icon={faPaperPlane} link="/documentation/advanced/real-time-updates">
             Make third party systems be notified as soon as new visits happen, by using webhooks
             or a <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> server.
           </Feature>
