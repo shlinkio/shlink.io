@@ -227,11 +227,13 @@ docker run \
     shlinkio/shlink:stable
 ```
 
-### [DEPRECATED] Provide config via volumes
+### Provide config via volumes
 
-> As of v2.5.0, providing config through volumes is deprecated, and no new options will be added anymore. Use env vars instead.
->
-> Support for config options through volumes will be removed in Shlink v3.0.0
+<Callout type="warning">
+  As of v2.5.0, providing config through volumes is deprecated, and no new options will be added anymore. Use env vars instead.
+  <br />
+  Support for config options through volumes will be removed in Shlink v3.0.0
+</Callout>
 
 Rather than providing custom configuration via env vars, it is also possible ot provide config files in json format.
 
