@@ -1,0 +1,30 @@
+## Some features
+
+Here you'll find some extra Shlink features that are not as obvious while using it but you might want to use.
+
+It's also useful to understand why it behaves as it does.
+
+### Query params forwarding
+
+By default, Shlink automatically forwards to the long URL all query params originally sent to the short URL.
+
+For example, if you have a `https://exam.ple/abc123` URL that points to `https://www.google.com`, when users visit `https://exam.ple/abc123?foo=bar`, they will get redirected to `https://www.google.com?foo=bar`.
+
+If for any reason the long URL already had query params, they will be merged with the ones sent to the short URL. In case of conflict, the value sent with the short URL will take precedence over the original URL one.
+
+For example, if `https://exam.ple/abc123` points to `https://www.google.com?foo=bar`, when users visit `https://exam.ple/abc123?foo=overwritten&another=param`, they will get redirected to `https://www.google.com?foo=overwritten&another=param`.
+
+### QR codes
+
+Shlink comes with built-in support to generate QR codes for any short URL.
+
+Getting a QR code URL is as simple as appending `/qr-code` to any short URL. So if your short URL is `https://exam.ple/abc123`, the URL which returns the binary QR code image is `https://exam.ple/abc123/qr-code`.
+
+Currently, there are two things that can be customized via query params:
+
+* `size`: It determines the width/height in pixels. Default value is 300 and accepts values from 50 to 1000.
+* `format`: Can be `png` or `svg`. Default values is `png`.
+
+For example `https://exam.ple/abc123/qr-code?size=500&format=svg`.
+
+See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
