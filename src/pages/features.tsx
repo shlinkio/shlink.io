@@ -38,7 +38,7 @@ const Features: FunctionComponent = () => (
           <Feature title="Multi-domain" icon={faLink} link="/documentation/multiple-domains">
             Serve multiple short domains under the same shlink instance. You can even use the same custom slugs.
           </Feature>
-          <Feature title="QR Codes" icon={faQrcode}>
+          <Feature title="QR Codes" icon={faQrcode} link="/documentation/some-features/#qr-codes">
             Generate QR codes on the fly pointing to your short URLs.
           </Feature>
           <Feature title="Tags" icon={faTags}>
