@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.13.1] - 2021-01-06
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* [#181](https://github.com/shlinkio/shlink.io/issues/181) Fixed shlink-web-client video for some devices, and added placeholder image for others.
+
+
 ## [6.13.0] - 2021-01-02
 ### Added
 * [#157](https://github.com/shlinkio/shlink.io/issues/157) Documented some minor features, like QR codes, `X-Request-Id` and query params forwarding.
