@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import './InlineVideo.scss';
 
+type NonEmptyArray<T> = { 0: T } & T[];
+
 interface InlineVideoProps {
   poster?: string;
-  sources: string[];
+  sources: NonEmptyArray<string>;
 }
 
 const sourceToType = (source: string) => {
