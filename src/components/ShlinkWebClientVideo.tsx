@@ -1,9 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import FakeBrowser from './FakeBrowser';
+import { InlineVideo } from './InlineVideo';
 
-const ShlinkWebClientVideo: FunctionComponent = () => (
+const poster = '/images/shlink-web-client-placeholder.jpg';
+
+const ShlinkWebClientVideo: FC = () => (
   <FakeBrowser>
-    <video src="/videos/web-client.mp4" style={{ maxWidth: '100%', display: 'block' }} autoPlay loop muted />
+    <InlineVideo poster={poster} sources={[ '/videos/web-client.webm', '/videos/web-client.mp4' ]} />
   </FakeBrowser>
 );
 
