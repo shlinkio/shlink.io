@@ -54,6 +54,7 @@ const docsRoutes: Route[] = [
     subRoutes: [
       { text: 'Authentication', link: '/documentation/api-docs/authentication' },
       { text: 'Error management', link: '/documentation/api-docs/error-management' },
+      { text: 'API key roles', link: '/documentation/api-docs/api-key-roles' },
       { text: 'Endpoints', link: 'https://api-spec.shlink.io/' },
     ],
   },

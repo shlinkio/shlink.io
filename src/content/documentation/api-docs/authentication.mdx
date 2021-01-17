@@ -1,3 +1,5 @@
+import Callout from '../../../components/Callout'; import Link from '../../../components/Link';
+
 ## Authentication
 
 All endpoints require authentication. In order to do it, always provide a `X-Api-Key: {api_key}` header on every request.
@@ -14,7 +16,11 @@ Disabling existing API keys is also possible, through the `api-key:disable` comm
 
     shlink api-key:disable 1ae89449-f8d2-4b44-baf7-dd7eb0b05017
 
-> Both disabled and expired API keys will be considered invalid by Shlink, rejecting any request done with them.
+Both disabled and expired API keys will be considered invalid by Shlink, rejecting any request done with them.
+
+<Callout type="info">
+  Starting with Shlink v2.5.0, API keys can have a set of roles that will limit the operations they can do. <Link href="/documentation/api-docs/api-key-roles/">Read the docs</Link> to learn how.
+</Callout>
 
 ### Errors during authentication
 

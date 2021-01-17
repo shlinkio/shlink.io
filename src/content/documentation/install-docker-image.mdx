@@ -6,14 +6,13 @@ The docker image is probably the simplest installation use case, since it includ
 
 ### Usage
 
-Shlink docker image exposes port `8080` in order to interact with its HTTP interface.
-
-It also expects these two env vars to be provided, in order to properly generate short URLs at runtime.
+The most basic way to run Shlink's docker image is by providing these mandatory env vars.
 
 * `SHORT_DOMAIN_HOST`: The custom short domain used for this shlink instance. For example **doma.in**.
 * `SHORT_DOMAIN_SCHEMA`: Either **http** or **https**.
+* `GEOLITE_LICENSE_KEY`: Your GeoLite2 license key. [Learn more](/documentation/geolite-license-key/) about this.
 
-So based on this, to run shlink on a local docker service, you should run a command like this:
+To run shlink on top of a local docker service, and using an internal SQLite database, do the following:
 
 ```bash
 docker run \
@@ -57,11 +56,11 @@ docker exec -it my_shlink shlink
 
 ### Use an external DB
 
-The image comes with a working sqlite database, but in production, it's strongly recommended using a distributed database.
+The image comes with a working SQLite database, but in production, it's strongly recommended using a distributed database.
 
 It is possible to use a set of env vars to make this shlink instance interact with an external MySQL, MariaDB, PostgreSQL or Microsoft SQL Server database.
 
-* `DB_DRIVER`: **[Mandatory]**. Use the value **mysql**, **maria**, **postgres** or **mssql** to prevent the sqlite database to be used.
+* `DB_DRIVER`: **[Mandatory]**. Use the value **mysql**, **maria**, **postgres** or **mssql** to prevent the SQLite database to be used.
 * `DB_NAME`: [Optional]. The database name to be used. Defaults to **shlink**.
 * `DB_USER`: **[Mandatory]**. The username credential for the database server.
 * `DB_PASSWORD`: **[Mandatory]**. The password credential for the database server.

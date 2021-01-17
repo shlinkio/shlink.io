@@ -11,6 +11,8 @@ import {
   faScroll,
   faPaperPlane,
   faFileImport,
+  faLaptopCode,
+  faBan,
 } from '@fortawesome/free-solid-svg-icons';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
@@ -61,11 +63,22 @@ const Features: FunctionComponent = () => (
           <Feature title="GDPR compliant" icon={faScroll}>
             IP addresses are anonymized by default, making Shlink compliant with different data protection regulations.
           </Feature>
+          <Feature title="REST API" icon={faLaptopCode} link="/documentation/api-docs/">
+            Fully featured REST API that can be used to integrate Shlink anywhere.
+          </Feature>
+          <Feature title="API key roles" icon={faBan} link="/documentation/api-docs/api-key-roles/">
+            Limit the resources with which an API key can interact, by domain or only short URLs created with it.
+          </Feature>
+          <Feature
+            title="Third party imports"
+            icon={faFileImport}
+            link="/documentation/import-short-urls"
+            className="offset-lg-3"
+          >
+            Import your existing short URLs from third parties like bit.ly.
+          </Feature>
           <Feature title="Email tracking" icon={faEnvelope}>
             Generate a 1px transparent image that can be used to track emails.
-          </Feature>
-          <Feature title="Third party imports" icon={faFileImport} link="/documentation/import-short-urls">
-            Import your existing short URLs from third parties like bit.ly.
           </Feature>
         </div>
       </div>
