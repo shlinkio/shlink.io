@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.14.1] - 2021-01-19
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Added missing reference to xml PHP extension required to generate QR codes in SVG format.
+
+
 ## [6.14.0] - 2021-01-17
 ### Added
 * Documented API key roles.
