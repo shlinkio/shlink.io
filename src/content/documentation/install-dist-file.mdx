@@ -4,7 +4,9 @@ import DownloadLatestBtn from '../../components/DownloadLatestBtn';
 
 If you are going to host Shlink yourself, you need to make sure your server fulfils its requirements:
 
-* PHP 7.4 or greater with json, curl, pdo, intl, gd and gmp extensions enabled (APCu extension is recommended if you don't plan to use swoole).
+* PHP 7.4 with json, curl, pdo, intl, gd and gmp extensions enabled (PHP 8.0 support is coming).
+    * apcu extension is recommended if you don't plan to use swoole.
+    * xml extension is required if you want to generate QR codes in svg format.
 * MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
 * The [swoole](https://www.swoole.co.uk/) PHP extension (if you plan to serve Shlink with swoole) or the web server of your choice with PHP integration (like Apache or Nginx).
 
