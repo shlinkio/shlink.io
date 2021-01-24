@@ -10,7 +10,19 @@ const DocumentationSlug: FunctionComponent = () => {
   const { query } = useRouter();
   const currentPath = useCurrentPath();
   const { slug = [] } = query as { slug?: string[] };
-  const Content = dynamic(async () => import(`../../content/documentation/${slug.join('/')}.mdx`));
+  const Content = dynamic(async () => import(`../../content/documentation/${slug.join('/')}.mdx`).then((result) => {
+    // Workaround for Google Chrome not properly scrolling into the element referenced by the hash when it was
+    // dynamically loaded
+    if (process.browser && window.location.hash) {
+      const { hash } = window.location;
+
+      setTimeout(() => {
+        document.getElementById(hash.substr(1))?.scrollIntoView();
+      }, 10);
+    }
+
+    return result;
+  }));
   const { breadcrumbItems, title } = breadcrumbForPath(currentPath);
 
   return (
