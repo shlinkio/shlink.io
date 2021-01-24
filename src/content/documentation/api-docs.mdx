@@ -10,9 +10,13 @@ However, if an unexpected error occurs, the system could end up returning HTML. 
 
 ### CORS
 
-This API supports [**C**ross-**O**rigin **R**esource **S**haring](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (aka cross domain) out of the box.
+This API supports [**C**ross-**O**rigin **R**esource **S**haring](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) out of the box (aka cross domain).
 
 It will automatically generate the required `Access-Control-*` headers and manage pre-flight (`OPTIONS`) requests, so it can be transparently consumed from web clients hosted on different domains.
+
+Starting with Shlink v2.5.2, the `Access-Control-Allow-Origin` header will be returned with value `*`. Previous versions used to return the value coming in the request's `Origin` header instead, but some browsers might not accept that value when it's an IP address, therefore the change.
+
+**Important:** notice that Shlink will not generate the CORS headers when the request does not include an `Origin` header, in which case it will consider the request a server-to-server one. Browsers will always send this header when consuming an API on a different domain, so it should work transparently.
 
 ### Expected formats
 
