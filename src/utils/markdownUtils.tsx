@@ -4,9 +4,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import Link from '../components/Link';
 
+const slugify = (str: string) => {
+  let lowercasedStr = str
+    .replace(/^\s+|\s+$/g, '') // trim
+    .toLowerCase();
+
+  // remove accents, swap ñ for n, etc
+  const from = 'åàáãäâèéëêìíïîòóöôùúüûñç·/_,:;';
+  const to = 'aaaaaaeeeeiiiioooouuuunc------';
+
+  for (let i = 0, l = from.length; i < l; i++) {
+    lowercasedStr = lowercasedStr.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  }
+
+  return lowercasedStr
+    .replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+    .replace(/\s+/g, '-') // collapse whitespace and replace by -
+    .replace(/-+/g, '-'); // collapse dashes
+};
+
 const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-line
   const { children, ...rest } = props;
-  const link = children.replace(/ /g, '-').toLowerCase();
+  const link = slugify(children);
 
   return (
     <Tag {...rest}>
