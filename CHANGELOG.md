@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.14.2] - 2021-01-24
 ### Added
 * *Nothing*
 
@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Fixed
-* *Nothing*
+* [#188](https://github.com/shlinkio/shlink.io/issues/188) Fixed anchor links when they are dynamically loaded.
 
 
 ## [6.14.1] - 2021-01-19
