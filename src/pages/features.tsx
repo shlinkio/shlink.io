@@ -63,8 +63,8 @@ const Features: FunctionComponent = () => (
           <Feature title="GDPR compliant" icon={faScroll}>
             IP addresses are anonymized by default, making Shlink compliant with different data protection regulations.
           </Feature>
-          <Feature title="REST API" icon={faLaptopCode} link="/documentation/api-docs/">
-            Fully featured REST API that can be used to integrate Shlink anywhere.
+          <Feature title="API-first" icon={faLaptopCode} link="/documentation/api-docs/">
+            Shlink exposes a fully featured REST API that simplifies integrating it anywhere.
           </Feature>
           <Feature title="API key roles" icon={faBan} link="/documentation/api-docs/api-key-roles/">
             Limit the resources with which an API key can interact, by domain or only short URLs created with it.
