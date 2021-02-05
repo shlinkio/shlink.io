@@ -4,6 +4,14 @@ Here you'll find some extra Shlink features that are not as obvious while using 
 
 It's also useful to understand why it behaves as it does.
 
+### Short URL title
+
+Shlink v2.6.0 introduces the ability to optionally set a `title` for every short URL.
+
+The title can be provided, but it's also possible to enable title auto-resolution. When that's enabled, and the title is not provided, Shlink will try to infer the title by calling the long URL and picking the value inside the `<title />` tag.
+
+The title can be changed later on. If the long URL is changed, it will also try to auto-resolve the new title, unless the title was originally provided during creation.
+
 ### Query params forwarding
 
 By default, Shlink automatically forwards to the long URL all query params originally sent to the short URL.
