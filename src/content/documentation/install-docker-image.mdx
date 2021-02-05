@@ -187,7 +187,8 @@ This is the complete list of supported env vars. Right next to their name you wi
 </Callout>
 * `REDIRECT_STATUS_CODE` *(v2.3.0)* : Either **301** or **302**. Used to determine if redirects from short to long URLs should be done with a 301 or 302 status. Defaults to 302.
 * `REDIRECT_CACHE_LIFETIME` *(v2.3.0)* : Allows to set the amount of seconds that redirects should be cached when redirect status is 301. Default values is 30.
-* `PORT` *(v2.4.0)* : Can be used to set the port in which shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var). 
+* `PORT` *(v2.4.0)* : Can be used to set the port in which shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
+* `AUTO_RESOLVE_TITLES` *(v2.6.0)* : Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `false`.
 
 An example using all env vars could look like this:
 
@@ -223,6 +224,7 @@ docker run \
     -e ANONYMIZE_REMOTE_ADDR=false \
     -e REDIRECT_STATUS_CODE=301 \
     -e REDIRECT_CACHE_LIFETIME=90 \
+    -e AUTO_RESOLVE_TITLES=true \
     shlinkio/shlink:stable
 ```
 

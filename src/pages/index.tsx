@@ -74,7 +74,7 @@ const Home: FunctionComponent = () => (
             Download a dist file and <Indivisible>self-host</Indivisible> Shlink yourself, or just drop the
             docker image on your container-based infrastructure.
           </Feature>
-          <Feature title="Shrink" icon={faCropAlt}>
+          <Feature title="Shorten" icon={faCropAlt}>
             You can convert a long URL into a short one by letting Shlink generate a unique short code for you, or by
             providing a custom <Indivisible>human-friendly</Indivisible> slug.
           </Feature>
@@ -106,7 +106,7 @@ const Home: FunctionComponent = () => (
             on <ExternalLink href="https://github.com/shlinkio/shlink">Github</ExternalLink>.
             <br />
             It is built with cutting edge technologies, such
-            as <ExternalLink href="https://docs.mezzio.dev/mezzio/">Mezzio</ExternalLink> (formerly Zend Expressive),{' '}
+            as <ExternalLink href="https://docs.mezzio.dev/mezzio/">Mezzio</ExternalLink>,{' '}
             <ExternalLink href="http://www.doctrine-project.org/projects/orm.html">Doctrine</ExternalLink> and{' '}
             <ExternalLink href="http://symfony.com/doc/current/components/console.html">Symfony</ExternalLink>.
           </small>
