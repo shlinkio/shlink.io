@@ -72,7 +72,7 @@ const Features: FunctionComponent = () => (
           <Feature
             title="Third party imports"
             icon={faFileImport}
-            link="/documentation/import-short-urls"
+            link="/documentation/advanced/import-short-urls"
             className="offset-lg-3"
           >
             Import your existing short URLs from third parties like bit.ly.
