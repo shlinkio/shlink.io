@@ -11,17 +11,21 @@ $ bin/cli short-url:import
 
   What is the source you want to import from:
    [0] bitly
+   [1] csv
 ```
+
+The import command can be run as many times as you want, as Shlink is smart enough to not import the same link from the same source more than once, ensuring data consistency.
 
 #### Supported sources
 
 These are the sources from which you can currently import:
 
-* [Bitly](/documentation/import-short-urls#bitly)
+* [Bitly](/documentation/advanced/import-short-urls#bitly) *(since Shlink v2.4.0)*
+* [Standard CSV](/documentation/advanced/import-short-urls#standard-csv) *(since Shlink v2.6.0)*
 
 ### Bitly
 
-Bitly's importing is done through their API. That means that, depending on how many URLs you need to import, you could hit some of the API limits.
+Bitly's importing is done through their API. That means that, depending on how many URLs you need to import, you could hit some API limit.
 
 However, they allow up to 150 requests per minute for free accounts, and the number is even higher for paid plans.
 
@@ -31,7 +35,7 @@ If you hit the limit, shlink will print a "continue token" that can be used to s
 
 When you have waited a couple of minutes for the limit to clear, you can run the import command again, but providing the "continue token" when requested.
 
-The command can be run as many times as you want, both with and without "continue token", as Shlink is smart enough to not import the same link more than once, ensuring data consistency.
+Running the command will generate an output similar to this:
 
 ```
 $ bin/cli short-url:import bitly
@@ -57,7 +61,40 @@ $ bin/cli short-url:import bitly
   If you already run this command once and a warning was displayed, you might have been provided with a "continue token". If that's the case, paste it here. If this is the first time you run this command, ignore this:
   >
 
-  https://www.shlink.io/documentation: Imported
+  https://shlink.io/documentation: Imported
   https://docs.mezzio.dev/: Skipped
   https://www.example.com/foo/bar: Imported
+```
+
+### Standard CSV
+
+In order to simplify importing links from arbitrary sources, Shlink supports importing from a simple CSV file.
+
+The only 2 required columns in the CSV file are `Long URL` and `Short code`, but it also accepts the optional `Title`, `Domain` and `Tags` columns.
+
+The `Tags` one should contain a list of pipe-separated items, as in `foo|bar|baz`.
+
+This is an example of a valid CSV file:
+
+```
+Long URL,Tags,Domain,Short code,Title
+https://shlink.io,foo|bar|baz,,123,
+https://example.com,,example.com,456,my title
+```
+
+Running the command will generate an output similar to this:
+
+```
+$ bin/cli short-url:import csv
+
+  What's the path for the CSV file you want to import:
+  > ./my_links.csv
+
+  What's the delimiter used to separate values? [Comma]:
+   [,] Comma
+   [;] Semicolon
+  > ,
+
+  https://shlink.io: Imported
+  https://example.com: Imported
 ```
