@@ -28,11 +28,14 @@ Shlink comes with built-in support to generate QR codes for any short URL.
 
 Getting a QR code URL is as simple as appending `/qr-code` to any short URL. So if your short URL is `https://exam.ple/abc123`, the URL which returns the binary QR code image is `https://exam.ple/abc123/qr-code`.
 
-Currently, there are two things that can be customized via query params:
+The image supports certain level of customization via query params:
 
 * `size`: It determines the width/height in pixels. Default value is 300 and accepts values from 50 to 1000.
-* `format`: Can be `png` or `svg`. Default values is `png`.
+* `margin` *(since v2.6.0)* : The space in pixels between the QR code itself and the border of the image. Default value is 0 and accepts positive numbers.
+* `format` *(since v2.4.0)* : Can be `png` or `svg`. Default values is `png`.
 
-For example `https://exam.ple/abc123/qr-code?size=500&format=svg`.
+For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20`.
 
 See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
+
+> Take into consideration that the total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the margin is 20, the resulting image will be 540x540 pixels.
