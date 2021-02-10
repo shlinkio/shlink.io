@@ -31,8 +31,8 @@ const docsRoutes: Route[] = [
       { text: 'Classic web server', link: '/documentation/classic-web-server' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
-      { text: 'Tracking visits', link: '/documentation/tracking-visits' },
       { text: 'Update your instance', link: '/documentation/update-your-instance' },
+      { text: 'Tracking visits', link: '/documentation/tracking-visits' },
       { text: 'Some features', link: '/documentation/some-features' },
     ],
   },
@@ -41,6 +41,7 @@ const docsRoutes: Route[] = [
     link: '/documentation/advanced',
     menuIcon: faShieldAlt,
     subRoutes: [
+      { text: 'Special redirects', link: '/documentation/advanced/special-redirects' },
       { text: 'Multiple domains', link: '/documentation/advanced/multiple-domains' },
       { text: 'Import short URLs', link: '/documentation/advanced/import-short-urls' },
       { text: 'Real-time updates', link: '/documentation/advanced/real-time-updates' },
