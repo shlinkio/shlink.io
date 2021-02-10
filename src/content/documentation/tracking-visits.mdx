@@ -1,0 +1,29 @@
+## Tracking visits
+
+One of the most interesting features in Shlink is the visits tracking.
+
+Shlink will track every time your short URLs are opened, and then try to geolocate the visitor.
+
+### Considerations
+
+In order to geolocate visits, Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) database, by [MaxMind](https://www.maxmind.com).
+
+Depending on your setup, visits could be geolocated almost in real time (if you [serve Shlink with swoole](/documentation/serve-with-swoole) or use the [docker image](/documentation/install-docker-image)), or you will have to configure a [scheduled task](/documentation/long-running-tasks#locate-visits) that does it.
+
+To make sure your GeoLite2 db is always up to date, you will have to [configure your own license key](/documentation/geolite-license-key).
+
+Also, Shlink will make sure you fulfil most data protection regulations, by storing only an anonymized version of the visitor's IP address.
+
+### Orphan visits
+
+Starting with v2.6.0, Shlink can also track visits to any URL that would usually result in a "404 - Not found" error.
+
+These visits can have one of these types:
+
+* `base_url`: Someone opened the base URL in which Shlink is hosted.
+* `invalid_short_url`: Someone opened a short-url-like URL, but it did not resolve an existing short URL, or it was disabled.
+* `regular_404`: Someone opened a route which Shlink didn't understand.
+
+The visits will be tracked both if you configure special redirects from those three cases, but also if you leave Shlink serve a regular 404 status with a "Not found" template.
+
+In case you don't need this, you can opt out from orphan visits tracking via configuration.
