@@ -31,7 +31,7 @@ const Features: FunctionComponent = () => (
           <Feature title="URL shortening" icon={faCropAlt}>
             Obviously, Shlink would not be any good if it was not capable of shortening URLs.
           </Feature>
-          <Feature title="Visit stats" icon={faChartBar}>
+          <Feature title="Visit stats" icon={faChartBar} link="/documentation/tracking-visits">
             Track all the visits to your short URLs, including stats like location, visitor&apos;s browser or referrer.
           </Feature>
           <Feature title="Custom slugs" icon={faPuzzlePiece}>

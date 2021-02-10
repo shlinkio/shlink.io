@@ -31,6 +31,7 @@ const docsRoutes: Route[] = [
       { text: 'Classic web server', link: '/documentation/classic-web-server' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
       { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
+      { text: 'Tracking visits', link: '/documentation/tracking-visits' },
       { text: 'Update your instance', link: '/documentation/update-your-instance' },
       { text: 'Some features', link: '/documentation/some-features' },
     ],
