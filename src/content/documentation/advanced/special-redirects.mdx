@@ -1,0 +1,17 @@
+## Special redirects
+
+There are some cases in which Shlink can receive "invalid" requests. When this happens, the default behavior is to return a 404 status with a "Not Found" template.
+
+However, it is possible to configure redirects for some special use cases, known as *special redirects* or *"not found" redirects*:
+
+* `base_url`: Requests to the base URL in which Shlink is being served. The base URL is composed by any of the domains that Shlink can respond to, followed by the base path config option.
+* `invalid_short_url`: Requests to a URL with the shape of a valid short URL, but with a short code or custom slug that doesn't resolve any short URL, or that resolves a disabled short URL.
+* `regular_404`: Requests to any other URL that Shlink cannot handle.
+
+Each one of these cases can be configured individually, so you can redirect to different URLs for each one of them, or even configure redirects for some of them and leave the 404 behavior for others.
+
+### Considerations
+
+The only consideration is that, at the moment, it is not possible to configure different redirect destinations for every domain, but they will, instead, share the same configuration.
+
+Shlink will introduce support for this in future releases.

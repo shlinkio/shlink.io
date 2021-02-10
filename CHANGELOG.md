@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * [#196](https://github.com/shlinkio/shlink.io/issues/196) Documented how to import links from a CSV file.
 * [#197](https://github.com/shlinkio/shlink.io/issues/197) Documented `margin` prop for QR codes.
 * [#201](https://github.com/shlinkio/shlink.io/issues/201) Documented how Shlink tracks visits and its considerations.
+* [#203](https://github.com/shlinkio/shlink.io/issues/203) Documented special redirects.
 
 ### Changed
 * *Nothing*
