@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.15.0] - 2021-02-11
 ### Added
 * [#195](https://github.com/shlinkio/shlink.io/issues/195) Documented `title` feature introduced in Shlink v2.6.0.
 * [#196](https://github.com/shlinkio/shlink.io/issues/196) Documented how to import links from a CSV file.
