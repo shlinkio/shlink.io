@@ -54,7 +54,7 @@ const Documentation: FunctionComponent = ({ children }) => {
         <div className="docs-content">
           <div className="container">
             <article className="docs-article">
-              {children || <GettingStartedContent />}
+              {children ?? <GettingStartedContent />}
             </article>
           </div>
 

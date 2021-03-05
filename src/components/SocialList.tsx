@@ -22,7 +22,7 @@ const SocialList: FunctionComponent<SocialListProps> = ({ type, className }) => 
       </ExternalLink>
     </li>
     <li className="list-inline-item">
-      <ExternalLink href={process.env.donateUrl || ''}>
+      <ExternalLink href={process.env.donateUrl ?? ''}>
         <FontAwesomeIcon icon={faPaypal} fixedWidth />
       </ExternalLink>
     </li>

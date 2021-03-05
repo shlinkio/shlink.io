@@ -8,9 +8,9 @@ const DocsSearch: FunctionComponent = () => {
   const inputSelectorId = 'search-docs';
 
   useLayoutEffect(() => {
-    const docsearch = require('docsearch.js/dist/npm');
+    const docsearch = require('docsearch.js/dist/npm'); // eslint-disable-line @typescript-eslint/no-var-requires
 
-    docsearch({
+    docsearch({ // eslint-disable-line @typescript-eslint/no-unsafe-call
       apiKey: 'b43050cae2aa5185ad2c6b7ec271333e',
       indexName: 'shlink',
       inputSelector: `#${inputSelectorId}`,
@@ -28,7 +28,7 @@ const DocsSearch: FunctionComponent = () => {
         id={inputSelectorId}
         ref={inputRef}
       />
-      <span className="btn search-btn docs-search-btn" onClick={() => inputRef.current && inputRef.current.focus()}>
+      <span className="btn search-btn docs-search-btn" onClick={() => inputRef.current?.focus()}>
         <FontAwesomeIcon icon={faSearch} />
       </span>
     </form>

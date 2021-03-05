@@ -10,7 +10,7 @@
     "url": "https://github.com/shlinkio/shlink.io"
   },
   "scripts": {
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/components src/pages test",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src test",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --colors",
     "test:ci": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
@@ -46,7 +46,7 @@
     "reactstrap": "^8.7.0"
   },
   "devDependencies": {
-    "@shlinkio/eslint-config-js-coding-standard": "^1.0.1",
+    "@shlinkio/eslint-config-js-coding-standard": "~1.2.2",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^10.0.4",
     "@types/classnames": "^2.2.11",

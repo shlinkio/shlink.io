@@ -23,10 +23,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.*"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "*.d.ts",
     "**/*.ts",

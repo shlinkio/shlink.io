@@ -95,7 +95,7 @@ export const menuItemsForPath = (path?: string) => {
   }
 
   return menuItems.find(({ link }) => link === path)?.subRoutes ?? [];
-}
+};
 
 interface BreadcrumbInfo {
   breadcrumbItems: Route[];
