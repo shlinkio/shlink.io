@@ -21,7 +21,7 @@ const DocumentationSlug: FunctionComponent = () => {
       }, 10);
     }
 
-    return result;
+    return result; // eslint-disable-line @typescript-eslint/no-unsafe-return
   }));
   const { breadcrumbItems, title } = breadcrumbForPath(currentPath);
 

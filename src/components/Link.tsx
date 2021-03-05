@@ -9,7 +9,7 @@ export interface LinkProps {
 
 const Link: FunctionComponent<LinkProps> = (props) => {
   const { href } = props;
-  const Component = href && href.startsWith('http') ? ExternalLink : InternalLink;
+  const Component = href?.startsWith('http') ? ExternalLink : InternalLink;
 
   return <Component {...props} />;
 };
