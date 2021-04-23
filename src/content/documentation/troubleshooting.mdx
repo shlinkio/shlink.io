@@ -58,6 +58,23 @@ However, when running the `bin/install` or `bin/update` tools you see syntax err
 
 When this happens, it is because you are running an older PHP version from the CLI. Run `php -v` to see the actual version being used.
 
+### Shlink cannot be accessed from shlink-web-client or other web clients
+
+Sometimes, after setting up Shlink and verifying it works from the command line, and you can create and visit short URLs, you try to get it configured on a web client like shlink-web-client, only to realize it fails to connect, displaying an error page.
+
+In most of the cases, this is due to one of these other two issues:
+
+* [Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present](/documentation/troubleshooting/#response-to-preflight-request-doesnt-pass-access-control-check-no-access-control-allow-origin-header-is-present)
+* [I see "Mixed Content" errors in the browser's console](/documentation/troubleshooting/#i-see-mixed-content-errors-in-the-browsers-console)
+
+In order to find out which is the actual root cause, you will have to open the browser's developer console, which will most probably display one of the errors above.
+
+These are the instructions to open it on the most popular web browsers:
+
+* [Google Chrome](https://developer.chrome.com/docs/devtools/open/#console)
+* [Mozilla Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools#the_javascript_console)
+* [Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/open/?tabs=cmd-Windows#open-the-console-panel)
+
 ### Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present
 
 Shlink generates all the CORS headers required to consume it from a web app running on different domains, including `Access-Control-Allow-Origin`.

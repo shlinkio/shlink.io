@@ -9,9 +9,11 @@ This command will guide you through the import process, asking you to provide th
 ```
 $ bin/cli short-url:import
 
-  What is the source you want to import from:
-   [0] bitly
-   [1] csv
+ What is the source you want to import from::
+  [0] bitly
+  [1] csv
+  [2] shlink
+ >
 ```
 
 The import command can be run as many times as you want, as Shlink is smart enough to not import the same link from the same source more than once, ensuring data consistency.
@@ -22,6 +24,7 @@ These are the sources from which you can currently import:
 
 * [Bitly](/documentation/advanced/import-short-urls#bitly) *(since Shlink v2.4.0)*
 * [Standard CSV](/documentation/advanced/import-short-urls#standard-csv) *(since Shlink v2.6.0)*
+* [Shlink instance](/documentation/advanced/import-short-urls#shlink-instance) *(since Shlink v2.7.0)*
 
 ### Bitly
 
@@ -37,7 +40,7 @@ When you have waited a couple of minutes for the limit to clear, you can run the
 
 Running the command will generate an output similar to this:
 
-```
+```shell
 $ bin/cli short-url:import bitly
 
   What is your Bit.ly's API access token? (you can generate one here https://bitly.is/accesstoken):
@@ -84,7 +87,7 @@ https://example.com,,example.com,456,my title
 
 Running the command will generate an output similar to this:
 
-```
+```shell
 $ bin/cli short-url:import csv
 
   What's the path for the CSV file you want to import:
@@ -98,3 +101,29 @@ $ bin/cli short-url:import csv
   https://shlink.io: Imported
   https://example.com: Imported
 ```
+
+### Shlink instance
+
+If at some point you need to migrate your Shlink instance, or you want to change the database engine for any reason, this will help you import your short URLs from another Shlink instance.
+
+The importing will be done by making use of Shlink's built-in REST API. It will import links, their tags and domains, and also their visits if you choose to.
+
+Running the command will generate an output similar to this:
+
+```shell
+$ bin/cli short-url:import shlink
+
+ What is your Shlink instance base URL?:
+ > https://doma.in
+
+ What is your Shlink instance API key?:
+ > 54d07c90-a45f-11eb-9d0d-0800200c9a66
+
+ Do you want to import each short URL's visits too? (yes/no) [yes]:
+ > y
+
+https://shlink.io: Imported with 381 visits.
+https://example.com: Imported with 68 visits.
+```
+
+> This importing source is available since Shlink 2.7.0, but it can import from older Shlink versions.
