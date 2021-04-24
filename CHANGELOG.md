@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.16.1] - 2021-04-24
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fixed duplicated troubleshooting section, by making one reference the other.
+
+
 ## [6.16.0] - 2021-04-23
 ### Added
 * Improved troubleshooting docs
