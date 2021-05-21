@@ -6,13 +6,13 @@ Shlink will track every time your short URLs are opened, and then try to geoloca
 
 ### Considerations
 
-In order to geolocate visits, Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) database, by [MaxMind](https://www.maxmind.com).
+In order to geolocate visits, Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) database, by [MaxMind](https://www.maxmind.com), which is used to match the location of the visitor's IP address.
 
 Depending on your setup, visits could be geolocated almost in real time (if you [serve Shlink with swoole](/documentation/serve-with-swoole) or use the [docker image](/documentation/install-docker-image)), or you will have to configure a [scheduled task](/documentation/long-running-tasks#locate-visits) that does it.
 
 To make sure your GeoLite2 db is always up to date, you will have to [configure your own license key](/documentation/geolite-license-key).
 
-Also, Shlink will make sure you fulfil most data protection regulations, by storing only an anonymized version of the visitor's IP address.
+Also, Shlink will make sure you fulfil most data protection regulations, by storing only an anonymized version of the visitor's IP address (unless deliberately opting-out of this behavior).
 
 ### Orphan visits
 
@@ -27,3 +27,14 @@ These visits can have one of these types:
 The visits will be tracked both if you configure [special redirects](/documentation/advanced/special-redirects) from those three cases, but also if you leave Shlink serve a regular 404 status with a "Not found" template.
 
 In case you don't need this, you can opt out from orphan visits tracking via env vars or config options.
+
+### Disable tracking
+
+Since v2.7.0, Shlink provides a more granular way to disable visits tracking, either completely or partially.
+
+Via configuration or env vars, you will be able to:
+
+* Completely disable tracking: All short URLs will display they had **0** visits.
+* Disable IP address tracking: The visits will be counted, but they will all show they come from an **unknown** location.
+* Disable referrer tracking: All visits will be counted and located, but Shlink will not track the **referrer**.
+* Disable user agent tracking: All visits will be counted and located, but Shlink will not track the **user agent**.
