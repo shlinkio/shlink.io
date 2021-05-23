@@ -231,6 +231,10 @@ docker run \
     -e REDIRECT_CACHE_LIFETIME=90 \
     -e AUTO_RESOLVE_TITLES=true \
     -e TRACK_ORPHAN_VISITS=false \
+    -e DISABLE_TRACKING=true \
+    -e DISABLE_IP_TRACKING=true \
+    -e DISABLE_REFERRER_TRACKING=true \
+    -e DISABLE_UA_TRACKING=true \
     shlinkio/shlink:stable
 ```
 

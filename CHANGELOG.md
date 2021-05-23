@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.17.1] - 2021-05-23
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Added missing tracking env vars in docker example.
+
+
 ## [6.17.0] - 2021-05-23
 ### Added
 * [#215](https://github.com/shlinkio/shlink.io/issues/215) Documented new tracking capabilities introduced in Shlink v2.6.0.
