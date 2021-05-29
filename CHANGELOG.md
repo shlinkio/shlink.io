@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Added
 * [#220](https://github.com/shlinkio/shlink.io/issues/220) Documented new ways to pre-configure servers in shlink-web-client after v3.2.0
 * [#216](https://github.com/shlinkio/shlink.io/issues/216) Documented `ENABLE_PERIODIC_VISIT_LOCATE` env var for docker container.
+* [#218](https://github.com/shlinkio/shlink.io/issues/218) Documented how bot detection works in Shlink v2.7.0.
 
 ### Changed
 * *Nothing*
