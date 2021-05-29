@@ -39,3 +39,11 @@ For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20`.
 See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
 
 > Take into consideration that the total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the margin is 20, the resulting image will be 540x540 pixels.
+
+### Bot detection
+
+Starting with v2.7.0, Shlink can now detect visits from potential bots or crawlers, based on the visitor's `User-Agent` header.
+
+Of course, there's never a 100% accuracy here, hence the **potential**.
+
+All the endpoints serving visits will include the `potentialBot` flag with values `true` or `false`, and they also allow excluding potential bots from the result set.
