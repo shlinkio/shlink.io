@@ -6,7 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## [Unreleased]
 ### Added
-* Documented new ways to pre-configure servers in shlink-web-client after v3.2.0
+* [#220](https://github.com/shlinkio/shlink.io/issues/220) Documented new ways to pre-configure servers in shlink-web-client after v3.2.0
+* [#216](https://github.com/shlinkio/shlink.io/issues/216) Documented `ENABLE_PERIODIC_VISIT_LOCATE` env var for docker container.
 
 ### Changed
 * *Nothing*

@@ -193,7 +193,8 @@ This is the complete list of supported env vars. Right next to their name you wi
   Setting this to <b>false</b> will make your Shlink instance no longer be in compliance with the GDPR and other similar data protection regulations.
 </Callout>
 * `DISABLE_REFERRER_TRACKING` *(v2.7.0)* : Tells if tracking of the referrer should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
-* `DISABLE_UA_TRACKING` *(v2.7.0)* :  Tells if tracking of the user agent should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+* `DISABLE_UA_TRACKING` *(v2.7.0)* : Tells if tracking of the user agent should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+* `ENABLE_PERIODIC_VISIT_LOCATE` *(v2.8.0)* : If provided with value `true`, it schedules the `visit:locate` command to be run every hour inside the container using crontab. Defaults to `false`.
 
 An example using all env vars could look like this:
 
@@ -235,6 +236,7 @@ docker run \
     -e DISABLE_IP_TRACKING=true \
     -e DISABLE_REFERRER_TRACKING=true \
     -e DISABLE_UA_TRACKING=true \
+    -e ENABLE_PERIODIC_VISIT_LOCATE=true \
     shlinkio/shlink:stable
 ```
 
