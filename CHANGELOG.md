@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.18.0] - 2021-05-30
 ### Added
 * [#220](https://github.com/shlinkio/shlink.io/issues/220) Documented new ways to pre-configure servers in shlink-web-client after v3.2.0
 * [#216](https://github.com/shlinkio/shlink.io/issues/216) Documented `ENABLE_PERIODIC_VISIT_LOCATE` env var for docker container.
