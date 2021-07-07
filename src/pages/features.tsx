@@ -37,7 +37,7 @@ const Features: FunctionComponent = () => (
           <Feature title="Custom slugs" icon={faPuzzlePiece}>
             Personalize your short URLs by using custom slugs. This will help you easily identify campaigns.
           </Feature>
-          <Feature title="Multi-domain" icon={faLink} link="/documentation/multiple-domains">
+          <Feature title="Multi-domain" icon={faLink} link="/documentation/advanced/multiple-domains">
             Serve multiple short domains under the same shlink instance. You can even use the same custom slugs.
           </Feature>
           <Feature title="QR Codes" icon={faQrcode} link="/documentation/some-features/#qr-codes">

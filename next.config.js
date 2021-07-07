@@ -1,7 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 const withFonts = require('next-fonts');
 const withMDX = require('@next/mdx')();
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = withPlugins([ withFonts, withMDX ], {
   enableSvg: true,
@@ -15,7 +15,7 @@ module.exports = withPlugins([ withFonts, withMDX ], {
   },
   webpack(config) {
     config.plugins = config.plugins || [];
-    config.plugins.push(new OptimizeCSSAssetsPlugin({}));
+    config.plugins.push(new CssMinimizerPlugin({}));
 
     return config;
   },
