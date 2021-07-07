@@ -19,4 +19,7 @@ module.exports = withPlugins([ withFonts, withMDX ], {
 
     return config;
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 });
