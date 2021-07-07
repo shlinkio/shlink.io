@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { Breadcrumb as BsBreadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Route } from '../utils/docUtils';
 import Link from './Link';
-import './Breadcrumb.scss';
 
 interface BreadcrumbProps {
   prevElements: Route[];

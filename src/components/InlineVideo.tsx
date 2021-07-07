@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import './InlineVideo.scss';
 
 type NonEmptyArray<T> = { 0: T } & T[];
 

@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './FakeBrowser.scss';
 
 const FakeBrowser: FunctionComponent = ({ children }) => (
   <div className="fake-browser-ui">

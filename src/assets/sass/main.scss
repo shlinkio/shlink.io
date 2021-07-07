@@ -2,6 +2,12 @@
 @import "~highlight.js/scss/vs2015";
 @import "~docsearch.js/dist/npm/styles/main";
 @import "theme/theme";
+@import "./components/Breadcrumb.scss";
+@import "./components/DocsSearch.scss";
+@import "./components/FakeBrowser.scss";
+@import "./components/InlineVideo.scss";
+@import "./components/Jumbotron.scss";
+@import "./components/Terminal.scss";
 
 .logo-icon {
   width: 40px;
@@ -171,6 +177,7 @@
 }
 
 .hljs {
+  display: block;
   padding: .7em;
 }
 

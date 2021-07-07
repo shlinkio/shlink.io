@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Typed from 'react-typed';
 import FakeBrowser from './FakeBrowser';
-import './Terminal.scss';
 
 interface IStrings {
   cli: string[];

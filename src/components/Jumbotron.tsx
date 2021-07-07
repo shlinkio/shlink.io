@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Indivisible from './Indivisible';
 import InternalLink from './InternalLink';
-import './Jumbotron.scss';
 
 const Jumbotron: FunctionComponent = () => (
   <section className="hero-section py-3 py-md-5">
