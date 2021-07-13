@@ -33,8 +33,9 @@ The image supports certain level of customization via query params:
 * `size`: It determines the width/height in pixels. Default value is 300 and accepts values from 50 to 1000.
 * `margin` *(since v2.6.0)* : The space in pixels between the QR code itself and the border of the image. Default value is 0 and accepts positive numbers.
 * `format` *(since v2.4.0)* : Can be `png` or `svg`. Default values is `png`.
+* `errorCorrection` *(since v2.8.0)* : Can be `L` (Low), `M` (Medium), `Q` (Quartile) or `H` (High). Default value is `L`. [Learn more](https://www.qrcode.com/en/about/error_correction.html).
 
-For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20`.
+For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20&errorCorrection=Q`.
 
 See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
 
