@@ -6,11 +6,11 @@ From creating, updating or listing short URLs, to manage API keys or handle the 
 
 ### Commands
 
-Commands in shlink are contextually namespaced in `api-key`, `db`, `short-url`, `tag` and `visit`.
+Commands in shlink are contextually namespaced in `api-key`, `db`, `domain`, `short-url`, `tag` and `visit`.
 
 By running the `bin/cli` script you will see the full list of commands with a description for each one of them.
 
-Running any command with the `-h` flag will display an extended help for that specific command, showing the list of arguments and a descriptive explanation on how to use it.
+Running any command with the `-h`/`--help` flag will display an extended help for that specific command, showing the list of arguments, and a descriptive explanation on how to use it.
 
 This is the full list of commands exposed by Shlink's CLI tool:
 
@@ -22,14 +22,13 @@ Options:
   -h, --help            Display help for the given command. When no command is given display help for the list command
   -q, --quiet           Do not output any message
   -V, --version         Display this application version
-      --ansi            Force ANSI output
-      --no-ansi         Disable ANSI output
+      --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
   -n, --no-interaction  Do not ask any interactive question
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Available commands:
-  help                Displays help for a command
-  list                Lists commands
+  help                Display help for a command
+  list                List commands
  api-key
   api-key:disable     Disables an API key.
   api-key:generate    Generates a new valid API key.
@@ -38,7 +37,8 @@ Available commands:
   db:create           Creates the database needed for shlink to work. It will do nothing if the database already exists
   db:migrate          Runs database migrations, which will ensure the shlink database is up to date.
  domain
-  domain:list         List all domains that have been ever used for some short URL
+  domain:list         List all domains that have been ever used for some short URL, or have some "not found" redirect configured.
+  domain:redirects    Set specific "not found" redirects for individual domains.
  short-url
   short-url:delete    Deletes a short URL
   short-url:generate  Generates a short URL for provided long URL and returns it
@@ -52,5 +52,7 @@ Available commands:
   tag:list            Lists existing tags.
   tag:rename          Renames one existing tag.
  visit
-  visit:locate        Resolves visits origin locations.
+  visit:download-db   Checks if the GeoLite2 db file is too old or it does not exist, and tries to download an up-to-date copy if so.
+  visit:locate        Resolves visits origin locations. It implicitly downloads/updates the GeoLite2 db file if needed.
+
 ```
