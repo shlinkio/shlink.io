@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [Unreleased]
 ### Added
 * Documented extra path forwarding feature.
+* [#227](https://github.com/shlinkio/shlink.io/issues/227) Documented domain-specific "not found" redirects.
 
 ### Changed
 * *Nothing*
