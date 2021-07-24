@@ -52,8 +52,4 @@ With that in mind, this is how Shlink will behave when the next short URLs are v
 
 ### Special redirects
 
-It is currently possible to configure some [special redirects](/documentation/advanced/special-redirects) when the base domain is visited, a URL does not match, or an invalid/disabled short URL is visited.
-
-Those are configured during Shlink's installation or via env vars when using the docker image.
-
-Currently those are all shared for all domains serving the same Shlink instance, but the plan is to update that and allow specific ones for every existing domain.
+Starting with Shlink v2.8.0, it is possible to configure special redirects on a per-domain basis. [Read the docs](/documentation/advanced/special-redirects/#per-domain-redirects) to get more information.
