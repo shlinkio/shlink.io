@@ -16,6 +16,6 @@ In order to configure these redirects you can use env vars, or the installer too
 
 Starting with v2.8.0, Shlink allows to configure different *special redirects* for every domain.
 
-It can be done via CLI, by running the `domain:redirects` command, or using the `POST /domains/redirects` REST endpoint.
+It can be done via CLI, by running the `domain:redirects` command, or using the [`PATCH /domains/redirects`](https://api-spec.shlink.io/#/Domains/setDomainRedirects) REST endpoint.
 
 If a domain does not have a specific redirect configured for any of the values described above, it will fall back to the general configuration.
