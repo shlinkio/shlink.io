@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.20.0] - 2021-08-04
 ### Added
 * Documented extra path forwarding feature.
 * [#227](https://github.com/shlinkio/shlink.io/issues/227) Documented domain-specific "not found" redirects.
