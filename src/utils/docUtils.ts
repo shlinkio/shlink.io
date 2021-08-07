@@ -34,6 +34,7 @@ const docsRoutes: Route[] = [
       { text: 'Update your instance', link: '/documentation/update-your-instance' },
       { text: 'Tracking visits', link: '/documentation/tracking-visits' },
       { text: 'Some features', link: '/documentation/some-features' },
+      { text: 'Environment variables', link: '/documentation/environment-variables' },
     ],
   },
   {
