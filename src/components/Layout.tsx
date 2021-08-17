@@ -14,7 +14,7 @@ interface LayoutProps extends HeaderProps {
 }
 
 const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuToggle, noFooter = false }) => {
-  const siteName = 'Shlink - The URL shortener';
+  const siteName = 'Shlink — The URL shortener';
   const title = `${siteName}${pageTitle ? ` — ${pageTitle}` : ''}`;
   const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
 
