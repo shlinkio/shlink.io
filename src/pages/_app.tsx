@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import { useCurrentPath } from '../utils/pathUtils';
 import { initGA, logPageView } from '../utils/analytics';
 import '../assets/sass/main.scss';

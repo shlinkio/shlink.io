@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import SectionHeader from '../components/SectionHeader';
