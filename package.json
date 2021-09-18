@@ -28,14 +28,14 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@next/mdx": "^11.0.1",
+    "@next/mdx": "^11.1.2",
     "bootstrap": "^4.6.0",
     "classnames": "^2.3.1",
     "docsearch.js": "^2.6.3",
-    "highlight.js": "^11.0.1",
-    "next": "^11.0.1",
+    "highlight.js": "^11.2.0",
+    "next": "^11.1.2",
     "next-fonts": "^1.5.1",
-    "next-seo": "^4.26.0",
+    "next-seo": "^4.27.0",
     "ramda": "^0.27.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -43,7 +43,7 @@
     "react-ga": "^3.3.0",
     "react-highlight": "^0.14.0",
     "react-typed": "^1.2.0",
-    "reactstrap": "^8.9.0"
+    "reactstrap": "^8.10.0"
   },
   "devDependencies": {
     "@mdx-js/loader": "^1.6.19",
@@ -53,7 +53,6 @@
     "@types/classnames": "^2.2.11",
     "@types/css-minimizer-webpack-plugin": "^3.0.2",
     "@types/jest": "^26.0.15",
-    "@types/next": "^9.0.0",
     "@types/node": "^14.14.6",
     "@types/ramda": "^0.27.32",
     "@types/react": "^17.0.13",
@@ -70,11 +69,11 @@
     "jest": "^26.6.1",
     "jest-transform-css": "^2.1.0",
     "mini-css-extract-plugin": "^1.2.1",
-    "next-compose-plugins": "^2.2.0",
+    "next-compose-plugins": "^2.2.1",
     "purgecss": "^3.0.0",
     "sass": "^1.28.0",
     "sass-loader": "^10.0.4",
     "ts-jest": "^26.4.3",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.3"
   }
 }
