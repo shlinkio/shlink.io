@@ -1,4 +1,3 @@
-import React from 'react';
 import Highlight from 'react-highlight';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';

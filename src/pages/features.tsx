@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import { faChartBar, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {

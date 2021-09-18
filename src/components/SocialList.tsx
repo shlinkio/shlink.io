@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

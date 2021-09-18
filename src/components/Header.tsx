@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, useState } from 'react';
+import { FunctionComponent, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
 import { useRouter } from 'next/router';

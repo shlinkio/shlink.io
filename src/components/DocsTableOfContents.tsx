@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC, Fragment } from 'react';
 import { menuItemsForPath, Route } from '../utils/docUtils';
 import Link from './Link';
 
@@ -11,12 +11,12 @@ const MenuItem: FC<{ link: string }> = ({ link, children }) => (
 const List: FC<{ items: Route[] }> = ({ items }) => (
   <ul>
     {items.map(({ text, link, subRoutes }) => (
-      <React.Fragment key={text}>
+      <Fragment key={text}>
         <MenuItem link={link}>
           {text}
         </MenuItem>
         {subRoutes && <List items={subRoutes} />}
-      </React.Fragment>
+      </Fragment>
     ))}
   </ul>
 );

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import { FunctionComponent, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { breadcrumbForPath, breadcrumbsMap } from '../../utils/docUtils';

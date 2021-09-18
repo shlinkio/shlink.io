@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { MDXProvider } from '@mdx-js/react';
@@ -19,7 +19,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuT
   const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
 
   return (
-    <React.Fragment>
+    <>
       <NextSeo
         description={description}
         title={title}
@@ -102,7 +102,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children, pageTitle, leftMenuT
       <Header leftMenuToggle={leftMenuToggle} />
       <MDXProvider components={markdownComponents}>{children}</MDXProvider>
       {!noFooter && <Footer />}
-    </React.Fragment>
+    </>
   );
 };
 
