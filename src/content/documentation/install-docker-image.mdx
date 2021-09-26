@@ -8,8 +8,8 @@ The docker image is probably the simplest installation use case, since it includ
 
 The most basic way to run Shlink's docker image is by providing these mandatory env vars.
 
-* `SHORT_DOMAIN_HOST`: The custom short domain used for this shlink instance. For example **doma.in**.
-* `SHORT_DOMAIN_SCHEMA`: Either **http** or **https**.
+* `DEFAULT_DOMAIN`: The custom short domain used for this shlink instance. For example **doma.in**.
+* `USE_HTTPS`: Either **true** or **false**.
 * `GEOLITE_LICENSE_KEY`: Your GeoLite2 license key. [Learn more](/documentation/geolite-license-key/) about this.
 
 To run shlink on top of a local docker service, and using an internal SQLite database, do the following:
@@ -18,8 +18,8 @@ To run shlink on top of a local docker service, and using an internal SQLite dat
 docker run \
     --name my_shlink \
     -p 8080:8080 \
-    -e SHORT_DOMAIN_HOST=doma.in \
-    -e SHORT_DOMAIN_SCHEMA=https \
+    -e DEFAULT_DOMAIN=doma.in \
+    -e USE_HTTPS=true \
     -e GEOLITE_LICENSE_KEY=kjh23ljkbndskj345 \
     shlinkio/shlink:stable
 ```
@@ -79,8 +79,8 @@ Taking this into account, you could run shlink on a local docker service like th
 docker run \
     --name my_shlink \
     -p 8080:8080 \
-    -e SHORT_DOMAIN_HOST=doma.in \
-    -e SHORT_DOMAIN_SCHEMA=https \
+    -e DEFAULT_DOMAIN=doma.in \
+    -e USE_HTTPS=true \
     -e GEOLITE_LICENSE_KEY=kjh23ljkbndskj345 \
     -e DB_DRIVER=mysql \
     -e DB_USER=root \
@@ -135,8 +135,8 @@ So in order to run shlink with mercure integration, you would do it like this:
 docker run \
     --name my_shlink \
     -p 8080:8080 \
-    -e SHORT_DOMAIN_HOST=doma.in \
-    -e SHORT_DOMAIN_SCHEMA=https \
+    -e DEFAULT_DOMAIN=doma.in \
+    -e USE_HTTPS=true \
     -e GEOLITE_LICENSE_KEY=kjh23ljkbndskj345 \
     -e "MERCURE_PUBLIC_HUB_URL=https://example.com"
     -e "MERCURE_INTERNAL_HUB_URL=http://my-mercure-hub.prod.svc.cluster.local"
@@ -158,8 +158,8 @@ An example using all env vars could look like this:
 docker run \
     --name my_shlink \
     -p 8080:8888 \
-    -e SHORT_DOMAIN_HOST=doma.in \
-    -e SHORT_DOMAIN_SCHEMA=https \
+    -e DEFAULT_DOMAIN=doma.in \
+    -e USE_HTTPS=true \
     -e PORT=8888 \
     -e DB_DRIVER=mysql \
     -e DB_NAME=shlink \
@@ -193,6 +193,10 @@ docker run \
     -e DISABLE_REFERRER_TRACKING=true \
     -e DISABLE_UA_TRACKING=true \
     -e ENABLE_PERIODIC_VISIT_LOCATE=true \
+    -e DEFAULT_QR_CODE_SIZE=500 \
+    -e DEFAULT_QR_CODE_MARGIN=10 \
+    -e DEFAULT_QR_CODE_FORMAT=svg \
+    -e DEFAULT_QR_CODE_ERROR_CORRECTION=H \
     shlinkio/shlink:stable
 ```
 
