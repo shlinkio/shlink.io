@@ -1,3 +1,6 @@
+import Callout from '../../components/Callout';
+import Link from '../../components/Link';
+
 ## Some features
 
 Here you'll find some extra Shlink features that are not as obvious while using it but you might want to use.
@@ -52,6 +55,10 @@ For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20&error
 See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
 
 > Take into consideration that the total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the margin is 20, the resulting image will be 540x540 pixels.
+
+<Callout type="info">
+  Starting with Shlink 2.9.0, you can customize the default configuration for QR codes via <Link href="/documentation/install-dist-file/#installation-steps">installer tool</Link> or <Link href="/documentation/environment-variables">env vars</Link>.
+</Callout>
 
 ### Bot detection
 

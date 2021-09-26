@@ -49,6 +49,10 @@ This is the complete list of supported env vars. Right next to their name you wi
 </Callout>
 * `DISABLE_REFERRER_TRACKING` *(v2.7.0)* : Tells if tracking of the referrer should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
 * `DISABLE_UA_TRACKING` *(v2.7.0)* : Tells if tracking of the user agent should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+* `DEFAULT_QR_CODE_SIZE` *(v2.9.0)* : A value between 50 and 1000 to determine the default size of generated QR codes when the `size` query param is not provided. Defaults to 300.
+* `DEFAULT_QR_CODE_MARGIN` *(v2.9.0)* : A value greater than 0 to determine the default margin of generated QR codes when the `margin` query param is not provided. Defaults to 0.
+* `DEFAULT_QR_CODE_FORMAT` *(v2.9.0)* : One of **png** or **svg**, to determine the default format of generated QR codes when the `format` query param is not provided. Defaults to png.
+* `DEFAULT_QR_CODE_ERROR_CORRECTION` *(v2.9.0)* : One of **L** (Low), **M** (Medium), **Q** (Quartile) or **H** (High), to determine the default error correction of generated QR codes when the `errorCorrection` query param is not provided. Defaults to l.
 
 ### Specific for the docker image
 
