@@ -25,6 +25,10 @@ If for any reason the long URL already had query params, they will be merged wit
 
 For example, if `https://exam.ple/abc123` points to `https://www.google.com?foo=bar`, when users visit `https://exam.ple/abc123?foo=overwritten&another=param`, they will get redirected to `https://www.google.com?foo=overwritten&another=param`.
 
+<Callout type="info">
+  Starting with Shlink v2.9.0, this behavior can be overwritten on every individual short URL, allowing to disable the query params forwarding if desired.
+</Callout>
+
 ### Extra path forwarding
 
 Starting with Shlink 2.8.0, Shlink can match short URLs as soon as the visited URL starts with an existing short code.
