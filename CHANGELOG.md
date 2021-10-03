@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Added
 * Added QR code env vars, and documented deprecated env vars.
 * Added note mentioning that query params forwarding can be disabled since Shlink v2.9.0.
+* Documented placeholders supported in not-found redirects since Shlink v2.9.0.
 
 ### Changed
 * *Nothing*
