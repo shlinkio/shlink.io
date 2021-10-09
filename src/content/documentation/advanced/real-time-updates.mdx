@@ -60,11 +60,7 @@ The whole list of supported topics, together with their payloads can be found in
 
 ### Webhooks
 
-If you run Shlink's install CLI tool (`bin/install`) you probably noticed there's one step in which you are asked to provide a "comma-separated list of webhook URLs".
-
-Similarly, if you checked the available [env vars](/documentation/install-docker-image#supported-env-vars) for the docker image, there's one called `VISITS_WEBHOOKS`, which also expects a comma-separated list of URLs.
-
-Those two mechanisms can be used to configure a list of endpoints which will receive a `POST` request from Shlink when a short URL is visited.
+Shlink supports providing a comma-separated list of endpoints, via [env vars](/documentation/environment-variables) or installer tool, which will receive a `POST` request from Shlink when a short URL is visited.
 
 The body of the request will contain the payload of both the `shortUrl` that was visited, and the `visit` with the geolocation, like this:
 
@@ -104,4 +100,8 @@ The body of the request will contain the payload of both the `shortUrl` that was
 }
 ```
 
-> Webhooks were included on Shlink **v1.21.0**, so it's not possible to use them with previous versions.
+<Callout type="info">
+  Starting with Shlink v2.9.0, you can also enable sending requests for orphan visits. In that case, the <b>shortUrl</b> prop won't be present.
+  <br />
+  This option is disabled by default for backwards compatibility reasons, so you need to actively opt-in.
+</Callout>

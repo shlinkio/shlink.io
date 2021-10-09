@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * Added note mentioning that query params forwarding can be disabled since Shlink v2.9.0.
 * Documented placeholders supported in not-found redirects since Shlink v2.9.0.
 * Documented `REDIS_SENTINEL_SERVICE` env var.
+* Documented how to enable sending orphan visit notifications to webhooks.
 
 ### Changed
 * *Nothing*
