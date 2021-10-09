@@ -30,6 +30,7 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `WEB_WORKER_NUM` *(v1.21.0)* : The amount of concurrent http requests this shlink instance will be able to server. Defaults to 16.
 * `TASK_WORKER_NUM` *(v1.21.0)* : The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16.
 * `VISITS_WEBHOOKS` *(v1.21.0)* : A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
+* `NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS` *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
 * `DEFAULT_SHORT_CODES_LENGTH` *(v2.1.0)* : The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
 * `GEOLITE_LICENSE_KEY` *(v2.1.4)* : The license key used to download new GeoLite2 database files. This is not mandatory, as a default license key is provided, but it is **strongly recommended** that you provide your own. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it.
 * `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).
