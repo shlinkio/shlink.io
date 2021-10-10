@@ -44,6 +44,7 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `PORT` *(v2.4.0)* : Can be used to set the port in which shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
 * `AUTO_RESOLVE_TITLES` *(v2.6.0)* : Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `false`.
 * `DISABLE_TRACK_PARAM`: The name of a query param that can be used to visit short URLs avoiding the visit to be tracked. This feature won't be available if no value is provided. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+* `DISABLE_TRACKING_FROM`: A comma-separated list of IP address patterns from which all tracking should be disabled. It allows providing fixed IP addresses (`100.200.80.40`), CIDR blocks (`192.168.10.0/24`) or wildcard patterns (`11.22.*.*`)
 * `TRACK_ORPHAN_VISITS` *(v2.6.0)* : Tells if [orphan visits](/documentation/tracking-visits/#orphan-visits) should be tracked or not. Defaults to `true`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
 * `DISABLE_TRACKING` *(v2.7.0)* : Tells if visits tracking should be completely disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
 * `DISABLE_IP_TRACKING` *(v2.7.0)* : Tells if tracking of the IP address (and therefore visitors location) should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)

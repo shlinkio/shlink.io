@@ -4,13 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.22.0] - 2021-10-10
 ### Added
 * Added QR code env vars, and documented deprecated env vars.
 * Added note mentioning that query params forwarding can be disabled since Shlink v2.9.0.
 * Documented placeholders supported in not-found redirects since Shlink v2.9.0.
 * Documented `REDIS_SENTINEL_SERVICE` env var.
 * Documented how to enable sending orphan visit notifications to webhooks.
+* Documented how to disable tracking based on IP addresses.
 
 ### Changed
 * *Nothing*
