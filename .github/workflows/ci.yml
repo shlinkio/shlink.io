@@ -7,40 +7,7 @@ on:
       - main
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.15
-      - run: npm ci
-      - run: npm run lint
-
-  unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.15
-      - run: npm ci
-      - run: npm run test:ci
-
-  build-docker-image:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - uses: marceloprado/has-changed-path@v1
-        id: changed-dockerfile
-        with:
-          paths: ./Dockerfile
-      - if: ${{ steps.changed-dockerfile.outputs.changed == 'true' }}
-        run: docker build -t shlink-website:test .
-      - if: ${{ steps.changed-dockerfile.outputs.changed != 'true' }}
-        run: echo "Dockerfile didn't change. Skipped"
+  ci:
+    uses: shlinkio/github-actions/.github/workflows/web-app-ci.yml@main
+    with:
+      node-version: 14.17
