@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ### Changed
 * Moved ci workflow to external repo and reused
+* Updated to node 16.13
 
 ### Deprecated
 * *Nothing*
@@ -18,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Fixed
-* *Nothing*
+* [#235](https://github.com/shlinkio/shlink.io/issues/235) Fixed sass deprecation warning.
 
 
 ## [6.22.0] - 2021-10-10
