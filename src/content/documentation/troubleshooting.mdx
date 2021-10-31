@@ -155,3 +155,11 @@ Follow these instructions in order to know how to [expose Shlink through a rever
 Sometimes, when running Shlink's docker image, the container may fail to boot-up, without a clear or obvious reason.
 
 A good way to troubleshoot this is by providing the env var `SHELL_VERBOSITY=3`, that will increase verbosity of the image's entry point.
+
+### Subscription from shlink-web-client to mercure fails with "Response to preflight request doesn't pass access control check"
+
+If you are serving your mercure instance on a host different from the one where you serve shlink-web-client (which is most probably the case), you need to ensure mercure allows the client's host.
+
+For mercure older than v0.11, that's done via the `CORS_ALLOWED_ORIGINS` env var, which can have the `"*"` value, or the explicit domain of your web client.
+
+For mercure v0.11 or newer, you need to pass the `MERCURE_EXTRA_DIRECTIVES` env var, with value `cors_origins https://my-web-client.com`. This versions no longer allows the `"*"` value.
