@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.23.0] - 2021-10-31
 ### Added
-* *Nothing*
+* [#212](https://github.com/shlinkio/shlink.io/issues/212) Documented how to solve issues with CORS when using mercure >=0.11
+* [#229](https://github.com/shlinkio/shlink.io/issues/229) Documented how to solve issues with CORS when using mercure >=0.11
 
 ### Changed
 * Moved ci workflow to external repo and reused
