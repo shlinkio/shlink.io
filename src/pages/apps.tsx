@@ -33,7 +33,7 @@ const Apps: FunctionComponent = () => (
           title="PSShlink"
           block={(
             <FakeBrowser>
-              <img alt="PSShlink" src="/images/apps/psshlink-powershell.png" className="m-0 w-100" />
+              <img alt="PSShlink" src="/images/apps/psshlink-powershell.png" className="m-0 mw-100" />
             </FakeBrowser>
           )}
         >
