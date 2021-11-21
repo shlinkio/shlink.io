@@ -6,7 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## [6.24.0]
 ### Added
-* Added PSShlink to the list of apps.
+* [#248](https://github.com/shlinkio/shlink.io/issues/248) Added PSShlink to the list of apps.
+* [#249](https://github.com/shlinkio/shlink.io/issues/249) Documented "Email Tracking" feature.
 
 ### Changed
 * *Nothing*
