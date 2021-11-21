@@ -77,7 +77,7 @@ const Features: FunctionComponent = () => (
           >
             Import your existing short URLs from third parties like bit.ly.
           </Feature>
-          <Feature title="Email tracking" icon={faEnvelope}>
+          <Feature title="Email tracking" icon={faEnvelope} link="/documentation/some-features/#email-tracking">
             Generate a 1px transparent image that can be used to track emails.
           </Feature>
         </div>
