@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [6.24.0]
+## [6.24.0] - 2021-11-21
 ### Added
 * [#248](https://github.com/shlinkio/shlink.io/issues/248) Added PSShlink to the list of apps.
 * [#249](https://github.com/shlinkio/shlink.io/issues/249) Documented "Email Tracking" feature.
