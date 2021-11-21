@@ -33,13 +33,13 @@ const Apps: FunctionComponent = () => (
           title="PSShlink"
           block={(
             <FakeBrowser>
-              <img alt="PSShlink" src="/images/apps/psshlink.jpg" className="m-0 w-100" />
+              <img alt="PSShlink" src="/images/apps/psshlink-powershell.png" className="m-0 w-100" />
             </FakeBrowser>
           )}
         >
           <p>
             Manage your Shlink instance from the command line with this PowerShell module,
-            by <ExternalLink href="https://adamcook.io/">Adam Cook</ExternalLink>.
+            by <ExternalLink href="https://twitter.com/codaamok">Adam Cook</ExternalLink>.
           </p>
           <p>
             See how to install it and further documentation on
