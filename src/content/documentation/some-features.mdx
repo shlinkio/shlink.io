@@ -3,9 +3,16 @@ import Link from '../../components/Link';
 
 ## Some features
 
-Here you'll find some extra Shlink features that are not as obvious while using it but you might want to use.
+Here you'll find some extra Shlink features, which are not as intuitive to use, but you might still want to take advantage of.
 
-It's also useful to understand why it behaves as it does.
+This document also tries to clarify why some of these features work the way they do.
+
+* [Short URL title](#short-url-title)
+* [Query params forwarding](#query-params-forwarding)
+* [Extra path forwarding](#extra-path-forwarding)
+* [QR Codes](#qr-codes)
+* [Bot detection](#bot-detection)
+* [Email tracking](#email-tracking)
 
 ### Short URL title
 
@@ -71,3 +78,13 @@ Starting with v2.7.0, Shlink can now detect visits from potential bots or crawle
 Of course, there's never a 100% accuracy here, hence the **potential**.
 
 All the endpoints serving visits will include the `potentialBot` flag with values `true` or `false`, and they also allow excluding potential bots from the result set.
+
+### Email tracking
+
+Shlink can track how many times an email has been opened, by taking advantage of its URL tracking capabilities.
+
+You can track emails with any existing short URL, or create a new one pointing to a dummy long URL (the redirect itself is not important for this use case).
+
+Then, by appending `/track` to the short URL, you will have a new URL (for example, `https://example.com/abc123/track`) that resolves to a 1px transparent image. Add it to any email you want to track.
+
+The image is effectively invisible, but every time the email is opened and the image is loaded, Shlink will count one visit.
