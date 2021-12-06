@@ -1,3 +1,6 @@
+import Callout from '../../../components/Callout';
+import Link from '../../../components/Link';
+
 ## Import short URLs
 
 Since it's quite possible that you are already using some other URL shortener, starting with v2.4.0, it is possible to import short URLs directly into Shlink.
@@ -11,8 +14,9 @@ $ bin/cli short-url:import
 
  What is the source you want to import from::
   [0] bitly
-  [1] csv
-  [2] shlink
+  [1] yourls
+  [2] csv
+  [3] shlink
  >
 ```
 
@@ -23,6 +27,7 @@ The import command can be run as many times as you want, as Shlink is smart enou
 These are the sources from which you can currently import:
 
 * [Bitly](/documentation/advanced/import-short-urls#bitly) *(since Shlink v2.4.0)*
+* [YOURLS](/documentation/advanced/import-short-urls#yourls) *(since Shlink v2.10.0)*
 * [Standard CSV](/documentation/advanced/import-short-urls#standard-csv) *(since Shlink v2.6.0)*
 * [Shlink instance](/documentation/advanced/import-short-urls#shlink-instance) *(since Shlink v2.7.0)*
 
@@ -69,6 +74,37 @@ $ bin/cli short-url:import bitly
   https://www.example.com/foo/bar: Imported
 ```
 
+### YOURLS
+
+Shlink allows importing short URLs, and optionally visits, from a YOURLS instance using its API.
+
+There's a couple of limitations on imported data, as YOURLS does not store by default visitors IP address or geoloaction.
+
+<Callout type="warning">
+  YOURLS' API does not expose enough actions for Shlink to fetch all data. Because of that, you first need to install the <code className="no-highlight indivisible">yourls-shlink-import-plugin</code> in YOURLS itself. You can download it from <Link href="https://slnk.to/yourls-import">its repository</Link> and follow the instructions there.
+</Callout>
+
+Running the command will generate an output similar to this:
+
+```shell
+$ bin/cli short-url:import yourls -v
+
+ What is your YOURLS instance base URL?:
+ > https://doma.in
+
+ What is your YOURLS instance username?:
+ > user
+
+ What is your YOURLS instance password?:
+ > pass
+
+ Do you want to import each short URL's visits too? (yes/no) [yes]:
+ > y
+
+https://shlink.io: Imported with 381 visits.
+https://example.com: Imported with 68 visits.
+```
+
 ### Standard CSV
 
 In order to simplify importing links from arbitrary sources, Shlink supports importing from a simple CSV file.
@@ -107,6 +143,8 @@ $ bin/cli short-url:import csv
 If at some point you need to migrate your Shlink instance, or you want to change the database engine for any reason, this will help you import your short URLs from another Shlink instance.
 
 The importing will be done by making use of Shlink's built-in REST API. It will import links, their tags and domains, and also their visits if you choose to.
+
+In order for this to work, you need to keep your old Shlink instance publicly accessible, otherwise you will not be able to import.
 
 Running the command will generate an output similar to this:
 
