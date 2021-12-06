@@ -1,4 +1,4 @@
-import Highlight, { HighlightProps } from 'react-highlight';
+import Highlight from 'react-highlight';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import Link from '../components/Link';
@@ -38,14 +38,14 @@ const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-li
 };
 
 const a = (props: any) => <Link {...props} />;
-const code = (props: HighlightProps) => {
-  if (!props.className?.includes('no-highlight')) {
+const code = (props: any) => {
+  if (!props.className?.includes('no-highlight')) { // eslint-disable-line @typescript-eslint/no-unsafe-call
     return <Highlight {...props} />;
   }
 
   const newProps = {
     ...props,
-    className: props.className?.replace('no-highlight', ''),
+    className: props.className?.replace('no-highlight', ''), // eslint-disable-line @typescript-eslint/no-unsafe-call
   };
 
   return <code {...newProps} />;
