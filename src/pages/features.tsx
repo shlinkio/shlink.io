@@ -75,7 +75,7 @@ const Features: FunctionComponent = () => (
             link="/documentation/advanced/import-short-urls"
             className="offset-lg-3"
           >
-            Import your existing short URLs from third parties like bit.ly.
+            Import your existing short URLs from third parties like bit.ly or YOURLS.
           </Feature>
           <Feature title="Email tracking" icon={faEnvelope} link="/documentation/some-features/#email-tracking">
             Generate a 1px transparent image that can be used to track emails.
