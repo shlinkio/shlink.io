@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [Unreleased]
 ### Added
 * [#253](https://github.com/shlinkio/shlink.io/issues/253) Documented how to import from YOURLS.
+* Documented new not-found redirect env vars that deprecate existing ones.
 
 ### Changed
 * *Nothing*
