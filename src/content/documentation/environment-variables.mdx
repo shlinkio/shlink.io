@@ -7,9 +7,9 @@ After installing Shlink, you will have to set it up, and customize different asp
 This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced:
 
 * `DEFAULT_DOMAIN` *(v2.9.0)* : The default short domain used for this shlink instance. For example **doma.in**.
-* `SHORT_DOMAIN_HOST`: *Deprecated since v2.9.0 Use `DEFAULT_DOMAIN` instead*.
 * `USE_HTTPS` *(v2.9.0)* : Tells if Shlink is served with https or not (`true` or `false`). Falls back to `SHORT_DOMAIN_SCHEMA` if not provided.
-* `SHORT_DOMAIN_SCHEMA`: Either **http** or **https**. *Deprecated since v2.9.0. Use `USE_HTTPS` instead*.
+* ~~`SHORT_DOMAIN_HOST`~~: *Deprecated since v2.9.0. Use `DEFAULT_DOMAIN` instead*.
+* ~~`SHORT_DOMAIN_SCHEMA`~~: Either **http** or **https**. *Deprecated since v2.9.0. Use `USE_HTTPS` instead*.
 * `DB_DRIVER`: **sqlite** (which is the default value), **mysql**, **maria**, **postgres** or **mssql**.
 * `DB_NAME`: The database name to be used when using an external database driver. Defaults to **shlink**.
 * `DB_USER`: The username credential to be used when using an external database driver.
@@ -23,13 +23,16 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `DB_UNIX_SOCKET` *(v2.5.0)* : Alternatively to the `DB_HOST`, you can provide this to connect through unix sockets when using `mysql`, `maria` or `postgres` drivers.
 * `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. Defaults to `15`.
 * `VALIDATE_URLS`: Boolean which tells if shlink should validate a status 20x is returned (after following redirects) when trying to shorten a URL. Defaults to `false`.
-* `BASE_PATH` *(v1.19.0)* : The base path from which you plan to serve shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
-* `INVALID_SHORT_URL_REDIRECT_TO` *(v1.20.0)* : If a URL is provided here, when a user tries to access an invalid short URL, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `REGULAR_404_REDIRECT_TO` *(v1.20.0)* : If a URL is provided here, when a user tries to access a URL not matching any one supported by the router, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `BASE_URL_REDIRECT_TO` *(v1.20.0)* : If a URL is provided here, when a user tries to access Shlink's base URL, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `WEB_WORKER_NUM` *(v1.21.0)* : The amount of concurrent http requests this shlink instance will be able to server. Defaults to 16.
-* `TASK_WORKER_NUM` *(v1.21.0)* : The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16.
-* `VISITS_WEBHOOKS` *(v1.21.0)* : A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
+* `BASE_PATH`: The base path from which you plan to serve shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
+* `DEFAULT_INVALID_SHORT_URL_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access an invalid short URL, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
+* `DEFAULT_REGULAR_404_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access a URL not matching any supported by the router, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
+* `DEFAULT_BASE_URL_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access Shlink's base URL, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
+* ~~`INVALID_SHORT_URL_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_INVALID_SHORT_URL_REDIRECT` instead*.
+* ~~`REGULAR_404_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_REGULAR_404_REDIRECT` instead*.
+* ~~`BASE_URL_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_BASE_URL_REDIRECT` instead*.
+* `WEB_WORKER_NUM`: The amount of concurrent http requests this shlink instance will be able to server. Defaults to 16.
+* `TASK_WORKER_NUM`: The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16.
+* `VISITS_WEBHOOKS`: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
 * `NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS` *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
 * `DEFAULT_SHORT_CODES_LENGTH` *(v2.1.0)* : The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
 * `GEOLITE_LICENSE_KEY` *(v2.1.4)* : The license key used to download new GeoLite2 database files. This is not mandatory, as a default license key is provided, but it is **strongly recommended** that you provide your own. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it.
