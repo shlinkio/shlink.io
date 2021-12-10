@@ -7,9 +7,10 @@ After installing Shlink, you will have to set it up, and customize different asp
 This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced:
 
 * `DEFAULT_DOMAIN` *(v2.9.0)* : The default short domain used for this shlink instance. For example **doma.in**.
-* `USE_HTTPS` *(v2.9.0)* : Tells if Shlink is served with https or not (`true` or `false`). Falls back to `SHORT_DOMAIN_SCHEMA` if not provided.
+* `IS_HTTPS_ENABLED` *(v2.10.0)* : Tells if Shlink is served with https or not (`true` or `false`). It's still **up to you** to actually serve it with HTTPS. Falls back to `USE_HTTPS` and then `SHORT_DOMAIN_SCHEMA` if not provided.
+* ~~`USE_HTTPS`~~ *(v2.9.0)* : *Deprecated since v2.10.0. Use `IS_HTTPS_ENABLED` instead. They do the same, but `USE_HTTPS` proved to be misleading*.
 * ~~`SHORT_DOMAIN_HOST`~~: *Deprecated since v2.9.0. Use `DEFAULT_DOMAIN` instead*.
-* ~~`SHORT_DOMAIN_SCHEMA`~~: Either **http** or **https**. *Deprecated since v2.9.0. Use `USE_HTTPS` instead*.
+* ~~`SHORT_DOMAIN_SCHEMA`~~: Either **http** or **https**. *Deprecated since v2.9.0. Use `IS_HTTPS_ENABLED` instead*.
 * `DB_DRIVER`: **sqlite** (which is the default value), **mysql**, **maria**, **postgres** or **mssql**.
 * `DB_NAME`: The database name to be used when using an external database driver. Defaults to **shlink**.
 * `DB_USER`: The username credential to be used when using an external database driver.

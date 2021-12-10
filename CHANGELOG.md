@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Added
 * [#253](https://github.com/shlinkio/shlink.io/issues/253) Documented how to import from YOURLS.
 * Documented new not-found redirect env vars that deprecate existing ones.
+* [#259](https://github.com/shlinkio/shlink.io/issues/259) Documented new IS_HTTPS_ENABLED env var.
 
 ### Changed
 * *Nothing*
