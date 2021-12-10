@@ -30,7 +30,7 @@ This is the complete list of supported env vars. Right next to their name you wi
 * ~~`INVALID_SHORT_URL_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_INVALID_SHORT_URL_REDIRECT` instead*.
 * ~~`REGULAR_404_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_REGULAR_404_REDIRECT` instead*.
 * ~~`BASE_URL_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_BASE_URL_REDIRECT` instead*.
-* `WEB_WORKER_NUM`: The amount of concurrent http requests this shlink instance will be able to server. Defaults to 16. Relevant only when serving Shlink with swoole or openswoole.
+* `WEB_WORKER_NUM`: The amount of concurrent http requests this shlink instance will be able to serve. Defaults to 16. Relevant only when serving Shlink with swoole or openswoole.
 * `TASK_WORKER_NUM`: The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16. Relevant only when serving Shlink with swoole or openswoole.
 * `VISITS_WEBHOOKS`: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
 * `NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS` *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
