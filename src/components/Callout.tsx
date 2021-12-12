@@ -7,6 +7,7 @@ type CalloutType = 'info' | 'warning';
 
 interface CalloutProps {
   type: CalloutType;
+  title?: string;
 }
 
 const TYPE_MAP: Record<CalloutType, any> = {
@@ -22,14 +23,14 @@ const TYPE_MAP: Record<CalloutType, any> = {
   },
 };
 
-const Callout: FunctionComponent<CalloutProps> = ({ children, type }) => (
+const Callout: FunctionComponent<CalloutProps> = ({ children, type, title }) => (
   <div className={classNames('callout-block', TYPE_MAP[type].className)}>
     <div className="content">
       <h4 className="callout-title">
         <span className="callout-icon-holder mr-2">
           <FontAwesomeIcon icon={TYPE_MAP[type].icon} />
         </span>
-        {TYPE_MAP[type].text}
+        {title ?? TYPE_MAP[type].text}
       </h4>
       {children}
     </div>
