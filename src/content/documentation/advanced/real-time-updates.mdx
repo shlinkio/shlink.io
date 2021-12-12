@@ -5,18 +5,19 @@ import Link from '../../../components/Link';
 
 Once your Shlink instance is set-up, you may want to enable real-time updates to be sent to third parties when certain events occur.
 
-Currently, Shlink supports two ways to do that.
+Currently, Shlink supports the next ways to do that.
 
-* Integrating with a [mercure hub server](/documentation/advanced/real-time-updates#mercure-hub-server) to be able to subscribe to server-sent events.
+* Integrating with a [mercure hub server](/documentation/advanced/real-time-updates#mercure-hub-server) to be able to subscribe to server-sent events. *(Since v2.2.0)*.
+* Integrating with a [RabbitMQ server](/documentation/advanced/real-time-updates#rabbitmq-server) to be able to publish server-to-server updates *(Since v2.10.0)*.
 * Configuring some [webhooks](/documentation/advanced/real-time-updates#webhooks) that will be notified with new visits.
 
 <Callout type="warning">
-    Real-time updates only work when <Link href="/documentation/serve-with-swoole">serving Shlink with swoole</Link>, which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
+    Real-time updates only work when <Link href="/documentation/serve-with-swoole">serving Shlink with swoole or openswoole</Link>, which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
 </Callout>
 
 ### Mercure hub server
 
-The most flexible way to get real-time updates is by taking advantage of the integration with a [mercure](https://mercure.rocks) hub server.
+The best option if you want to get real-time updates on a client-side web app, is by taking advantage of the integration with a [mercure](https://mercure.rocks) hub server.
 
 Mercure provides server-sent events, so that consumers can subscribe to topics and get automatically notified when Shlink publishes an update for any of them.
 
@@ -62,9 +63,27 @@ Also, JWTs returned to consumers will only have permission to subscribe to updat
 
 #### Topics and payloads
 
-The whole list of supported topics, together with their payloads can be found in Shlink's [API spec](https://api-spec.shlink.io/async-api) page.
+The whole list of supported topics, together with their payloads can be found in Shlink's [Async API spec](https://api-spec.shlink.io/async-api) page.
 
 > The integration with mercure is available since Shlink **v2.2.0** and shlink-web-client **v2.5.0**.
+
+### RabbitMQ server
+
+Starting with v2.10.0, Shlink supports publishing updates in a [RabbitMQ](https://www.rabbitmq.com/) server, which is a widely used technology for publishing and subscribing to server-to-server updates.
+
+#### Configure the RabbitMQ server
+
+The RabbitMQ server will act as an intermediary between Shlink, which will publish updates on it, and consumers, which will subscribe to those updates and get notified in real-time.
+
+There are several ways to install RabbitMQ. The best option is to follow the [official documentation](https://www.rabbitmq.com/download.html).
+
+Once the server is configured, you can provide the integration config to Shlink via [installer tool](/documentation/install-dist-file/#installation-steps) or [env vars](/documentation/environment-variables).
+
+#### Exchanges and queues
+
+Shlink will create an exchange with its corresponding queue, for every operation defined in Shlink's [Async API spec](https://api-spec.shlink.io/async-api/).
+
+The exchanges and queues are created in a "durable" way, with "direct" publishing type.
 
 ### Webhooks
 
