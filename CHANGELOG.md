@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * Documented new not-found redirect env vars that deprecate existing ones.
 * [#259](https://github.com/shlinkio/shlink.io/issues/259) Documented new IS_HTTPS_ENABLED env var.
 * [#261](https://github.com/shlinkio/shlink.io/issues/261) Documented how to integrate with a RabbitMQ instance.
+* [#252](https://github.com/shlinkio/shlink.io/issues/252) Explained considerations when using multiple domains.
 
 ### Changed
 * *Nothing*
