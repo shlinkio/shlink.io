@@ -1,13 +1,13 @@
 ## Exposing Shlink through a reverse proxy
 
-When you are serving Shlink with swoole or using the docker image (which uses swoole internally), you'll probably want to put a reverse proxy in front of it.
+When you are serving Shlink with swoole/openswoole or using the docker image (which uses openswoole internally), you'll probably want to put a reverse proxy in front of it.
 
-Swoole by default has some limitations that can be solved by using a reverse proxy:
+Swoole and openswoole have some limitations, that can be solved by using a reverse proxy:
 
 * Using a standard HTTP port (80, 443), so that users don't have to explicitly set the port in the URL.
 * Using an `https` certificate to encrypt the connection, keeping your users' data safe.
 
-It is possible to achieve both just by tweaking swoole, but it is recommended to, instead, put a standard HTTP server in front of it, like nginx or apache, as swoole implements only a subset of the HTTP standard.
+It is possible to achieve both just by tweaking swoole/openswoole, but it is recommended to, instead, put a standard HTTP server in front of it, like nginx or apache, as swoole implements only a subset of the HTTP standard.
 
 The only consideration to ensure all Shlink capabilities work as expected, is that you make sure the consumer's IP address, and the request's domain, are forwarded from the proxy to Shlink.
 
@@ -19,7 +19,7 @@ Here you can find some docs on how to do it with the most used web servers:
 * Apache: https://httpd.apache.org/docs/trunk/en/howto/reverse_proxy.html
 * Caddy: https://caddyserver.com/docs/quick-starts/reverse-proxy
 
-Example nginx configuration to use as a reverse proxy in front of swoole, with SSL enabled:
+Example nginx configuration to use as a reverse proxy in front of swoole/openswoole, with SSL enabled:
 
 ```nginx
 server {
@@ -40,4 +40,3 @@ server {
     }
 }
 ```
-

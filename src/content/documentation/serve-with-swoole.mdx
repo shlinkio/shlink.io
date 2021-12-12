@@ -1,12 +1,19 @@
-## Serve Shlink using swoole
+import Callout from '../../components/Callout';
 
-Shlink can be served using [swoole](https://www.swoole.co.uk/).
+## Serve Shlink using swoole or openswoole
 
-Swoole provides a non-blocking I/O server similar to the one used for node.js applications, which lets web apps to be run once and kept in memory while serving requests.
+Shlink can be served using [swoole or openswoole](https://www.swoole.co.uk/).
 
-It is recommended to serve Shlink with swoole, since it is quite faster and has a few extra benefits (like running some heavy tasks immediately after a request has been served).
+They provide a non-blocking I/O server, similar to the one used for node.js applications, which lets web apps to be run once and kept in memory while serving requests.
 
-In order to use swoole, you have to install the swoole PHP extension using Pecl: `pecl install swoole-4.6.0`.
+It is recommended to serve Shlink with swoole or openswoole, since it is quite faster and has a few extra benefits (like running some heavy tasks immediately after a request has been served).
+
+<Callout type="info">
+  Starting with v2.10.0, Shlink supports both swoole and openswoole extensions, as their APIs do not deviate too much.
+  However, it's very likely that support for regular swoole is dropped in next major release, so it's recommended to use <b>openswoole</b> instead.
+</Callout>
+
+In order to use swoole or openswoole, you have to install the swoole PHP extension using Pecl: `pecl install openswoole-4.8.1`.
 
 You will also need to create a daemon script, in `/etc/init.d/shlink_swoole`.
 
@@ -20,7 +27,7 @@ You can use this sample, replacing `/path/to/shlink` by the path to your shlink 
 # Required-Stop:     $local_fs $network $named $time $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Description:       Shlink non-blocking server with swoole
+# Description:       Shlink non-blocking server with openswoole
 ### END INIT INFO
 
 SCRIPT=/path/to/shlink/vendor/bin/laminas\ mezzio:swoole:start
@@ -32,10 +39,10 @@ LOGFILE=${LOGDIR}/shlink_swoole.log
 
 start() {
   if [[ -f "$PIDFILE" ]] && kill -0 $(cat "$PIDFILE"); then
-    echo 'Shlink with swoole already running' >&2
+    echo 'Shlink with openswoole already running' >&2
     return 1
   fi
-  echo 'Starting shlink with swoole' >&2
+  echo 'Starting shlink with openswoole' >&2
   mkdir -p "$LOGDIR"
   touch "$LOGFILE"
   local CMD="$SCRIPT &> \"$LOGFILE\" & echo \$!"
@@ -45,10 +52,10 @@ start() {
 
 stop() {
   if [[ ! -f "$PIDFILE" ]] || ! kill -0 $(cat "$PIDFILE"); then
-    echo 'Shlink with swoole not running' >&2
+    echo 'Shlink with openswoole not running' >&2
     return 1
   fi
-  echo 'Stopping shlink with swoole' >&2
+  echo 'Stopping shlink with openswoole' >&2
   kill -15 $(cat "$PIDFILE") && rm -f "$PIDFILE"
   echo 'Shlink stopped' >&2
 }
@@ -69,7 +76,9 @@ case "$1" in
 esac
 ```
 
-> Notice that prior to v2.5, the SCRIPT was `vendor/bin/mezzio-swoole start`. This will continue working but is considered deprecated and will be removed in Shlink v3.0.0. Replace it with `vendor/bin/laminas mezzio:swoole:start` as soon as possible.
+<Callout type="warning">
+  Notice that prior to v2.5, the SCRIPT was <code className="no-highlight">vendor/bin/mezzio-swoole start</code>. This will continue working but is considered deprecated and will be removed in Shlink v3.0.0. Replace it with <code className="no-highlight">vendor/bin/laminas mezzio:swoole:start</code> as soon as possible (see the example above).
+</Callout>
 
 Then run these commands to enable the service and start it:
 
