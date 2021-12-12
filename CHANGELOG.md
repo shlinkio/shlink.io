@@ -4,13 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.25.0] - 2021-12-12
 ### Added
 * [#253](https://github.com/shlinkio/shlink.io/issues/253) Documented how to import from YOURLS.
 * Documented new not-found redirect env vars that deprecate existing ones.
 * [#259](https://github.com/shlinkio/shlink.io/issues/259) Documented new IS_HTTPS_ENABLED env var.
 * [#261](https://github.com/shlinkio/shlink.io/issues/261) Documented how to integrate with a RabbitMQ instance.
 * [#252](https://github.com/shlinkio/shlink.io/issues/252) Explained considerations when using multiple domains.
+* [#258](https://github.com/shlinkio/shlink.io/issues/258) Documented support for openswoole, and recommended using it over regular swoole.
 
 ### Changed
 * *Nothing*
