@@ -63,6 +63,12 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `DEFAULT_QR_CODE_FORMAT` *(v2.9.0)* : One of **png** or **svg**, to determine the default format of generated QR codes when the `format` query param is not provided. Defaults to png.
 * `DEFAULT_QR_CODE_ERROR_CORRECTION` *(v2.9.0)* : One of **L** (Low), **M** (Medium), **Q** (Quartile) or **H** (High), to determine the default error correction of generated QR codes when the `errorCorrection` query param is not provided. Defaults to l.
 * `DEFAULT_QR_CODE_ROUND_BLOCK_SIZE` *(v2.10.0)* : Tells if the block size should be round on QR codes, making it more readable, but potentially adding some extra margin as a side effect. Defaults to `true`.
+* `RABBITMQ_ENABLED` *(v2.10.0)* : Tells if the integration with a RabbitMQ server for real-time updates should be enabled. Defaults to `false`.
+* `RABBITMQ_HOST` *(v2.10.0)* : The RabbitMQ server host name. This will be ignored if `RABBITMQ_ENABLED` is false.
+* `RABBITMQ_PORT` *(v2.10.0)* : The RabbitMQ server port. Defaults to `5672`. This will be ignored if `RABBITMQ_ENABLED` is false.
+* `RABBITMQ_USER` *(v2.10.0)* : The RabbitMQ server username credential. This will be ignored if `RABBITMQ_ENABLED` is false.
+* `RABBITMQ_PASSWORD` *(v2.10.0)* : The RabbitMQ server password credential. This will be ignored if `RABBITMQ_ENABLED` is false.
+* `RABBITMQ_VHOST` *(v2.10.0)* : The RabbitMQ server VHost. Defaults to `/`. This will be ignored if `RABBITMQ_ENABLED` is false.
 
 ### Specific for the docker image
 
