@@ -1,8 +1,16 @@
+import Callout from '../../../components/Callout';
+
 ## Using multiple domains
 
 While in many cases you will just have one short domain and you'll want all your short URLs to be served from it, there are some cases in which you may want to have multiple short domains served from the same Shlink instance.
 
 If that's the case, you need to understand how Shlink will behave when managing your short URLs or any of them is visited.
+
+<Callout type="warning" title="Important!">
+  This documentation explains how a single Shlink instance will behave when served behind more than one domain.
+  <br />
+  However, it's still <b>up to you</b> to properly configure the DNS so that all the domains point to the proper "place", and the requests end up in Shlink. Shlink will never be able to do this by itself.
+</Callout>
 
 ### Management
 
