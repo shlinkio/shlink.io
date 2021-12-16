@@ -1,37 +1,7 @@
-import { FunctionComponent, useLayoutEffect, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FunctionComponent } from 'react';
+import { DocSearch as DocSearchReact } from '@docsearch/react';
 
-const DocsSearch: FunctionComponent = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const inputSelectorId = 'search-docs';
-
-  useLayoutEffect(() => {
-    const docsearch = require('docsearch.js/dist/npm'); // eslint-disable-line @typescript-eslint/no-var-requires
-
-    docsearch({ // eslint-disable-line @typescript-eslint/no-unsafe-call
-      apiKey: 'b43050cae2aa5185ad2c6b7ec271333e',
-      indexName: 'shlink',
-      inputSelector: `#${inputSelectorId}`,
-      debug: process.env.NODE_ENV === 'development',
-    });
-  }, []);
-
-  return (
-    <form className="search-form">
-      <input
-        type="text"
-        placeholder="Search the docs..."
-        name="search"
-        className="form-control search-input"
-        id={inputSelectorId}
-        ref={inputRef}
-      />
-      <span className="btn search-btn docs-search-btn" onClick={() => inputRef.current?.focus()}>
-        <FontAwesomeIcon icon={faSearch} />
-      </span>
-    </form>
-  );
-};
+const DocsSearch: FunctionComponent = () =>
+  <DocSearchReact apiKey="0dd162447ab255a125917745c912176b" appId="9SA2I2A9Q8" indexName="shlink" />;
 
 export default DocsSearch;

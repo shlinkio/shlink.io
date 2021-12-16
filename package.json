@@ -22,6 +22,7 @@
     "export:prod": "npm run export && npm run purge"
   },
   "dependencies": {
+    "@docsearch/react": "^3.0.0-alpha.42",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -31,7 +32,6 @@
     "@next/mdx": "^12.0.1",
     "bootstrap": "^4.6.1",
     "classnames": "^2.3.1",
-    "docsearch.js": "^2.6.3",
     "highlight.js": "^11.2.0",
     "next": "^12.0.5",
     "next-fonts": "^1.5.1",

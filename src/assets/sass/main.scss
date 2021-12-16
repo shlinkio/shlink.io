@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~highlight.js/scss/vs2015";
-@import "~docsearch.js/dist/cdn/docsearch.min.css"; // Use sass styles once deprecation warning is fixed
+@import "~@docsearch/css";
 @import "theme/theme";
 @import "./components/Breadcrumb.scss";
 @import "./components/DocsSearch.scss";
@@ -8,6 +8,15 @@
 @import "./components/InlineVideo.scss";
 @import "./components/Jumbotron.scss";
 @import "./components/Terminal.scss";
+
+.DocSearch-Container {
+  z-index: 1031;
+}
+
+.DocSearch-Button {
+  margin: 0;
+  width: 100%;
+}
 
 .logo-icon {
   width: 40px;

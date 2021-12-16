@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.26.0] - 2021-12-16
+### Added
+* Migrated to latest docsearch
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.25.0] - 2021-12-12
 ### Added
 * [#253](https://github.com/shlinkio/shlink.io/issues/253) Documented how to import from YOURLS.
