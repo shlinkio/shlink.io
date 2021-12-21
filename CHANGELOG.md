@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.26.1] - 2021-12-21
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fixed documentation regarding GeoLite2, mentioning the default key is now disabled and therefore, you need to provide your own.
+
+
 ## [6.26.0] - 2021-12-16
 ### Added
 * Migrated to latest docsearch
