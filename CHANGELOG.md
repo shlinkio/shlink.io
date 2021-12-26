@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.26.2] - 2021-12-26
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* [#269](https://github.com/shlinkio/shlink.io/issues/269) Fixed link to image used when sharing on Twitter.
+
+
 ## [6.26.1] - 2021-12-21
 ### Added
 * *Nothing*
