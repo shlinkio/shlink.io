@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.27.0] - 2021-12-26
+### Added
+* [#271](https://github.com/shlinkio/shlink.io/issues/271) Enhanced multi-domain docs explaining the steps that need to be performed outside of Shlink.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.26.2] - 2021-12-26
 ### Added
 * *Nothing*
