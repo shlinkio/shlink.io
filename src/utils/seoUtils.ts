@@ -17,7 +17,7 @@ export const openGraph = (title: string, description: string, siteName: string) 
       width: 625,
     },
     {
-      url: 'https://pbs.twimg.com/profile_banners/760406054354186240/1470831159/1500x500',
+      url: 'https://shlink.io/images/shlink-hero-1500-500.jpg',
       height: 1500,
       width: 1500,
     },
