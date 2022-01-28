@@ -4,11 +4,13 @@ These are some common issues that people have reported when using Shlink, togeth
 
 ### How do I change config options after installing Shlink.
 
-When you install Shlink using the `bin/install` tool, you will be able to easily provide all the config options.
+When you install Shlink using the `vendor/bin/shlink-installer install` tool, you will be able to easily provide all the config options.
 
 However, sometimes you need to change some of those params later in time.
 
-Starting with Shlink v2.5.0, you can simply use the `bin/set-option` tool to change the value for any config option. On previous versions, you will have to follow these steps:
+In order to do that, you can simply use the `vendor/bin/shlink-installer set-option` script to change the value for any config option.
+
+If that script fails, it could mean you are using a too old Shlink version. In that case, follow these steps:
 
 * Make a backup of the generated config file (`config/params/generated_config.php`).
 * Open that same file, locate the config option you want to change, and set the new value.
@@ -18,7 +20,7 @@ The generated config file is in PHP format, but it's a relatively straightforwar
 
 If you are not sure which option should be changed, feel free to [open an issue](https://github.com/shlinkio/shlink/issues/new?labels=question&template=Question_Support.md) asking for help.
 
-If Shlink does not work after changing the config, restore the backup you did on first step.
+If Shlink does not work after changing the config, restore the backup you did in first step.
 
 ### BadMethodCallException: Undefined method 'methodName'
 
@@ -38,7 +40,7 @@ That said, there are ways to get Shlink working.
 * If you only have access to the document root, upload the project there, and then copy everything inside the `public` folder to the project's root.
   Sadly, this makes all other folders accessible. It's highly recommended that you deny access to them if you shared hosting provider allows it, for example, using `.htaccess` files.
 
-In any case, you will need to have some kind of shell access in order to run the `bin/install` tool.
+In any case, you will need to have some kind of shell access in order to run the `vendor/bin/shlink-installer install` command.
 
 ### I renamed Shlink's folder, and now nothing works
 
@@ -54,7 +56,7 @@ It's relatively frequent that servers have many PHP versions coexisting, being o
 
 Sometimes, you think you are using the latest version required by Shlink, because that's what you see with `phpinfo()` executed on a web request.
 
-However, when running the `bin/install` or `bin/update` tools you see syntax errors.
+However, when running the `vendor/bin/shlink-installer install` or `vendor/bin/shlink-installer update` scripts you see syntax errors.
 
 When this happens, it is because you are running an older PHP version from the CLI. Run `php -v` to see the actual version being used.
 

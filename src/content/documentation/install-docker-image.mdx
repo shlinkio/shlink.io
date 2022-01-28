@@ -111,11 +111,11 @@ If you plan to run more than one Shlink instance, there are some resources that 
 
 One of those resources are the locks Shlink generates to prevent some operations to be run more than once in parallel (in the future, these redis servers could be used for other caching operations).
 
-In order to share those locks, you should use an external redis server (or a cluster of redis servers), by providing the `REDIS_SERVERS` env var.
+In order to share those locks, you should use an external redis server (redis cluster and redis sentinels are also supported), by providing the `REDIS_SERVERS` env var, and optionally, the `REDIS_SENTINEL_SERVICE` if you are using sentinels.
 
 It can be either one server name or a comma-separated list of servers.
 
-> If more than one redis server is provided, Shlink will expect them to be configured as a [redis cluster](https://redis.io/topics/cluster-tutorial).
+> If more than one redis server is provided, Shlink will expect them to be configured as a [redis cluster](https://redis.io/topics/cluster-tutorial), unless `REDIS_SENTINEL_SERVICE` has also been provided.
 
 #### Integrate with a mercure hub server
 
@@ -152,124 +152,13 @@ A few env vars have been already used in previous examples, but this image suppo
 
 See the full list of supported [Environment variables](/documentation/environment-variables).
 
-An example using all env vars could look like this:
-
-```bash
-docker run \
-    --name my_shlink \
-    -p 8080:8888 \
-    -e DEFAULT_DOMAIN=doma.in \
-    -e IS_HTTPS_ENABLED=true \
-    -e PORT=8888 \
-    -e DB_DRIVER=mysql \
-    -e DB_NAME=shlink \
-    -e DB_USER=root \
-    -e DB_PASSWORD=123abc \
-    -e DB_HOST=something.rds.amazonaws.com \
-    -e DB_PORT=3306 \
-    -e DISABLE_TRACK_PARAM="no-track" \
-    -e DELETE_SHORT_URL_THRESHOLD=30 \
-    -e VALIDATE_URLS=true \
-    -e "INVALID_SHORT_URL_REDIRECT_TO=https://my-landing-page.com" \
-    -e "REGULAR_404_REDIRECT_TO=https://my-landing-page.com" \
-    -e "BASE_URL_REDIRECT_TO=https://my-landing-page.com" \
-    -e "REDIS_SERVERS=tcp://172.20.0.1:6379,tcp://172.20.0.2:6379" \
-    -e "BASE_PATH=/my-campaign" \
-    -e WEB_WORKER_NUM=64 \
-    -e TASK_WORKER_NUM=32 \
-    -e "VISITS_WEBHOOKS=http://my-api.com/api/v2.3/notify,https://third-party.io/foo" \
-    -e DEFAULT_SHORT_CODES_LENGTH=6 \
-    -e GEOLITE_LICENSE_KEY=kjh23ljkbndskj345 \
-    -e "MERCURE_PUBLIC_HUB_URL=https://example.com" \
-    -e "MERCURE_INTERNAL_HUB_URL=http://my-mercure-hub.prod.svc.cluster.local" \
-    -e MERCURE_JWT_SECRET=super_secret_key \
-    -e ANONYMIZE_REMOTE_ADDR=false \
-    -e REDIRECT_STATUS_CODE=301 \
-    -e REDIRECT_CACHE_LIFETIME=90 \
-    -e AUTO_RESOLVE_TITLES=true \
-    -e TRACK_ORPHAN_VISITS=false \
-    -e DISABLE_TRACKING=true \
-    -e DISABLE_IP_TRACKING=true \
-    -e DISABLE_REFERRER_TRACKING=true \
-    -e DISABLE_UA_TRACKING=true \
-    -e ENABLE_PERIODIC_VISIT_LOCATE=true \
-    -e DEFAULT_QR_CODE_SIZE=500 \
-    -e DEFAULT_QR_CODE_MARGIN=10 \
-    -e DEFAULT_QR_CODE_FORMAT=svg \
-    -e DEFAULT_QR_CODE_ERROR_CORRECTION=H \
-    shlinkio/shlink:stable
-```
-
-### Provide config via volumes
-
-<Callout type="warning">
-  As of v2.5.0, providing config through volumes is deprecated, and no new options will be added anymore. Use env vars instead.
-  <br />
-  Support for config options through volumes will be removed in Shlink v3.0.0
-</Callout>
-
-Rather than providing custom configuration via env vars, it is also possible ot provide config files in json format.
-
-Mounting a volume at `config/params` you will make shlink load all the files on it with the `.config.json` suffix.
-
-The whole configuration should have this format, but it can be split into multiple files that will be merged:
-
-```json
-{
-    "disable_track_param": "my_param",
-    "delete_short_url_threshold": 30,
-    "short_domain_schema": "https",
-    "short_domain_host": "doma.in",
-    "validate_url": true,
-    "invalid_short_url_redirect_to": "https://my-landing-page.com",
-    "regular_404_redirect_to": "https://my-landing-page.com",
-    "base_url_redirect_to": "https://my-landing-page.com",
-    "base_path": "/my-campaign",
-    "web_worker_num": 64,
-    "task_worker_num": 32,
-    "default_short_codes_length": 6,
-    "redis_servers": [
-        "tcp://172.20.0.1:6379",
-        "tcp://172.20.0.2:6379"
-    ],
-    "visits_webhooks": [
-        "http://my-api.com/api/v2.3/notify",
-        "https://third-party.io/foo"
-    ],
-    "db_config": {
-        "driver": "pdo_mysql",
-        "dbname": "shlink",
-        "user": "root",
-        "password": "123abc",
-        "host": "something.rds.amazonaws.com",
-        "port": "3306"
-    },
-    "geolite_license_key": "kjh23ljkbndskj345",
-    "mercure_public_hub_url": "https://example.com",
-    "mercure_internal_hub_url": "http://my-mercure-hub.prod.svc.cluster.local",
-    "mercure_jwt_secret": "super_secret_key",
-    "anonymize_remote_addr": false,
-    "redirect_status_code": 301,
-    "redirect_cache_lifetime": 90,
-    "port": 8888
-}
-```
-
-> This is internally parsed to how shlink expects the config. If you are using a version previous to 1.17.0, this parser is not present and you need to provide a config structure like the one [documented previously](https://github.com/shlinkio/shlink-docker-image/tree/v1.16.3#provide-config-via-volumes).
-
-Once created just run shlink with the volume:
-
-```bash
-docker run --name my_shlink -p 8080:8080 -v ${PWD}/my/config/dir:/etc/shlink/config/params shlinkio/shlink:stable
-```
-
 ### Multi-architecture
 
 Starting on v2.3.0, Shlink's docker image is built for multiple architectures.
 
 The only limitation is that images for architectures other than `amd64` will not have support for Microsoft SQL databases, since there are no official binaries.
 
-### Multi instance considerations
+### Multi-instance considerations
 
 These are some considerations to take into account when running multiple instances of shlink.
 
@@ -283,6 +172,6 @@ These are some considerations to take into account when running multiple instanc
 
 Versioning on this docker image works as follows:
 
-* `X.X.X`:  when providing a specific version number, the image version will match the shlink version it contains. For example, installing `shlinkio/shlink:1.15.0`, you will get an image containing shlink v1.15.0.
-* `stable`: always holds the latest stable tag. For example, if latest shlink version is 2.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v2.0.0
+* `X.X.X`:  when providing a specific version number, the image version will match the shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing shlink v2.9.1.
+* `stable`: always holds the latest stable tag. For example, if latest shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
 * `latest`: always holds the latest contents, and it's considered unstable and not suitable for production.

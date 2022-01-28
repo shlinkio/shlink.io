@@ -7,10 +7,7 @@ After installing Shlink, you will have to set it up, and customize different asp
 This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced:
 
 * `DEFAULT_DOMAIN` *(v2.9.0)* : The default short domain used for this shlink instance. For example **doma.in**.
-* `IS_HTTPS_ENABLED` *(v2.10.0)* : Tells if Shlink is served with https or not (`true` or `false`). It's still **up to you** to actually serve it with HTTPS. Falls back to `USE_HTTPS` and then `SHORT_DOMAIN_SCHEMA` if not provided.
-* ~~`USE_HTTPS`~~ *(v2.9.0)* : *Deprecated since v2.10.0. Use `IS_HTTPS_ENABLED` instead. They do the same, but `USE_HTTPS` proved to be misleading*.
-* ~~`SHORT_DOMAIN_HOST`~~: *Deprecated since v2.9.0. Use `DEFAULT_DOMAIN` instead*.
-* ~~`SHORT_DOMAIN_SCHEMA`~~: Either **http** or **https**. *Deprecated since v2.9.0. Use `IS_HTTPS_ENABLED` instead*.
+* `IS_HTTPS_ENABLED` *(v2.10.0)* : Tells if Shlink is served with https or not (`true` or `false`). It's still **up to you** to actually serve it with HTTPS.
 * `DB_DRIVER`: **sqlite** (which is the default value), **mysql**, **maria**, **postgres** or **mssql**.
 * `DB_NAME`: The database name to be used when using an external database driver. Defaults to **shlink**.
 * `DB_USER`: The username credential to be used when using an external database driver.
@@ -22,15 +19,11 @@ This is the complete list of supported env vars. Right next to their name you wi
     * **postgres** -> `5432`
     * **mssql** -> `1433`
 * `DB_UNIX_SOCKET` *(v2.5.0)* : Alternatively to the `DB_HOST`, you can provide this to connect through unix sockets when using `mysql`, `maria` or `postgres` drivers.
-* `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. Defaults to `15`.
-* ~~`VALIDATE_URLS`~~: Boolean which tells if shlink should validate a status 20x is returned (after following redirects) when trying to shorten a URL. Defaults to `false`. *Deprecated*
+* `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. If not provided, this restriction will be disabled.
 * `BASE_PATH`: The base path from which you plan to serve shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
 * `DEFAULT_INVALID_SHORT_URL_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access an invalid short URL, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
 * `DEFAULT_REGULAR_404_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access a URL not matching any supported by the router, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
 * `DEFAULT_BASE_URL_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access Shlink's base URL, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* ~~`INVALID_SHORT_URL_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_INVALID_SHORT_URL_REDIRECT` instead*.
-* ~~`REGULAR_404_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_REGULAR_404_REDIRECT` instead*.
-* ~~`BASE_URL_REDIRECT_TO`~~: *Deprecated since v2.10.0. Use `DEFAULT_BASE_URL_REDIRECT` instead*.
 * `WEB_WORKER_NUM`: The amount of concurrent http requests this shlink instance will be able to serve. Defaults to 16. Relevant only when serving Shlink with swoole or openswoole.
 * `TASK_WORKER_NUM`: The amount of concurrent background tasks this shlink instance will be able to execute. Defaults to 16. Relevant only when serving Shlink with swoole or openswoole.
 * `VISITS_WEBHOOKS`: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
@@ -81,5 +74,6 @@ These are the env vars that only make sense for the docker image:
 There are a few things to have in mind.
 
 * Shlink has always supported configuration via environment variables when using the official docker image. However, it only supports env vars for other approaches since v2.9.0
-* Shlink also supports providing configuration options via the so called "install tool" (`bin/install` script). This is an interactive CLI tool that generates some "hardcoded" configuration after being executed.
-  This configuration will always take precedence over env vars, so you cannot combine the two of them.
+* Shlink also supports providing configuration options via the so called "install tool" (`vendor/bin/shlink-installer install` script). This is an interactive CLI tool that generates some "hardcoded" configuration after being executed.
+  Before Shlink 3.0.0, this configuration will always take precedence over env vars, so you cannot combine the two of them.
+  This limitation is not present starting with Shlink 3.0.0, where environment variables always have precedence.
