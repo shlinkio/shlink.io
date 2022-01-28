@@ -27,32 +27,31 @@ Options:
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Available commands:
-  help                Display help for a command
-  list                List commands
+  completion         Dump the shell completion script
+  help               Display help for a command
+  list               List commands
  api-key
-  api-key:disable     Disables an API key.
-  api-key:generate    Generates a new valid API key.
-  api-key:list        Lists all the available API keys.
+  api-key:disable    Disables an API key.
+  api-key:generate   Generates a new valid API key.
+  api-key:list       Lists all the available API keys.
  db
-  db:create           Creates the database needed for shlink to work. It will do nothing if the database already exists
-  db:migrate          Runs database migrations, which will ensure the shlink database is up to date.
+  db:create          Creates the database needed for shlink to work. It will do nothing if the database already exists
+  db:migrate         Runs database migrations, which will ensure the shlink database is up to date.
  domain
-  domain:list         List all domains that have been ever used for some short URL, or have some "not found" redirect configured.
-  domain:redirects    Set specific "not found" redirects for individual domains.
+  domain:list        List all domains that have been ever used for some short URL
+  domain:redirects   Set specific "not found" redirects for individual domains.
  short-url
-  short-url:delete    Deletes a short URL
-  short-url:generate  Generates a short URL for provided long URL and returns it
-  short-url:import    Allows to import short URLs from third party sources
-  short-url:list      List all short URLs
-  short-url:parse     Returns the long URL behind a short code
-  short-url:visits    Returns the detailed visits information for provided short code
+  short-url:create   Generates a short URL for provided long URL and returns it
+  short-url:delete   Deletes a short URL
+  short-url:import   Allows to import short URLs from third party sources
+  short-url:list     List all short URLs
+  short-url:parse    Returns the long URL behind a short code
+  short-url:visits   Returns the detailed visits information for provided short code
  tag
-  tag:create          [Deprecated] Creates one or more tags.
-  tag:delete          Deletes one or more tags.
-  tag:list            Lists existing tags.
-  tag:rename          Renames one existing tag.
+  tag:delete         Deletes one or more tags.
+  tag:list           Lists existing tags.
+  tag:rename         Renames one existing tag.
  visit
-  visit:download-db   Checks if the GeoLite2 db file is too old or it does not exist, and tries to download an up-to-date copy if so.
-  visit:locate        Resolves visits origin locations. It implicitly downloads/updates the GeoLite2 db file if needed.
-
+  visit:download-db  Checks if the GeoLite2 db file is too old or it does not exist, and tries to download an up-to-date copy if so.
+  visit:locate       Resolves visits origin locations. It implicitly downloads/updates the GeoLite2 db file if needed.
 ```
