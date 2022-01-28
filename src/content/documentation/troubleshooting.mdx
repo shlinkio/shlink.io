@@ -124,7 +124,7 @@ Using your own GeoLite2 license key is currently considered mandatory. Follow [t
 
 ### Real-time updates never get triggered
 
-First, real-time updates are only triggered when serving Shlink with swoole or openswoole (or when using the docker image, which uses openswoole internally), and they will never work if you serve it with a classic web server.
+First, real-time updates are only triggered when serving Shlink with openswoole (or when using the docker image, which uses openswoole internally), and they will never work if you serve it with a classic web server.
 
 Second, real-time updates are triggered after a visit has been located. Because of this, the issue described in previous point can also result in the updates never getting triggered.
 
