@@ -8,7 +8,7 @@ Shlink will track every time your short URLs are opened, and then try to geoloca
 
 In order to geolocate visits, Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) database, by [MaxMind](https://www.maxmind.com), which is used to match the location of the visitor's IP address.
 
-Depending on your setup, visits could be geolocated almost in real time (if you [serve Shlink with swoole or openswoole](/documentation/serve-with-swoole) or use the [docker image](/documentation/install-docker-image)), or you will have to configure a [scheduled task](/documentation/long-running-tasks#locate-visits) that does it.
+Depending on your setup, visits could be geolocated almost in real time (if you [serve Shlink with openswoole](/documentation/serve-with-openswoole) or use the [docker image](/documentation/install-docker-image)), or you will have to configure a [scheduled task](/documentation/long-running-tasks#locate-visits) that does it.
 
 To make sure your GeoLite2 db is always up to date, you will have to [configure your own license key](/documentation/geolite-license-key).
 

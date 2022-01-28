@@ -4,13 +4,12 @@ import Callout from '../../components/Callout';
 
 Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) database, by [MaxMind](https://www.maxmind.com), to geolocate visits to your short URLs.
 
-In order to ensure the data is up-to-date, it downloads new versions of the database regularly.
+To make sure the data is always up-to-date, it downloads new versions of the database regularly.
 
 However, in order to do this, Shlink needs a GeoLite2 license key. These licenses are free, and you can easily generate one by following the instructions below.
 
 <Callout type="info">
-  <p>Shlink has included a default GeoLite2 license key since version 1.21.1, but it is currently disabled, and not providing your own will result in some annoying errors being logged.</p>
-  Shlink 3.0, when released, will no longer include this license key, and not providing one will, instead, completely disable geolocation.
+  If you don't provide a GeoLite2 license key, Shlink will simply not geolocate visits.
 </Callout>
 
 ### Generate a license key
@@ -25,4 +24,4 @@ In order to generate the license key, follow these steps.
 Once you have your license key, you will need to provide it to Shlink.
 
 * Via environment variable: use `GEOLITE_LICENSE_KEY` to set your license key.
-* Via installer tool: you will be asked to provide the license key when installing or updating Shlink, or you can use `bin/set-option` to set it later.
+* Via installer tool: you will be asked to provide the license key when installing or updating Shlink, or you can run `vendor/bin/shlink-installer set-option` to set it later.
