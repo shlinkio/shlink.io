@@ -30,7 +30,7 @@ Try restarting `apache`/`nginx`/`php-fpm` services. It should solve the problem.
 
 ### How to install Shlink on a shared hosting
 
-First, shared hosting is not the main target env for shlink. The goal of the project is to provide a cloud-native and cloud-friendly solution to self-host a URL shortener.
+First, shared hosting is not the main target env for Shlink. The goal of the project is to provide a cloud-native and cloud-friendly solution to self-host a URL shortener.
 
 There are other projects which play better with shared hosting. Try googling "self-hosted URL shortener".
 
@@ -46,7 +46,7 @@ In any case, you will need to have some kind of shell access in order to run the
 
 Shlink does not directly depend on the name of the folder, it's perfectly fine to rename it and continue working.
 
-However, shlink generates a cached config file that resolves absolute paths. That makes file paths defined on it to still point to the old folder name, making Shlink unusable.
+However, Shlink generates a cached config file that resolves absolute paths. That makes file paths defined on it to still point to the old folder name, making Shlink unusable.
 
 The solution is to just delete that file, `data/cache/app_config.php`. After that, Shlink will regenerate it with the new folder name where needed.
 

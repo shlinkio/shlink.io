@@ -8,11 +8,11 @@ The docker image is probably the simplest installation use case, since it includ
 
 The most basic way to run Shlink's docker image is by providing these mandatory env vars.
 
-* `DEFAULT_DOMAIN`: The custom short domain used for this shlink instance. For example **doma.in**.
+* `DEFAULT_DOMAIN`: The custom short domain used for this Shlink instance. For example **doma.in**.
 * `IS_HTTPS_ENABLED`: Either **true** or **false**.
 * `GEOLITE_LICENSE_KEY`: Your GeoLite2 license key. [Learn more](/documentation/geolite-license-key/) about this.
 
-To run shlink on top of a local docker service, and using an internal SQLite database, do the following:
+To run Shlink on top of a local docker service, and using an internal SQLite database, do the following:
 
 ```bash
 docker run \
@@ -24,9 +24,9 @@ docker run \
     shlinkio/shlink:stable
 ```
 
-##### Interact with shlink's CLI on a running container.
+##### Interact with Shlink's CLI on a running container.
 
-Once the shlink container is running, you can interact with the [CLI entry point](/documentation/command-line-interface/entry-point) by running `shlink` with any of the supported commands.
+Once the Shlink container is running, you can interact with the [CLI entry point](/documentation/command-line-interface/entry-point) by running `shlink` with any of the supported commands.
 
 For example, if the container is called `my_shlink`, you can generate a new API key with:
 
@@ -46,7 +46,7 @@ Or locate remaining visits with:
 docker exec -it my_shlink shlink visit:locate
 ```
 
-All shlink commands will work the same way.
+All Shlink commands will work the same way.
 
 You can also list all available commands just by running this:
 
@@ -58,7 +58,7 @@ docker exec -it my_shlink shlink
 
 The image comes with a working SQLite database, but in production, it's strongly recommended using a distributed database.
 
-It is possible to use a set of env vars to make this shlink instance interact with an external MySQL, MariaDB, PostgreSQL or Microsoft SQL Server database.
+It is possible to use a set of env vars to make this Shlink instance interact with an external MySQL, MariaDB, PostgreSQL or Microsoft SQL Server database.
 
 * `DB_DRIVER`: **[Mandatory]**. Use the value **mysql**, **maria**, **postgres** or **mssql** to prevent the SQLite database to be used.
 * `DB_NAME`: [Optional]. The database name to be used. Defaults to **shlink**.
@@ -73,7 +73,7 @@ It is possible to use a set of env vars to make this shlink instance interact wi
 
 > PostgreSQL is supported since v1.16.1 and Microsoft SQL server since v2.1.0. Do not try to use them with previous versions.
 
-Taking this into account, you could run shlink on a local docker service like this:
+Taking this into account, you could run Shlink on a local docker service like this:
 
 ```bash
 docker run \
@@ -129,7 +129,7 @@ There are three env vars you need to provide if you want to enable this:
 * `MERCURE_INTERNAL_HUB_URL`: **[Optional]**. An internal URL for a mercure hub. Will be used only when publishing updates to mercure, and does not need to be public. If this is not provided, the `MERCURE_PUBLIC_HUB_URL` one will be used to publish updates.
 * `MERCURE_JWT_SECRET`: **[Mandatory]**. The secret key that was provided to the mercure hub server, in order to be able to generate valid JWTs for publishing/subscribing to that server.
 
-So in order to run shlink with mercure integration, you would do it like this:
+So in order to run Shlink with mercure integration, you would do it like this:
 
 ```bash
 docker run \
@@ -160,7 +160,7 @@ The only limitation is that images for architectures other than `amd64` will not
 
 ### Multi-instance considerations
 
-These are some considerations to take into account when running multiple instances of shlink.
+These are some considerations to take into account when running multiple Shlink instances.
 
 * Some operations performed by Shlink should never be run more than once at the same time (like creating the database for the first time, or downloading the GeoLite2 database). For this reason, Shlink uses a locking system.
 
@@ -172,6 +172,6 @@ These are some considerations to take into account when running multiple instanc
 
 Versioning on this docker image works as follows:
 
-* `X.X.X`:  when providing a specific version number, the image version will match the shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing shlink v2.9.1.
-* `stable`: always holds the latest stable tag. For example, if latest shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
+* `X.X.X`:  when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1.
+* `stable`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
 * `latest`: always holds the latest contents, and it's considered unstable and not suitable for production.
