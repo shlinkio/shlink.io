@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* [#267](https://github.com/shlinkio/shlink.io/issues/267) Fixed linting by migrating to Next.js recommended rules.
+
+
 ## [6.28.0] - 2022-01-28
 ### Added
 * [#267](https://github.com/shlinkio/shlink.io/issues/267) Updated docs to fulfil Shlink 3.0.0.
