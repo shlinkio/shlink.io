@@ -39,13 +39,13 @@ const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-li
 
 const a = (props: any) => <Link {...props} />;
 const code = (props: any) => {
-  if (!props.className?.includes('no-highlight')) { // eslint-disable-line @typescript-eslint/no-unsafe-call
+  if (!props.className?.includes('no-highlight')) {
     return <Highlight {...props} />;
   }
 
   const newProps = {
     ...props,
-    className: props.className?.replace('no-highlight', ''), // eslint-disable-line @typescript-eslint/no-unsafe-call
+    className: props.className?.replace('no-highlight', ''),
   };
 
   return <code {...newProps} />;
