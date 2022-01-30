@@ -40,6 +40,12 @@
         <loc>https://shlink.io/documentation/command-line-interface/</loc>
     </url>
     <url>
+        <loc>https://shlink.io/documentation/command-line-interface/entry-point/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/command-line-interface/installer-tool/</loc>
+    </url>
+    <url>
         <loc>https://shlink.io/apps/</loc>
     </url>
 </urlset>

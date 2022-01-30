@@ -40,7 +40,7 @@ const Home: FunctionComponent = () => (
         <SectionItem title="Command line" block={<Terminal id="cli" />}>
           Generate and manage short URLs from the command line. List URLs, see visits, manage your domains, etc.
           <div className="cta-link mt-3">
-            <InternalLink href="/documentation/command-line-interface" className="btn btn-secondary btn-sm">
+            <InternalLink href="/documentation/command-line-interface/entry-point" className="btn btn-secondary btn-sm">
               View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>

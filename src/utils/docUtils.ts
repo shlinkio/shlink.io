@@ -49,7 +49,15 @@ const docsRoutes: Route[] = [
       { text: 'Using a reverse proxy', link: '/documentation/advanced/exposing-through-reverse-proxy' },
     ],
   },
-  { text: 'Command line interface', link: '/documentation/command-line-interface', menuIcon: faTerminal },
+  {
+    text: 'Command line',
+    link: '/documentation/command-line-interface',
+    menuIcon: faTerminal,
+    subRoutes: [
+      { text: 'CLI entry point', link: '/documentation/command-line-interface/entry-point' },
+      { text: 'Installer tool', link: '/documentation/command-line-interface/installer-tool' },
+    ]
+  },
   {
     text: 'REST API',
     link: '/documentation/api-docs',
