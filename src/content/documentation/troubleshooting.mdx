@@ -165,3 +165,13 @@ If you are serving your mercure instance on a host different from the one where 
 For mercure older than v0.11, that's done via the `CORS_ALLOWED_ORIGINS` env var, which can have the `"*"` value, or the explicit domain of your web client.
 
 For mercure v0.11 or newer, you need to pass the `MERCURE_EXTRA_DIRECTIVES` env var, with value `cors_origins https://my-web-client.com`. This versions no longer allows the `"*"` value.
+
+### Error writing to config/params/generated_config.php during installation
+
+Shlink's [installation tool](/documentation/command-line-interface/installation-tool) does a couple of things. One of them is writing a config file with provided options.
+
+A common mistake is running the installation tool from the wrong directory, which results on the generated config file's path not being found, which triggers an error like this:
+
+`Error writing to "config/params/generated_config.php": file_put_contents(config/params/generated_config.php): Failed to open stream: No such file or directory`.
+
+In order to solve this, make sure the working directory when running the installation tool, is always Shlink's root folder.
