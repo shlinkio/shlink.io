@@ -74,6 +74,6 @@ These are the env vars that only make sense for the docker image:
 There are a few things to have in mind.
 
 * Shlink has always supported configuration via environment variables when using the official docker image. However, it only supports env vars for other approaches since v2.9.0
-* Shlink also supports providing configuration options via the so called "install tool" (`vendor/bin/shlink-installer install` script). This is an interactive CLI tool that generates some "hardcoded" configuration after being executed.
+* Shlink also supports providing configuration options via the so-called [installer tool](/documentation/command-line-interface/installer-tool). This is an interactive CLI tool that generates some "hardcoded" configuration after being executed.
   Before Shlink 3.0.0, this configuration will always take precedence over env vars, so you cannot combine the two of them.
   This limitation is not present starting with Shlink 3.0.0, where environment variables always have precedence.
