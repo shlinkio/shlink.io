@@ -4,7 +4,7 @@ These are some common issues that people have reported when using Shlink, togeth
 
 ### How do I change config options after installing Shlink.
 
-When you install Shlink using the `vendor/bin/shlink-installer install` tool, you will be able to easily provide all the config options.
+When you install Shlink using the [installation tool](/documentation/command-line-interface/installation-tool), you will be able to easily provide all the config options.
 
 However, sometimes you need to change some of those params later in time.
 
@@ -30,7 +30,7 @@ Try restarting `apache`/`nginx`/`php-fpm` services. It should solve the problem.
 
 ### How to install Shlink on a shared hosting
 
-First, shared hosting is not the main target env for shlink. The goal of the project is to provide a cloud-native and cloud-friendly solution to self-host a URL shortener.
+First, shared hosting is not the main target env for Shlink. The goal of the project is to provide a cloud-native and cloud-friendly solution to self-host a URL shortener.
 
 There are other projects which play better with shared hosting. Try googling "self-hosted URL shortener".
 
@@ -40,13 +40,13 @@ That said, there are ways to get Shlink working.
 * If you only have access to the document root, upload the project there, and then copy everything inside the `public` folder to the project's root.
   Sadly, this makes all other folders accessible. It's highly recommended that you deny access to them if you shared hosting provider allows it, for example, using `.htaccess` files.
 
-In any case, you will need to have some kind of shell access in order to run the `vendor/bin/shlink-installer install` command.
+In any case, you will need to have some kind of shell access in order to run the [installation tool](/documentation/command-line-interface/installation-tool).
 
 ### I renamed Shlink's folder, and now nothing works
 
 Shlink does not directly depend on the name of the folder, it's perfectly fine to rename it and continue working.
 
-However, shlink generates a cached config file that resolves absolute paths. That makes file paths defined on it to still point to the old folder name, making Shlink unusable.
+However, Shlink generates a cached config file that resolves absolute paths. That makes file paths defined on it to still point to the old folder name, making Shlink unusable.
 
 The solution is to just delete that file, `data/cache/app_config.php`. After that, Shlink will regenerate it with the new folder name where needed.
 
@@ -56,7 +56,7 @@ It's relatively frequent that servers have many PHP versions coexisting, being o
 
 Sometimes, you think you are using the latest version required by Shlink, because that's what you see with `phpinfo()` executed on a web request.
 
-However, when running the `vendor/bin/shlink-installer install` or `vendor/bin/shlink-installer update` scripts you see syntax errors.
+However, when running the [install](/documentation/command-line-interface/installation-tool#install) or [update](/documentation/command-line-interface/installation-tool#update) scripts you see syntax errors.
 
 When this happens, it is because you are running an older PHP version from the CLI. Run `php -v` to see the actual version being used.
 

@@ -6,6 +6,10 @@ Shlink is designed so that updating an installation to a newer version is as eas
 
 However, the process may defer depending on how you installed Shlink.
 
+<Callout type="warning" title="Important">
+  It is recommended that you don't skip too many versions at a time when updating Shlink. If you have to, make sure to back-up your database beforehand, in case the process needs to be rolled back.
+</Callout>
+
 ### Update a docker image
 
 This is probably the simplest use case.
@@ -28,7 +32,3 @@ That said, the process you should follow would be this:
 2. Download and extract the new version of Shlink, and set the directory name to that of the old version (ie. `shlink`).
 3. Run the `vendor/bin/shlink-installer update` script in the new version's directory to migrate your configuration over. You will be asked to provide the path to the old instance (ie. `shlink-old`).
 4. If you are using shlink with openswoole, restart the service by running `/etc/init.d/shlink_swoole restart`.
-
-<Callout type="warning">
-    It is recommended that you don't skip too many versions at a time when updating Shlink. If you have to, make sure to back-up your database beforehand, in case the process needs to be rolled back.
-</Callout>
