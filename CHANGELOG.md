@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* [#283](https://github.com/shlinkio/shlink.io/issues/283) Added warning noticing installation tool has to be run from Shlink's root folder.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.29.0] - 2022-01-30
 ### Added
 * [#278](https://github.com/shlinkio/shlink.io/issues/278) Documented installer tool.
