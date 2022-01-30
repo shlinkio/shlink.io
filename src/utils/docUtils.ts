@@ -55,7 +55,7 @@ const docsRoutes: Route[] = [
     menuIcon: faTerminal,
     subRoutes: [
       { text: 'CLI entry point', link: '/documentation/command-line-interface/entry-point' },
-      { text: 'Installer tool', link: '/documentation/command-line-interface/installer-tool' },
+      { text: 'Installation tool', link: '/documentation/command-line-interface/installation-tool' },
     ]
   },
   {
