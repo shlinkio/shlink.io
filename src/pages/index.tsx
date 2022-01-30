@@ -18,17 +18,17 @@ const Home: FunctionComponent = () => (
 
     <section className="theme-bg-light pb-4 pt-4">
       <div className="container">
-        <SectionItem title="Command line" block={<Terminal id="cli" />}>
-          Generate and manage short URLs from the command line. List short codes, see visits or get the URL
-          behind a short code.
+        <SectionItem title="Progressive web app" block={<ShlinkWebClientVideo />}>
+          Manage multiple Shlink instances using this beautiful and
+          intuitive progressive web application.
           <div className="cta-link mt-3">
-            <InternalLink href="/documentation/command-line-interface" className="btn btn-secondary btn-sm">
-              View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
-            </InternalLink>
+            <ExternalLink href="https://app.shlink.io" className="btn btn-secondary btn-sm">
+              Go <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+            </ExternalLink>
           </div>
         </SectionItem>
 
-        <SectionItem title="REST API" block={<Terminal id="rest" />} reverse>
+        <SectionItem title="API-first" block={<Terminal id="rest" />} reverse>
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
             <InternalLink href="/documentation/api-docs" className="btn btn-secondary btn-sm">
@@ -37,13 +37,12 @@ const Home: FunctionComponent = () => (
           </div>
         </SectionItem>
 
-        <SectionItem title="Progressive web app" block={<ShlinkWebClientVideo />}>
-          Manage multiple Shlink instances using this beautiful and
-          intuitive progressive web application.
+        <SectionItem title="Command line" block={<Terminal id="cli" />}>
+          Generate and manage short URLs from the command line. List URLs, see visits, manage your domains, etc.
           <div className="cta-link mt-3">
-            <ExternalLink href="https://app.shlink.io" className="btn btn-secondary btn-sm">
-              Go <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
-            </ExternalLink>
+            <InternalLink href="/documentation/command-line-interface" className="btn btn-secondary btn-sm">
+              View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+            </InternalLink>
           </div>
         </SectionItem>
       </div>
