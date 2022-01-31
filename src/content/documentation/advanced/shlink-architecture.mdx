@@ -2,13 +2,13 @@
 
 While building and evolving Shlink and its ecosystem, some architecture decisions have been made.
 
-Some of those decisions are sometimes hard to understand, specially when coming from other services, like YOURLS or Bit.ly
+Some of those decisions are sometimes hard to understand, specially when coming from other services, like Bit.ly or YOURLS. This document explains their benefits and drawbacks.
 
 Shlink has been built with **cloud-native environments** in mind, being an **API-first** service that simplifies its integration with other services, and treats any kind of user interface as an external consumer.
 
 ### Architecture diagram
 
-This could represent a typical architecture in which Shlink could be integrated.
+This could represent a typical architecture in which Shlink would be integrated.
 
 ![Shlink architecture](/images/architecture/shlink-architecture.png)
 
@@ -16,11 +16,11 @@ This could represent a typical architecture in which Shlink could be integrated.
 
 * Shlink itself does not need to care about end-user permissions or roles. As an API it just provides capabilities, and you can keep its API unreachable from outside your private network.
   * Any potential end-user permission would be handled by a consumer with its own back-end.
-* Any potential UI or consumer app (like [shlink-web-client](/documentation/shlink-web-client)) can have its own independent release lifecycle.
+* Any user interface or consumer app (like [shlink-web-client](/documentation/shlink-web-client)) can have its own independent release lifecycle.
+  * If shlink-web-client covers your needs as a web UI, you can forget about maintaining your own instance and just use https://app.shlink.io
 * It simplifies building a docker image for Shlink, as it has a single responsibility and a single process to serve.
 * It plays nicely with how the different container-based infrastructures (like kubernetes) expect services to behave.
 * It allows to have multiple Shlink instances, if needed, that can be all handled from a centralized dashboard (shlink-web-client supports this out of the box).
-* If shlink-web-client covers your needs as a web UI, you can just forget about maintaining your own instance and use https://app.shlink.io
 
 ### Drawbacks
 
