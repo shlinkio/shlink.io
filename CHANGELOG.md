@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Added
 * [#283](https://github.com/shlinkio/shlink.io/issues/283) Added warning noticing installation tool has to be run from Shlink's root folder.
 * [#285](https://github.com/shlinkio/shlink.io/issues/285) Documented deprecated webhooks.
+* [#286](https://github.com/shlinkio/shlink.io/issues/286) Grouped env vars by context, and added deep-linking to specific groups when relevant.
 
 ### Changed
 * *Nothing*
