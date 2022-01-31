@@ -15,3 +15,4 @@ jobs:
           use-verbose-mode: 'yes'
           folder-path: './src/content'
           file-extension: '.mdx'
+          config-file: './mlc_config.json'
