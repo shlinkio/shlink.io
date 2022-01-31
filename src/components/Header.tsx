@@ -56,8 +56,8 @@ const Header: FunctionComponent<HeaderProps> = ({ leftMenuToggle }) => {
 
             <ul className="navbar-nav ml-lg-auto">
               <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
-              <MenuItem to="/documentation" active={isBaseDocsActive}>Documentation</MenuItem>
-              <MenuItem to="/apps" active={currentPage.startsWith('/apps')} isLast>Apps</MenuItem>
+              <MenuItem to="/apps" active={currentPage.startsWith('/apps')}>Apps</MenuItem>
+              <MenuItem to="/documentation" active={isBaseDocsActive} isLast>Documentation</MenuItem>
             </ul>
           </Collapse>
         </Navbar>

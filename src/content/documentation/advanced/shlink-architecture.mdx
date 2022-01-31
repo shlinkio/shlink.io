@@ -1,0 +1,48 @@
+## Shlink architecture
+
+While building and evolving Shlink and its ecosystem, some architecture decisions have been made.
+
+Some of those decisions are sometimes hard to understand, specially when coming from other services, like YOURLS or Bit.ly
+
+Shlink has been built with **cloud-native environments** in mind, being an **API-first** service that simplifies its integration with other services, and treats any kind of user interface as an external consumer.
+
+### Architecture diagram
+
+This could represent a typical architecture in which Shlink could be integrated.
+
+![Shlink architecture](/images/architecture/shlink-architecture.png)
+
+### Benefits
+
+* Shlink itself does not need to care about end-user permissions or roles. As an API it just provides capabilities, and you can keep its API unreachable from outside your private network.
+  * Any potential end-user permission would be handled by a consumer with its own back-end.
+* Any potential UI or consumer app (like [shlink-web-client](/documentation/shlink-web-client)) can have its own independent release lifecycle.
+* It simplifies building a docker image for Shlink, as it has a single responsibility and a single process to serve.
+* It plays nicely with how the different container-based infrastructures (like kubernetes) expect services to behave.
+* It allows to have multiple Shlink instances, if needed, that can be all handled from a centralized dashboard (shlink-web-client supports this out of the box).
+* If shlink-web-client covers your needs as a web UI, you can just forget about maintaining your own instance and use https://app.shlink.io
+
+### Drawbacks
+
+* This approach might make it harder to deploy Shlink + shlink-web-client on a shared hosting, but that's never been the focus of the project anyway. There are alternatives if that's what you need.
+
+### FAQs
+
+#### Why can't I serve Shlink and a UI (like shlink-web-client) from the same domain?
+
+As mentioned above, Shlink itself does not provide a web UI, and it needs external services that provide this capability.
+
+That means Shlink and the UI are two separated web apps, and therefore, serving them under the same domain is not that straightforward. but you have options:
+
+* Use a sub-path for one of them: Both Shlink and shlink-web-client support being served under a common subpath. You could use something like `/admin` for the web client, or a very short path with low impact (like `/s`) for Shlink.
+* Use subdomains: This is a pretty simple approach, and Shlink supports [CORS](/documentation/api-docs#cors) out of the box.
+
+#### Why is Shlink exposing both an API and the short URLs?
+
+That's the only grey area. Some time ago, there was [some investigation](https://github.com/shlinkio/shlink/issues/198) about actually splitting Shlink into a pure web service, and a separated app designed just to handle short URLs.
+
+The idea was discarded, as it would introduce too much complexity for two components which are relatively coupled anyway. This is where the line was drawn.
+
+#### How can I try Shlink without setting-up the whole pack?
+
+For quick tests, you can use the [CLI tool](/documentation/command-line-interface/entry-point) which is included with Shlink. It provides most of the capabilities and will help you check if Shlink covers your needs and is worth installing anything else.
