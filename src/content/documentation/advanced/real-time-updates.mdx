@@ -87,6 +87,14 @@ The exchanges and queues are created in a "durable" way, with "direct" publishin
 
 ### Webhooks
 
+<Callout type="warning">
+  As of Shlink 3.1.0, webhooks are considered <b>deprecated</b>, since any new kind of update is by definition a breaking change, and they provide less flexibility than standard queuing systems.
+  <br />
+  Because of this, only visits and, optionally, orphan visits, will be notified to webhooks.
+  <br />
+  For a fully featured, real-time subscription to Shlink's events, consider using any of the other options.
+</Callout>
+
 Shlink supports providing a comma-separated list of endpoints, via [env vars](/documentation/environment-variables) or [installation tool](/documentation/command-line-interface/installation-tool), which will receive a `POST` request from Shlink when a short URL is visited.
 
 The body of the request will contain the payload of both the `shortUrl` that was visited, and the `visit` with the geolocation, like this:

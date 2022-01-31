@@ -57,8 +57,8 @@ const Features: FunctionComponent = () => (
             Use the official docker image to deploy Shlink in a container-based infrastructure.
           </Feature>
           <Feature title="Real-time updates" icon={faPaperPlane} link="/documentation/advanced/real-time-updates">
-            Make third party systems be notified as soon as new visits happen, by using webhooks
-            or a <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> server.
+            Subscribe to events on Shlink, by integrating your instance
+            with <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> or <ExternalLink href="https://www.rabbitmq.com/">RabbitMQ</ExternalLink>.
           </Feature>
           <Feature title="GDPR compliant" icon={faScroll}>
             IP addresses are anonymized by default, making Shlink compliant with different data protection regulations.
