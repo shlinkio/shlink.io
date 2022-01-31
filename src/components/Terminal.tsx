@@ -20,7 +20,7 @@ const strings: IStrings = {
     + '<br>+---------+------+------------+---------+`',
   ],
   rest: [
-    '<span class="yellow">POST</span> https://doma.in/rest/v1/short-urls'
+    '<span class="yellow">POST</span> https://doma.in/rest/v2/short-urls'
     + '<br><span class="black">Accept:</span> application/json'
     + '<br><span class="black">X-Api-Key:</span> `f3713597-8b14-4144-a49c-b26eb6e06b09`'
     + '<br>'
@@ -35,7 +35,7 @@ const strings: IStrings = {
     + '<br>&nbsp;&nbsp;<span class="black">"tags"</span>: [],'
     + '<br>&nbsp;&nbsp;<span class="black">"meta"</span>: {}'
     + '<br>}`',
-    '<span class="yellow">GET</span> https://doma.in/rest/v1/short-urls/rY9k/visits'
+    '<span class="yellow">GET</span> https://doma.in/rest/v2/short-urls/rY9k/visits'
     + '<br><span class="black">Accept:</span> application/json'
     + '<br><span class="black">X-Api-Key:</span> `f3713597-8b14-4144-a49c-b26eb6e06b09` ^500'
     + '<br>'

@@ -47,6 +47,7 @@ const docsRoutes: Route[] = [
       { text: 'Import short URLs', link: '/documentation/advanced/import-short-urls' },
       { text: 'Real-time updates', link: '/documentation/advanced/real-time-updates' },
       { text: 'Using a reverse proxy', link: '/documentation/advanced/exposing-through-reverse-proxy' },
+      { text: 'Shlink architecture', link: '/documentation/advanced/shlink-architecture' },
     ],
   },
   {
