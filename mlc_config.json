@@ -4,7 +4,7 @@
       "pattern": "^/"
     },
     {
-      "pattern": "/https:\/\/www.maxmind.com\/en\/accounts\/current\/license-key/"
+      "pattern": "https://www.maxmind.com/en/accounts/current/license-key"
     },
     {
       "pattern": "/mercure.rocks/"
