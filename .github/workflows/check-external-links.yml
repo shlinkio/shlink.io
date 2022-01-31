@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          use-verbose-mode: 'yes'
+          use-quiet-mode: 'yes'
           folder-path: './src/content'
           file-extension: '.mdx'
           config-file: './mlc_config.json'
