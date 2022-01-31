@@ -6,62 +6,94 @@ After installing Shlink, you will have to set it up, and customize different asp
 
 This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced:
 
+### General
+
 * `DEFAULT_DOMAIN` *(v2.9.0)* : The default short domain used for this Shlink instance. For example **doma.in**.
 * `IS_HTTPS_ENABLED` *(v2.10.0)* : Tells if Shlink is served with https or not (`true` or `false`). It's still **up to you** to actually serve it with HTTPS.
+* `GEOLITE_LICENSE_KEY` *(v2.1.4)* : The license key used to download new GeoLite2 database files. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it. Not providing a license key will completely disable visits geolocation.
+* `BASE_PATH`: The base path from which you plan to serve Shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
+* `AUTO_RESOLVE_TITLES` *(v2.6.0)* : Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `false`.
+* `DEFAULT_SHORT_CODES_LENGTH` *(v2.1.0)* : The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
+* `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. If not provided, this restriction will be disabled.
+
+### Server
+
+These env vars are only relevant if you serve Shlink with openswoole.
+
+* `PORT` *(v2.4.0)* : Can be used to set the port in which Shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
+* `WEB_WORKER_NUM`: The amount of concurrent http requests this Shlink instance will be able to serve. Defaults to 16.
+* `TASK_WORKER_NUM`: The amount of concurrent background tasks this Shlink instance will be able to execute. Defaults to 16. Cannot be lower than 4.
+
+### Database
+
 * `DB_DRIVER`: **sqlite** (which is the default value), **mysql**, **maria**, **postgres** or **mssql**.
 * `DB_NAME`: The database name to be used when using an external database driver. Defaults to **shlink**.
 * `DB_USER`: The username credential to be used when using an external database driver.
 * `DB_PASSWORD`: The password credential to be used when using an external database driver.
 * `DB_HOST`: The host name of the database server when using an external database driver.
-* `DB_PORT`: The port in which the database service is running when using an external database driver.
-  * Default value is based on the value provided for `DB_DRIVER`:
-    * **mysql** or **maria** -> `3306`
-    * **postgres** -> `5432`
-    * **mssql** -> `1433`
+* `DB_PORT`: The port in which the database service is running when using an external database driver. Default value is based on the value provided for `DB_DRIVER`:
+  * **mysql** or **maria** -> `3306`
+  * **postgres** -> `5432`
+  * **mssql** -> `1433`
 * `DB_UNIX_SOCKET` *(v2.5.0)* : Alternatively to the `DB_HOST`, you can provide this to connect through unix sockets when using `mysql`, `maria` or `postgres` drivers.
-* `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. If not provided, this restriction will be disabled.
-* `BASE_PATH`: The base path from which you plan to serve Shlink, in case you don't want to serve it from the root of the domain. Defaults to `''`.
+
+### Redirects
+
+* `REDIRECT_STATUS_CODE` *(v2.3.0)* : Either **301** or **302**. Used to determine if redirects from short to long URLs should be done with a 301 or 302 status. Defaults to 302.
+* `REDIRECT_CACHE_LIFETIME` *(v2.3.0)* : Allows to set the amount of seconds that redirects should be cached when redirect status is 301. Default values is 30.
 * `DEFAULT_INVALID_SHORT_URL_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access an invalid short URL, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
 * `DEFAULT_REGULAR_404_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access a URL not matching any supported by the router, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
 * `DEFAULT_BASE_URL_REDIRECT` *(v2.10.0)* : If a URL is provided here, when a user tries to access Shlink's base URL, and the visited domain does not have a redirect URL of its own, he/she will be redirected to this value. If this env var is not provided, the user will see a generic `404 - not found` page.
-* `WEB_WORKER_NUM`: The amount of concurrent http requests this Shlink instance will be able to serve. Defaults to 16. Relevant only when serving Shlink with openswoole.
-* `TASK_WORKER_NUM`: The amount of concurrent background tasks this Shlink instance will be able to execute. Defaults to 16. Relevant only when serving Shlink with openswoole.
-* ~~`VISITS_WEBHOOKS`~~: [Webhooks are deprecated since Shlink 3.1.0] A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
-* ~~`NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS`~~ *(v2.9.0)* : [Webhooks are deprecated since Shlink 3.1.0] Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
-* `DEFAULT_SHORT_CODES_LENGTH` *(v2.1.0)* : The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
-* `GEOLITE_LICENSE_KEY` *(v2.1.4)* : The license key used to download new GeoLite2 database files. This is not mandatory, as a default license key is provided, but it is **strongly recommended** that you provide your own. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it.
-* `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).
-* `REDIS_SENTINEL_SERVICE` *(v2.9.0)* : The name of the sentinel service if you want to use redis sentinel. If this value is provided, the servers provided in `REDIS_SERVERS` will be considered sentinel instances.
-* `MERCURE_PUBLIC_HUB_URL` *(v2.2.0)* : The public URL of a mercure hub server to which Shlink will sent updates. This URL will also be served to consumers that want to subscribe to those updates.
-* `MERCURE_INTERNAL_HUB_URL` *(v2.2.0)* : An internal URL for a mercure hub. Will be used only when publishing updates to mercure, and does not need to be public. If this is not provided but `MERCURE_PUBLIC_HUB_URL` was, the former one will be used to publish updates.
-* `MERCURE_JWT_SECRET` *(v2.2.0)* : The secret key that was provided to the mercure hub server, in order to be able to generate valid JWTs for publishing/subscribing to that server.
-* `REDIRECT_STATUS_CODE` *(v2.3.0)* : Either **301** or **302**. Used to determine if redirects from short to long URLs should be done with a 301 or 302 status. Defaults to 302.
-* `REDIRECT_CACHE_LIFETIME` *(v2.3.0)* : Allows to set the amount of seconds that redirects should be cached when redirect status is 301. Default values is 30.
-* `REDIRECT_APPEND_EXTRA_PATH` *(v2.8.0)* : Makes Shlink match short URLs as long as they start with a known short code, appending the rest of the path to the long URL before redirection. Default values is `false`. (See [Extra path forwarding](/documentation/some-features/#extra-path-forwarding) for more info).
-* `PORT` *(v2.4.0)* : Can be used to set the port in which Shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
-* `AUTO_RESOLVE_TITLES` *(v2.6.0)* : Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `false`.
-* `DISABLE_TRACK_PARAM`: The name of a query param that can be used to visit short URLs avoiding the visit to be tracked. This feature won't be available if no value is provided. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+* `REDIRECT_APPEND_EXTRA_PATH` *(v2.8.0)* : Makes Shlink match short URLs as soon as they start with a known short code, appending the rest of the path to the long URL before redirection. Default values is `false`. (See [Extra path forwarding](/documentation/some-features/#extra-path-forwarding) for more info).
+
+### Visits tracking
+
+* `DISABLE_TRACKING` *(v2.7.0)* : Tells if visits tracking should be completely disabled. Defaults to `false` (see [Tracking visits](/documentation/tracking-visits/) for more info).
+* `TRACK_ORPHAN_VISITS` *(v2.6.0)* : Tells if [orphan visits](/documentation/tracking-visits/#orphan-visits) should be tracked or not. Defaults to `true` (see [Tracking visits](/documentation/tracking-visits/) for more info).
+* `DISABLE_TRACK_PARAM`: The name of a query param that can be used to visit short URLs avoiding the visit to be tracked. This feature won't be available if no value is provided (see [Tracking visits](/documentation/tracking-visits/) for more info).
 * `DISABLE_TRACKING_FROM`: A comma-separated list of IP address patterns from which all tracking should be disabled. It allows providing fixed IP addresses (`100.200.80.40`), CIDR blocks (`192.168.10.0/24`) or wildcard patterns (`11.22.*.*`)
-* `TRACK_ORPHAN_VISITS` *(v2.6.0)* : Tells if [orphan visits](/documentation/tracking-visits/#orphan-visits) should be tracked or not. Defaults to `true`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
-* `DISABLE_TRACKING` *(v2.7.0)* : Tells if visits tracking should be completely disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
-* `DISABLE_IP_TRACKING` *(v2.7.0)* : Tells if tracking of the IP address (and therefore visitors location) should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
-* `ANONYMIZE_REMOTE_ADDR` *(v2.2.0)* : Tells if IP addresses from visitors should be obfuscated before storing them in the database. Default value is `true`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+* `DISABLE_IP_TRACKING` *(v2.7.0)* : Tells if tracking of the IP address (and therefore visitors location) should be disabled. Defaults to `false` (see [Tracking visits](/documentation/tracking-visits/) for more info).
+* `DISABLE_REFERRER_TRACKING` *(v2.7.0)* : Tells if tracking of the referrer should be disabled. Defaults to `false` (see [Tracking visits](/documentation/tracking-visits/) for more info).
+* `DISABLE_UA_TRACKING` *(v2.7.0)* : Tells if tracking of the user agent should be disabled. Defaults to `false` (see [Tracking visits](/documentation/tracking-visits/) for more info).
+* `ANONYMIZE_REMOTE_ADDR` *(v2.2.0)* : Tells if IP addresses from visitors should be obfuscated before storing them in the database. Default value is `true` (see [Tracking visits](/documentation/tracking-visits/) for more info).
 <Callout type="warning">
   Setting this to <b>false</b> will make your Shlink instance no longer be in compliance with the GDPR and other similar data protection regulations.
 </Callout>
-* `DISABLE_REFERRER_TRACKING` *(v2.7.0)* : Tells if tracking of the referrer should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
-* `DISABLE_UA_TRACKING` *(v2.7.0)* : Tells if tracking of the user agent should be disabled. Defaults to `false`. (See [Tracking visits](/documentation/tracking-visits/) for more info)
+
+### QR codes
+
 * `DEFAULT_QR_CODE_SIZE` *(v2.9.0)* : A value between 50 and 1000 to determine the default size of generated QR codes when the `size` query param is not provided. Defaults to 300.
 * `DEFAULT_QR_CODE_MARGIN` *(v2.9.0)* : A value greater than 0 to determine the default margin of generated QR codes when the `margin` query param is not provided. Defaults to 0.
 * `DEFAULT_QR_CODE_FORMAT` *(v2.9.0)* : One of **png** or **svg**, to determine the default format of generated QR codes when the `format` query param is not provided. Defaults to png.
 * `DEFAULT_QR_CODE_ERROR_CORRECTION` *(v2.9.0)* : One of **L** (Low), **M** (Medium), **Q** (Quartile) or **H** (High), to determine the default error correction of generated QR codes when the `errorCorrection` query param is not provided. Defaults to l.
 * `DEFAULT_QR_CODE_ROUND_BLOCK_SIZE` *(v2.10.0)* : Tells if the block size should be round on QR codes, making it more readable, but potentially adding some extra margin as a side effect. Defaults to `true`.
+
+### Redis integration
+
+* `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).
+* `REDIS_SENTINEL_SERVICE` *(v2.9.0)* : The name of the sentinel service if you want to use redis sentinel. If this value is provided, the servers provided in `REDIS_SERVERS` will be considered sentinel instances.
+
+### Mercure hub integration
+
+* `MERCURE_PUBLIC_HUB_URL` *(v2.2.0)* : The public URL of a mercure hub server to which Shlink will sent updates. This URL will also be served to consumers that want to subscribe to those updates.
+* `MERCURE_INTERNAL_HUB_URL` *(v2.2.0)* : An internal URL for a mercure hub. Will be used only when publishing updates to mercure, and does not need to be public. If this is not provided but `MERCURE_PUBLIC_HUB_URL` was, the former one will be used to publish updates.
+* `MERCURE_JWT_SECRET` *(v2.2.0)* : The secret key that was provided to the mercure hub server, in order to be able to generate valid JWTs for publishing/subscribing to that server.
+
+### RabbitMQ integration
+
 * `RABBITMQ_ENABLED` *(v2.10.0)* : Tells if the integration with a RabbitMQ server for real-time updates should be enabled. Defaults to `false`.
 * `RABBITMQ_HOST` *(v2.10.0)* : The RabbitMQ server host name. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_PORT` *(v2.10.0)* : The RabbitMQ server port. Defaults to `5672`. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_USER` *(v2.10.0)* : The RabbitMQ server username credential. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_PASSWORD` *(v2.10.0)* : The RabbitMQ server password credential. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_VHOST` *(v2.10.0)* : The RabbitMQ server VHost. Defaults to `/`. This will be ignored if `RABBITMQ_ENABLED` is false.
+
+### Webhooks integration
+
+Webhooks are deprecated since Shlink 3.1.0. See other integrations for real-time updates above.
+
+* ~~`VISITS_WEBHOOKS`~~: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
+* ~~`NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS`~~ *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
 
 ### Specific for the docker image
 

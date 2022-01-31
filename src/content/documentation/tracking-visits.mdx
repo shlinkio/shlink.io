@@ -26,13 +26,13 @@ These visits can have one of these types:
 
 The visits will be tracked both if you configure [special redirects](/documentation/advanced/special-redirects) from those three cases, but also if you leave Shlink serve a regular 404 status with a "Not found" template.
 
-In case you don't need this, you can opt out from orphan visits tracking via env vars or config options.
+In case you don't need this, you can opt out from orphan visits tracking via [env vars](/documentation/environment-variables#visits-tracking) or [installation tool's](/documentation/command-line-interface/installation-tool) config options.
 
 ### Disable tracking
 
 Since v2.7.0, Shlink provides a more granular way to disable visits tracking, either completely or partially.
 
-Via configuration or env vars, you will be able to:
+Via configuration or [env vars](/documentation/environment-variables#visits-tracking), you will be able to:
 
 * Completely disable tracking: All short URLs will display they had **0** visits.
 * Disable IP address tracking: The visits will be counted, but they will all show they come from an **unknown** location.
