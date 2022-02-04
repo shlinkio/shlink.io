@@ -7,6 +7,9 @@
         <loc>https://shlink.io/features/</loc>
     </url>
     <url>
+        <loc>https://shlink.io/apps/</loc>
+    </url>
+    <url>
         <loc>https://shlink.io/documentation/</loc>
     </url>
     <url>
@@ -22,19 +25,40 @@
         <loc>https://shlink.io/documentation/classic-web-server/</loc>
     </url>
     <url>
+        <loc>https://shlink.io/documentation/geolite-license-key/</loc>
+    </url>
+    <url>
         <loc>https://shlink.io/documentation/long-running-tasks/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/update-your-instance/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/tracking-visits/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/some-features/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/environment-variables/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/advanced/special-redirects/</loc>
     </url>
     <url>
         <loc>https://shlink.io/documentation/advanced/multiple-domains/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/api-docs/</loc>
+        <loc>https://shlink.io/documentation/advanced/import-short-urls/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/api-docs/error-management/</loc>
+        <loc>https://shlink.io/documentation/advanced/real-time-updates/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/documentation/api-docs/authentication/</loc>
+        <loc>https://shlink.io/documentation/advanced/exposing-through-reverse-proxy/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/advanced/shlink-architecture/</loc>
     </url>
     <url>
         <loc>https://shlink.io/documentation/command-line-interface/</loc>
@@ -46,6 +70,42 @@
         <loc>https://shlink.io/documentation/command-line-interface/installation-tool/</loc>
     </url>
     <url>
-        <loc>https://shlink.io/apps/</loc>
+        <loc>https://shlink.io/documentation/api-docs/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/api-docs/authentication/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/api-docs/error-management/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/api-docs/api-key-roles/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/shlink-web-client/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/shlink-web-client/installation/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/shlink-web-client/serve-in-sub-path/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/shlink-web-client/pre-configuring-servers/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/integrations/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/integrations/short-menu-mac/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/integrations/short-menu-ios/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/integrations/gnome-shell-extension/</loc>
+    </url>
+    <url>
+        <loc>https://shlink.io/documentation/troubleshooting/</loc>
     </url>
 </urlset>
