@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { breadcrumbForPath, breadcrumbsMap } from '../../utils/docUtils';
@@ -6,7 +6,7 @@ import { useCurrentPath } from '../../utils/pathUtils';
 import Breadcrumb from '../../components/Breadcrumb';
 import Documentation from '.';
 
-const DocumentationSlug: FunctionComponent = () => {
+const DocumentationSlug: FC = () => {
   const { query } = useRouter();
   const currentPath = useCurrentPath();
   const { slug = [] } = query as { slug?: string[] };

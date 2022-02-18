@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
@@ -11,7 +11,7 @@ interface FeatureProps {
   className?: string;
 }
 
-const Feature: FunctionComponent<FeatureProps> = ({ title, children, link, icon, className }) => (
+const Feature: FC<FeatureProps> = ({ title, children, link, icon, className }) => (
   <div className={classNames('item col-12 col-md-6 col-lg-3', className)}>
     <div className="item-inner rounded">
       <div className="icon-holder text-center mx-auto mb-3">

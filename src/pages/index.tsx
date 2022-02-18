@@ -1,8 +1,8 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
 import { faChartBar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight, faCloudDownloadAlt, faCropAlt, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleRight, faCloudDownloadAlt, faCropAlt, faShare, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../components/Layout';
 import Jumbotron from '../components/Jumbotron';
 import Terminal from '../components/Terminal';
@@ -12,7 +12,7 @@ import Feature from '../components/Feature';
 import SectionItem from '../components/SectionItem';
 import ShlinkWebClientVideo from '../components/ShlinkWebClientVideo';
 
-const Home: FunctionComponent = () => (
+const Home: FC = () => (
   <Layout>
     <Jumbotron />
 
@@ -22,8 +22,11 @@ const Home: FunctionComponent = () => (
           Manage multiple Shlink instances using this beautiful and
           intuitive progressive web application.
           <div className="cta-link mt-3">
-            <ExternalLink href="https://app.shlink.io" className="btn btn-secondary btn-sm">
-              Go <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+            <InternalLink href="/documentation/shlink-web-client" className="btn btn-secondary btn-sm mr-2">
+              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+            </InternalLink>
+            <ExternalLink href="https://app.shlink.io" className="btn btn-primary btn-sm">
+              Go <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
             </ExternalLink>
           </div>
         </SectionItem>
@@ -32,7 +35,7 @@ const Home: FunctionComponent = () => (
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
             <InternalLink href="/documentation/api-docs" className="btn btn-secondary btn-sm">
-              View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
         </SectionItem>
@@ -41,7 +44,7 @@ const Home: FunctionComponent = () => (
           Generate and manage short URLs from the command line. List URLs, see visits, manage your domains, etc.
           <div className="cta-link mt-3">
             <InternalLink href="/documentation/command-line-interface/entry-point" className="btn btn-secondary btn-sm">
-              View Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
             </InternalLink>
           </div>
         </SectionItem>
@@ -90,7 +93,7 @@ const Home: FunctionComponent = () => (
 
     <section className="pt-5">
       <div className="container">
-        <h3 className="mb-2 text-center font-weight-bold section-title">Why shlink?</h3>
+        <h3 className="mb-2 text-center font-weight-bold section-title">Why Shlink?</h3>
 
         <p className="my-5 text-center section-intro">
           The name is an abbreviation for &quot;short link&quot;, but if you get the words &quot;shrink&quot;

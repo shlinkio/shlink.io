@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBullhorn, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
@@ -23,7 +23,7 @@ const TYPE_MAP: Record<CalloutType, any> = {
   },
 };
 
-const Callout: FunctionComponent<CalloutProps> = ({ children, type, title }) => (
+const Callout: FC<CalloutProps> = ({ children, type, title }) => (
   <div className={classNames('callout-block', TYPE_MAP[type].className)}>
     <div className="content">
       <h4 className="callout-title">

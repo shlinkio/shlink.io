@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import { faChartBar, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -13,13 +13,15 @@ import {
   faFileImport,
   faLaptopCode,
   faBan,
+  faLaugh,
+  faRobot,
 } from '@fortawesome/free-solid-svg-icons';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import Feature from '../components/Feature';
 import SectionHeader from '../components/SectionHeader';
 
-const Features: FunctionComponent = () => (
+const Features: FC = () => (
   <Layout pageTitle="Features">
     <SectionHeader title="Features">
       These are some of the main features you will be able to find on Shlink.
@@ -46,6 +48,9 @@ const Features: FunctionComponent = () => (
           <Feature title="Tags" icon={faTags}>
             Tag your short URLs and classify them for later analytics.
           </Feature>
+          <Feature title="Emojis" icon={faLaugh}>
+            Emojis are just unicode. Use them in your short URLs, long URLs, titles or anywhere you want.
+          </Feature>
           <Feature title="Limited access" icon={faLock}>
             Limit access to short URLs, by date range and/or maximum number of visits.
           </Feature>
@@ -60,22 +65,20 @@ const Features: FunctionComponent = () => (
             Subscribe to events on Shlink, by integrating your instance
             with <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> or <ExternalLink href="https://www.rabbitmq.com/">RabbitMQ</ExternalLink>.
           </Feature>
-          <Feature title="GDPR compliant" icon={faScroll}>
-            IP addresses are anonymized by default, making Shlink compliant with different data protection regulations.
-          </Feature>
           <Feature title="API-first" icon={faLaptopCode} link="/documentation/api-docs/">
             Shlink exposes a fully featured REST API that simplifies integrating it anywhere.
           </Feature>
           <Feature title="API key roles" icon={faBan} link="/documentation/api-docs/api-key-roles/">
             Limit the resources with which an API key can interact, by domain or only short URLs created with it.
           </Feature>
-          <Feature
-            title="Third party imports"
-            icon={faFileImport}
-            link="/documentation/advanced/import-short-urls"
-            className="offset-lg-3"
-          >
+          <Feature title="GDPR compliant" icon={faScroll}>
+            IP addresses are anonymized by default, making Shlink compliant with different data protection regulations.
+          </Feature>
+          <Feature title="Third party imports" icon={faFileImport} link="/documentation/advanced/import-short-urls">
             Import your existing short URLs from third parties like bit.ly or YOURLS.
+          </Feature>
+          <Feature title="Bot detection" icon={faRobot} link="/documentation/some-features/#bot-detection">
+            Exclude visits from potential bots from your stats.
           </Feature>
           <Feature title="Email tracking" icon={faEnvelope} link="/documentation/some-features/#email-tracking">
             Generate a 1px transparent image that can be used to track emails.

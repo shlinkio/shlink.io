@@ -1,11 +1,11 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import Layout from '../components/Layout';
 import SectionHeader from '../components/SectionHeader';
 import Link from '../components/Link';
 
-const Error: FunctionComponent = () => (
+const Error: FC = () => (
   <Layout pageTitle="404">
     <SectionHeader title="404">Page not found</SectionHeader>
 

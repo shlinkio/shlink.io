@@ -1,10 +1,10 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import SocialList from './SocialList';
 
-const Footer: FunctionComponent = () => (
+const Footer: FC = () => (
   <footer className="footer">
     <div className="container text-center py-5">
       <SocialList type="unstyled" className="mb-4 mt-5" />

@@ -1,16 +1,16 @@
-import { FunctionComponent, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useCurrentPath } from '../utils/pathUtils';
 import { initGA, logPageView } from '../utils/analytics';
 import '../assets/sass/main.scss';
 
 interface MyAppProps {
-  Component: FunctionComponent;
+  Component: FC;
   pageProps: object;
 }
 
 let gaInitialized = false;
 
-const MyApp: FunctionComponent<MyAppProps> = ({ Component, pageProps }) => {
+const MyApp: FC<MyAppProps> = ({ Component, pageProps }) => {
   const currentPath = useCurrentPath();
 
   useEffect(() => {

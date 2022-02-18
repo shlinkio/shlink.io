@@ -1,6 +1,6 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 
-const FakeBrowser: FunctionComponent = ({ children }) => (
+const FakeBrowser: FC = ({ children }) => (
   <div className="fake-browser-ui">
     <div className="frame">
       <span className="close" />

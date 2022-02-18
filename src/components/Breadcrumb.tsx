@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { Breadcrumb as BsBreadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Route } from '../utils/docUtils';
 import Link from './Link';
@@ -7,7 +7,7 @@ interface BreadcrumbProps {
   prevElements: Route[];
 }
 
-const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({ children, prevElements }) => (
+const Breadcrumb: FC<BreadcrumbProps> = ({ children, prevElements }) => (
   <BsBreadcrumb>
     {prevElements.map(({ text, link }) => (
       <BreadcrumbItem key={text}>

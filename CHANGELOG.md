@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* [#292](https://github.com/shlinkio/shlink.io/issues/292) Added emojis to features.
+
+### Changed
+* Updated dependencies
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.30.1] - 2022-02-04
 ### Added
 * *Nothing*
