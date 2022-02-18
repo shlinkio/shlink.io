@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';
@@ -13,7 +13,7 @@ interface LeftMenuToggleProps {
   toggleSidebar: () => void;
 }
 
-const LeftMenuToggle: FunctionComponent<LeftMenuToggleProps> = ({ collapsed, toggleSidebar }) => (
+const LeftMenuToggle: FC<LeftMenuToggleProps> = ({ collapsed, toggleSidebar }) => (
   <NavbarToggler className={classNames('docs-menu-toggle', { collapsed })} onClick={toggleSidebar}>
     <span />
     <span />
@@ -30,7 +30,7 @@ const classesForState = (state: SidebarState) => {
   return { 'sidebar-visible': state === 'displayed', 'sidebar-hidden': state === 'hidden' };
 };
 
-const Documentation: FunctionComponent = ({ children }) => {
+const Documentation: FC = ({ children }) => {
   const currentPath = useCurrentPath();
   const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');

@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
 import { useRouter } from 'next/router';
@@ -11,7 +11,7 @@ interface MenuItemProps {
   isLast?: boolean;
 }
 
-const MenuItem: FunctionComponent<MenuItemProps> = ({ to, children, isLast, active }) => (
+const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
   <li className={classNames('nav-item', { 'mr-lg-0': isLast, 'mr-lg-4': !isLast, active })}>
     <InternalLink href={to} className="nav-link">{children}</InternalLink>
   </li>
@@ -21,7 +21,7 @@ export interface HeaderProps {
   leftMenuToggle?: ReactNode;
 }
 
-const Header: FunctionComponent<HeaderProps> = ({ leftMenuToggle }) => {
+const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
   const [ collapsed, setCollapsed ] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();

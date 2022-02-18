@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import Typed from 'react-typed';
 import FakeBrowser from './FakeBrowser';
 
@@ -57,7 +57,7 @@ interface TerminalProps {
   id: keyof IStrings;
 }
 
-const Terminal: FunctionComponent<TerminalProps> = ({ id }) => {
+const Terminal: FC<TerminalProps> = ({ id }) => {
   const typedOptions = {
     typeSpeed: 100,
     loop: true,

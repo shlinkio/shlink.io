@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import { faChartBar, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -21,7 +21,7 @@ import Layout from '../components/Layout';
 import Feature from '../components/Feature';
 import SectionHeader from '../components/SectionHeader';
 
-const Features: FunctionComponent = () => (
+const Features: FC = () => (
   <Layout pageTitle="Features">
     <SectionHeader title="Features">
       These are some of the main features you will be able to find on Shlink.

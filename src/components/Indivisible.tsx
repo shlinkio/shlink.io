@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 
-const Indivisible: FunctionComponent = ({ children }) => <span className="indivisible">{children}</span>;
+const Indivisible: FC = ({ children }) => <span className="indivisible">{children}</span>;
 
 export default Indivisible;

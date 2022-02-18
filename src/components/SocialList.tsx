@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import { ExternalLink } from 'react-external-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +9,7 @@ interface SocialListProps {
   className?: string;
 }
 
-const SocialList: FunctionComponent<SocialListProps> = ({ type, className }) => (
+const SocialList: FC<SocialListProps> = ({ type, className }) => (
   <ul className={classNames(`social-list list-${type}`, className)}>
     <li className="list-inline-item">
       <ExternalLink href="https://github.com/shlinkio/shlink">

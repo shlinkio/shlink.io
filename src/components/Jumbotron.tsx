@@ -1,10 +1,10 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import Indivisible from './Indivisible';
 import InternalLink from './InternalLink';
 
-const Jumbotron: FunctionComponent = () => (
+const Jumbotron: FC = () => (
   <section className="hero-section py-3 py-md-5">
     <div className="container">
       <div className="row">

@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import SectionHeader from '../components/SectionHeader';
@@ -7,7 +7,7 @@ import ShlinkWebClientVideo from '../components/ShlinkWebClientVideo';
 import Indivisible from '../components/Indivisible';
 import FakeBrowser from '../components/FakeBrowser';
 
-const Apps: FunctionComponent = () => (
+const Apps: FC = () => (
   <Layout pageTitle="Apps">
     <SectionHeader title="Apps">
       A curated list of either official or third-party apps that can be integrated with Shlink.

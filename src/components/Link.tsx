@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
 import InternalLink from './InternalLink';
 
@@ -7,7 +7,7 @@ export interface LinkProps {
   className?: string;
 }
 
-const Link: FunctionComponent<LinkProps> = (props) => {
+const Link: FC<LinkProps> = (props) => {
   const { href } = props;
   const Component = href?.startsWith('http') ? ExternalLink : InternalLink;
 
