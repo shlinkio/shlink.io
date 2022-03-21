@@ -7,3 +7,5 @@ docker-compose.override.yml
 npm-debug.log*
 home
 coverage
+public/sitemap*
+public/robots.txt
