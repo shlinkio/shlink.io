@@ -12,7 +12,7 @@ interface MenuItemProps {
 }
 
 const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
-  <li className={classNames('nav-item', { 'mr-lg-0': isLast, 'mr-lg-4': !isLast, active })}>
+  <li className={classNames('nav-item', { 'me-lg-0': isLast, 'me-lg-4': !isLast, active })}>
     <InternalLink href={to} className="nav-link">{children}</InternalLink>
   </li>
 );
@@ -37,7 +37,7 @@ const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
             {leftMenuToggle}
             <InternalLink href="/" className="navbar-brand">
               <img
-                className="logo-icon mr-2"
+                className="logo-icon me-2"
                 src="/images/shlink-logo-blue.svg"
                 alt="logo"
               />
@@ -52,9 +52,9 @@ const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
           </NavbarToggler>
 
           <Collapse isOpen={!collapsed} navbar>
-            <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5" />
+            <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ms-lg-5 me-lg-5" />
 
-            <ul className="navbar-nav ml-lg-auto">
+            <ul className="navbar-nav ms-lg-auto">
               <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
               <MenuItem to="/apps" active={currentPage.startsWith('/apps')}>Apps</MenuItem>
               <MenuItem to="/documentation" active={isBaseDocsActive} isLast>Documentation</MenuItem>

@@ -18,7 +18,7 @@ interface MenuItemProps {
 const MenuItem: FC<MenuItemProps> = ({ active, link, children, icon, isOpen, onChevronClick }) => (
   <li className={classNames('nav-item', { 'section-title': icon })}>
     <Link className={classNames('nav-link', { active })} href={link}>
-      {icon && <span className="theme-icon-holder mr-2"><FontAwesomeIcon icon={icon} /></span>}
+      {icon && <span className="theme-icon-holder me-2"><FontAwesomeIcon icon={icon} /></span>}
       {children}
     </Link>
     {isOpen !== undefined && (

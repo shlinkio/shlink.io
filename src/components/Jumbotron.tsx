@@ -17,13 +17,13 @@ const Jumbotron: FC = () => (
             powerful tool.
           </div>
           <div className="cta-btns mb-lg-3">
-            <InternalLink href="/documentation" className="btn btn-primary mr-2 mb-3">
+            <InternalLink href="/documentation" className="btn btn-primary me-2 mb-3">
               Get Started
-              <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+              <FontAwesomeIcon icon={faArrowCircleRight} className="ms-2" />
             </InternalLink>
             <InternalLink href="/features" className="btn btn-secondary mb-3">
               Features
-              <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+              <FontAwesomeIcon icon={faArrowCircleRight} className="ms-2" />
             </InternalLink>
           </div>
         </div>
