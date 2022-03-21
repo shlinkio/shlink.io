@@ -17,7 +17,7 @@ const Error: FC = () => (
           button.
         </p>
         <Link href="/" className="btn btn-primary btn-lg">
-          <FontAwesomeIcon icon={faArrowCircleLeft} className="mr-2" /> Home
+          <FontAwesomeIcon icon={faArrowCircleLeft} className="me-2" /> Home
         </Link>
       </section>
     </div>

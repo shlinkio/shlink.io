@@ -22,11 +22,11 @@ const Home: FC = () => (
           Manage multiple Shlink instances using this beautiful and
           intuitive progressive web application.
           <div className="cta-link mt-3">
-            <InternalLink href="/documentation/shlink-web-client" className="btn btn-secondary btn-sm mr-2">
-              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+            <InternalLink href="/documentation/shlink-web-client" className="btn btn-secondary btn-sm me-2">
+              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ms-2" />
             </InternalLink>
             <ExternalLink href="https://app.shlink.io" className="btn btn-primary btn-sm">
-              Go <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2" />
+              Go <FontAwesomeIcon icon={faExternalLinkAlt} className="ms-2" />
             </ExternalLink>
           </div>
         </SectionItem>
@@ -35,7 +35,7 @@ const Home: FC = () => (
           Access your shortened URLs from anywhere. Simple authentication and easy to integrate.
           <div className="cta-link mt-3">
             <InternalLink href="/documentation/api-docs" className="btn btn-secondary btn-sm">
-              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ms-2" />
             </InternalLink>
           </div>
         </SectionItem>
@@ -44,7 +44,7 @@ const Home: FC = () => (
           Generate and manage short URLs from the command line. List URLs, see visits, manage your domains, etc.
           <div className="cta-link mt-3">
             <InternalLink href="/documentation/command-line-interface/entry-point" className="btn btn-secondary btn-sm">
-              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+              Docs <FontAwesomeIcon icon={faArrowCircleRight} className="ms-2" />
             </InternalLink>
           </div>
         </SectionItem>
@@ -62,7 +62,7 @@ const Home: FC = () => (
         </div>
         <div className="pt-3 text-center">
           <InternalLink href="/features" className="btn btn-light">
-            Features <FontAwesomeIcon icon={faArrowCircleRight} className="ml-2" />
+            Features <FontAwesomeIcon icon={faArrowCircleRight} className="ms-2" />
           </InternalLink>
         </div>
       </div>

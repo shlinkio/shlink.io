@@ -3,6 +3,9 @@
 /*********** Theme Variables **********/
 $theme-width-restrict: 780px;
 
+:root {
+	scroll-behavior: auto;
+}
 
 /*********** Theme Generic **********/
 body {
@@ -10,7 +13,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: $theme-text-color-secondary;
-    padding-top: 69px;
+    padding-top: 64px;
 }
 
 h1, h2, h3, h4, h5, h6 {

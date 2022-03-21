@@ -27,7 +27,7 @@ const Callout: FC<CalloutProps> = ({ children, type, title }) => (
   <div className={classNames('callout-block', TYPE_MAP[type].className)}>
     <div className="content">
       <h4 className="callout-title">
-        <span className="callout-icon-holder mr-2">
+        <span className="callout-icon-holder me-2">
           <FontAwesomeIcon icon={TYPE_MAP[type].icon} />
         </span>
         {title ?? TYPE_MAP[type].text}
