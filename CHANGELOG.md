@@ -4,10 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.32.0] - 2022-03-21
 ### Added
 * [#296](https://github.com/shlinkio/shlink.io/issues/296) Updated to fontawesome 6.1
 * [#295](https://github.com/shlinkio/shlink.io/issues/295) Updated to bootstrap 5.1
+* [#291](https://github.com/shlinkio/shlink.io/issues/291) Automated generation of sitemap and robots.txt files.
 
 ### Changed
 * *Nothing*
