@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* [#296](https://github.com/shlinkio/shlink.io/issues/296) Updated to fontawesome 6.1
+* [#295](https://github.com/shlinkio/shlink.io/issues/295) Updated to bootstrap 5.1
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.31.0] - 2022-02-19
 ### Added
 * [#292](https://github.com/shlinkio/shlink.io/issues/292) Added emojis to features.
