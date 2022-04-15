@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* Documented timezone env var and the recommendation to set it to the same zone where you plan to consume it.
+
+### Changed
+* Added shlinkio coding standards, together with nextjs recommended ones.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.32.0] - 2022-03-21
 ### Added
 * [#296](https://github.com/shlinkio/shlink.io/issues/296) Updated to fontawesome 6.1
