@@ -57,7 +57,7 @@ const docsRoutes: Route[] = [
     subRoutes: [
       { text: 'CLI entry point', link: '/documentation/command-line-interface/entry-point' },
       { text: 'Installation tool', link: '/documentation/command-line-interface/installation-tool' },
-    ]
+    ],
   },
   {
     text: 'REST API',
@@ -123,11 +123,11 @@ const resolveBreadcrumbsMapSubRoutes = (acc: BreadcrumbsMap, prevRoutes: Route[]
 
   acc[route.link] = {
     title: route.text,
-    breadcrumbItems: startsWithDocs(prevRoutes) ? prevRoutes : [ docsRoute, ...prevRoutes ],
+    breadcrumbItems: startsWithDocs(prevRoutes) ? prevRoutes : [docsRoute, ...prevRoutes],
   };
 
   if (route.subRoutes) {
-    route.subRoutes.forEach((subRoute) => resolveBreadcrumbsMapSubRoutes(acc, [ ...prevRoutes, route ], subRoute));
+    route.subRoutes.forEach((subRoute) => resolveBreadcrumbsMapSubRoutes(acc, [...prevRoutes, route], subRoute));
   }
 
   return acc;

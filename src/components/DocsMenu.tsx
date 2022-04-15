@@ -37,9 +37,15 @@ const isCurrentSection = (currentPage: string, route: Route): boolean => {
   return currentPage === link || subRoutes.some((subRoute) => subRoute.link === currentPage);
 };
 
+const SubSection: FC<{ subRoute: Route; currentPage: string }> = ({ subRoute, currentPage }) => (
+  <MenuItem link={subRoute.link} active={currentPage === subRoute.link}>
+    {subRoute.text}
+  </MenuItem>
+);
+
 const Section: FC<{ route: Route; currentPage: string }> = ({ route, currentPage }) => {
   const { text, link, menuIcon, subRoutes = [] } = route;
-  const [ isOpen, setOpen ] = useState(isCurrentSection(currentPage, route));
+  const [isOpen, setOpen] = useState(isCurrentSection(currentPage, route));
   const parent = (
     <MenuItem
       link={link}
@@ -55,10 +61,8 @@ const Section: FC<{ route: Route; currentPage: string }> = ({ route, currentPage
   return (
     <>
       {parent}
-      {isOpen && subRoutes.map(({ text, link }) => (
-        <MenuItem link={link} active={currentPage === link} key={text}>
-          {text}
-        </MenuItem>
+      {isOpen && subRoutes.map((subRoute) => (
+        <SubSection subRoute={subRoute} currentPage={currentPage} key={subRoute.text} />
       ))}
     </>
   );

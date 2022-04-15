@@ -12,7 +12,7 @@ const slugify = (str: string) => {
   const from = 'åàáãäâèéëêìíïîòóöôùúüûñç·/_,:;';
   const to = 'aaaaaaeeeeiiiioooouuuunc------';
 
-  for (let i = 0, l = from.length; i < l; i++) {
+  for (let i = 0, l = from.length; i < l; i += 1) {
     lowercasedStr = lowercasedStr.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
 

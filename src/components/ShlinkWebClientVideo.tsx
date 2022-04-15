@@ -6,7 +6,7 @@ const poster = '/images/shlink-web-client-placeholder.jpg';
 
 const ShlinkWebClientVideo: FC = () => (
   <FakeBrowser>
-    <InlineVideo poster={poster} sources={[ '/videos/web-client.webm', '/videos/web-client.mp4' ]} />
+    <InlineVideo poster={poster} sources={['/videos/web-client.webm', '/videos/web-client.mp4']} />
   </FakeBrowser>
 );
 

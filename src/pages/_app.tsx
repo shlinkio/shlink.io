@@ -20,7 +20,7 @@ const MyApp: FC<MyAppProps> = ({ Component, pageProps }) => {
     }
 
     logPageView();
-  }, [ currentPath ]);
+  }, [currentPath]);
 
   return <Component {...pageProps} />;
 };
