@@ -15,6 +15,7 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `AUTO_RESOLVE_TITLES` *(v2.6.0)* : Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `false`.
 * `DEFAULT_SHORT_CODES_LENGTH` *(v2.1.0)* : The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
 * `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. If not provided, this restriction will be disabled.
+* `TIMEZONE` *(v3.1.0)* : A timezone code as defined [in this list](https://www.php.net/manual/en/timezones.php). All dates stored by Shlink (visits, short URL creation, etc) will be considered to be on this timezone. By default, the default timezone set in PHP config will be used, which is `UTC` in the case of the docker image.
 
 ### Server
 
