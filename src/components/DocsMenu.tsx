@@ -39,7 +39,7 @@ const isCurrentSection = (currentPage: string, route: Route): boolean => {
 
 const Section: FC<{ route: Route; currentPage: string }> = ({ route, currentPage }) => {
   const { text, link, menuIcon, subRoutes = [] } = route;
-  const [ isOpen, setOpen ] = useState(isCurrentSection(currentPage, route));
+  const [isOpen, setOpen] = useState(isCurrentSection(currentPage, route));
   const parent = (
     <MenuItem
       link={link}
@@ -55,9 +55,9 @@ const Section: FC<{ route: Route; currentPage: string }> = ({ route, currentPage
   return (
     <>
       {parent}
-      {isOpen && subRoutes.map(({ text, link }) => (
-        <MenuItem link={link} active={currentPage === link} key={text}>
-          {text}
+      {isOpen && subRoutes.map((subRoute) => (
+        <MenuItem link={subRoute.link} active={currentPage === link} key={subRoute.text}>
+          {subRoute.text}
         </MenuItem>
       ))}
     </>

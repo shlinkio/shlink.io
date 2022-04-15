@@ -32,13 +32,13 @@ const classesForState = (state: SidebarState) => {
 
 const Documentation: FC = ({ children }) => {
   const currentPath = useCurrentPath();
-  const [ sidebarState, setSidebarVisible ] = useState<SidebarState>('initial');
+  const [sidebarState, setSidebarVisible] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
   const leftMenuToggle = <LeftMenuToggle collapsed={sidebarState !== 'displayed'} toggleSidebar={toggleSidebar} />;
 
   useEffect(() => {
     sidebarState !== 'initial' && setSidebarVisible('hidden');
-  }, [ currentPath ]);
+  }, [currentPath]);
 
   return (
     <Layout pageTitle="Documentation" leftMenuToggle={leftMenuToggle} noFooter>

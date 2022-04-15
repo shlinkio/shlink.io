@@ -22,7 +22,7 @@ export interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
-  const [ collapsed, setCollapsed ] = useState(true);
+  const [collapsed, setCollapsed] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();
   const isBaseDocsActive = currentPage.startsWith('/documentation')
