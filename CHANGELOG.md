@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [Unreleased]
 ### Added
 * Documented timezone env var and the recommendation to set it to the same zone where you plan to consume it.
+* Extended documentation regarding dates behavior on the API.
 
 ### Changed
 * Added shlinkio coding standards, together with nextjs recommended ones.
