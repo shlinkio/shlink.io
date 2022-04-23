@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.33.0] - 2022-04-23
 ### Added
 * Documented timezone env var and the recommendation to set it to the same zone where you plan to consume it.
 * Extended documentation regarding dates behavior on the API.
