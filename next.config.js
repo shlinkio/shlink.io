@@ -1,6 +1,10 @@
 const withPlugins = require('next-compose-plugins');
 const withFonts = require('next-fonts');
-const withMDX = require('@next/mdx')();
+const withMDX = require('@next/mdx')({
+  options: {
+    providerImportSource: '@mdx-js/react',
+  }
+});
 
 module.exports = withPlugins([ withFonts, withMDX ], {
   enableSvg: true,
