@@ -39,6 +39,7 @@ Available commands:
  domain
   domain:list        List all domains that have been ever used for some short URL
   domain:redirects   Set specific "not found" redirects for individual domains.
+  domain:visits      Returns the list of visits for provided domain.
  short-url
   short-url:create   Generates a short URL for provided long URL and returns it
   short-url:delete   Deletes a short URL
@@ -50,7 +51,10 @@ Available commands:
   tag:delete         Deletes one or more tags.
   tag:list           Lists existing tags.
   tag:rename         Renames one existing tag.
+  tag:visits         Returns the list of visits for provided tag.
  visit
   visit:download-db  Checks if the GeoLite2 db file is too old or it does not exist, and tries to download an up-to-date copy if so.
   visit:locate       Resolves visits origin locations. It implicitly downloads/updates the GeoLite2 db file if needed.
+  visit:non-orphan   Returns the list of non-orphan visits.
+  visit:orphan       Returns the list of orphan visits.
 ```
