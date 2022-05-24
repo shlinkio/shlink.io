@@ -1,15 +1,15 @@
-import { FC, ReactNode, useState } from 'react';
+import { FC, PropsWithChildren, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
 import { useRouter } from 'next/router';
 import SocialList from './SocialList';
 import InternalLink from './InternalLink';
 
-interface MenuItemProps {
+type MenuItemProps = PropsWithChildren<{
   to: string;
   active: boolean;
   isLast?: boolean;
-}
+}>;
 
 const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
   <li className={classNames('nav-item', { 'me-lg-0': isLast, 'me-lg-4': !isLast, active })}>

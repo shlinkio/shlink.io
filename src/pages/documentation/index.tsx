@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { NavbarToggler } from 'reactstrap';
 import Layout from '../../components/Layout';
@@ -30,7 +30,7 @@ const classesForState = (state: SidebarState) => {
   return { 'sidebar-visible': state === 'displayed', 'sidebar-hidden': state === 'hidden' };
 };
 
-const Documentation: FC = ({ children }) => {
+const Documentation: FC<PropsWithChildren<unknown>> = ({ children }) => {
   const currentPath = useCurrentPath();
   const [sidebarState, setSidebarVisible] = useState<SidebarState>('initial');
   const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');

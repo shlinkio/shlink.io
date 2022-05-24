@@ -11,13 +11,16 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.scss$': 'jest-transform-css',
   },
-  moduleFileExtensions: [ 'ts', 'tsx', 'js', 'jsx' ],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: [
     'src/components/**/*.tsx',
     'src/pages/**/*.tsx',
   ],
-  testMatch: [ '<rootDir>/test/**/*.(test|spec).{js,jsx,ts,tsx}' ],
+  testMatch: ['<rootDir>/test/**/*.(test|spec).{js,jsx,ts,tsx}'],
   testEnvironment: 'jsdom',
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {
+    url: 'http://localhost',
+  },
+  setupFilesAfterEnv: ['<rootDir>/scripts/setupTests.ts']
 };

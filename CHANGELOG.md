@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * Updated CLI help description.
 
 ### Changed
-* *Nothing*
+* Updated dependencies, including React 18 and jest 28.
 
 ### Deprecated
 * *Nothing*

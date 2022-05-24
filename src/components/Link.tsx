@@ -1,11 +1,9 @@
+import { ExternalLinkProps } from 'react-external-link/dist/ExternalLink';
 import { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
 import InternalLink from './InternalLink';
 
-export interface LinkProps {
-  href: string;
-  className?: string;
-}
+export type LinkProps = ExternalLinkProps;
 
 const Link: FC<LinkProps> = (props) => {
   const { href } = props;

@@ -1,5 +1,5 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
-const Indivisible: FC = ({ children }) => <span className="indivisible">{children}</span>;
+const Indivisible: FC<PropsWithChildren<unknown>> = ({ children }) => <span className="indivisible">{children}</span>;
 
 export default Indivisible;

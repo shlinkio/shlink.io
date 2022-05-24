@@ -1,6 +1,8 @@
+import { PropsWithChildren } from 'react';
 import Highlight from 'react-highlight';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { MDXComponents } from 'mdx/types';
 import Link from '../components/Link';
 
 const slugify = (str: string) => {
@@ -22,7 +24,7 @@ const slugify = (str: string) => {
     .replace(/-+/g, '-'); // collapse dashes
 };
 
-const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-line
+const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => { // eslint-disable-line
   const { children, ...rest } = props;
   const link = slugify(children);
 
@@ -38,7 +40,7 @@ const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-li
 };
 
 const a = (props: any) => <Link {...props} />;
-const code = (props: any) => {
+const pre = (props: any) => {
   if (!props.className?.includes('no-highlight')) {
     return <Highlight {...props} />;
   }
@@ -55,4 +57,4 @@ const h2 = buildTitleForTag('h2');
 const h3 = buildTitleForTag('h3');
 const h4 = buildTitleForTag('h4');
 
-export const markdownComponents = { a, code, h1, h2, h3, h4 };
+export const markdownComponents: MDXComponents = { a, pre, h1, h2, h3, h4 };

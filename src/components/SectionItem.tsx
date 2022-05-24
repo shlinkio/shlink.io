@@ -1,11 +1,11 @@
-import { FC, ReactNode } from 'react';
+import { FC, PropsWithChildren, ReactNode } from 'react';
 import classNames from 'classnames';
 
-interface MainItemProps {
+type MainItemProps = PropsWithChildren<{
   title: string;
   block: ReactNode;
   reverse?: boolean;
-}
+}>;
 
 const SectionItem: FC<MainItemProps> = ({ title, children, block, reverse }) => (
   <div className="item py-4 py-md-5">
