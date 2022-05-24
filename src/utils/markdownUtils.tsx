@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react';
 import Highlight from 'react-highlight';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +23,7 @@ const slugify = (str: string) => {
     .replace(/-+/g, '-'); // collapse dashes
 };
 
-const buildTitleForTag = (Tag: string) => (props: any) => { // eslint-disable-line
+const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => { // eslint-disable-line
   const { children, ...rest } = props;
   const link = slugify(children);
 

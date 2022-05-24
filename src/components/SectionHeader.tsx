@@ -1,8 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC, PropsWithChildren, ReactNode } from 'react';
 
-interface SectionHeaderProps {
+type SectionHeaderProps = PropsWithChildren<{
   title: ReactNode;
-}
+}>;
 
 const SectionHeader: FC<SectionHeaderProps> = ({ title, children }) => (
   <div className="page-header theme-bg-dark py-5 text-center position-relative">

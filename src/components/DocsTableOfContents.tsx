@@ -1,8 +1,8 @@
-import { FC, Fragment } from 'react';
+import { FC, Fragment, PropsWithChildren } from 'react';
 import { menuItemsForPath, Route } from '../utils/docUtils';
 import Link from './Link';
 
-const MenuItem: FC<{ link: string }> = ({ link, children }) => (
+const MenuItem: FC<PropsWithChildren<{ link: string }>> = ({ link, children }) => (
   <li>
     <Link href={link}>{children}</Link>
   </li>

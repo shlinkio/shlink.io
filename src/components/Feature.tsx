@@ -1,15 +1,15 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import Link from './Link';
 
-interface FeatureProps {
+type FeatureProps = PropsWithChildren<{
   title: string;
   icon: IconProp;
   link?: string;
   className?: string;
-}
+}>;
 
 const Feature: FC<FeatureProps> = ({ title, children, link, icon, className }) => (
   <div className={classNames('item col-12 col-md-6 col-lg-3', className)}>

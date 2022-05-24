@@ -1,14 +1,13 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBullhorn, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 
 type CalloutType = 'info' | 'warning';
-
-interface CalloutProps {
+type CalloutProps = PropsWithChildren<{
   type: CalloutType;
   title?: string;
-}
+}>;
 
 const TYPE_MAP: Record<CalloutType, any> = {
   info: {

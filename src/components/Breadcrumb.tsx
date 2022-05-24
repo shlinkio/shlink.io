@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { Breadcrumb as BsBreadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Route } from '../utils/docUtils';
 import Link from './Link';
 
-interface BreadcrumbProps {
+type BreadcrumbProps = PropsWithChildren<{
   prevElements: Route[];
-}
+}>;
 
 const Breadcrumb: FC<BreadcrumbProps> = ({ children, prevElements }) => (
   <BsBreadcrumb>
