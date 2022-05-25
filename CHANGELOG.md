@@ -279,7 +279,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ### Changed
 * Moved ci workflow to external repo and reused
-* Updated to node 16.13
+* Updated to node 16.15
 * [#244](https://github.com/shlinkio/shlink.io/issues/244) Updated to Next.js 12.
 
 ### Deprecated
