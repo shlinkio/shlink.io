@@ -22,9 +22,9 @@ Env vars will be backwards compatible, and only major releases may drop support 
 
 ### Updating a self-hosted instance.
 
-If you are hosting Shlink manually, whether it is served with openswoole or not, you probably started by running the `cli/install` helper tool, which gets your instance set-up.
+If you are hosting Shlink manually, whether it is served with openswoole or not, you probably started by running the `install` command of the [installation tool](/documentation/command-line-interface/installation-tool) (`vendor/bin/shlink-installer install`), which gets your instance set-up.
 
-There's an updating counterpart of this tool, `cli/update`. With it, you will be able to import the configuration from your previous installation folder, and provide any new configuration options. Any configuration option you previously provided will be kept the same.
+This tool also has an `update` command (`vendor/bin/shlink-installer update`). With it, you will be able to import the configuration from your previous installation folder, and provide any new configuration options. Any configuration option you previously provided will be kept the same.
 
 That said, the process you should follow would be this:
 
