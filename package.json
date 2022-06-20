@@ -64,7 +64,7 @@
     "find-up": "^6.2.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
-    "jest-transform-css": "^2.1.0",
+    "jest-transform-css": "^4.0.1",
     "mini-css-extract-plugin": "^2.5.3",
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^2.5.12",
