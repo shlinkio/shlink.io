@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [6.34.1] - 2022-05-31
+## [6.34.1] - 2022-06-20
 ### Added
 * *Nothing*
 
@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ### Fixed
 * [#673](https://github.com/shlinkio/shlink.io/pull/673) Fixed screenshots for Short Menu integration.
+* Fixed dependency install in CI
 
 
 ## [6.34.0] - 2022-05-31
