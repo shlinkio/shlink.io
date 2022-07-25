@@ -73,6 +73,7 @@ These env vars are only relevant if you serve Shlink with openswoole.
 
 * `REDIS_SERVERS`: A comma-separated list of redis servers where Shlink locks are stored (locks are used to prevent some operations to be run more than once in parallel).
 * `REDIS_SENTINEL_SERVICE` *(v2.9.0)* : The name of the sentinel service if you want to use redis sentinel. If this value is provided, the servers provided in `REDIS_SERVERS` will be considered sentinel instances.
+* `REDIS_PUB_SUB_ENABLED` *(v3.2.0)* : Tells if the configured redis instance/cluster should also be used to publish real-time updates via redis pub/sub. Defaults to `false`.
 
 ### Mercure hub integration
 
