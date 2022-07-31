@@ -113,11 +113,7 @@ One of those resources are the locks Shlink generates to prevent some operations
 
 In order to share those locks, you should use an external redis server (redis cluster and redis sentinels are also supported), by providing the `REDIS_SERVERS` env var, and optionally, the `REDIS_SENTINEL_SERVICE` if you are using sentinels. 
 
-It can be either one server name or a comma-separated list of servers. Make sure to include the port number. For example:
-
-```
-REDIS_SERVERS=shlink.abcd.cache.amazonaws.com:6379
-```
+It can be either one server name or a comma-separated list of servers (make sure to include the port number): `REDIS_SERVERS=shlink.abcd.cache.amazonaws.com:6379,another.efgh.cache.amazonaws.com:1234`
 
 > If more than one redis server is provided, Shlink will expect them to be configured as a [redis cluster](https://redis.io/topics/cluster-tutorial), unless `REDIS_SENTINEL_SERVICE` has also been provided.
 
