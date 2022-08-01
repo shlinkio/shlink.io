@@ -3,17 +3,22 @@ import Link from '../../../components/Link';
 
 ## Real-time updates
 
-Once your Shlink instance is set-up, you may want to enable real-time updates to be sent to third parties when certain events occur.
+Once your Shlink instance is set up, you may want to enable real-time updates to notify third parties when certain events occur.
 
-Currently, Shlink supports the next ways to do that.
+Currently, Shlink supports the next technologies to publish updates.
 
-* Integrating with a [mercure hub server](/documentation/advanced/real-time-updates#mercure-hub-server) to be able to subscribe to server-sent events. *(Since v2.2.0)*.
-* Integrating with a [RabbitMQ server](/documentation/advanced/real-time-updates#rabbitmq-server) to be able to publish server-to-server updates *(Since v2.10.0)*.
-* Configuring some [webhooks](/documentation/advanced/real-time-updates#webhooks) that will be notified with new visits.
+* [Mercure hub](/documentation/advanced/real-time-updates#mercure-hub-server): allows to subscribe to server-sent events. *(Since v2.2.0)*.
+* [RabbitMQ](/documentation/advanced/real-time-updates#rabbitmq-server): to publish server-to-server updates *(Since v2.10.0)*.
+* [Redis pub/sub](/documentation/advanced/real-time-updates#redis-pub-sub): to publish server-to-server updates *(Since v3.2.0)*.
+* [Webhooks](/documentation/advanced/real-time-updates#webhooks): will be called with new visits.
 
 <Callout type="warning">
     Real-time updates only work when <Link href="/documentation/serve-with-openswoole">serving Shlink with openswoole</Link>, which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
 </Callout>
+
+### Topics and payloads
+
+Regardless the technology used for publishing and subscribing to updates, the whole list of supported topics, together with their payloads can be found in Shlink's [Async API spec](https://api-spec.shlink.io/async-api) page.
 
 ### Mercure hub server
 
@@ -61,12 +66,6 @@ Also, JWTs returned to consumers will only have permission to subscribe to updat
     If you use shlink-web-client to interact with your Shlink instance, it will work out of the box and consume updates from mercure, updating the UI in real-time where applicable.
 </Callout>
 
-#### Topics and payloads
-
-The whole list of supported topics, together with their payloads can be found in Shlink's [Async API spec](https://api-spec.shlink.io/async-api) page.
-
-> The integration with mercure is available since Shlink **v2.2.0** and shlink-web-client **v2.5.0**.
-
 ### RabbitMQ server
 
 Starting with v2.10.0, Shlink supports publishing updates in a [RabbitMQ](https://www.rabbitmq.com/) server, which is a widely used technology for publishing and subscribing to server-to-server updates.
@@ -84,6 +83,12 @@ Once the server is configured, you can provide the integration config to Shlink 
 Shlink will create an exchange with its corresponding queue, for every operation defined in Shlink's [Async API spec](https://api-spec.shlink.io/async-api/).
 
 The exchanges and queues are created in a "durable" way, with "direct" publishing type.
+
+### Redis pub/sub
+
+Since Shlink v3.2.0, if you configured a redis server/cluster for caching, Shlink can also use that instance for real-time updates via redis pub/sub.
+
+When this happens, the redis server/cluster will act as an intermediary where Shlink publishes the updates, and others can subscribe to them.
 
 ### Webhooks
 
