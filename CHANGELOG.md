@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.35.0] - 2022-08-04
 ### Added
 * Documented support on redis pub/sub for real-time updates.
+* [#312](https://github.com/shlinkio/shlink.io/issues/312) Documented multi-segment custom slugs.
 
 ### Changed
 * *Nothing*
@@ -69,7 +70,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Fixed
-* [#673](https://github.com/shlinkio/shlink.io/pull/673) Fixed screenshots for Short Menu integration.
+* [#273](https://github.com/shlinkio/shlink.io/pull/273) Fixed screenshots for Short Menu integration.
 * Fixed dependency install in CI
 
 

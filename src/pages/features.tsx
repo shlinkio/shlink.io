@@ -20,6 +20,7 @@ import { ExternalLink } from 'react-external-link';
 import Layout from '../components/Layout';
 import Feature from '../components/Feature';
 import SectionHeader from '../components/SectionHeader';
+import Indivisible from '../components/Indivisible';
 
 const Features: FC = () => (
   <Layout pageTitle="Features">
@@ -37,7 +38,8 @@ const Features: FC = () => (
             Track all the visits to your short URLs, including stats like location, visitor&apos;s browser or referrer.
           </Feature>
           <Feature title="Custom slugs" icon={faPuzzlePiece}>
-            Personalize your short URLs by using custom slugs. This will help you easily identify campaigns.
+            Personalize your campaigns&apos; short URLs by using custom
+            slugs or <Indivisible>multi-segment</Indivisible> custom slugs.
           </Feature>
           <Feature title="Multi-domain" icon={faLink} link="/documentation/advanced/multiple-domains">
             Serve multiple short domains under the same Shlink instance. You can even use the same custom slugs.

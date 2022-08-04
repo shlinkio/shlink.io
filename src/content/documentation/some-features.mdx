@@ -10,6 +10,7 @@ This document also tries to clarify why some of these features work the way they
 * [Short URL title](#short-url-title)
 * [Query params forwarding](#query-params-forwarding)
 * [Extra path forwarding](#extra-path-forwarding)
+* [Multi-segment custom slugs](#multi-segment-custom-slugs)
 * [QR Codes](#qr-codes)
 * [Bot detection](#bot-detection)
 * [Email tracking](#email-tracking)
@@ -47,6 +48,18 @@ For example, if you have a `https://exam.ple/abc123` URL that points to `https:/
 When this happens, Shlink will track the visit as usual.
 
 This behavior needs to be actively opted in, as it's disabled by default.
+
+### Multi-segment custom slugs
+
+Shlink 3.2.0 introduced the ability to create short URLs with multi-segment custom slugs.
+
+That means that you can provide multiple parts separated by slashes as the custom slug, ending with something like `https://exam.ple/my/custom/campaign`.
+
+This feature has some considerations though:
+
+* When this is enabled, any URL will match a potential short URL. That means any future orphan visit will have either `base_url` or `invalid_short_url` types, but never `regular_404`.
+* Because of previous point, this is considered a breaking change, and therefore, it's disabled by default, and you have to actively opt in.
+* If [Extra path forwarding](#extra-path-forwarding) is also enabled, there's always a chance of conflict. If you have both `https://exam.ple/foo` and `https://exam.ple/foo/bar`, when the second one is visited, it will match the first one, and the `/bar` part will be forwarded to the long URL.
 
 ### QR codes
 
