@@ -16,6 +16,7 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. If not provided, this restriction will be disabled.
 * `BASE_PATH`: The base path from which you plan to serve Shlink, in case you don't want to serve it from the root of the domain. It **has** to start with a bar, like `/shlink`. Defaults to `''`.
 * `TIMEZONE` *(v3.1.0)* : A timezone code as defined [in this list](https://www.php.net/manual/en/timezones.php). All dates stored by Shlink (visits, short URL creation, etc) will be considered to be on this timezone. By default, the default timezone set in PHP config will be used, which is `UTC` in the case of the docker image.
+* `MULTI_SEGMENT_SLUGS_ENABLED` *(v3.2.0)* : Allows to create and handle multi-segment custom slugs when `true` is provided. Default value is `false`. See [multi-segment custom slugs](/documentation/some-features/#multi-segment-custom-slugs) for more information.
 
 ### Server
 
