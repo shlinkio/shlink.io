@@ -219,3 +219,7 @@ a {
 code {
   color: #e83e8c;
 }
+
+.callout-block .content p:last-child {
+  margin-bottom: 0;
+}
