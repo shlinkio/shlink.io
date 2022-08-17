@@ -11,7 +11,7 @@ This is [shlink](https://shlink.io)'s project website. A statically built site, 
 
 In order to run this project locally, follow these steps:
 
-* Clone the repo: `git clone https://github.com/shlink/shlink.io`.
+* Clone the repo: `git clone https://github.com/shlinkio/shlink.io`.
 * With docker-compose:
     * Copy `docker-compose.override.yml.dist` to `docker-compose.override.yml`.
     * Run project: `docker-compose up`.
