@@ -9,20 +9,9 @@ on:
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Login to docker hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      - name: Login to GitHub container registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_PAT }}
-      - name: Build and publish image
-        run: bash ./scripts/docker/build ${GITHUB_REF}
+    uses: shlinkio/github-actions/.github/workflows/docker-build-and-publish.yml@main
+    secrets: inherit
+    with:
+      image-name: shlinkio/shlink.io
+      platforms: linux/amd64
+      default-branch: main
