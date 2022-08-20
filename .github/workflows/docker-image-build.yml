@@ -12,5 +12,5 @@ jobs:
     uses: shlinkio/github-actions/.github/workflows/docker-build-and-publish.yml@main
     secrets: inherit
     with:
-      image-name: shlinkio/shlink.io
+      image-name: shlinkio/shlink-website
       platforms: linux/amd64
