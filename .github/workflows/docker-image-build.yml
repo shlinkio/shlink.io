@@ -14,4 +14,3 @@ jobs:
     with:
       image-name: shlinkio/shlink.io
       platforms: linux/amd64
-      default-branch: main
