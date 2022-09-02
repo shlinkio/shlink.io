@@ -57,4 +57,10 @@ const h2 = buildTitleForTag('h2');
 const h3 = buildTitleForTag('h3');
 const h4 = buildTitleForTag('h4');
 
-export const markdownComponents: MDXComponents = { a, pre, h1, h2, h3, h4 };
+const table = (props: any) => (
+  <div className="table-responsive">
+    <table className="table table-bordered" {...props} />
+  </div>
+);
+
+export const markdownComponents: MDXComponents = { a, pre, h1, h2, h3, h4, table };

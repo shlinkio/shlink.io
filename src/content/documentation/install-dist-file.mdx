@@ -8,10 +8,10 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
 * The next PHP extensions: json, curl, pdo, intl, gd and gmp/bcmath.
     * apcu extension is recommended if you don't plan to use openswoole.
     * xml extension is required if you want to generate QR codes in svg format.
-    * sockets and bcmath extensions are required if you want to integrate with a RabbitMQ instance.
+    * sockets and bcmath extensions are required if you want to integrate with a RabbitMQ instance, or use [RoadRunner](https://roadrunner.dev/) to serve Shlink.
 * MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
     * You will also need the corresponding pdo variation for the database you are planning to use: `pdo_mysql`, `pdo_pgsql`, `pdo_sqlsrv` or `pdo_sqlite`.
-* The [openswoole](https://openswoole.com/) PHP extension (if you plan to serve Shlink with openswoole) or the web server of your choice with PHP integration (like Apache or Nginx).
+* The [openswoole](https://openswoole.com/) PHP extension (if you plan to serve Shlink with openswoole). See other ways to [serve Shlink](/documentation/supported-runtimes/).
 
 ### Installation steps
 
@@ -31,4 +31,4 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
     * [Serve Shlink using openswoole](/documentation/serve-with-openswoole).
     * [Serve Shlink with a classic web server](/documentation/classic-web-server).
 * Generate your first API key by running `bin/cli api-key:generate`. You will need the key in order to interact with Shlink's API.
-* Finally, access to https://app.shlink.io and configure your server to start creating short URLs.
+* Finally, access to [https://app.shlink.io](https://app.shlink.io) and configure your server to start creating short URLs.

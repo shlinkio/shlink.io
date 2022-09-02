@@ -1,12 +1,16 @@
-const withPlugins = require('next-compose-plugins');
-const withFonts = require('next-fonts');
-const withMDX = require('@next/mdx')({
+import withPlugins from 'next-compose-plugins';
+import withFonts from 'next-fonts';
+import mdx from '@next/mdx';
+import remarkGfm from 'remark-gfm'
+
+const withMDX = mdx({
   options: {
     providerImportSource: '@mdx-js/react',
+    remarkPlugins: [remarkGfm],
   }
 });
 
-module.exports = withPlugins([ withFonts, withMDX ], {
+export default withPlugins([ withFonts, withMDX ], {
   enableSvg: true,
   trailingSlash: true, // Makes pages to be exported as index.html files
   swcMinify: true, // This will make compiled assets to be minified via SWC instead of webpack plugin

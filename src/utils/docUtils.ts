@@ -27,6 +27,7 @@ const docsRoutes: Route[] = [
     subRoutes: [
       { text: 'Install docker image', link: '/documentation/install-docker-image' },
       { text: 'Install from dist file', link: '/documentation/install-dist-file' },
+      { text: 'Supported runtimes', link: '/documentation/supported-runtimes' },
       { text: 'Serve with openswoole', link: '/documentation/serve-with-openswoole' },
       { text: 'Classic web server', link: '/documentation/classic-web-server' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
