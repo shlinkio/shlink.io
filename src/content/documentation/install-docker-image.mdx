@@ -2,7 +2,9 @@ import Callout from '../../components/Callout';
 
 ## Install using a docker image
 
-The docker image is probably the simplest installation use case, since it includes all dependencies and makes use of [openswoole](https://openswoole.com/) to serve Shlink.
+The docker image is probably the simplest installation use case, since it includes all dependencies and works standalone.
+
+There are two "flavors", [openswoole](https://openswoole.com/)-based and [RoadRunner](https://roadrunner.dev/)-based. In order to get the former, you just need to append `-roadrunner` to the tag you want to install.
 
 <Callout type="info">
   Shlink docker images are published both in [Docker hub](https://hub.docker.com/r/shlinkio/shlink) and [Github Container Registry](https://github.com/shlinkio/shlink/pkgs/container/shlink).
@@ -155,10 +157,11 @@ These are some considerations to take into account when running multiple Shlink 
 
 Versioning on this docker image works as follows:
 
-* `X.X.X`:  when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1.
-* `stable`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
-* `latest`: always holds the latest contents, and it's considered unstable and not suitable for production.
+* `X.X.X`/`X.X.X-roadrunner`: when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1 using openswoole as the runtime, and `shlinkio/shlink:3.3.0-roadrunner` will get you Shlink 3.3.0 served with RoadRunner.
+* `stable`/`stable-roadrunner`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
+* `latest`/`latest-roadrunner`: always holds the latest contents, and it's considered unstable and not suitable for production.
 
-<Callout type="warning">
-  Take into consideration that there are no versions older than 3.0.0 published in GitHub Container registry.
+<Callout type="warning" title="Considerations">
+  * There are no versions older than 3.0.0 published in GitHub Container registry.
+  * RoadRunner-based images are only available since v3.3.0
 </Callout>

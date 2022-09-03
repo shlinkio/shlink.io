@@ -3,8 +3,8 @@ version: '3'
 services:
     shlink_webstie_node:
         container_name: shlink_webstie_node
-        image: node:16.15-alpine
-        command: /bin/sh -c "cd /shlink-website && npm install && npm run dev"
+        image: node:16.17-alpine
+        command: /bin/sh -c "cd /shlink-website && npm install -f && npm run dev"
         volumes:
             - ./:/shlink-website
         ports:
