@@ -14,9 +14,15 @@ It is recommended to serve Shlink with openswoole, since it is quite faster and 
   If for any reason regular swoole stops working, the only officially supported solution will be to migrate to openswoole.
 </Callout>
 
-In order to use openswoole, you have to install the openswoole PHP extension using Pecl: `pecl install openswoole-4.9.1`.
+In order to use openswoole, you have to install the openswoole PHP extension using Pecl: `pecl install openswoole-4.11.1`.
 
-You will also need to create a daemon script, in `/etc/init.d/shlink_swoole`.
+After that, you can serve Shlink with `php vendor/bin/laminas mezzio:swoole:start`.
+
+### Shlink as a system service
+
+Since you probably don't want to manually start Shlink every time, this explains how to set it up as a Daemon in Linux.
+
+First you need to create a daemon script, in `/etc/init.d/shlink_swoole`.
 
 You can use this sample, replacing `/path/to/shlink` by the path to your shlink installation:
 
