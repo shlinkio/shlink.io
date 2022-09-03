@@ -11,10 +11,7 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
     * sockets and bcmath extensions are required if you want to integrate with a RabbitMQ instance, or use [RoadRunner to serve Shlink](/documentation/supported-runtimes/serve-with-roadrunner/).
 * MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
     * You will also need the corresponding pdo variation for the database you are planning to use: `pdo_mysql`, `pdo_pgsql`, `pdo_sqlsrv` or `pdo_sqlite`.
-* One of the [supported runtimes](/documentation/supported-runtimes/) properly set-up:
-  * [Serve Shlink using openswoole](/documentation/supported-runtimes/serve-with-openswoole/).
-  * [Serve Shlink using RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/).
-  * [Serve Shlink with a classic web server](/documentation/supported-runtimes/classic-web-server/).
+* One of the [supported runtimes](/documentation/supported-runtimes/).
 
 ### Installation steps
 
@@ -31,4 +28,8 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
     * Providing your configuration via [env vars](/documentation/environment-variables) (since v2.9.0). Useful to pre-define the configuration or if you don't have shell access to the server.
 * Optionally, you can create a symlink to the `bin/cli` script in a folder which is in your path.<br />For example `/usr/local/bin` for linux systems. This will allow you to easily run Shlink from anywhere in the command line.
 * Generate your first API key by running `bin/cli api-key:generate`. You will need the key in order to interact with Shlink's API.
+* Set-up Shlink's runtime:
+  * [Serve Shlink using openswoole](/documentation/supported-runtimes/serve-with-openswoole/).
+  * [Serve Shlink using RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/).
+  * [Serve Shlink with a classic web server](/documentation/supported-runtimes/classic-web-server/).
 * Finally, access to [https://app.shlink.io](https://app.shlink.io) and configure your server to start creating short URLs.
