@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## [Unreleased]
 ### Added
-* *Nothing*
+* [#315](https://github.com/shlinkio/shlink.io/issues/315) Documented support for RoadRunner.
 
 ### Changed
 * Migrated to reusable workflow to build docker image
