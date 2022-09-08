@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [Unreleased]
 ### Added
 * [#315](https://github.com/shlinkio/shlink.io/issues/315) Documented support for RoadRunner.
+* [#316](https://github.com/shlinkio/shlink.io/issues/316) Documented support for trailing slashes in short URLs.
 
 ### Changed
 * Migrated to reusable workflow to build docker image
