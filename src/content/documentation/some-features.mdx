@@ -11,6 +11,7 @@ This document also tries to clarify why some of these features work the way they
 * [Query params forwarding](#query-params-forwarding)
 * [Extra path forwarding](#extra-path-forwarding)
 * [Multi-segment custom slugs](#multi-segment-custom-slugs)
+* [Short URLs trailing slash](#short-urls-trailing-slash)
 * [QR Codes](#qr-codes)
 * [Bot detection](#bot-detection)
 * [Email tracking](#email-tracking)
@@ -60,6 +61,27 @@ This feature has some considerations though:
 * When this is enabled, any URL will match a potential short URL. That means any future orphan visit will have either `base_url` or `invalid_short_url` types, but never `regular_404`.
 * Because of previous point, this is considered a breaking change, and therefore, it's disabled by default, and you have to actively opt in.
 * If [Extra path forwarding](#extra-path-forwarding) is also enabled, there's always a chance of conflict. If you have both `https://exam.ple/foo` and `https://exam.ple/foo/bar`, when the second one is visited, it will match the first one, and the `/bar` part will be forwarded to the long URL.
+
+### Short URLs trailing slash
+
+Starting with Shlink 3.3.0, you can make the same short URL work whether it has a trailing slash or not. (This feature has to be explicitly enabled via [installation tool](/documentation/command-line-interface/installation-tool) or [environment variables](/documentation/environment-variables)).
+
+This means that, while the feature is enabled, if you create the short URL `https://examp.le/foo` and a user ends up visiting `https://examp.le/foo/`, the visit will be properly captured and the user will be redirected.
+
+In older versions of Shlink or when this is not enabled, visiting a short URL with trailing slash results in a 404.
+
+<Callout type="warning">
+  Enabling this feature has some edge cases to consider when [multi-segment slugs](#multi-segment-custom-slugs) are also enabled:
+
+  * If you explicitly create a URL with the slug `whatever/`, Shlink will try to match only `whatever` as the slug, resulting in a 404.
+  * If you create both `whatever` and `whatever/`, Shlink will always match the first one.
+</Callout>
+
+If you want to support trailing slashes in any route known by Shlink and not only short URLs, you can configure the web server in front of Shlink to strip trailing slashes before calling it:
+
+* Nginx: https://ubiq.co/tech-blog/remove-trailing-slash-in-nginx/
+* Apache: https://ubiq.co/tech-blog/how-to-remove-trailing-slash-in-apache/
+* Caddy: https://caddy.community/t/efficient-remove-trailing-slash-redirect/3289
 
 ### QR codes
 
