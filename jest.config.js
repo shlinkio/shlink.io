@@ -1,14 +1,11 @@
 module.exports = {
-  globals: {
-    'ts-jest': {
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
       tsconfig: {
         // This is necessary because next.js forces { "jsx": "preserve" }, but ts-jest requires { "jsx": "react-jsx" }
         jsx: 'react-jsx',
       },
-    },
-  },
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    }],
     '^.+\\.scss$': 'jest-transform-css',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
