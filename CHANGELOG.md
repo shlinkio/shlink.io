@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ### Changed
 * Migrated to reusable workflow to build docker image
+* Updated dependencies
 
 ### Deprecated
 * *Nothing*
