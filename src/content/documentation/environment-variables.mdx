@@ -21,11 +21,18 @@ This is the complete list of supported env vars. Right next to their name you wi
 
 ### Server
 
-These env vars are only relevant if you serve Shlink with openswoole or RoadRunner.
+These env vars are only relevant when serving Shlink with [openswoole](/documentation/supported-runtimes/serve-with-openswoole/) or [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/).
 
 * `PORT` *(v2.4.0)* : Can be used to set the port in which Shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
 * `WEB_WORKER_NUM`: The amount of concurrent http requests this Shlink instance will be able to serve. Defaults to 16 for openswoole and the amount of available CPUs for roadrunner.
 * `TASK_WORKER_NUM`: The amount of concurrent background tasks this Shlink instance will be able to execute. Defaults to 16 for openswoole and the amount of available CPUs for roadrunner. Cannot be lower than 4 for openswoole.
+* `INITIAL_API_KEY` *(v3.3.0)* : An API key that will be created once, with admin permissions, so that you don't have to interact with the [CLI tool](/documentation/command-line-interface/entry-point) after installing Shlink.
+
+<Callout type="warning" title="Considerations with the initial API key">
+  * It will be ignored if other API keys already exist.
+  * If the env var is removed at some point, that won't make the API key to be deleted.
+  * If the value is changed at some point, that won't make the API key to be edited.
+</Callout>
 
 ### Database
 
