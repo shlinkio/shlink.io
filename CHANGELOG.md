@@ -11,8 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * Documented `INITIAL_API_KEY` env var.
 
 ### Changed
-* Migrated to reusable workflow to build docker image
-* Updated dependencies
+* Migrated to reusable workflow to build docker image.
+* Updated dependencies.
+* Updated long-running tasks section.
 
 ### Deprecated
 * *Nothing*
