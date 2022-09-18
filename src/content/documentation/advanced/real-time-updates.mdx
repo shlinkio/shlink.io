@@ -13,7 +13,7 @@ Currently, Shlink supports the next technologies to publish updates.
 * [Webhooks](/documentation/advanced/real-time-updates#webhooks): will be called with new visits.
 
 <Callout type="warning">
-    Real-time updates only work when <Link href="/documentation/supported-runtimes/serve-with-openswoole/">serving Shlink with openswoole</Link>, which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
+    Real-time updates only work when [openswoole](/documentation/supported-runtimes/serve-with-openswoole/) or [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/), which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
 </Callout>
 
 ### Topics and payloads
@@ -97,7 +97,7 @@ When this happens, the redis server/cluster will act as an intermediary where Sh
 
   Because of this, only visits and, optionally, orphan visits, will be notified to webhooks.
 
-  For a fully featured, real-time subscription to Shlink's events, consider using any of the other options.
+  For a fully featured, real-time subscription to Shlink events, consider using any of the other options.
 </Callout>
 
 Shlink supports providing a comma-separated list of endpoints, via [env vars](/documentation/environment-variables#webhooks-integration) or [installation tool](/documentation/command-line-interface/installation-tool), which will receive a `POST` request from Shlink when a short URL is visited.
