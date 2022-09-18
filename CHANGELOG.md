@@ -4,11 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.37.0] - 2022-09-18
 ### Added
 * [#315](https://github.com/shlinkio/shlink.io/issues/315) Documented support for RoadRunner.
 * [#316](https://github.com/shlinkio/shlink.io/issues/316) Documented support for trailing slashes in short URLs.
 * Documented `INITIAL_API_KEY` env var.
+* Documented `SKIP_INITIAL_GEOLITE_DOWNLOAD` env var.
 
 ### Changed
 * Migrated to reusable workflow to build docker image.
