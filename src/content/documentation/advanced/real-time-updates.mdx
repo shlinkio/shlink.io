@@ -94,9 +94,9 @@ When this happens, the redis server/cluster will act as an intermediary where Sh
 
 <Callout type="warning">
   As of Shlink 3.1.0, webhooks are considered <b>deprecated</b>, since any new kind of update is by definition a breaking change, and they provide less flexibility than standard queuing systems.
-  <br />
+
   Because of this, only visits and, optionally, orphan visits, will be notified to webhooks.
-  <br />
+
   For a fully featured, real-time subscription to Shlink's events, consider using any of the other options.
 </Callout>
 
@@ -142,6 +142,6 @@ The body of the request will contain the payload of both the `shortUrl` that was
 
 <Callout type="info">
   Starting with Shlink v2.9.0, you can also enable sending requests for orphan visits. In that case, the <b>shortUrl</b> prop won't be present.
-  <br />
+
   This option is disabled by default for backwards compatibility reasons, so you need to actively opt-in.
 </Callout>
