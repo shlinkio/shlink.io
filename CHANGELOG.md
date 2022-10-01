@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.38.0] - 2022-10-01
+### Added
+* Added Shlinkify to apps section.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Removed warning referencing the use of multi-segment slugs and trailing slashes for a situation that cannot actually happen.
+
+
 ## [6.37.0] - 2022-09-18
 ### Added
 * [#315](https://github.com/shlinkio/shlink.io/issues/315) Documented support for RoadRunner.
