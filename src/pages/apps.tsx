@@ -41,14 +41,14 @@ const Apps: FC = () => (
           </p>
         </ImgSectionItem>
 
-        <ImgSectionItem title="Shlinkify" src="/images/apps/shlinkify.png">
+        <ImgSectionItem title="Smol Links" src="/images/apps/smol-links.jpg">
           <p>
-            Shlinkify is a WordPress plugin that will not only provide a dashboard to manage your short URLs, but
+            Smol Links is a WordPress plugin that will not only provide a dashboard to manage your short URLs, but
             also allow you to generate short URLs for your pages and posts on the fly.
           </p>
           <p>
-            You can find it in the <ExternalLink href="https://wordpress.org/plugins/search/shlinkify/">WordPress plugin directory</ExternalLink> or
-            in <ExternalLink href="https://github.com/the-markup/shlinkify/">GitHub</ExternalLink>.
+            You can find it in the <ExternalLink href="https://wordpress.org/plugins/smol-links/">WordPress plugin directory</ExternalLink> or
+            in <ExternalLink href="https://github.com/the-markup/smol-links/">GitHub</ExternalLink>.
           </p>
         </ImgSectionItem>
       </div>
