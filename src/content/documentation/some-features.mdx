@@ -62,6 +62,8 @@ This feature has some considerations though:
 * Because of previous point, this is considered a breaking change, and therefore, it's disabled by default, and you have to actively opt in.
 * If [Extra path forwarding](#extra-path-forwarding) is also enabled, there's always a chance of conflict. If you have both `https://exam.ple/foo` and `https://exam.ple/foo/bar`, when the second one is visited, it will match the first one, and the `/bar` part will be forwarded to the long URL.
 
+Specify `MULTI_SEGMENT_SLUGS_ENABLED` to true. More info here https://shlink.io/documentation/environment-variables/#general
+
 ### Short URLs trailing slash
 
 Starting with Shlink 3.3.0, you can make the same short URL work whether it has a trailing slash or not. (This feature has to be explicitly enabled via [installation tool](/documentation/command-line-interface/installation-tool) or [environment variables](/documentation/environment-variables)).
