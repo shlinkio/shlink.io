@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.39.0] - 2022-11-17
+### Added
+* [#328](https://github.com/shlinkio/shlink.io/issues/328) Added link to mastodon profile.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.38.2] - 2022-10-27
 ### Added
 * *Nothing*
