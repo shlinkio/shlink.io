@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * [#328](https://github.com/shlinkio/shlink.io/issues/328) Added link to mastodon profile.
 
 ### Changed
-* *Nothing*
+* Updated to Next 13
 
 ### Deprecated
 * *Nothing*
