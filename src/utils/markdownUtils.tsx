@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import Highlight from 'react-highlight';
+import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { MDXComponents } from 'mdx/types';
@@ -41,16 +42,11 @@ const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => { /
 
 const a = (props: any) => <Link {...props} />;
 const pre = (props: any) => {
-  if (!props.className?.includes('no-highlight')) {
-    return <Highlight {...props} />;
+  if (props.children?.props?.className?.includes('mermaid')) {
+    return <Mermaid chart={props.children?.props?.children} />;
   }
 
-  const newProps = {
-    ...props,
-    className: props.className?.replace('no-highlight', ''),
-  };
-
-  return <code {...newProps} />;
+  return <Highlight {...props} />;
 };
 const h1 = buildTitleForTag('h1');
 const h2 = buildTitleForTag('h2');

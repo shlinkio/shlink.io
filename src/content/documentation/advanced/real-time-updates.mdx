@@ -49,7 +49,14 @@ Then you need to provide some config options to the mercure hub for the integrat
 
 Once installed, this is how Shlink, the mercure hub and consumers will interact:
 
-![Shlink and mercure hub interaction](/images/mercure/mercure-architecture.png)
+```mermaid
+flowchart LR;
+    Shlink(Shlink):::shlinkStyle-->|Get mercure URL and JWT|Consumers(Consumers)
+    Shlink(Shlink)-->|Publish updates|Mercure("Mercure hub")
+    Consumers(Consumers):::shlinkStyle-->|Subscribe to topics|Mercure("Mercure hub")
+    Mercure("Mercure hub"):::shlinkStyle-->|Receive updates|Consumers(Consumers)
+    classDef shlinkStyle fill:#73afeb,color:#fff,stroke:#4696e5
+```
 
 * Shlink knows Mercure hub's public URL and the JWT secret key.
 * Shlink can generate JWTs for mercure, which only have permission for subscribing.
