@@ -80,7 +80,7 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 
 ### Redis integration
 
-* `REDIS_SERVERS`: A comma-separated list of redis servers which Shlink uses for shared locks, cache, and optionally real-time updates through pub/sub (make sure to include the port number for every server).
+* `REDIS_SERVERS`: A comma-separated list of redis servers which Shlink uses for shared locks, cache, and optionally real-time updates through pub/sub (make sure to include the port number and credentials for every server).
 * `REDIS_SENTINEL_SERVICE` *(v2.9.0)* : The name of the sentinel service if you want to use redis sentinel. If this value is provided, the servers provided in `REDIS_SERVERS` will be considered sentinel instances.
 * `REDIS_PUB_SUB_ENABLED` *(v3.2.0)* : Tells if the configured redis instance/cluster should also be used to publish real-time updates via redis pub/sub. Defaults to `false`.
 
