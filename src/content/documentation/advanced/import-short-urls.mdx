@@ -17,6 +17,7 @@ $ bin/cli short-url:import
   [1] yourls
   [2] csv
   [3] shlink
+  [4] kutt
  >
 ```
 
@@ -30,6 +31,7 @@ These are the sources from which you can currently import:
 * [YOURLS](/documentation/advanced/import-short-urls#yourls) *(since Shlink v2.10.0)*
 * [Standard CSV](/documentation/advanced/import-short-urls#standard-csv) *(since Shlink v2.6.0)*
 * [Shlink instance](/documentation/advanced/import-short-urls#shlink-instance) *(since Shlink v2.7.0)*
+* [Kutt.it](/documentation/advanced/import-short-urls#kuttit) *(since Shlink v3.1.0)*
 
 ### Bitly
 
@@ -48,30 +50,30 @@ Running the command will generate an output similar to this:
 ```shell
 $ bin/cli short-url:import bitly
 
-  What is your Bit.ly's API access token? (you can generate one here https://bitly.is/accesstoken):
-  > ****************************
+ What is your Bit.ly's API access token? (you can generate one here https://bitly.is/accesstoken):
+ > ****************************
 
-  Do you want to import short-codes/slugs as they are? Otherwise, new unique short-codes will be generated for every imported URL. (yes/no) [yes]:
-  > y
+ Do you want to import short-codes/slugs as they are? Otherwise, new unique short-codes will be generated for every imported URL. (yes/no) [yes]:
+ > y
 
-  Do you want to import tags? (yes/no) [yes]:
-  > y
+ Do you want to import tags? (yes/no) [yes]:
+ > y
 
-  Do you want to import custom domains? (any domain other than bit.ly) (yes/no) [no]:
-  > y
+ Do you want to import custom domains? (any domain other than bit.ly) (yes/no) [no]:
+ > y
 
-  Do you want to keep the original creation date? Otherwise, all imported URLs will have current date as its creation date (yes/no) [yes]:
-  > n
+ Do you want to keep the original creation date? Otherwise, all imported URLs will have current date as its creation date (yes/no) [yes]:
+ > n
 
-  Do you want to ignore archived URLs? (yes/no) [no]:
-  > n
+ Do you want to ignore archived URLs? (yes/no) [no]:
+ > n
 
-  If you already run this command once and a warning was displayed, you might have been provided with a "continue token". If that's the case, paste it here. If this is the first time you run this command, ignore this:
-  >
+ If you already run this command once and a warning was displayed, you might have been provided with a "continue token". If that's the case, paste it here. If this is the first time you run this command, ignore this:
+ >
 
-  https://shlink.io/documentation: Imported
-  https://docs.mezzio.dev/: Skipped
-  https://www.example.com/foo/bar: Imported
+https://shlink.io/documentation: Imported
+https://docs.mezzio.dev/: Skipped
+https://www.example.com/foo/bar: Imported
 ```
 
 ### YOURLS
@@ -126,16 +128,16 @@ Running the command will generate an output similar to this:
 ```shell
 $ bin/cli short-url:import csv
 
-  What's the path for the CSV file you want to import:
-  > ./my_links.csv
+ What's the path for the CSV file you want to import:
+ > ./my_links.csv
 
-  What's the delimiter used to separate values? [Comma]:
-   [,] Comma
-   [;] Semicolon
-  > ,
+ What's the delimiter used to separate values? [Comma]:
+  [,] Comma
+  [;] Semicolon
+ > ,
 
-  https://shlink.io: Imported
-  https://example.com: Imported
+https://shlink.io: Imported
+https://example.com: Imported
 ```
 
 ### Shlink instance
@@ -164,4 +166,28 @@ https://shlink.io: Imported with 381 visits.
 https://example.com: Imported with 68 visits.
 ```
 
+<Callout type="info">
+  Starting with v3.4.0, Shlink also allows to import orphan visits from the original Shlink instance.
+</Callout>
+
 > This importing source is available since Shlink 2.7.0, but it can import from older Shlink versions.
+
+### Kutt.it
+
+Shlink allows importing short URLs, and optionally visits, from a self-hosted kutt instance, or the SaaS https://kutt.it, using its API.
+
+```shell
+$ bin/cli short-url:import kutt
+
+ What is your Kutt.it instance base URL?:
+ > https://kutt.it
+
+ What is your Kutt.it instance API key?:
+ > api_key
+
+ Do you want to import URLs created anonymously? (yes/no) [no]:
+ >
+
+https://shlink.io: Imported with 381 visits.
+https://example.com: Imported with 68 visits.
+```
