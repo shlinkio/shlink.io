@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.40.1] - 2022-12-30
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Removed hardcoded link to localhost.
+
+
 ## [6.40.0] - 2022-12-29
 ### Added
 * [#330](https://github.com/shlinkio/shlink.io/issues/330) Added mermaid integration to render charts and graphs. Used to illustrate the integration with mercure.
