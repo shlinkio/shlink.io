@@ -22,7 +22,7 @@ const SocialList: FC<SocialListProps> = ({ type, className }) => (
       </ExternalLink>
     </li>
     <li className="list-inline-item">
-      <ExternalLink href="https://fosstodon.org/@shlinkio">
+      <ExternalLink href="https://fosstodon.org/@shlinkio" rel="me">
         <FontAwesomeIcon icon={faMastodon} fixedWidth />
       </ExternalLink>
     </li>
