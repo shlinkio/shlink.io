@@ -7,6 +7,9 @@
       "pattern": "https://www.maxmind.com/en/accounts/current/license-key"
     },
     {
+      "pattern": "https://apps.apple.com/app/short-menu/id885851937"
+    },
+    {
       "pattern": "https://www.php.net/manual/en/timezones.php"
     },
     {
