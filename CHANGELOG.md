@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [Unreleased]
 ### Added
 * Documented support for redirect statuses `308` and `307`.
+* Documented openswoole-specific env-vars.
 
 ### Changed
 * *Nothing*
@@ -18,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Fixed
-* *Nothing*
+* Fixed typo
 
 
 ## [6.40.2] - 2023-01-03

@@ -114,6 +114,21 @@ These are the env vars that only make sense for the docker image:
 * `ENABLE_PERIODIC_VISIT_LOCATE` *(v2.8.0)* : If provided with value `true`, it schedules the `visit:locate` command to be run every hour inside the container using crontab. Defaults to `false`.
 * `SKIP_INITIAL_GEOLITE_DOWNLOAD` *(v3.3.0)* : If provided with value `true`, it will skip the initial GeoLite2 db file download, speeding-up the container start-up. As a side effect, first visits on this container will remain un-located until the file finishes downloading in background.
 
+### Specific for Openswoole
+
+Starting with Shlink 3.5.0, you can provide any [openswoole config option](https://openswoole.com/docs/modules/swoole-server/configuration) via env vars prefixed with `OPENSWOOLE_`.
+
+For example, `OPENSWOOLE_PACKAGE_MAX_LENGTH=60000` will result in `'package_max_length' => 60000` or `OPENSWOOLE_OPEN_CPU_AFFINITY=false` will result in `'open_cpu_affinity' => false`.
+
+<Callout type="warning">
+  This feature is experimental, and has some considerations:
+
+  * Certain config options might result in Shlink not working as expected. **Proceed at your own risk**.
+  * If an env var starting with `OPENSWOOLE_` is provided but it does not match any openswoole config option, a warning will be printed.
+  * Nested configs are not currently supported, so you cannot provide `ssl_sni_certs`.
+  * These env vars will have no effect if you are not serving Shlink with [openswoole](/documentation/supported-runtimes/serve-with-openswoole/).
+</Callout>
+
 ### Considerations
 
 There are a few things to have in mind.
