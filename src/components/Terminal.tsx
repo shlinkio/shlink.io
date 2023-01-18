@@ -11,7 +11,7 @@ const strings: IStrings = {
   cli: [
     `\`${prompt}\` ^100 shlink short-url:generate https://shlink.io ^500 `
     + '`<br>Processed URL: <span class="green">https://shlink.io</span>'
-    + '<br>Generated URL: <span class="green">https://doma.in/rY9k</span>'
+    + '<br>Generated URL: <span class="green">https://s.test/rY9k</span>'
     + `<br>${prompt}\` ^200 shlink short-url:parse rY9k ^250 `
     + '`<br>Long URL: <span class="green">https://shlink.io</span>'
     + `<br>${prompt}\` ^200 shlink short-url:visits rY9k ^250 `
@@ -20,7 +20,7 @@ const strings: IStrings = {
     + '<br>+---------+------+------------+---------+`',
   ],
   rest: [
-    '<span class="yellow">POST</span> https://doma.in/rest/v2/short-urls'
+    '<span class="yellow">POST</span> https://s.test/rest/v2/short-urls'
     + '<br><span class="black">Accept:</span> application/json'
     + '<br><span class="black">X-Api-Key:</span> `f3713597-8b14-4144-a49c-b26eb6e06b09`'
     + '<br>'
@@ -28,14 +28,14 @@ const strings: IStrings = {
     + '<br>'
     + '<br>`{'
     + '<br>&nbsp;&nbsp;<span class="black">"shortCode"</span>: <span class="green">"rY9k"</span>,'
-    + '<br>&nbsp;&nbsp;<span class="black">"shortUrl"</span>: <span class="green">"https://doma.in/rY9k"</span>,'
+    + '<br>&nbsp;&nbsp;<span class="black">"shortUrl"</span>: <span class="green">"https://s.test/rY9k"</span>,'
     + '<br>&nbsp;&nbsp;<span class="black">"longUrl"</span>: <span class="green">"https://shlink.io"</span>,'
     + '<br>&nbsp;&nbsp;<span class="black">"dateCreated"</span>: <span class="green">"2016-05-02T17:49:53+02:00"</span>,'
     + '<br>&nbsp;&nbsp;<span class="black">"visitsCount"</span>: 0,'
     + '<br>&nbsp;&nbsp;<span class="black">"tags"</span>: [],'
     + '<br>&nbsp;&nbsp;<span class="black">"meta"</span>: {}'
     + '<br>}`',
-    '<span class="yellow">GET</span> https://doma.in/rest/v2/short-urls/rY9k/visits'
+    '<span class="yellow">GET</span> https://s.test/rest/v2/short-urls/rY9k/visits'
     + '<br><span class="black">Accept:</span> application/json'
     + '<br><span class="black">X-Api-Key:</span> `f3713597-8b14-4144-a49c-b26eb6e06b09` ^500'
     + '<br>'

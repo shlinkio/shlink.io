@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * Documented openswoole-specific env-vars.
 
 ### Changed
-* *Nothing*
+* [#340](https://github.com/shlinkio/shlink.io/issues/340) Replaced references to `doma.in` by `s.test`.
 
 ### Deprecated
 * *Nothing*
