@@ -10,7 +10,7 @@ Here you can find two simple examples of the virtual hosts needed for both Apach
 
 ```nginx
 server {
-    server_name doma.in;
+    server_name s.test;
     listen 80;
     root /path/to/shlink/public;
     index index.php;
@@ -37,7 +37,7 @@ server {
 
 ```apache
 <VirtualHost *:80>
-    ServerName doma.in
+    ServerName s.test
     DocumentRoot "/path/to/shlink/public";
 
     <Directory "/path/to/shlink/public">
