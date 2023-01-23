@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Added
 * Documented support for redirect statuses `308` and `307`.
 * Documented openswoole-specific env-vars.
+* [#342](https://github.com/shlinkio/shlink.io/issues/342) Documented device-specific redirects.
 
 ### Changed
 * [#340](https://github.com/shlinkio/shlink.io/issues/340) Replaced references to `doma.in` by `s.test`.
