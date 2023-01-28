@@ -13,6 +13,7 @@ This document also tries to clarify why some of these features work the way they
 * [Extra path forwarding](#extra-path-forwarding)
 * [Multi-segment custom slugs](#multi-segment-custom-slugs)
 * [Short URLs trailing slash](#short-urls-trailing-slash)
+* [Short URLs mode](#short-urls-mode)
 * [QR Codes](#qr-codes)
 * [Bot detection](#bot-detection)
 * [Email tracking](#email-tracking)
@@ -90,6 +91,25 @@ If you want to support trailing slashes in any route known by Shlink and not onl
 * Nginx: https://ubiq.co/tech-blog/remove-trailing-slash-in-nginx/
 * Apache: https://ubiq.co/tech-blog/how-to-remove-trailing-slash-in-apache/
 * Caddy: https://caddy.community/t/efficient-remove-trailing-slash-redirect/3289
+
+### Short URLs mode
+
+By default, Shlink always matches short URLs in a strict mode, meaning it does a case-sensitive check when trying to determine which short URL has been visited.
+
+This effectively means `https://s.test/aaabbb` and `https://s.test/AAABBB` are considered different URLs by Shlink.
+
+Starting with Shlink v3.5.0, you can customize this behavior, and make Shlink consider those two URLs to be the same.
+
+This is achieved via the so called `loosely` short URL mode (the mode can be set via [installation tool](/documentation/command-line-interface/installation-tool) or [environment variables](/documentation/environment-variables)).
+
+<Callout type="warning">
+  Setting `loosely` mode has a couple of considerations:
+
+  * Shlink will no longer generate short codes with uppercase letters. Only lowercase and numbers will be taken into consideration.
+  * When providing a custom slug, Shlink will lowercase it, so if there's a URL with `aaabbb` and `AaaBbb` is provided, it will throw an error saying it already exists.
+  * On existing Shlink instances, already existing short URLs will not be changed in any way. If "conflicting" URLs already exist, they have to be fixed manually.
+  * Loosely checks are done only for "public" URLs (short URLs, QR codes and email tracking). REST API endpoints do strict matches no matter what.
+</Callout>
 
 ### QR codes
 
