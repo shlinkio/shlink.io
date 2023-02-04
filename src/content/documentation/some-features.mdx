@@ -94,16 +94,16 @@ If you want to support trailing slashes in any route known by Shlink and not onl
 
 ### Short URLs mode
 
-By default, Shlink always matches short URLs in a strict mode, meaning it does a case-sensitive check when trying to determine which short URL has been visited.
+By default, Shlink always matches short URLs in a `strict` mode, meaning it does a case-sensitive check when trying to determine which short URL has been visited.
 
 This effectively means `https://s.test/aaabbb` and `https://s.test/AAABBB` are considered different URLs by Shlink.
 
 Starting with Shlink v3.5.0, you can customize this behavior, and make Shlink consider those two URLs to be the same.
 
-This is achieved via the so called `loosely` short URL mode (the mode can be set via [installation tool](/documentation/command-line-interface/installation-tool) or [environment variables](/documentation/environment-variables)).
+This is achieved via the so called `loose` short URL mode (the mode can be set via [installation tool](/documentation/command-line-interface/installation-tool) or [environment variables](/documentation/environment-variables)).
 
 <Callout type="warning">
-  Setting `loosely` mode has a couple of considerations:
+  Setting `loose` mode has a couple of considerations:
 
   * Shlink will no longer generate short codes with uppercase letters. Only lowercase and numbers will be taken into consideration.
   * When providing a custom slug, Shlink will lowercase it, so if there's a URL with `aaabbb` and `AaaBbb` is provided, it will throw an error saying it already exists.

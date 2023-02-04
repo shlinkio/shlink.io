@@ -18,7 +18,7 @@ This is the complete list of supported env vars. Right next to their name you wi
 * `TIMEZONE` *(v3.1.0)* : A timezone code as defined [in this list](https://www.php.net/manual/en/timezones.php). All dates stored by Shlink (visits, short URL creation, etc) will be considered to be on this timezone. By default, the default timezone set in PHP config will be used, which is `UTC` in the case of the docker image.
 * `MULTI_SEGMENT_SLUGS_ENABLED` *(v3.2.0)* : Allows to create and handle multi-segment custom slugs when `true` is provided. Default value is `false`. See [multi-segment custom slugs](/documentation/some-features/#multi-segment-custom-slugs) for more information.
 * `SHORT_URL_TRAILING_SLASH` *(v3.3.0)* : Allows to enable support for trailing slashes in short URLs when `true` is provided. Default value is `false`. See [short URLs trailing slash](/documentation/some-features/#short-urls-trailing-slash) for more information.
-* `SHORT_URL_MODE` *(v3.5.0)* : `strict` or `loosely`. Determines how to match short URLs. Defaults to `strict`. See [short URLs mode](/documentation/some-features/#short-urls-mode) for more information.
+* `SHORT_URL_MODE` *(v3.5.0)* : `strict` or `loose`. Determines how to match short URLs. Defaults to `strict`. See [short URLs mode](/documentation/some-features/#short-urls-mode) for more information.
 
 ### Server
 
