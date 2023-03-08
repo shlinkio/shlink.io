@@ -32,23 +32,37 @@ docker run \
     shlinkio/shlink:stable
 ```
 
-##### Interact with Shlink's CLI on a running container.
+#### Generate first API key
 
 Once the Shlink container is running, you can interact with the [CLI entry point](/documentation/command-line-interface/entry-point) by running `shlink` with any of the supported commands.
 
-For example, if the container is called `my_shlink`, you can generate a new API key with:
+One of the main reasons you would want to do that, is to generate your first API key. For example, if the container is called `my_shlink`, you can do it with:
 
 ```bash
 docker exec -it my_shlink shlink api-key:generate
 ```
 
-Or you can list all tags with:
+If you can't interact with the container's shell (for example, when running Shlink in [Google Cloud Run](https://cloud.google.com/run) or similar), or if you wish to provide an initial API key yourself, starting with Shlink 3.3.0, you can do so by providing the `INITIAL_API_KEY` env var with an API key of your choice.
+
+```bash
+docker run \
+    --name my_shlink \
+    [...] \
+    -e INITIAL_API_KEY=<super_secure_api_key> \
+    shlinkio/shlink:stable
+```
+
+#### Interact with Shlink's CLI on a running container.
+
+Generating the first API key is not the only thing you can do with Shlink's CLI entry point inside the container's shell.
+
+You can also list all tags:
 
 ```bash
 docker exec -it my_shlink shlink tag:list
 ```
 
-Or locate remaining visits with:
+Or locate remaining visits:
 
 ```bash
 docker exec -it my_shlink shlink visit:locate
@@ -56,7 +70,7 @@ docker exec -it my_shlink shlink visit:locate
 
 All Shlink commands will work the same way.
 
-You can also list all available commands just by running this:
+You can also list all available commands by just running this:
 
 ```bash
 docker exec -it my_shlink shlink
