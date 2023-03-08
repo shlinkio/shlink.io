@@ -4,12 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.43.0] - 2023-03-08
 ### Added
-* *Nothing*
+* Document the best way to update multiple Shlink versions.
+* Mention the existence of `INITIAL_API_KEY` in the documentation about Shlink's docker image.
 
 ### Changed
-* Replaced references to `loosely` mode by `loose`.
+* Replace references to `loosely` mode by `loose`.
 
 ### Deprecated
 * *Nothing*
