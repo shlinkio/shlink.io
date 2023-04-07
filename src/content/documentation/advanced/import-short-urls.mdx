@@ -25,8 +25,8 @@ The import command can be run as many times as you want, as Shlink is smart enou
 
 However, there's a couple considerations:
 
-* The process has been optimized as much as possible, trying to avoid memory leaks. However, it is recommended to reserve at least 512Mb to PHP when running this process.
-* The import process is transactional and all or nothing. If there's an uncontrolled error, the import will be rolled-back.
+* The process has been optimized as much as possible, trying to avoid memory leaks. However, it is recommended to [reserve at least 512Mb](https://www.php.net/manual/en/ini.core.php#ini.memory-limit) to PHP when running this process.
+* The import process is transactional and all-or-nothing. If there's an uncontrolled error, the import will be rolled-back.
 * In order to determine if a visit has already been imported, Shlink relies on their date, assuming you will usually import on top of an "empty" instance. If this is not the case, it could end up ignoring visits that are not actually imported yet, just because they are older than other existing visits.
 
 #### Supported sources
