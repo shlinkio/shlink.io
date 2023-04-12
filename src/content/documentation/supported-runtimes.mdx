@@ -1,4 +1,5 @@
 import Callout from '../../components/Callout';
+import { RTULimitationTooltip } from '../../components/RTULimitationTooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -53,5 +54,5 @@ Now that you know the options, follow this table in order to decide what's the b
 | **Hard to install**                                                          | Medium                                                                                     | <span className="text-success">Easy</span>                                                 | Medium                                                       |
 | **[Reverse proxy](/documentation/advanced/exposing-through-reverse-proxy/)** | Recommended                                                                                | Recommended                                                                                | <span className="text-success">Not needed</span>             |
 | **HTTPS support**                                                            | Via reverse proxy                                                                          | Via reverse proxy                                                                          | Yes                                                          |
-| **[Real-time updates](/documentation/advanced/real-time-updates/)**          | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | <FontAwesomeIcon icon={faXmark} className="text-danger" />   |
+| **[Real-time updates](/documentation/advanced/real-time-updates/)**          | <FontAwesomeIcon icon={faCheck} className="text-success" /> <RTULimitationTooltip />       | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | <FontAwesomeIcon icon={faXmark} className="text-danger" />   |
 | **GeoLite2 updates**                                                         | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | Via [long-running tasks](/documentation/long-running-tasks/) |
