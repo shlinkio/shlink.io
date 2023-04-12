@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.45.0] - 2023-04-12
+### Added
+* Document limitation on real-time updates not dispatched when creating short URLs from CLI with openswoole.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.44.0] - 2023-04-07
 ### Added
 * Document considerations when importing URLs.
