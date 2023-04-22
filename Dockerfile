@@ -1,4 +1,4 @@
-FROM node:16.17-alpine as node
+FROM node:18.16-alpine as node
 COPY . /shlink-website
 RUN cd /shlink-website && \
     npm ci --force && \
