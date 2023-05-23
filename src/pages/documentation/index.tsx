@@ -1,11 +1,12 @@
-import { FC, useState, useEffect, PropsWithChildren } from 'react';
 import classNames from 'classnames';
+import type { FC, PropsWithChildren } from 'react';
+import { useEffect, useState } from 'react';
 import { NavbarToggler } from 'reactstrap';
-import Layout from '../../components/Layout';
+import { DocsMenu } from '../../components/DocsMenu';
+import { DocsSearch } from '../../components/DocsSearch';
+import { Footer } from '../../components/Footer';
+import { Layout } from '../../components/Layout';
 import GettingStartedContent from '../../content/documentation/index.mdx';
-import Footer from '../../components/Footer';
-import DocsSearch from '../../components/DocsSearch';
-import DocsMenu from '../../components/DocsMenu';
 import { useCurrentPath } from '../../utils/pathUtils';
 
 interface LeftMenuToggleProps {

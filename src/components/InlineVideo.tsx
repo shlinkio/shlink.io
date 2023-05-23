@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 type NonEmptyArray<T> = { 0: T } & T[];
 

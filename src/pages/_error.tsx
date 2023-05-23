@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import Layout from '../components/Layout';
-import SectionHeader from '../components/SectionHeader';
-import Link from '../components/Link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { FC } from 'react';
+import { Layout } from '../components/Layout';
+import { Link } from '../components/Link';
+import { SectionHeader } from '../components/SectionHeader';
 
 const Error: FC = () => (
   <Layout pageTitle="404">

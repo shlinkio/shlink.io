@@ -1,6 +1,7 @@
-import { FC, useEffect } from 'react';
-import { useCurrentPath } from '../utils/pathUtils';
+import type { FC } from 'react';
+import { useEffect } from 'react';
 import { initGA, logPageView } from '../utils/analytics';
+import { useCurrentPath } from '../utils/pathUtils';
 import '../assets/sass/main.scss';
 
 interface MyAppProps {

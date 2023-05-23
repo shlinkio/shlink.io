@@ -1,12 +1,12 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
+import type { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import {
   faBook,
   faCogs,
+  faExclamationTriangle,
   faLaptopCode,
   faMobileAlt,
-  faTerminal,
-  faExclamationTriangle,
   faShieldAlt,
+  faTerminal,
 } from '@fortawesome/free-solid-svg-icons';
 import { clone } from 'ramda';
 

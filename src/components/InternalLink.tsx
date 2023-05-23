@@ -1,7 +1,5 @@
-import { FC } from 'react';
 import Link from 'next/link';
-import { LinkProps } from './Link';
+import type { FC } from 'react';
+import type { LinkProps } from './Link';
 
-const InternalLink: FC<LinkProps> = ({ children, ...rest }) => <Link {...rest}>{children}</Link>;
-
-export default InternalLink;
+export const InternalLink: FC<LinkProps> = ({ children, ...rest }) => <Link {...rest}>{children}</Link>;

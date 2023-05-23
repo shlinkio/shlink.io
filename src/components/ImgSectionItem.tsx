@@ -1,6 +1,7 @@
-import { FC } from 'react';
-import SectionItem, { SectionItemProps } from './SectionItem';
-import FakeBrowser from './FakeBrowser';
+import type { FC } from 'react';
+import { FakeBrowser } from './FakeBrowser';
+import type { SectionItemProps } from './SectionItem';
+import { SectionItem } from './SectionItem';
 
 interface ImgSectionItemProps extends Omit<SectionItemProps, 'block'> {
   src: string;

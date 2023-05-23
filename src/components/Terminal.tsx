@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import Typed from 'react-typed';
-import FakeBrowser from './FakeBrowser';
+import { FakeBrowser } from './FakeBrowser';
 
 interface IStrings {
   cli: string[];
@@ -57,7 +57,7 @@ interface TerminalProps {
   id: keyof IStrings;
 }
 
-const Terminal: FC<TerminalProps> = ({ id }) => {
+export const Terminal: FC<TerminalProps> = ({ id }) => {
   const typedOptions = {
     typeSpeed: 100,
     loop: true,
@@ -74,5 +74,3 @@ const Terminal: FC<TerminalProps> = ({ id }) => {
     </FakeBrowser>
   );
 };
-
-export default Terminal;

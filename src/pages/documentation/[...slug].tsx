@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import type { FC } from 'react';
+import { Breadcrumb } from '../../components/Breadcrumb';
 import { breadcrumbForPath, breadcrumbsMap } from '../../utils/docUtils';
 import { useCurrentPath } from '../../utils/pathUtils';
-import Breadcrumb from '../../components/Breadcrumb';
 import Documentation from '.';
 
 const DocumentationSlug: FC = () => {

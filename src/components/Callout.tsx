@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBullhorn, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import type { FC, PropsWithChildren } from 'react';
 
 type CalloutType = 'info' | 'warning';
 type CalloutProps = PropsWithChildren<{
@@ -22,7 +22,7 @@ const TYPE_MAP: Record<CalloutType, any> = {
   },
 };
 
-const Callout: FC<CalloutProps> = ({ children, type, title }) => (
+export const Callout: FC<CalloutProps> = ({ children, type, title }) => (
   <div className={classNames('callout-block', TYPE_MAP[type].className)}>
     <div className="content">
       <h4 className="callout-title">
@@ -35,5 +35,3 @@ const Callout: FC<CalloutProps> = ({ children, type, title }) => (
     </div>
   </div>
 );
-
-export default Callout;

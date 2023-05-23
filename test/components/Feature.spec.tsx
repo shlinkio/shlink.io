@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
-import Feature from '../../src/components/Feature';
+import { render, screen } from '@testing-library/react';
+import { Feature } from '../../src/components/Feature';
 
 describe('<Feature />', () => {
   const theTitle = 'The title';

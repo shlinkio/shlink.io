@@ -1,16 +1,16 @@
-import { FC } from 'react';
-import { ExternalLink } from 'react-external-link';
 import { faChartBar } from '@fortawesome/free-regular-svg-icons';
+import { faArrowCircleRight, faCloudDownloadAlt, faCropAlt, faExternalLinkAlt, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight, faCloudDownloadAlt, faCropAlt, faShare, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import Layout from '../components/Layout';
-import Jumbotron from '../components/Jumbotron';
-import Terminal from '../components/Terminal';
-import Indivisible from '../components/Indivisible';
-import InternalLink from '../components/InternalLink';
-import Feature from '../components/Feature';
-import SectionItem from '../components/SectionItem';
-import ShlinkWebClientVideo from '../components/ShlinkWebClientVideo';
+import type { FC } from 'react';
+import { ExternalLink } from 'react-external-link';
+import { Feature } from '../components/Feature';
+import { Indivisible } from '../components/Indivisible';
+import { InternalLink } from '../components/InternalLink';
+import { Jumbotron } from '../components/Jumbotron';
+import { Layout } from '../components/Layout';
+import { SectionItem } from '../components/SectionItem';
+import { ShlinkWebClientVideo } from '../components/ShlinkWebClientVideo';
+import { Terminal } from '../components/Terminal';
 
 const Home: FC = () => (
   <Layout>

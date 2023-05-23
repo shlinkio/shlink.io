@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
-import Layout from '../components/Layout';
-import SectionHeader from '../components/SectionHeader';
-import SectionItem from '../components/SectionItem';
-import ShlinkWebClientVideo from '../components/ShlinkWebClientVideo';
-import Indivisible from '../components/Indivisible';
 import { ImgSectionItem } from '../components/ImgSectionItem';
+import { Indivisible } from '../components/Indivisible';
+import { Layout } from '../components/Layout';
+import { SectionHeader } from '../components/SectionHeader';
+import { SectionItem } from '../components/SectionItem';
+import { ShlinkWebClientVideo } from '../components/ShlinkWebClientVideo';
 
 const Apps: FC = () => (
   <Layout pageTitle="Apps">

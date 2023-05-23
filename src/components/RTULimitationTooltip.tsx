@@ -1,6 +1,7 @@
-import { FC, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { FC } from 'react';
+import { useRef } from 'react';
 import { UncontrolledTooltip } from 'reactstrap';
 
 export const RTULimitationTooltip: FC = () => {

@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react';
-import Highlight from 'react-highlight';
-import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
-import { MDXComponents } from 'mdx/types';
-import Link from '../components/Link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { MDXComponents } from 'mdx/types';
+import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
+import type { PropsWithChildren } from 'react';
+import Highlight from 'react-highlight';
+import { Link } from '../components/Link';
 
 const slugify = (str: string) => {
   let lowercasedStr = str

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import SectionHeader from '../../src/components/SectionHeader';
+import { SectionHeader } from '../../src/components/SectionHeader';
 
 describe('<SectionHeader />', () => {
   it('properly renders provided children inside a title', () => {
