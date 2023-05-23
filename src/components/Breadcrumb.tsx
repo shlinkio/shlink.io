@@ -1,13 +1,13 @@
-import { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { Breadcrumb as BsBreadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Route } from '../utils/docUtils';
-import Link from './Link';
+import type { Route } from '../utils/docUtils';
+import { Link } from './Link';
 
 type BreadcrumbProps = PropsWithChildren<{
   prevElements: Route[];
 }>;
 
-const Breadcrumb: FC<BreadcrumbProps> = ({ children, prevElements }) => (
+export const Breadcrumb: FC<BreadcrumbProps> = ({ children, prevElements }) => (
   <BsBreadcrumb>
     {prevElements.map(({ text, link }) => (
       <BreadcrumbItem key={text}>
@@ -17,5 +17,3 @@ const Breadcrumb: FC<BreadcrumbProps> = ({ children, prevElements }) => (
     <BreadcrumbItem active>{children}</BreadcrumbItem>
   </BsBreadcrumb>
 );
-
-export default Breadcrumb;

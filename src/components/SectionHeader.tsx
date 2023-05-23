@@ -1,10 +1,10 @@
-import { FC, PropsWithChildren, ReactNode } from 'react';
+import type { FC, PropsWithChildren, ReactNode } from 'react';
 
 type SectionHeaderProps = PropsWithChildren<{
   title: ReactNode;
 }>;
 
-const SectionHeader: FC<SectionHeaderProps> = ({ title, children }) => (
+export const SectionHeader: FC<SectionHeaderProps> = ({ title, children }) => (
   <div className="page-header theme-bg-dark py-5 text-center position-relative">
     <div className="theme-bg-shapes-right" />
     <div className="theme-bg-shapes-left" />
@@ -14,5 +14,3 @@ const SectionHeader: FC<SectionHeaderProps> = ({ title, children }) => (
     </div>
   </div>
 );
-
-export default SectionHeader;

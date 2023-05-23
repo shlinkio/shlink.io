@@ -1,11 +1,12 @@
-import { FC, ReactNode } from 'react';
+import { MDXProvider } from '@mdx-js/react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
-import { MDXProvider } from '@mdx-js/react';
+import type { FC, ReactNode } from 'react';
 import { markdownComponents } from '../utils/markdownUtils';
 import { openGraph, twitter } from '../utils/seoUtils';
-import Header, { HeaderProps } from './Header';
-import Footer from './Footer';
+import { Footer } from './Footer';
+import type { HeaderProps } from './Header';
+import { Header } from './Header';
 
 interface LayoutProps extends HeaderProps {
   pageTitle?: string;
@@ -13,7 +14,7 @@ interface LayoutProps extends HeaderProps {
   noFooter?: boolean;
 }
 
-const Layout: FC<LayoutProps> = ({ children, pageTitle, leftMenuToggle, noFooter = false }) => {
+export const Layout: FC<LayoutProps> = ({ children, pageTitle, leftMenuToggle, noFooter = false }) => {
   const siteName = 'Shlink — The URL shortener';
   const title = `${siteName}${pageTitle ? ` — ${pageTitle}` : ''}`;
   const description = 'The self-hosted and PHP-based URL shortener application with CLI and REST interfaces';
@@ -105,5 +106,3 @@ const Layout: FC<LayoutProps> = ({ children, pageTitle, leftMenuToggle, noFooter
     </>
   );
 };
-
-export default Layout;

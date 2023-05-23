@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-const FakeBrowser: FC<PropsWithChildren<unknown>> = ({ children }) => (
+export const FakeBrowser: FC<PropsWithChildren> = ({ children }) => (
   <div className="fake-browser-ui">
     <div className="frame">
       <span className="close" />
@@ -10,5 +10,3 @@ const FakeBrowser: FC<PropsWithChildren<unknown>> = ({ children }) => (
     {children}
   </div>
 );
-
-export default FakeBrowser;

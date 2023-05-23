@@ -1,9 +1,10 @@
-import { FC, PropsWithChildren, ReactNode, useState } from 'react';
 import classNames from 'classnames';
-import { Collapse, NavbarToggler, Navbar } from 'reactstrap';
 import { useRouter } from 'next/router';
-import SocialList from './SocialList';
-import InternalLink from './InternalLink';
+import type { FC, PropsWithChildren, ReactNode } from 'react';
+import { useState } from 'react';
+import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
+import { InternalLink } from './InternalLink';
+import { SocialList } from './SocialList';
 
 type MenuItemProps = PropsWithChildren<{
   to: string;
@@ -21,7 +22,7 @@ export interface HeaderProps {
   leftMenuToggle?: ReactNode;
 }
 
-const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
+export const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
   const [collapsed, setCollapsed] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
   const { pathname: currentPage } = useRouter();
@@ -66,5 +67,3 @@ const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
     </header>
   );
 };
-
-export default Header;

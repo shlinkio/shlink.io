@@ -1,12 +1,12 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
+import type { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import {
   faBook,
   faCogs,
+  faExclamationTriangle,
   faLaptopCode,
   faMobileAlt,
-  faTerminal,
-  faExclamationTriangle,
   faShieldAlt,
+  faTerminal,
 } from '@fortawesome/free-solid-svg-icons';
 import { clone } from 'ramda';
 
@@ -31,8 +31,8 @@ const docsRoutes: Route[] = [
         text: 'Supported runtimes',
         link: '/documentation/supported-runtimes',
         subRoutes: [
-          { text: 'Serve with openswoole', link: '/documentation/supported-runtimes/serve-with-openswoole' },
           { text: 'Serve with RoadRunner', link: '/documentation/supported-runtimes/serve-with-roadrunner' },
+          { text: 'Serve with openswoole', link: '/documentation/supported-runtimes/serve-with-openswoole' },
           { text: 'Classic web server', link: '/documentation/supported-runtimes/classic-web-server' },
         ],
       },

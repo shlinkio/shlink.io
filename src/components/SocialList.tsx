@@ -1,15 +1,15 @@
-import { FC } from 'react';
-import classNames from 'classnames';
-import { ExternalLink } from 'react-external-link';
+import { faGithub, faMastodon, faPaypal, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faPaypal, faTwitter, faMastodon } from '@fortawesome/free-brands-svg-icons';
+import classNames from 'classnames';
+import type { FC } from 'react';
+import { ExternalLink } from 'react-external-link';
 
 interface SocialListProps {
   type: 'inline' | 'unstyled';
   className?: string;
 }
 
-const SocialList: FC<SocialListProps> = ({ type, className }) => (
+export const SocialList: FC<SocialListProps> = ({ type, className }) => (
   <ul className={classNames(`social-list list-${type}`, className)}>
     <li className="list-inline-item">
       <ExternalLink href="https://github.com/shlinkio/shlink">
@@ -33,5 +33,3 @@ const SocialList: FC<SocialListProps> = ({ type, className }) => (
     </li>
   </ul>
 );
-
-export default SocialList;

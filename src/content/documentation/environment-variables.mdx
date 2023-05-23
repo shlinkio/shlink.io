@@ -1,10 +1,12 @@
-import Callout from '../../components/Callout';
+import { Callout } from '../../components/Callout';
 
 ## Environment variables
 
 After installing Shlink, you will have to set it up, and customize different aspects of its behavior. One way to do this is via **environment variables**.
 
-This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced:
+This is the complete list of supported env vars. Right next to their name you will find the version in which they were introduced.
+
+Strikethrough env vars are deprecated.
 
 ### General
 
@@ -99,21 +101,21 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 * `RABBITMQ_USER` *(v2.10.0)* : The RabbitMQ server username credential. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_PASSWORD` *(v2.10.0)* : The RabbitMQ server password credential. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_VHOST` *(v2.10.0)* : The RabbitMQ server VHost. Defaults to `/`. This will be ignored if `RABBITMQ_ENABLED` is false.
-* <strike>`RABBITMQ_LEGACY_VISITS_PUBLISHING`</strike> *(v3.2.0)* : When RabbitMQ integration was implemented, the publishing was not done according to the [async API spec](https://api-spec.shlink.io/async-api/). Shlink v3.2.0 fixes that, but since it is a breaking change, you can retain the previous format by providing this as `true`. Default values is `false`.
+* ~`RABBITMQ_LEGACY_VISITS_PUBLISHING`~ *(v3.2.0)* : When RabbitMQ integration was implemented, the publishing was not done according to the [async API spec](https://api-spec.shlink.io/async-api/). Shlink v3.2.0 fixes that, but since it is a breaking change, you can retain the previous format by providing this as `true`. Default values is `false`.
 
 ### Webhooks integration
 
 Webhooks are deprecated since Shlink 3.1.0. See other integrations for real-time updates above.
 
-* <strike>`VISITS_WEBHOOKS`</strike>: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
-* <strike>`NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS`</strike> *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
+* ~`VISITS_WEBHOOKS`~: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
+* ~`NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS`~ *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
 
 ### Specific for the docker image
 
 These are the env vars that only make sense for the docker image:
 
-* `ENABLE_PERIODIC_VISIT_LOCATE` *(v2.8.0)* : If provided with value `true`, it schedules the `visit:locate` command to be run every hour inside the container using crontab. Defaults to `false`.
 * `SKIP_INITIAL_GEOLITE_DOWNLOAD` *(v3.3.0)* : If provided with value `true`, it will skip the initial GeoLite2 db file download, speeding-up the container start-up. As a side effect, first visits on this container will remain un-located until the file finishes downloading in background.
+* ~`ENABLE_PERIODIC_VISIT_LOCATE`~ *(v2.8.0)* : If provided with value `true`, it schedules the `visit:locate` command to be run every hour inside the container using crontab. Defaults to `false`. It will be **ignored** when using a [non-root](/documentation/install-docker-image/#non-root) docker image.
 
 ### Specific for Openswoole
 

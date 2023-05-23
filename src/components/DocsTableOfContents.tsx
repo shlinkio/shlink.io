@@ -1,6 +1,8 @@
-import { FC, Fragment, PropsWithChildren } from 'react';
-import { menuItemsForPath, Route } from '../utils/docUtils';
-import Link from './Link';
+import type { FC, PropsWithChildren } from 'react';
+import { Fragment } from 'react';
+import type { Route } from '../utils/docUtils';
+import { menuItemsForPath } from '../utils/docUtils';
+import { Link } from './Link';
 
 const MenuItem: FC<PropsWithChildren<{ link: string }>> = ({ link, children }) => (
   <li>
@@ -21,7 +23,5 @@ const List: FC<{ items: Route[] }> = ({ items }) => (
   </ul>
 );
 
-const DocsTableOfContents: FC<{ parentLink?: string }> = ({ parentLink }) =>
+export const DocsTableOfContents: FC<{ parentLink?: string }> = ({ parentLink }) =>
   <List items={menuItemsForPath(parentLink)} />;
-
-export default DocsTableOfContents;

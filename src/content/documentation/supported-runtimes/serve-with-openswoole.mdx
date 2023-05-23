@@ -1,4 +1,4 @@
-import Callout from '../../../components/Callout';
+import { Callout } from '../../../components/Callout';
 
 ## Serve Shlink using openswoole
 
@@ -6,7 +6,7 @@ Shlink can be served using [openswoole](https://openswoole.com/).
 
 It provides a non-blocking I/O server, similar to the one used for node.js applications, which lets web apps to be run once and kept in memory while serving requests.
 
-It is recommended to serve Shlink with openswoole, since it is quite faster and has a few extra benefits (like running some heavy tasks immediately after a request has been served).
+openswoole is quite fast, and has a few extra benefits (like running some heavy tasks immediately after a request has been served).
 
 <Callout type="info">
   Shlink v3.0.0 officially supports only <b>openswoole</b>, and no longer regular <b>swoole</b>. However, the functionality does not currently deviate too much, so regular swoole will continue to be detected as openswoole for the time being.
@@ -14,7 +14,7 @@ It is recommended to serve Shlink with openswoole, since it is quite faster and 
   If for any reason regular swoole stops working, the only officially supported solution will be to migrate to openswoole.
 </Callout>
 
-In order to use openswoole, you have to install the openswoole PHP extension using Pecl: `pecl install openswoole-4.11.1`.
+In order to use openswoole, you have to install the openswoole PHP extension using Pecl: `pecl install openswoole-22.0.0`.
 
 After that, you can serve Shlink with `php vendor/bin/laminas mezzio:swoole:start`.
 

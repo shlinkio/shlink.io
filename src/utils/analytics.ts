@@ -1,4 +1,4 @@
-import { initialize, set, pageview } from 'react-ga';
+import { initialize, pageview, set } from 'react-ga';
 
 export const initGA = () => {
   initialize(process.env.ga as string);

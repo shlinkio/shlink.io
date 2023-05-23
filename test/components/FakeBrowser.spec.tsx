@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import FakeBrowser from '../../src/components/FakeBrowser';
+import { FakeBrowser } from '../../src/components/FakeBrowser';
 
 describe('<FakeBrowser />', () => {
   it('properly renders inBrowser and children', () => {

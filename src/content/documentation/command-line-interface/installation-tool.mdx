@@ -1,4 +1,4 @@
-import Callout from '../../../components/Callout';
+import { Callout } from '../../../components/Callout';
 
 ## Installation tool
 
@@ -29,6 +29,7 @@ Options:
 Available commands:
   completion  Dump the shell completion script
   help        Display help for a command
+  init        Initializes external dependencies required for Shlink to properly work, like DB, cache warmup, initial GeoLite DB download, etc
   install     Guides you through the installation process, to get Shlink up and running.
   list        List commands
   set-option  Allows you to set new values for any config option.
@@ -117,3 +118,38 @@ What config option do you want to change:
 ```
 
 > This command has a limitation. It can only be executed on a Shlink install where the `install` command has been successfully executed first.
+
+#### Init
+
+This command helps to automate Shlink installation, by "initializing" all the external dependencies it needs, like the database, cache warmup, download GeoLite db, etc.
+
+It can be used both for new Shlink installations, but also to update the external environment on a Shlink instance which is being updated, as it also runs database migrations.
+
+This command is internally used both by `install` and `update` commands, but comes in handy in case you want to provide Shlink config via [environment variables](/documentation/environment-variables/).
+
+The official [docker image](/documentation/install-docker-image/) entry point also uses this command, but you don't need to worry in that case.
+
+It allows a bit of customization via CLI flags, depending on your needs:
+
+```
+Description:
+  Initializes external dependencies required for Shlink to properly work, like DB, cache warmup, initial GeoLite DB download, etc
+
+Usage:
+  init [options]
+
+Options:
+      --skip-initialize-db     Skip the initial empty database creation. It will make this command fail on a later stage if the database was not created manually.
+      --clear-db-cache         Clear the database metadata cache.
+      --initial-api-key        Create and print initial admin API key.
+      --download-rr-binary     Download a RoadRunner binary. Useful only if you plan to serve Shlink with Roadrunner.
+      --skip-download-geolite  Skip downloading the initial GeoLite DB file. Shlink will try to download it the first time it needs to geolocate visits.
+```
+
+* `--skip-initialize-db`: it can be passed when updating Shlink to skip a command which won't have any effect anyway.
+* `--clear-db-cache`: you want to provide this every time you update Shlink, but passing it on new installations won't have any side effect.
+* `--initial-api-key`: useful for new Shlink instances, so that it generates a first admin API key.
+* `--download-rr-binary`: If you are serving/want to [serve Shlink with RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner), this option will ensure the binary is downloaded.
+* `--skip-download-geolite`: If you are not passing a [GeoLite license key](/documentation/geolite-license-key/), you can pass this to skip a command which won't have any effect anyway.
+
+> This command is available since Shlink 3.6.0

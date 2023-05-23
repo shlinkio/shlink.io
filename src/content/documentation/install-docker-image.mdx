@@ -1,15 +1,15 @@
-import Callout from '../../components/Callout';
+import { Callout } from '../../components/Callout';
 
 ## Install using a docker image
 
 The docker image is probably the simplest installation use case, since it includes all dependencies and works standalone.
 
-There are two "flavors", [openswoole](https://openswoole.com/)-based and [RoadRunner](https://roadrunner.dev/)-based. In order to get the former, you just need to append `-roadrunner` to the tag you want to install.
+There are two "flavors", [RoadRunner](https://roadrunner.dev/)-based and [openswoole](https://openswoole.com/)-based. [See more details](#runtime-variations)
 
 <Callout type="info">
   Shlink docker images are published both in [Docker hub](https://hub.docker.com/r/shlinkio/shlink) and [Github Container Registry](https://github.com/shlinkio/shlink/pkgs/container/shlink).
 
-  In order to install images from the latter, use `ghcr.io/shlinkio/shlink` instead of `shlinkio/shlink`.
+  All examples use Docker hub images. In order to install images from Github Container Registry, use `ghcr.io/shlinkio/shlink` instead of `shlinkio/shlink`.
 </Callout>
 
 ### Usage
@@ -165,11 +165,27 @@ These are some considerations to take into account when running multiple Shlink 
 
 Versioning on this docker image works as follows:
 
-* `X.X.X`/`X.X.X-roadrunner`: when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1 using openswoole as the runtime, and `shlinkio/shlink:3.3.0-roadrunner` will get you Shlink 3.3.0 served with RoadRunner.
-* `stable`/`stable-roadrunner`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
-* `latest`/`latest-roadrunner`: always holds the latest contents, and it's considered unstable and not suitable for production.
+* `X.X.X`: when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1.
+* `stable`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
+* `latest`: always holds the latest contents, and it's considered unstable and not suitable for production.
+
+#### Runtime variations
+
+Before Shlink 3.6.0, you had to add `-roadrunner` to the tag you wanted to install in order to get an image using RoadRunner (for example, `shlinkio/shlink:stable-roadrunner` or `shlinkio/shlink:3.4.0-roadrunner`).
+
+Starting with v3.6.0, you can add `-roadrunner` or `-openswoole` to the tag name to make sure you get an image using a specific runtime, otherwise, you will get the default one, which is unlikely, but open to change.
+
+As of today, RoadRunner is the default runtime. Both runtimes are mostly compatible and should be possible to change from one image to the other transparently, so **it's ok to use docker tags with no suffix**.
+
+#### Non-root
+
+For historical reasons, Shlink docker image runs as root. If it's important for you to run it as non-root, add `-non-root` to the tag name, like `shlinkio/shlink:stable-non-root`.
+
+These images have two considerations: they always run with the default runtime (RoadRunner as of today), and the `ENABLE_PERIODIC_VISIT_LOCATE` env var will be ignored, as it requires root privileges.
 
 <Callout type="warning" title="Considerations">
   * There are no versions older than 3.0.0 published in GitHub Container registry.
   * RoadRunner-based images are only available since v3.3.0
+  * Default runtime has changed from openswoole to RoadRunner in v3.6.0
+  * `non-root` docker images are only available since v3.6.0
 </Callout>

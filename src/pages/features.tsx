@@ -1,27 +1,27 @@
-import { FC } from 'react';
 import { faDocker } from '@fortawesome/free-brands-svg-icons';
 import { faChartBar, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
-  faPuzzlePiece,
-  faLink,
-  faQrcode,
-  faTags,
-  faLock,
+  faBan,
   faCropAlt,
-  faScroll,
-  faPaperPlane,
   faFileImport,
   faLaptopCode,
-  faBan,
   faLaugh,
-  faRobot,
+  faLink,
+  faLock,
   faMobileScreenButton,
+  faPaperPlane,
+  faPuzzlePiece,
+  faQrcode,
+  faRobot,
+  faScroll,
+  faTags,
 } from '@fortawesome/free-solid-svg-icons';
+import type { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
-import Layout from '../components/Layout';
-import Feature from '../components/Feature';
-import SectionHeader from '../components/SectionHeader';
-import Indivisible from '../components/Indivisible';
+import { Feature } from '../components/Feature';
+import { Indivisible } from '../components/Indivisible';
+import { Layout } from '../components/Layout';
+import { SectionHeader } from '../components/SectionHeader';
 
 const Features: FC = () => (
   <Layout pageTitle="Features">

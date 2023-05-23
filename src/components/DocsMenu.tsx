@@ -1,11 +1,13 @@
-import { FC, PropsWithChildren, useState } from 'react';
-import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
+import type { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { menuItems, Route } from '../utils/docUtils';
+import type { FC, PropsWithChildren } from 'react';
+import { Fragment, useState } from 'react';
+import type { Route } from '../utils/docUtils';
+import { menuItems } from '../utils/docUtils';
 import { useCurrentPath } from '../utils/pathUtils';
-import Link from './Link';
+import { Link } from './Link';
 
 type MenuItemProps = PropsWithChildren<{
   link: string;
@@ -64,18 +66,18 @@ const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPag
     <>
       {parent}
       {isOpen && subRoutes.map((subRoute) => (
-        <>
-          <SubSection subRoute={subRoute} currentPage={currentPage} key={subRoute.text} />
+        <Fragment key={subRoute.text}>
+          <SubSection subRoute={subRoute} currentPage={currentPage} />
           {subRoute.subRoutes?.map((subSubRoute) => (
             <SubSection key={`sub${subRoute.text}`} subRoute={subSubRoute} currentPage={currentPage} extraPadding />
           ))}
-        </>
+        </Fragment>
       ))}
     </>
   );
 };
 
-const DocsMenu: FC = () => {
+export const DocsMenu: FC = () => {
   const currentPage = useCurrentPath();
 
   return (
@@ -87,5 +89,3 @@ const DocsMenu: FC = () => {
     </nav>
   );
 };
-
-export default DocsMenu;
