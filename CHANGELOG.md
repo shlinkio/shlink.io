@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* [#352](https://github.com/shlinkio/shlink.io/issues/352) Document changes introduced in Shlink 3.6.0.
+
+### Changed
+* Update dependencies, including Next.js 13.4
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.45.0] - 2023-04-12
 ### Added
 * Document limitation on real-time updates not dispatched when creating short URLs from CLI with openswoole.
