@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useState } from 'react';
+import { FC, Fragment, PropsWithChildren, useState } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -64,12 +64,12 @@ const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPag
     <>
       {parent}
       {isOpen && subRoutes.map((subRoute) => (
-        <>
-          <SubSection subRoute={subRoute} currentPage={currentPage} key={subRoute.text} />
+        <Fragment key={subRoute.text}>
+          <SubSection subRoute={subRoute} currentPage={currentPage} />
           {subRoute.subRoutes?.map((subSubRoute) => (
             <SubSection key={`sub${subRoute.text}`} subRoute={subSubRoute} currentPage={currentPage} extraPadding />
           ))}
-        </>
+        </Fragment>
       ))}
     </>
   );
