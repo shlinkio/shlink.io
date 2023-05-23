@@ -1,4 +1,3 @@
-import { Callout } from '../../components/Callout';
 import { RTULimitationTooltip } from '../../components/RTULimitationTooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -9,9 +8,9 @@ Shlink supports a number of ways to serve it. Each one of them has pros and cons
 
 This document offers a comparison of all of them, to help you make the best decision.
 
-#### Openswoole
+#### RoadRunner
 
-[Openswoole](https://openswoole.com/) is a native PHP extension, that needs to installed with [pecl](https://pecl.php.net/).
+[RoadRunner](https://roadrunner.dev/) is a PHP application server written in go, that can be installed directly with Shlink.
 
 It lets you load Shlink in memory, and serve requests without reloading the service, which makes it very fast.
 
@@ -19,19 +18,17 @@ It also supports running heavy tasks in background (like updating the [GeoLite2]
 
 This makes it the current **officially recommended runtime**.
 
-Follow [the documentation](/documentation/supported-runtimes/serve-with-openswoole) in order to get it installed.
-
-#### RoadRunner
-
-In essence, [RoadRunner](https://roadrunner.dev/) is very similar to openswoole, with the difference that the server is written in go, and you can install it directly with Shlink (no need to handle PHP extensions).
-
-It provides the same capabilities as openswoole, and is almost as performant, while much easier to install.
-
 Follow [the documentation](/documentation/supported-runtimes/serve-with-roadrunner) in order to know how to get it up and running.
 
-<Callout type="warning">
-  RoadRunner support was added in Shlink 3.3.0, and is currently experimental, but it is very promising and can soon become the officially recommended runtime.
-</Callout>
+> RoadRunner support was added in Shlink 3.3.0
+
+#### Openswoole
+
+[Openswoole](https://openswoole.com/) is a native PHP extension, that needs to be installed with [pecl](https://pecl.php.net/).
+
+It provides the same capabilities as RoadRunner, but it's a bit harder to install, and has proved to have some [low-level issues](https://github.com/shlinkio/shlink/issues/1745) (memory leaks, expiring DB connections, etc.) for which it is currently not the recommended option.
+
+Follow [the documentation](/documentation/supported-runtimes/serve-with-openswoole) in order to get it installed.
 
 #### Classic web server
 
@@ -47,12 +44,12 @@ Follow [the documentation](/documentation/supported-runtimes/classic-web-server)
 
 Now that you know the options, follow this table in order to decide what's the best one for you and how to install it.
 
-|                                                                              | <img src="/images/logos/openswoole.png" width="25" className="d-inline me-1" /> Openswoole | <img src="/images/logos/roadrunner.png" width="25" className="d-inline me-1" /> RoadRunner | Classic web server                                           |
+|                                                                              | <img src="/images/logos/roadrunner.png" width="25" className="d-inline me-1" /> RoadRunner | <img src="/images/logos/openswoole.png" width="25" className="d-inline me-1" /> Openswoole | Classic web server                                           |
 |------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| **Performance**                                                              | <span className="text-success">100</span>                                                  | <span className="text-success">90</span>                                                   | <span className="text-danger">30</span>                      |
-| **Stability under heavy load**                                               | 80                                                                                         | <span className="text-success">100</span>                                                  | <span className="text-warning">70</span>                     |
-| **Hard to install**                                                          | Medium                                                                                     | <span className="text-success">Easy</span>                                                 | Medium                                                       |
+| **Performance**                                                              | <span className="text-success">90</span>                                                   | <span className="text-success">100</span>                                                  | <span className="text-danger">30</span>                      |
+| **Stability under heavy load**                                               | <span className="text-success">100</span>                                                  | 80                                                                                         | <span className="text-warning">70</span>                     |
+| **Hard to install**                                                          | <span className="text-success">Easy</span>                                                 | Medium                                                                                     | Medium                                                       |
 | **[Reverse proxy](/documentation/advanced/exposing-through-reverse-proxy/)** | Recommended                                                                                | Recommended                                                                                | <span className="text-success">Not needed</span>             |
 | **HTTPS support**                                                            | Via reverse proxy                                                                          | Via reverse proxy                                                                          | Yes                                                          |
-| **[Real-time updates](/documentation/advanced/real-time-updates/)**          | <FontAwesomeIcon icon={faCheck} className="text-success" /> <RTULimitationTooltip />       | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | <FontAwesomeIcon icon={faXmark} className="text-danger" />   |
+| **[Real-time updates](/documentation/advanced/real-time-updates/)**          | <FontAwesomeIcon icon={faCheck} className="text-success" /> <RTULimitationTooltip />       | <FontAwesomeIcon icon={faCheck} className="text-success" /> <RTULimitationTooltip />       | <FontAwesomeIcon icon={faXmark} className="text-danger" />   |
 | **GeoLite2 updates**                                                         | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | Via [long-running tasks](/documentation/long-running-tasks/) |

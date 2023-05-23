@@ -31,8 +31,8 @@ const docsRoutes: Route[] = [
         text: 'Supported runtimes',
         link: '/documentation/supported-runtimes',
         subRoutes: [
-          { text: 'Serve with openswoole', link: '/documentation/supported-runtimes/serve-with-openswoole' },
           { text: 'Serve with RoadRunner', link: '/documentation/supported-runtimes/serve-with-roadrunner' },
+          { text: 'Serve with openswoole', link: '/documentation/supported-runtimes/serve-with-openswoole' },
           { text: 'Classic web server', link: '/documentation/supported-runtimes/classic-web-server' },
         ],
       },
