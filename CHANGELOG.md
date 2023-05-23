@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [6.46.0] - 2023-05-23
 ### Added
 * [#352](https://github.com/shlinkio/shlink.io/issues/352) Document changes introduced in Shlink 3.6.0.
 
