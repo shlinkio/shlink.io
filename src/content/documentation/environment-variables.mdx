@@ -50,7 +50,7 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 * `DB_UNIX_SOCKET`: Alternatively to the `DB_HOST`, you can provide this to connect through unix sockets when using `mysql`, `maria` or `postgres` drivers.
 
 <Callout type="warning">
-  SQLite is supported only for testing/automation purposes. Using it in production is not supported, even less if mounted via docker volumes.
+  SQLite is intended for testing/automation purposes only. Using it in production is [not supported](/documentation/supported-db-engines/#sqlite-limitations), even less if mounted via docker volumes.
 
   There's a potential risk of breakage when updating Shlink, so make sure you move to any of the other alternatives if you plan to use Shlink long term.
 </Callout>
