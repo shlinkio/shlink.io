@@ -30,16 +30,15 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 * `WEB_WORKER_NUM`: The amount of concurrent http requests this Shlink instance will be able to serve. Defaults to 16 for openswoole and the amount of available CPUs for roadrunner.
 * `TASK_WORKER_NUM`: The amount of concurrent background tasks this Shlink instance will be able to execute. Defaults to 16 for openswoole and the amount of available CPUs for roadrunner. Cannot be lower than 4 for openswoole.
 * `INITIAL_API_KEY` *(v3.3.0)* : An API key that will be created once, with admin permissions, so that you don't have to interact with the [CLI tool](/documentation/command-line-interface/entry-point) after installing Shlink.
-
-<Callout type="warning" title="Considerations with the initial API key">
-  * It will be ignored if other API keys already exist.
-  * If the env var is removed at some point, that won't make the API key to be deleted.
-  * If the value is changed at some point, that won't make the API key to be edited.
-</Callout>
+  <Callout type="warning" title="Considerations with the initial API key">
+    * It will be ignored if other API keys already exist.
+    * If the env var is removed at some point, that won't make the API key to be deleted.
+    * If the value is changed at some point, that won't make the API key to be edited.
+  </Callout>
 
 ### Database
 
-* `DB_DRIVER`: **sqlite** (which is the default value), **mysql**, **maria**, **postgres** or **mssql**.
+* `DB_DRIVER`: **mysql**, **maria**, **postgres**, **mssql** or **sqlite**.
 * `DB_NAME`: The database name to be used when using an external database driver. Defaults to **shlink**.
 * `DB_USER`: The username credential to be used when using an external database driver.
 * `DB_PASSWORD`: The password credential to be used when using an external database driver.
@@ -49,6 +48,12 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
   * **postgres** -> `5432`
   * **mssql** -> `1433`
 * `DB_UNIX_SOCKET`: Alternatively to the `DB_HOST`, you can provide this to connect through unix sockets when using `mysql`, `maria` or `postgres` drivers.
+
+<Callout type="warning">
+  SQLite is intended for testing/automation purposes only. Using it in production is [not supported](/documentation/supported-db-engines/#sqlite-limitations), even less if mounted via docker volumes.
+
+  There's a potential risk of breakage when updating Shlink, so make sure you move to any of the other alternatives if you plan to use Shlink long term.
+</Callout>
 
 ### Redirects
 

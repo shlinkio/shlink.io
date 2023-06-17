@@ -10,17 +10,15 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
     * xml extension is required if you want to generate QR codes in svg format.
     * sockets and bcmath extensions are required if you want to integrate with a RabbitMQ instance, or use [RoadRunner to serve Shlink](/documentation/supported-runtimes/serve-with-roadrunner/).
 * MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
-    * You will also need the corresponding pdo variation for the database you are planning to use: `pdo_mysql`, `pdo_pgsql`, `pdo_sqlsrv` or `pdo_sqlite`.
+    * You will also need the corresponding pdo variation for the database you are planning to use: `pdo_mysql`, `pdo_pgsql` or `pdo_sqlsrv`.
 * One of the [supported runtimes](/documentation/supported-runtimes/).
 
 ### Installation steps
 
 * Download the latest distributable file and decompress it at the location of your choice (you will find a pair of dist files for every supported PHP version, one for openswoole and one for non-openswoole contexts).
-  <ul className="list-unstyled" style={{ textAlign: 'center', padding: 0 }}>
-    <li>
-      <DownloadLatestBtn />
-    </li>
-  </ul>
+  <div className="text-center">
+    <DownloadLatestBtn />
+  </div>
 * Create an empty database (not necessary if you are going to use SQLite).
 * Recursively grant write permissions to the `data` directory.
 * Set-up and customize Shlink by either:

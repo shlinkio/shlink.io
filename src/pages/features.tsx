@@ -3,6 +3,7 @@ import { faChartBar, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
   faBan,
   faCropAlt,
+  faDatabase,
   faFileImport,
   faLaptopCode,
   faLaugh,
@@ -90,6 +91,9 @@ const Features: FC = () => (
           </Feature>
           <Feature title="Bot detection" icon={faRobot} link="/documentation/some-features/#bot-detection">
             Exclude visits from potential bots from your stats.
+          </Feature>
+          <Feature title="Multiple DB engines" icon={faDatabase} link="/documentation/supported-db-engines/">
+            The most popular relational database engines are supported: MySQL, MariaDB, Postgres and Microsoft SQL.
           </Feature>
           <Feature title="Email tracking" icon={faEnvelope} link="/documentation/some-features/#email-tracking">
             Generate a 1px transparent image that can be used to track emails.
