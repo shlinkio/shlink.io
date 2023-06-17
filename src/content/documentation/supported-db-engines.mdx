@@ -1,3 +1,5 @@
+import { Callout } from '../../components/Callout';
+
 ## Supported database engines
 
 For your own convenience, Shlink supports the most popular relational database engines:
@@ -8,6 +10,12 @@ For your own convenience, Shlink supports the most popular relational database e
 * [Microsoft SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads)
 
 Performance with all of them is pretty similar, and the only reason to not force you to use a specific one is so that you can use the one you are more comfortable with.
+
+<Callout type="warning" title="Database availability">
+  It is important to mention that Shlink expects the database to be **up and running** when it starts.
+
+  If you are starting-up the database together with Shlink (like, via `docker-compose` or similar), you may see some errors until the database is ready, and it's important to make sure Shlink container is configured to restart on error so that it "retries" a couple of times.
+</Callout>
 
 ### Migrating your database
 
@@ -27,11 +35,11 @@ One of the sources from which this tool can import is another Shlink instance, f
 
 Shlink also supports SQLite, but with the only intention that you can quickly spin-up Shlink and test it, and also to simplify automating a Shlink environment for the purpose of E2E testing and similar.
 
-It's **very important** to understand that using SQLite for production is not officially supported, since you can quickly face problems and limitations when dealing with big amounts of data.
+It's very important to understand that using SQLite for production **is not officially supported**, since you can quickly face problems and limitations when dealing with big amounts of data or high traffic.
 
-Some have even tried to use it together with docker, via docker volumes. That's just looking for problems.
+Some have even tried to use it together with docker, via docker volumes. That's just looking for trouble.
 
-Do yourself a favor and move to one of the other engines.
+Make sure that, once you have tested Shlink and want to use it long term, you move to one of the other supported engines.
 
 ### Microsoft SQL limitations
 
