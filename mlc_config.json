@@ -7,7 +7,7 @@
       "pattern": "https://www.maxmind.com/en/accounts/current/license-key"
     },
     {
-      "pattern": "https://www.mysql.com"
+      "pattern": "https://www.mysql.com/"
     },
     {
       "pattern": "https://apps.apple.com/app/short-menu/id885851937"
