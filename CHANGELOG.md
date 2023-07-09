@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.49.0] - 2023-07-09
+### Added
+* [#354](https://github.com/shlinkio/shlink.io/issues/354) Improve health endpoint docs.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.48.0] - 2023-06-17
 ### Added
 * Document supported database engines.

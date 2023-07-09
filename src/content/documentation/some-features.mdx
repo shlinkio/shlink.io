@@ -17,6 +17,7 @@ This document also tries to clarify why some of these features work the way they
 * [QR Codes](#qr-codes)
 * [Bot detection](#bot-detection)
 * [Email tracking](#email-tracking)
+* [Service healthiness](#service-healthiness)
 
 ### Short URL title
 
@@ -152,3 +153,11 @@ You can track emails with any existing short URL, or create a new one pointing t
 Then, by appending `/track` to the short URL, you will have a new URL (for example, `https://example.com/abc123/track`) that resolves to a 1px transparent image. Add it to any email you want to track.
 
 The image is effectively invisible, but every time the email is opened and the image is loaded, Shlink will count one visit.
+
+### Service healthiness
+
+In some situations you may want to know if your Shlink instance is healthy. Reasons might include monitoring, but also letting orchestrators know if one specific instance can respond to requests.
+
+Shlink exposes a `/rest/heath` endpoint, which does not require authentication, and can be used for this purpose.
+
+You can find more information in the [API docs](https://api-spec.shlink.io/#/Monitoring/health).
