@@ -31,6 +31,6 @@ Shlink locates visits automatically just before redirecting end users. However, 
 One way to schedule any of the previous tasks is by making use of Unix cron jobs:
 
 * Locate visits every hour: `0 * * * * /path/to/shlink/bin/cli visit:locate -q -n`
-* Update the GeoLite2 db every 7 days: `* * 7 * * /path/to/shlink/bin/cli visit:download-db -q -n`
+* Update the GeoLite2 db every 7 days: `0 0 * * 0 /path/to/shlink/bin/cli visit:download-db -q -n`
 
 *The `-q` and `-n` flags are available on any Shlink command. The first one will discard any output, and the second one ensure the command is run in a non-interactive mode.*
