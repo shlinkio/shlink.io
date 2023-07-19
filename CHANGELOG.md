@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.49.1] - 2023-07-19
+### Added
+* *Nothing*
+
+### Changed
+* Display warning about servers.json for shlink-web-client at the top of the page.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix link to Microsoft SQL Server page, using a generic one instead of Spanish one.
+* Fix cron specification.
+
+
 ## [6.49.0] - 2023-07-09
 ### Added
 * [#354](https://github.com/shlinkio/shlink.io/issues/354) Improve health endpoint docs.
