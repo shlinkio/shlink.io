@@ -2,6 +2,12 @@ import { Callout } from '../../../components/Callout';
 
 ## Pre-configuring servers
 
+<Callout type="warning" title="Be extremely careful when using this feature">
+  Due to shlink-web-client's client-side nature, the file needs to be accessible from the browser.<br />
+  Because of that, make sure you use this only when you self-host shlink-web-client, and you know only trusted people will have access to it.<br />
+  Failing to do this could cause your API keys to be exposed.
+</Callout>
+
 The first time you access shlink-web-client from a browser, you will have to configure the list of shlink servers you want to manage, and they will be saved in the local storage.
 
 Those servers can be exported and imported in other browsers, but if for some reason you need some servers to be there from the beginning, starting with shlink-web-client 2.1.0, you can provide a `servers.json` file in the project root folder (the same containing the `index.html`, `favicon.ico`, etc) with a structure like this:
@@ -57,11 +63,3 @@ If you are using the shlink-web-client docker image, you can also pre-configure 
     -e SHLINK_SERVER_API_KEY=6aeb82c6-e275-4538-a747-31f9abfba63c \
     shlinkio/shlink-web-client
     ```
-
-<Callout type="warning">
-    **Be extremely careful when using this feature.**
-
-    Due to shlink-web-client's client-side nature, the file needs to be accessible from the browser.<br />
-    Because of that, make sure you use this only when you self-host shlink-web-client, and you know only trusted people will have access to it.<br />
-    Failing to do this could cause your API keys to be exposed.
-</Callout>
