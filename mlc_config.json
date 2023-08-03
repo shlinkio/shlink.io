@@ -10,6 +10,9 @@
       "pattern": "https://www.mysql.com/"
     },
     {
+      "pattern": "https://www.microsoft.com/sql-server/"
+    },
+    {
       "pattern": "https://apps.apple.com/app/short-menu/id885851937"
     },
     {

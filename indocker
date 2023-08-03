@@ -2,7 +2,7 @@
 
 # Run docker container if it's not up yet
 if ! [[ $(docker ps | grep shlink_webstie_node) ]]; then
-    docker-compose up -d
+    docker compose up -d
 fi
 
 docker exec -it shlink_webstie_node /bin/sh -c "cd /shlink-website && $*"
