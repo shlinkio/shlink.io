@@ -70,7 +70,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^3.1.32",
     "purgecss": "^5.0.0",
-    "sass": "^1.62.1",
+    "sass": "^1.66.1",
     "sass-loader": "^13.3.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.4"
