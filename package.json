@@ -57,7 +57,7 @@
     "@types/jest": "^29.5.1",
     "@types/node": "^20.2.3",
     "@types/ramda": "^0.29.1",
-    "@types/react": "^18.2.6",
+    "@types/react": "^18.2.20",
     "@types/react-highlight": "^0.12.5",
     "css-loader": "^6.8.1",
     "eslint": "^8.41.0",
