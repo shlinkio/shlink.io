@@ -59,7 +59,7 @@
     "@types/ramda": "^0.29.1",
     "@types/react": "^18.2.6",
     "@types/react-highlight": "^0.12.5",
-    "css-loader": "^6.7.4",
+    "css-loader": "^6.8.1",
     "eslint": "^8.41.0",
     "eslint-config-next": "^13.4.3",
     "eslint-webpack-plugin": "^4.0.1",
