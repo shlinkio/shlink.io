@@ -45,7 +45,7 @@
     "react-ga": "^3.3.1",
     "react-highlight": "^0.15.0",
     "react-typed": "^1.2.0",
-    "reactstrap": "^9.1.10",
+    "reactstrap": "^9.2.0",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
