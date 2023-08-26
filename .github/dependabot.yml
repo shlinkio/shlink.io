@@ -8,6 +8,10 @@ updates:
       time: '09:00'
       timezone: 'Europe/Madrid'
     open-pull-requests-limit: 10
+    groups:
+      fontawesome:
+        patterns:
+          - '@fortawesome*'
   - package-ecosystem: docker
     directory: '/'
     schedule:
