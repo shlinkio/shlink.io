@@ -71,7 +71,7 @@
     "next-sitemap": "^3.1.32",
     "purgecss": "^5.0.0",
     "sass": "^1.66.1",
-    "sass-loader": "^13.3.0",
+    "sass-loader": "^13.3.2",
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.4"
   }
