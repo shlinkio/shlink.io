@@ -8,7 +8,6 @@ import {
   faShieldAlt,
   faTerminal,
 } from '@fortawesome/free-solid-svg-icons';
-import { clone } from 'ramda';
 
 export interface Route {
   text: string;
@@ -107,7 +106,9 @@ const docsRoutes: Route[] = [
   },
 ];
 
-export const menuItems: Route[] = clone(docsRoutes);
+Object.freeze(docsRoutes);
+
+export const menuItems: Route[] = docsRoutes;
 
 export const menuItemsForPath = (path?: string) => {
   if (!path) {
