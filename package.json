@@ -55,7 +55,6 @@
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.4",
     "@types/node": "^20.5.6",
-    "@types/ramda": "^0.29.1",
     "@types/react": "^18.2.21",
     "@types/react-highlight": "^0.12.5",
     "css-loader": "^6.8.1",
