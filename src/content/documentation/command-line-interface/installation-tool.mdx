@@ -139,16 +139,16 @@ Usage:
   init [options]
 
 Options:
-      --skip-initialize-db     Skip the initial empty database creation. It will make this command fail on a later stage if the database was not created manually.
-      --clear-db-cache         Clear the database metadata cache.
-      --initial-api-key        Create and print initial admin API key.
-      --download-rr-binary     Download a RoadRunner binary. Useful only if you plan to serve Shlink with Roadrunner.
-      --skip-download-geolite  Skip downloading the initial GeoLite DB file. Shlink will try to download it the first time it needs to geolocate visits.
+      --initial-api-key[=INITIAL-API-KEY]  Create an initial admin API key. A random one will be generated and printed if no value is provided. [default: false]
+      --skip-initialize-db                 Skip the initial empty database creation. It will make this command fail on a later stage if the database was not created manually.
+      --clear-db-cache                     Clear the database metadata cache.
+      --download-rr-binary                 Download a RoadRunner binary. Useful only if you plan to serve Shlink with Roadrunner.
+      --skip-download-geolite              Skip downloading the initial GeoLite DB file. Shlink will try to download it the first time it needs to geolocate visits.
 ```
 
+* `--initial-api-key`: useful for new Shlink instances, so that it generates a first admin API key.
 * `--skip-initialize-db`: it can be passed when updating Shlink to skip a command which won't have any effect anyway.
 * `--clear-db-cache`: you want to provide this every time you update Shlink, but passing it on new installations won't have any side effect.
-* `--initial-api-key`: useful for new Shlink instances, so that it generates a first admin API key.
 * `--download-rr-binary`: If you are serving/want to [serve Shlink with RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner), this option will ensure the binary is downloaded.
 * `--skip-download-geolite`: If you are not passing a [GeoLite license key](/documentation/geolite-license-key/), you can pass this to skip a command which won't have any effect anyway.
 
