@@ -68,7 +68,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^4.2.3",
     "purgecss": "^5.0.0",
-    "sass": "^1.66.1",
+    "sass": "^1.68.0",
     "sass-loader": "^13.3.2",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
