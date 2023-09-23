@@ -10,7 +10,7 @@ const withMDX = mdx({
   }
 });
 
-export default withPlugins([ withFonts, withMDX ], {
+export default withPlugins([ withFonts, withMDX ], /** @type {import('next').NextConfig} */ ({
   enableSvg: true,
   trailingSlash: true, // Makes pages to be exported as index.html files
   swcMinify: true, // This will make compiled assets to be minified via SWC instead of webpack plugin
@@ -21,4 +21,4 @@ export default withPlugins([ withFonts, withMDX ], {
   eslint: {
     ignoreDuringBuilds: true,
   },
-});
+}));
