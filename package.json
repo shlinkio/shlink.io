@@ -46,7 +46,7 @@
     "react-highlight": "^0.15.0",
     "react-typed": "^1.2.0",
     "reactstrap": "^9.2.0",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@mdx-js/loader": "^2.3.0",
