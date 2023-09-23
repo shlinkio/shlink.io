@@ -29,12 +29,6 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 * `PORT`: Can be used to set the port in which Shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
 * `WEB_WORKER_NUM`: The amount of concurrent http requests this Shlink instance will be able to serve. Defaults to 16 for openswoole and the amount of available CPUs for roadrunner.
 * `TASK_WORKER_NUM`: The amount of concurrent background tasks this Shlink instance will be able to execute. Defaults to 16 for openswoole and the amount of available CPUs for roadrunner. Cannot be lower than 4 for openswoole.
-* `INITIAL_API_KEY` *(v3.3.0)* : An API key that will be created once, with admin permissions, so that you don't have to interact with the [CLI tool](/documentation/command-line-interface/entry-point) after installing Shlink.
-  <Callout type="warning" title="Considerations with the initial API key">
-    * It will be ignored if other API keys already exist.
-    * If the env var is removed at some point, that won't make the API key to be deleted.
-    * If the value is changed at some point, that won't make the API key to be edited.
-  </Callout>
 
 ### Database
 
@@ -108,19 +102,26 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 * `RABBITMQ_VHOST` *(v2.10.0)* : The RabbitMQ server VHost. Defaults to `/`. This will be ignored if `RABBITMQ_ENABLED` is false.
 * ~`RABBITMQ_LEGACY_VISITS_PUBLISHING`~ *(v3.2.0)* : When RabbitMQ integration was implemented, the publishing was not done according to the [async API spec](https://api-spec.shlink.io/async-api/). Shlink v3.2.0 fixes that, but since it is a breaking change, you can retain the previous format by providing this as `true`. Default values is `false`.
 
+### Specific for the docker image
+
+These are the env vars that only the docker image take into consideration:
+
+* `SKIP_INITIAL_GEOLITE_DOWNLOAD` *(v3.3.0)* : If provided with value `true`, it will skip the initial GeoLite2 db file download, speeding-up the container start-up. As a side effect, first visits on this container will remain un-located until the file finishes downloading in background.
+* `INITIAL_API_KEY` *(v3.6.4)* : An API key that will be created once during container start-up, with admin permissions.
+  <Callout type="warning" title="Considerations with the initial API key">
+    * It will be ignored if other API keys already exist.
+    * If the env var is removed at some point, that won't make the API key to be deleted.
+    * If the value is changed at some point, that won't make the API key to be edited.
+    * Between v3.3.0 and v3.6.3 it was possible to pass this env var to any non-docker Shlink instance, but that caused problems. Now only the docker image takes it into consideration. Use the [installation tool](/documentation/command-line-interface/installation-tool/#init) for non-docker installations.
+  </Callout>
+* ~`ENABLE_PERIODIC_VISIT_LOCATE`~ *(v2.8.0)* : If provided with value `true`, it schedules the `visit:locate` command to be run every hour inside the container using crontab. Defaults to `false`. It will be **ignored** when using a [non-root](/documentation/install-docker-image/#non-root) docker image.
+
 ### Webhooks integration
 
 Webhooks are deprecated since Shlink 3.1.0. See other integrations for real-time updates above.
 
 * ~`VISITS_WEBHOOKS`~: A comma-separated list of URLs that will receive a `POST` request when a short URL receives a visit.
 * ~`NOTIFY_ORPHAN_VISITS_TO_WEBHOOKS`~ *(v2.9.0)* : Used to enable sending orphan visits to the webhooks configured in `VISITS_WEBHOOKS`. Default value is `false`.
-
-### Specific for the docker image
-
-These are the env vars that only make sense for the docker image:
-
-* `SKIP_INITIAL_GEOLITE_DOWNLOAD` *(v3.3.0)* : If provided with value `true`, it will skip the initial GeoLite2 db file download, speeding-up the container start-up. As a side effect, first visits on this container will remain un-located until the file finishes downloading in background.
-* ~`ENABLE_PERIODIC_VISIT_LOCATE`~ *(v2.8.0)* : If provided with value `true`, it schedules the `visit:locate` command to be run every hour inside the container using crontab. Defaults to `false`. It will be **ignored** when using a [non-root](/documentation/install-docker-image/#non-root) docker image.
 
 ### Specific for Openswoole
 

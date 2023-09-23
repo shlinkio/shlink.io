@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [6.50.0] - 2023-09-22
+### Added
+* *Nothing*
+
+### Changed
+* Update docs around initial API key with changes introduced in Shlink v3.6.4.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.49.2] - 2023-08-03
 ### Added
 * *Nothing*
