@@ -55,7 +55,7 @@
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.4",
     "@types/node": "^20.5.8",
-    "@types/react": "^18.2.21",
+    "@types/react": "^18.2.22",
     "@types/react-highlight": "^0.12.5",
     "css-loader": "^6.8.1",
     "eslint": "^8.49.0",
