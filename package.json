@@ -36,7 +36,7 @@
     "classnames": "^2.3.2",
     "highlight.js": "^11.8.0",
     "mdx-mermaid": "^2.0.0",
-    "next": "^13.5.2",
+    "next": "^13.5.3",
     "next-fonts": "^1.5.1",
     "next-seo": "^6.1.0",
     "react": "^18.2.0",
