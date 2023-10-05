@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import Typed from 'react-typed';
+import { useEffect, useRef } from 'react';
+import Typed from 'typed.js';
 import { FakeBrowser } from './FakeBrowser';
 
 interface IStrings {
@@ -58,18 +59,27 @@ interface TerminalProps {
 }
 
 export const Terminal: FC<TerminalProps> = ({ id }) => {
-  const typedOptions = {
-    typeSpeed: 100,
-    loop: true,
-    fadeOut: true,
-    fadeOutDelay: 0,
-    backDelay: 2000,
-  };
+  const ref = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const typed = new Typed(ref.current, {
+      strings: strings[id],
+      typeSpeed: 100,
+      loop: true,
+      fadeOut: true,
+      fadeOutDelay: 0,
+      backDelay: 2000,
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, [id]);
 
   return (
     <FakeBrowser>
       <div className={`terminal ${id}`}>
-        <Typed strings={strings[id] || []} {...typedOptions} />
+        <span ref={ref} />
       </div>
     </FakeBrowser>
   );
