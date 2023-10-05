@@ -44,9 +44,9 @@
     "react-external-link": "^2.2.0",
     "react-ga": "^3.3.1",
     "react-highlight": "^0.15.0",
-    "react-typed": "^1.2.0",
     "reactstrap": "^9.2.0",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "typed.js": "^2.0.16"
   },
   "devDependencies": {
     "@mdx-js/loader": "^2.3.0",

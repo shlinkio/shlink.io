@@ -1,7 +1,7 @@
 FROM node:20.7-alpine as node
 COPY . /shlink-website
 RUN cd /shlink-website && \
-    npm ci --force && \
+    npm ci && \
     npm run export:prod
 
 FROM nginx:1.25-alpine

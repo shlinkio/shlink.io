@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* *Nothing*
+
+### Changed
+* Use `typed.js` directly and remove `react-typed`, as it still requires react 16.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [6.50.0] - 2023-09-22
 ### Added
 * *Nothing*
