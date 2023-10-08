@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
 ## Serve Shlink with a classic web server
 
 In order to be able to serve shlink, you need to put a web server with PHP integration in front of it.

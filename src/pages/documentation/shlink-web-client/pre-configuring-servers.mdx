@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
 import { Callout } from '../../../components/Callout';
 
 ## Pre-configuring servers

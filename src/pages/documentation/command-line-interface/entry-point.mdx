@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
 ## CLI Entry point
 
 Shlink provides a CLI entry point which exposes a set of commands to perform a variety of operations. From creating, updating or listing short URLs, to manage API keys or handle your domains.

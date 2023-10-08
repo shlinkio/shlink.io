@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
 ## Serve in sub path
 
 Official distributable files and docker images have been built so that they are served from the root of a domain.

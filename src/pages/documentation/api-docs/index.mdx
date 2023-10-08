@@ -3,6 +3,9 @@ layout: ../../../layouts/DocsLayout.astro
 ---
 
 import { DocsTableOfContents } from '../../../components/DocsTableOfContents.js';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
 
 Shlink provides a REST API that can be used to integrate the short URLs management on any consuming system or application.
 

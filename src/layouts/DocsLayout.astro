@@ -1,5 +1,4 @@
 ---
-import { MDXProvider } from '@mdx-js/react';
 import className from 'classnames';
 import type { FC, PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
@@ -9,7 +8,6 @@ import { DocsMenu } from '../components/DocsMenu';
 // import { DocsSearch } from '../components/DocsSearch';
 import { Footer } from '../components/Footer';
 import { breadcrumbForPath, breadcrumbsMap } from '../utils/docUtils';
-import { markdownComponents } from '../utils/markdownUtils';
 import Layout from './Layout.astro';
 
 type SidebarState = 'initial' | 'displayed' | 'hidden';
@@ -43,9 +41,7 @@ const { breadcrumbItems, title } = breadcrumbForPath(currentPage);
       <div class="container">
         <article class="docs-article">
           <Breadcrumb prevElements={breadcrumbItems}>{title}</Breadcrumb>
-          <MDXProvider components={markdownComponents}>
-            <slot/>
-          </MDXProvider>
+          <slot/>
         </article>
       </div>
 

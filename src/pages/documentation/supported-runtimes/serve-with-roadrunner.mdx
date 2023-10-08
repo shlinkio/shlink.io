@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
 ## Serve Shlink using RoadRunner
 
 Starting with v3.3.0, Shlink can be served with [RoadRunner](https://roadrunner.dev/).
