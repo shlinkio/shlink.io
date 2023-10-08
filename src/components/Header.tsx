@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { useRouter } from 'next/router';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
@@ -19,13 +18,13 @@ const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
 );
 
 export interface HeaderProps {
+  currentPage: string;
   leftMenuToggle?: ReactNode;
 }
 
-export const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
+export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
   const [collapsed, setCollapsed] = useState(true);
   const toggleCollapsed = () => setCollapsed(!collapsed);
-  const { pathname: currentPage } = useRouter();
   const isBaseDocsActive = currentPage.startsWith('/documentation')
     && !currentPage.includes('command-line-interface')
     && !currentPage.includes('api-docs');

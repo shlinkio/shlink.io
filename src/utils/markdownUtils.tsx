@@ -1,9 +1,7 @@
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { MDXComponents } from 'mdx/types';
-import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 import type { PropsWithChildren } from 'react';
-import Highlight from 'react-highlight';
 import { Link } from '../components/Link';
 
 const slugify = (str: string) => {
@@ -41,13 +39,6 @@ const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => { /
 };
 
 const a = (props: any) => <Link {...props} />;
-const pre = (props: any) => {
-  if (props.children?.props?.className?.includes('mermaid')) {
-    return <Mermaid chart={props.children?.props?.children} />;
-  }
-
-  return <Highlight {...props} />;
-};
 const h1 = buildTitleForTag('h1');
 const h2 = buildTitleForTag('h2');
 const h3 = buildTitleForTag('h3');
@@ -59,4 +50,4 @@ const table = (props: any) => (
   </div>
 );
 
-export const markdownComponents: MDXComponents = { a, pre, h1, h2, h3, h4, table };
+export const markdownComponents: MDXComponents = { a, h1, h2, h3, h4, table };

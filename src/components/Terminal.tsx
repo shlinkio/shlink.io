@@ -54,7 +54,7 @@ const strings: IStrings = {
   ],
 };
 
-interface TerminalProps {
+export interface TerminalProps {
   id: keyof IStrings;
 }
 

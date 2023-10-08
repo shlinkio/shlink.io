@@ -1,6 +1,6 @@
-@import "~bootstrap/scss/bootstrap.scss";
-@import "~highlight.js/scss/vs2015";
-@import "~@docsearch/css";
+@import "bootstrap/scss/bootstrap.scss";
+//@import "highlight.js/scss/vs2015";
+//@import "@docsearch/css";
 @import "theme/theme";
 @import "./components/Breadcrumb.scss";
 @import "./components/DocsSearch.scss";
@@ -71,9 +71,9 @@
     margin-bottom: .5rem;
   }
 
-  .mermaid {
-    text-align: center;
-    margin-bottom: 1rem;
+  .mermaid, [id^=mermaid] {
+    display: block;
+    margin: 0 auto 1rem;
 
     .actor {
       fill: #73afeb !important;
@@ -199,9 +199,9 @@
   }
 }
 
-.hljs {
-  display: block;
+.astro-code {
   padding: .7em;
+  border-radius: 0.25rem;
 }
 
 .algolia-autocomplete .ds-dropdown-menu {

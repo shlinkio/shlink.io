@@ -1,0 +1,46 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+## Exposing Shlink through a reverse proxy
+
+When you are serving Shlink with openswoole or using the openswoole-based docker image, you'll probably want to put a reverse proxy in front of it.
+
+Openswoole have some limitations, that can be solved by using a reverse proxy:
+
+* Using a standard HTTP port (80, 443), so that users don't have to explicitly set the port in the URL.
+* Using an `https` certificate to encrypt the connection, keeping your users' data safe.
+
+It is possible to achieve both just by tweaking openswoole, but instead, it is recommended to put a standard HTTP server in front of it, like nginx or apache, as openswoole implements only a subset of the HTTP standard.
+
+The only consideration to ensure all Shlink capabilities work as expected, is that you make sure the consumer's IP address, and the request's domain, are forwarded from the proxy to Shlink.
+
+### Configure the proxy
+
+Here you can find some docs on how to do it with the most used web servers:
+
+* Nginx: https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/
+* Apache: https://httpd.apache.org/docs/trunk/en/howto/reverse_proxy.html
+* Caddy: https://caddyserver.com/docs/quick-starts/reverse-proxy
+
+Example nginx configuration to use as a reverse proxy in front of openswoole, with SSL enabled:
+
+```nginx
+server {
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+    server_name example.com another.com;
+    charset utf-8;
+
+    location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://localhost:8080;
+        proxy_read_timeout 90s;
+    }
+}
+```

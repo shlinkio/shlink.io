@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import type { FC, PropsWithChildren } from 'react';
 import { Fragment, useState } from 'react';
 import type { Route } from '../utils/docUtils';
-import { menuItems } from '../utils/docUtils';
-import { useCurrentPath } from '../utils/pathUtils';
+import { menuItems, normalizePath } from '../utils/docUtils';
 import { Link } from './Link';
 
 type MenuItemProps = PropsWithChildren<{
@@ -77,14 +76,17 @@ const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPag
   );
 };
 
-export const DocsMenu: FC = () => {
-  const currentPage = useCurrentPath();
+type DocsMenuProps = {
+  currentPage: string;
+}
 
+export const DocsMenu: FC<DocsMenuProps> = ({ currentPage }) => {
+  const path = normalizePath(currentPage);
   return (
     <nav className="docs-nav navbar align-items-start">
       <ul className="section-items list-unstyled nav flex-column pb-3">
         {menuItems.map((route) =>
-          <Section key={`${route.link}_${currentPage}`} route={route} currentPage={currentPage} />)}
+          <Section key={`${route.link}_${path}`} route={route} currentPage={path} />)}
       </ul>
     </nav>
   );

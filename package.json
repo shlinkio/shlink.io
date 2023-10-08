@@ -15,14 +15,14 @@
     "test": "jest --colors",
     "test:ci": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
     "purge": "purgecss --config ./purgecss.config.js --output ./out/_next/static/css",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "sitemap": "next-sitemap",
-    "export": "npm run build && npm run sitemap && next export",
-    "export:prod": "npm run export && npm run purge"
+    "dev": "astro dev --host=0.0.0.0",
+    "build": "astro build",
+    "build:prod": "npm run build && npm run purge",
+    "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/mdx": "^1.1.1",
+    "@astrojs/react": "^3.0.3",
     "@docsearch/react": "^3.5.2",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -32,6 +32,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mdx-js/react": "^2.3.0",
     "@next/mdx": "^13.5.3",
+    "astro": "^3.2.3",
     "bootstrap": "^5.3.2",
     "classnames": "^2.3.2",
     "highlight.js": "^11.8.0",

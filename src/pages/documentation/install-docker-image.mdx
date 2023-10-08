@@ -1,0 +1,195 @@
+---
+layout: ../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../components/Callout';
+
+## Install using a docker image
+
+The docker image is probably the simplest installation use case, since it includes all dependencies and works standalone.
+
+There are two "flavors", [RoadRunner](https://roadrunner.dev/)-based and [openswoole](https://openswoole.com/)-based. [See more details](#runtime-variations)
+
+<Callout type="info">
+  Shlink docker images are published both in [Docker hub](https://hub.docker.com/r/shlinkio/shlink) and [Github Container Registry](https://github.com/shlinkio/shlink/pkgs/container/shlink).
+
+  All examples use Docker hub images. In order to install images from Github Container Registry, use `ghcr.io/shlinkio/shlink` instead of `shlinkio/shlink`.
+</Callout>
+
+### Usage
+
+The most basic way to run Shlink's docker image is by providing these mandatory env vars.
+
+* `DEFAULT_DOMAIN`: The custom short domain used for this Shlink instance. For example **s.test**.
+* `IS_HTTPS_ENABLED`: Either **true** or **false**.
+* `GEOLITE_LICENSE_KEY`: Your GeoLite2 license key. [Learn more](/documentation/geolite-license-key/) about this.
+
+To run Shlink on top of a local docker service, and using an internal SQLite database, do the following:
+
+```bash
+docker run \
+    --name my_shlink \
+    -p 8080:8080 \
+    -e DEFAULT_DOMAIN=s.test \
+    -e IS_HTTPS_ENABLED=true \
+    -e GEOLITE_LICENSE_KEY=kjh23ljkbndskj345 \
+    shlinkio/shlink:stable
+```
+
+#### Generate first API key
+
+Once the Shlink container is running, you can interact with the [CLI entry point](/documentation/command-line-interface/entry-point) by running `shlink` with any of the supported commands.
+
+One of the main reasons you would want to do that, is to generate your first API key. For example, if the container is called `my_shlink`, you can do it with:
+
+```bash
+docker exec -it my_shlink shlink api-key:generate
+```
+
+If you can't interact with the container's shell (for example, when running Shlink in [Google Cloud Run](https://cloud.google.com/run) or similar), or if you wish to provide an initial API key yourself, starting with Shlink 3.3.0, you can do so by providing the `INITIAL_API_KEY` env var with an API key of your choice.
+
+```bash
+docker run \
+    --name my_shlink \
+    [...] \
+    -e INITIAL_API_KEY=<super_secure_api_key> \
+    shlinkio/shlink:stable
+```
+
+#### Interact with Shlink's CLI on a running container.
+
+Generating the first API key is not the only thing you can do with Shlink's CLI entry point inside the container's shell.
+
+You can also list all tags:
+
+```bash
+docker exec -it my_shlink shlink tag:list
+```
+
+Or locate remaining visits:
+
+```bash
+docker exec -it my_shlink shlink visit:locate
+```
+
+All Shlink commands will work the same way.
+
+You can also list all available commands by just running this:
+
+```bash
+docker exec -it my_shlink shlink
+```
+
+### Use an external DB
+
+The image comes with a working SQLite database, but in production, it's strongly recommended using a distributed database.
+
+It is possible to use a set of env vars to make this Shlink instance interact with an external MySQL, MariaDB, PostgreSQL or Microsoft SQL Server database.
+
+* `DB_DRIVER`: **[Mandatory]**. Use the value **mysql**, **maria**, **postgres** or **mssql** to prevent the SQLite database to be used.
+* `DB_NAME`: [Optional]. The database name to be used. Defaults to **shlink**.
+* `DB_USER`: **[Mandatory]**. The username credential for the database server.
+* `DB_PASSWORD`: **[Mandatory]**. The password credential for the database server.
+* `DB_HOST`: **[Mandatory]**. The host name of the server running the database engine.
+* `DB_PORT`: [Optional]. The port in which the database service is running.
+    * Default value is based on the value provided for `DB_DRIVER`:
+        * **mysql** or **maria** -> `3306`
+        * **postgres** -> `5432`
+        * **mssql** -> `1433`
+
+> PostgreSQL is supported since v1.16.1 and Microsoft SQL server since v2.1.0. Do not try to use them with previous versions.
+
+Taking this into account, you could run Shlink on a local docker service like this:
+
+```bash
+docker run \
+    --name my_shlink \
+    -p 8080:8080 \
+    -e DEFAULT_DOMAIN=s.test \
+    -e IS_HTTPS_ENABLED=true \
+    -e GEOLITE_LICENSE_KEY=kjh23ljkbndskj345 \
+    -e DB_DRIVER=mysql \
+    -e DB_USER=root \
+    -e DB_PASSWORD=123abc \
+    -e DB_HOST=something.rds.amazonaws.com \
+    shlinkio/shlink:stable
+```
+
+You could even link to a local database running on a different container:
+
+```bash
+docker run \
+    --name my_shlink \
+    -p 8080:8080 \
+    [...] \
+    -e DB_HOST=some_mysql_container \
+    --link some_mysql_container \
+    shlinkio/shlink:stable
+```
+
+> If you have considered using SQLite but sharing the database file with a volume, read [this issue](https://github.com/shlinkio/shlink-docker-image/issues/40) first.
+
+### Other integrations
+
+#### Use an external redis server
+
+If you plan to run more than one Shlink instance, there are some resources that should be shared ([Multi instance considerations](/documentation/install-docker-image#multi-instance-considerations)).
+
+One of those resources are the locks Shlink generates to prevent some operations to be run more than once in parallel. You can find more information [here](/documentation/advanced/using-redis/#shared-locks).
+
+#### Integrations for real-time updates
+
+Shlink supports sending real-time updates to some queueing systems, like [Mercure](https://mercure.rocks/), [RabbitMQ](https://www.rabbitmq.com/) or [Redis pub/sub](https://redis.io/docs/manual/pubsub/).
+
+Check the [real-time updates](/documentation/advanced/real-time-updates) section to get more details on how to integrate with them.
+
+### Supported env vars
+
+A few env vars have been already used in previous examples, but this image supports others that can be used to customize its behavior.
+
+See the full list of supported [Environment variables](/documentation/environment-variables).
+
+### Multi-architecture
+
+Starting on v2.3.0, Shlink's docker image is built for multiple architectures.
+
+The only limitation is that images for architectures other than `amd64` will not have support for Microsoft SQL databases, since there are no official binaries.
+
+### Multi-instance considerations
+
+These are some considerations to take into account when running multiple Shlink instances.
+
+* Some operations performed by Shlink should never be run more than once at the same time (like creating the database for the first time, or downloading the GeoLite2 database). For this reason, Shlink uses a locking system.
+
+    However, these locks are locally scoped to each Shlink instance by default.
+
+    You can (and should) make the locks to be shared by all Shlink instances by using a redis server/cluster. Just define the `REDIS_SERVERS` env var with the list of servers.
+
+### Versions
+
+Versioning on this docker image works as follows:
+
+* `X.X.X`: when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1.
+* `stable`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
+* `latest`: always holds the latest contents, and it's considered unstable and not suitable for production.
+
+#### Runtime variations
+
+Before Shlink 3.6.0, you had to add `-roadrunner` to the tag you wanted to install in order to get an image using RoadRunner (for example, `shlinkio/shlink:stable-roadrunner` or `shlinkio/shlink:3.4.0-roadrunner`).
+
+Starting with v3.6.0, you can add `-roadrunner` or `-openswoole` to the tag name to make sure you get an image using a specific runtime, otherwise, you will get the default one, which is unlikely, but open to change.
+
+As of today, RoadRunner is the default runtime. Both runtimes are mostly compatible and should be possible to change from one image to the other transparently, so **it's ok to use docker tags with no suffix**.
+
+#### Non-root
+
+For historical reasons, Shlink docker image runs as root. If it's important for you to run it as non-root, add `-non-root` to the tag name, like `shlinkio/shlink:stable-non-root`.
+
+These images have two considerations: they always run with the default runtime (RoadRunner as of today), and the `ENABLE_PERIODIC_VISIT_LOCATE` env var will be ignored, as it requires root privileges.
+
+<Callout type="warning" title="Considerations">
+  * There are no versions older than 3.0.0 published in GitHub Container registry.
+  * RoadRunner-based images are only available since v3.3.0
+  * Default runtime has changed from openswoole to RoadRunner in v3.6.0
+  * `non-root` docker images are only available since v3.6.0
+</Callout>

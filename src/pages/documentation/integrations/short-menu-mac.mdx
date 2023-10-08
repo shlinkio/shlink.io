@@ -1,0 +1,31 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+## Short Menu for Mac
+
+You can download **Short Menu for Mac** from their [official website](https://shortmenu.com/mac/).
+
+It supports several SaaS URL shorteners out of the box, but you can also configure custom services.
+
+In order to integrate your Shlink instance with it, open Short Menu, and go to **Preferences**.
+
+![Short Menu for Mac popover](/images/integrations/short-menu-mac-popover.png)
+
+Once there, you have to select **Custom Services**.
+
+![Short Menu for Mac custom services](/images/integrations/short-menu-mac-custom-services.png)
+
+Click on the **+** button, on the bottom-left corner, in order to configure a new custom service.
+
+Once there, you have two options:
+
+* Use the regular `POST` endpoint, which supports providing all the configuration options listed in the [API spec](https://api-spec.shlink.io/#/Short%20URLs/createShortUrl).
+
+![Short Menu for Mac POST shortening](/images/integrations/short-menu-mac-post-shortening.png)
+
+* Use the `GET` endpoint, where the only thing that can be provided is the long URL.
+
+![Short Menu for Mac GET shortening](/images/integrations/short-menu-mac-get-shortening.png)
+
+Regardless the option you choose, you need to replace `{SHORT_DOMAIN}` with the domain in which you are exposing your Shlink instance, and `{API_KEY}`, with your own API key.
