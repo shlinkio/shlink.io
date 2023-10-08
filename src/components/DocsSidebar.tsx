@@ -1,3 +1,4 @@
+import { DocSearch } from '@docsearch/react';
 import classNames from 'classnames';
 import type { FC } from 'react';
 import { useCallback, useState } from 'react';
@@ -43,7 +44,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage }) => {
       <LeftMenuToggle toggleSidebar={toggleSidebar} collapsed={sidebarState !== 'displayed'} />
       <div className={classNames('docs-sidebar', classesForState(sidebarState))}>
         <div className="top-search-box p-3">
-          {/* <DocsSearch /> */}
+          <DocSearch apiKey="0dd162447ab255a125917745c912176b" appId="9SA2I2A9Q8" indexName="shlink" />
         </div>
 
         <DocsMenu currentPage={currentPage} />
