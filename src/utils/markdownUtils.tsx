@@ -1,6 +1,7 @@
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { MDXComponents } from 'mdx/types';
+import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 import type { PropsWithChildren } from 'react';
 import { Link } from '../components/Link';
 
@@ -30,4 +31,4 @@ const table = (props: any) => (
   </div>
 );
 
-export const markdownComponents: MDXComponents = { h1, h2, h3, h4, a, table };
+export const markdownComponents: MDXComponents = { h1, h2, h3, h4, a, table, mermaid: Mermaid, Mermaid };
