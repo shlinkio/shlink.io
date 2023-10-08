@@ -18,11 +18,12 @@
     "dev": "astro dev --host=0.0.0.0",
     "build": "astro build",
     "build:prod": "npm run build && npm run purge",
-    "preview": "astro preview"
+    "preview": "astro preview --host=0.0.0.0"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.1.1",
     "@astrojs/react": "^3.0.3",
+    "@astrojs/sitemap": "^3.0.1",
     "@docsearch/react": "^3.5.2",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",

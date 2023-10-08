@@ -2,10 +2,6 @@
 /build
 node_modules
 docker-compose.override.yml
-/.next/
-/out/
 npm-debug.log*
 home
 coverage
-public/sitemap*
-public/robots.txt
