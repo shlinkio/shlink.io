@@ -149,9 +149,9 @@ export const breadcrumbsMap: BreadcrumbsMap = docsRoutes.reduce<BreadcrumbsMap>(
   {},
 );
 
+export const normalizePath = (path: string) => (path.endsWith('/') ? path.substring(0, path.length - 1) : path);
+
 export const breadcrumbForPath = (path: string): BreadcrumbInfo => {
   const normalizedPath = normalizePath(path);
   return breadcrumbsMap[normalizedPath] || { title: '', breadcrumbItems: [] };
-}
-
-export const normalizePath = (path: string) => path.endsWith('/') ? path.substring(0, path.length - 1) : path;
+};

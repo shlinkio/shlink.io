@@ -78,7 +78,7 @@ const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPag
 
 type DocsMenuProps = {
   currentPage: string;
-}
+};
 
 export const DocsMenu: FC<DocsMenuProps> = ({ currentPage }) => {
   const path = normalizePath(currentPage);

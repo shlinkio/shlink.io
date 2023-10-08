@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import type { SectionItemProps } from './SectionItem';
 import { SectionItem } from './SectionItem';
-import type { TerminalProps } from './Terminal.tsx';
-import { Terminal } from './Terminal.tsx';
+import type { TerminalProps } from './Terminal';
+import { Terminal } from './Terminal';
 
 export type TerminalSectionItemProps = Omit<SectionItemProps, 'block'> & TerminalProps;
 

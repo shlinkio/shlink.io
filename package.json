@@ -10,7 +10,7 @@
     "url": "https://github.com/shlinkio/shlink.io"
   },
   "scripts": {
-    "lint": "eslint --dir src --dir test",
+    "lint": "eslint --ext .ts,.tsx src test",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest --colors",
     "test:ci": "npm run test -- --coverage --coverageReporters=text --coverageReporters=text-summary --coverageReporters=clover",
