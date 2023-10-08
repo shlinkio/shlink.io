@@ -13,6 +13,6 @@ jobs:
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           use-quiet-mode: 'yes'
-          folder-path: './src/content'
+          folder-path: './src/pages/documentation'
           file-extension: '.mdx'
           config-file: './mlc_config.json'

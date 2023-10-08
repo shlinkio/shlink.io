@@ -12,6 +12,13 @@ updates:
       fontawesome:
         patterns:
           - '@fortawesome*'
+      astro:
+        patterns:
+          - 'astro'
+          - '@astrojs*'
+      testing:
+        patterns:
+          - '@testing-library*'
   - package-ecosystem: docker
     directory: '/'
     schedule:
