@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
-import { useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { useCallback, useState } from 'react';
 import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
 import { InternalLink } from './InternalLink';
 import { SocialList } from './SocialList';
@@ -19,12 +19,12 @@ const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
 
 export interface HeaderProps {
   currentPage: string;
-  leftMenuToggle?: ReactNode;
+  leftMenuToggle?: boolean;
 }
 
 export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
   const [collapsed, setCollapsed] = useState(true);
-  const toggleCollapsed = () => setCollapsed(!collapsed);
+  const toggleCollapsed = useCallback(() => setCollapsed((prev) => !prev), []);
   const isBaseDocsActive = currentPage.startsWith('/documentation')
     && !currentPage.includes('command-line-interface')
     && !currentPage.includes('api-docs');
@@ -33,8 +33,7 @@ export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
     <header className="header fixed-top">
       <div className="container-fluid position-relative">
         <Navbar expand="lg">
-          <div className="site-logo">
-            {leftMenuToggle}
+          <div className={classNames('site-logo', { 'site-logo__mobile': leftMenuToggle })}>
             <InternalLink href="/" className="navbar-brand">
               <img
                 className="logo-icon me-2"

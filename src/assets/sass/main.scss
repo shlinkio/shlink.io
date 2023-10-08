@@ -159,14 +159,27 @@
   }
 }
 
+.site-logo__mobile {
+  @media (max-width: 1199px) {
+    padding-left: 40px;
+  }
+}
+
 .docs-menu-toggle {
   display: none;
   vertical-align: text-bottom;
-  margin-right: 1em;
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1040;
 
   @media (max-width: 1199px) {
     display: inline-block !important;
   }
+}
+
+.docs-menu-toggle.collapsed {
+  top: 1.25rem;
 }
 
 .docs-sidebar {

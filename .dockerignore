@@ -3,7 +3,5 @@ node_modules
 LICENSE
 /build
 docker-compose.*
-/.next/
-/out/
 npm-debug.log*
 /home

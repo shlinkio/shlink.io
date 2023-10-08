@@ -4,38 +4,18 @@ import type { FC, PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
 import { NavbarToggler } from 'reactstrap';
 import { Breadcrumb } from '../components/Breadcrumb';
-import { DocsMenu } from '../components/DocsMenu';
-// import { DocsSearch } from '../components/DocsSearch';
+import { DocsSidebar } from '../components/DocsSidebar';
 import { Footer } from '../components/Footer';
 import { breadcrumbForPath, breadcrumbsMap } from '../utils/docUtils';
 import Layout from './Layout.astro';
 
-type SidebarState = 'initial' | 'displayed' | 'hidden';
-
-const classesForState = (state: SidebarState) => {
-  if (state === 'initial') {
-    return null;
-  }
-
-  return { 'sidebar-visible': state === 'displayed', 'sidebar-hidden': state === 'hidden' };
-};
-
 const currentPage = Astro.url.pathname;
-// const [sidebarState, setSidebarVisible] = useState<SidebarState>('initial');
-// const toggleSidebar = () => setSidebarVisible(sidebarState === 'displayed' ? 'hidden' : 'displayed');
-const sidebarState: SidebarState = 'initial';
 const { breadcrumbItems, title } = breadcrumbForPath(currentPage);
 ---
 
-<Layout pageTitle="Documentation" noFooter="true">
+<Layout pageTitle="Documentation" noFooter="true" leftMenuToggle="true">
   <div class="docs-wrapper">
-    <div class={className('docs-sidebar', classesForState(sidebarState))}>
-      <div class="top-search-box p-3">
-        <!--<DocsSearch />-->
-      </div>
-
-      <DocsMenu currentPage={currentPage} client:load />
-    </div>
+    <DocsSidebar currentPage={currentPage} client:load />
 
     <div class="docs-content">
       <div class="container">
