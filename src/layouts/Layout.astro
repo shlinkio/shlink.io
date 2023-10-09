@@ -1,10 +1,12 @@
 ---
 import { GoogleAnalytics } from 'astro-google-analytics';
+import { SEO } from 'astro-seo';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import '../assets/sass/main.scss';
+import { openGraph, twitter } from '../utils/seoUtils';
 
-interface Props {
+export interface Props {
   pageTitle?: string;
   noFooter?: boolean;
   leftMenuToggle?: boolean;
@@ -21,10 +23,11 @@ const currentPage = Astro.url.pathname;
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <meta name="description" content={description}/>
     <meta name="viewport" content="width=device-width"/>
     <meta name="generator" content={Astro.generator}/>
     <meta name="theme-color" content="#4696e5"/>
+    <SEO {...openGraph(title, description, siteName)} twitter={twitter} />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap"
@@ -92,8 +95,6 @@ const currentPage = Astro.url.pathname;
     <meta name="msapplication-square144x144logo" content="/icons/icon-144x144.png"/>
     <meta name="msapplication-square150x150logo" content="/icons/icon-150x150.png"/>
     <meta name="msapplication-square310x310logo" content="/icons/icon-310x310.png"/>
-
-    <title>{title}</title>
 
     <GoogleAnalytics id="UA-38351554-5" />
   </head>
