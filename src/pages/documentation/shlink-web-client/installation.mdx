@@ -1,0 +1,42 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Installation
+
+There are three ways in which you can use Shlink web client. The [Free hosted](/documentation/shlink-web-client/installation#free-hosted) one does not actually require installation.
+
+### Free hosted
+
+The easiest way to use shlink-web-client is by just going to https://app.shlink.io/.
+
+The application runs 100% in the browser, so you can safely access any Shlink server from there.
+
+The main benefit of this approach is that you will always have the latest version, and you will not have to worry about updates.
+
+### Docker image
+
+If you want to deploy shlink-web-client in a container-based infrastructure (kubernetes, docker swarm, etc), just pick the [shlinkio/shlink-web-client](https://hub.docker.com/r/shlinkio/shlink-web-client/) image from Docker hub, or [ghcr.io/shlinkio/shlink-web-client](https://github.com/shlinkio/shlink-web-client/pkgs/container/shlink-web-client) from GitHub Container Registry.
+
+It's a lightweight [nginx:alpine](https://hub.docker.com/r/library/nginx/)-based image serving the static app on port 80.
+
+### Self-hosted
+
+If you want to self-host it yourself, get the [latest release](https://github.com/shlinkio/shlink-web-client/releases/latest) and download the distributable zip file attached to it (it will like something like this `shlink-web-client_X.X.X_dist.zip`).
+
+The package contains static files only, so just put it in a folder and serve it with the web server of your choice.
+
+---
+
+**Considerations**:
+
+These apply for both docker image and self-hosted approaches.
+
+* Provided dist files and docker images are configured to be served from the root of your domain. If you need to serve shlink-web-client from a sub path, you will have to build it yourself by following [these steps](/documentation/shlink-web-client/serve-in-sub-path).
+* The app has a client-side router that handles dynamic paths. Because of that, you need to configure your web server to fall-back to the `index.html` file when requested files do not exist.
+    * If you use Apache, you are covered, since the project includes an `.htaccess` file which already does this.
+    * If you use nginx, you can [see how it's done](https://github.com/shlinkio/shlink-web-client/blob/main/config/docker/nginx.conf) for the docker image and do the same.

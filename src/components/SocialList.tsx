@@ -27,7 +27,7 @@ export const SocialList: FC<SocialListProps> = ({ type, className }) => (
       </ExternalLink>
     </li>
     <li className="list-inline-item">
-      <ExternalLink href={process.env.donateUrl ?? ''}>
+      <ExternalLink href="https://slnk.to/donate">
         <FontAwesomeIcon icon={faPaypal} fixedWidth />
       </ExternalLink>
     </li>

@@ -1,0 +1,162 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../../components/Callout';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Installation tool
+
+Shlink provides a helper CLI installation tool which comes in handy to configure your instance when you are not using Shlink's docker image, and you prefer not to use [environment variables](/documentation/environment-variables).
+
+The tool is executed using the `vendor/bin/shlink-installer` script, and it provides a couple of commands that simplify installing/updating shlink instances, or editing some configuration options.
+
+<Callout type="warning">
+  The installation tool expects to be executed on Shlink's root directory. Running it at a different level will result in an error.
+</Callout>
+
+### Commands
+
+In order to list all available commands from the installation tool, just run `vendor/bin/shlink-installer` with no arguments:
+
+```shell
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help            Display help for the given command. When no command is given display help for the list command
+  -q, --quiet           Do not output any message
+  -V, --version         Display this application version
+      --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction  Do not ask any interactive question
+  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  completion  Dump the shell completion script
+  help        Display help for a command
+  init        Initializes external dependencies required for Shlink to properly work, like DB, cache warmup, initial GeoLite DB download, etc
+  install     Guides you through the installation process, to get Shlink up and running.
+  list        List commands
+  set-option  Allows you to set new values for any config option.
+  update      Helps you import Shlink's config from an older version to a new one.
+```
+
+### Main commands
+
+The installation tool is designed to make a couple of main actions: install Shlink, update an existing instance or update the value from a particular config option.
+
+#### Install
+
+In order to install Shlink, run `vendor/bin/shlink-installer install`.
+
+It will trigger an interactive tool that will guide you through the installation process, asking you questions about all the aspects in Shlink that can be customized.
+
+```shell
+Welcome to Shlink!!
+This tool will guide you through the installation process.
+
+DATABASE
+========
+
+Select database type [MySQL]:
+ [0] MySQL
+ [1] MariaDB
+ [2] PostgreSQL
+ [3] MicrosoftSQL
+ [4] SQLite
+>
+
+[...]
+```
+
+At the end, it will generate a special config file which will later be consumed by Shlink.
+
+#### Update
+
+In order to update Shlink, run `vendor/bin/shlink-installer update`.
+
+The update process is very similar to the "install" one, with the only difference that it will give you the opportunity to consume the config previously generated.
+
+Thanks to that, the update tool will make sure to skip all "questions" for which it can already infer an answer from the previous config.
+
+```shell
+Welcome to Shlink!!
+This tool will guide you through the installation process.
+
+Do you want to import configuration from previous installation? (You will still be asked for any new config option that did not exist in previous shlink versions) (yes/no) [yes]:
+> yes
+
+Previous shlink installation path from which to import config:
+>
+
+[...]
+```
+
+Similarly to what the "install" command did, you will end up with a newly generated config file that containing what was firt imported, plus everything you provided for the new questions.
+
+#### Set option
+
+Sometimes you need to change some specific config option, but you don't want to reinstall Shlink completely.
+
+Maybe the database password changed, maybe you want to change your default domain, or maybe you want to disable some tracking option.
+
+In order to be able to do this, run `vendor/bin/shlink-installer set-option`.
+
+It will display a list of all the possible options to customize, and you just have to select one and provide the new value.
+
+```shell
+What config option do you want to change:
+ [1 ] Database > Name
+ [2 ] Database > Host (or unix socket for PostgreSQL)
+ [3 ] Database > Port
+ [4 ] Database > User
+ [5 ] Database > Password
+ [...]
+ [14] GeoLite2 license key
+ [...]
+ [20] Tracking > Disable tracking
+ [21] Tracking > Disable IP address tracking
+ [...]
+ [28] QR codes > Default size
+ [29] QR codes > Default margin
+ [...]
+```
+
+> This command has a limitation. It can only be executed on a Shlink install where the `install` command has been successfully executed first.
+
+#### Init
+
+This command helps to automate Shlink installation, by "initializing" all the external dependencies it needs, like the database, cache warmup, download GeoLite db, etc.
+
+It can be used both for new Shlink installations, but also to update the external environment on a Shlink instance which is being updated, as it also runs database migrations.
+
+This command is internally used both by `install` and `update` commands, but comes in handy in case you want to provide Shlink config via [environment variables](/documentation/environment-variables/).
+
+The official [docker image](/documentation/install-docker-image/) entry point also uses this command, but you don't need to worry in that case.
+
+It allows a bit of customization via CLI flags, depending on your needs:
+
+```shell
+Description:
+  Initializes external dependencies required for Shlink to properly work, like DB, cache warmup, initial GeoLite DB download, etc
+
+Usage:
+  init [options]
+
+Options:
+      --initial-api-key[=INITIAL-API-KEY]  Create an initial admin API key. A random one will be generated and printed if no value is provided. [default: false]
+      --skip-initialize-db                 Skip the initial empty database creation. It will make this command fail on a later stage if the database was not created manually.
+      --clear-db-cache                     Clear the database metadata cache.
+      --download-rr-binary                 Download a RoadRunner binary. Useful only if you plan to serve Shlink with Roadrunner.
+      --skip-download-geolite              Skip downloading the initial GeoLite DB file. Shlink will try to download it the first time it needs to geolocate visits.
+```
+
+* `--initial-api-key`: useful for new Shlink instances, so that it generates a first admin API key.
+* `--skip-initialize-db`: it can be passed when updating Shlink to skip a command which won't have any effect anyway.
+* `--clear-db-cache`: you want to provide this every time you update Shlink, but passing it on new installations won't have any side effect.
+* `--download-rr-binary`: If you are serving/want to [serve Shlink with RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner), this option will ensure the binary is downloaded.
+* `--skip-download-geolite`: If you are not passing a [GeoLite license key](/documentation/geolite-license-key/), you can pass this to skip a command which won't have any effect anyway.
+
+> This command is available since Shlink 3.6.0

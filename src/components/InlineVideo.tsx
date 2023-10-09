@@ -9,7 +9,6 @@ interface InlineVideoProps {
 
 const sourceToType = (source: string) => {
   const extension = source.split('.').slice(-1).pop();
-
   return `video/${extension}`;
 };
 

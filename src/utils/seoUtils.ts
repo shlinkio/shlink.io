@@ -1,7 +1,7 @@
 export const twitter = {
   site: '@shlinkio',
-  handle: '@acelayaa',
-  cardType: 'summary_large_image',
+  creator: '@acelayaa',
+  card: 'summary_large_image',
 };
 
 export const openGraph = (title: string, description: string, siteName: string) => ({
@@ -9,7 +9,7 @@ export const openGraph = (title: string, description: string, siteName: string) 
   description,
   type: 'website',
   url: 'https://shlink.io',
-  site_name: siteName, // eslint-disable-line
+  site_name: siteName,
   images: [
     {
       url: 'https://shlink.io/images/shlink-hero.png',

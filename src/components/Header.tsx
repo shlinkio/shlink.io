@@ -1,7 +1,6 @@
 import classNames from 'classnames';
-import { useRouter } from 'next/router';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
-import { useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { useCallback, useState } from 'react';
 import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
 import { InternalLink } from './InternalLink';
 import { SocialList } from './SocialList';
@@ -19,13 +18,13 @@ const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
 );
 
 export interface HeaderProps {
-  leftMenuToggle?: ReactNode;
+  currentPage: string;
+  leftMenuToggle?: boolean;
 }
 
-export const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
+export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
   const [collapsed, setCollapsed] = useState(true);
-  const toggleCollapsed = () => setCollapsed(!collapsed);
-  const { pathname: currentPage } = useRouter();
+  const toggleCollapsed = useCallback(() => setCollapsed((prev) => !prev), []);
   const isBaseDocsActive = currentPage.startsWith('/documentation')
     && !currentPage.includes('command-line-interface')
     && !currentPage.includes('api-docs');
@@ -34,8 +33,7 @@ export const Header: FC<HeaderProps> = ({ leftMenuToggle }) => {
     <header className="header fixed-top">
       <div className="container-fluid position-relative">
         <Navbar expand="lg">
-          <div className="site-logo">
-            {leftMenuToggle}
+          <div className={classNames('site-logo', { 'site-logo__mobile': leftMenuToggle })}>
             <InternalLink href="/" className="navbar-brand">
               <img
                 className="logo-icon me-2"

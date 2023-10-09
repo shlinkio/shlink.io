@@ -1,0 +1,57 @@
+---
+layout: ../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../components/Callout';
+import { markdownComponents } from '../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Supported database engines
+
+For your own convenience, Shlink supports the most popular relational database engines:
+
+* [MySQL](https://www.mysql.com/)
+* [MariaDB](https://mariadb.org/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Microsoft SQL Server](https://www.microsoft.com/sql-server/)
+
+Performance with all of them is pretty similar, and the only reason to not force you to use a specific one is so that you can use the one you are more comfortable with.
+
+<Callout type="warning" title="Database availability">
+  It is important to mention that Shlink expects the database to be **up and running** when it starts.
+
+  If you are starting-up the database together with Shlink (like, via `docker compose` or similar), you may see some errors until the database is ready, and it's important to make sure Shlink container is configured to restart on error so that it "retries" a couple of times.
+</Callout>
+
+### Migrating your database
+
+At some point, and after successfully running Shlink for some time, you may need/want to move to a different database engine.
+
+There are a number of reasons you may need to do this:
+
+* Migrating to another hosting which does not support the one you were using
+* You found a cheaper managed database, but it uses a different engine.
+* You started testing Shlink with SQLite and want to move to something more future-proof, but retaining your data.
+
+In order to do this, the easiest approach is to set up a new Shlink instance with the new database, and then take advantage of the [import tool](/documentation/advanced/import-short-urls/#shlink-instance) to bring your data from the old one.
+
+One of the sources from which this tool can import is another Shlink instance, for which it uses Shlink's API.
+
+### SQLite limitations
+
+Shlink also supports SQLite, but with the only intention that you can quickly spin-up Shlink and test it, and also to simplify automating a Shlink environment for the purpose of E2E testing and similar.
+
+It's very important to understand that using SQLite for production **is not officially supported**, since you can quickly face problems and limitations when dealing with big amounts of data or high traffic.
+
+Some have even tried to use it together with docker, via docker volumes. That's just looking for trouble.
+
+Make sure that, once you have tested Shlink and want to use it long term, you move to one of the other supported engines.
+
+### Microsoft SQL limitations
+
+Shlink tries to support the same database engines regardless how it is set up and installed. This includes the official docker image, which comes with pre-built drivers for all of them.
+
+There's one limitation thought. If you try to use the docker image on an ARM architecture, you will find it does not include Microsoft SQL Server drivers.
+
+The reason is that Microsoft does not provide an official driver for this architecture, so you will have to use one of the other databases if you plan to run Shlink in an ARM device.

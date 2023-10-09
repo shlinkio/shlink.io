@@ -1,0 +1,33 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Serve Shlink using RoadRunner
+
+Starting with v3.3.0, Shlink can be served with [RoadRunner](https://roadrunner.dev/).
+
+It is a web server written in Go, that lets you load Shlink in memory and serve requests without bootstrapping the whole application on every request.
+
+It works similarly to node.js and [openswoole](/documentation/supported-runtimes/serve-with-openswoole/), and is currently the **officially recommended runtime**.
+
+### Installing RoadRunner binary
+
+In order to serve Shlink with RoadRunner, you have to first download its binary.
+
+Luckily, Shlink includes everything you need to do it, and it will resolve the proper one for your operating system and system architecture.
+
+Just run `php ./vendor/bin/rr get --no-interaction --location bin/ && chmod +x bin/rr` and you will get the binary named `rr` inside Shlink's `bin` folder.
+
+After that, run `./bin/rr serve -c config/roadrunner/.rr.yml` and the server will start and be available in the port you previously configured (`8080` by default).
+
+### Shlink as a system service
+
+The command above is enough to "start" Shlink, but you probably don't want to do that manually every time.
+
+If you use Linux, this page explains how to set up a [RoadRunner server as a systemd daemon](https://roadrunner.dev/docs/app-server-systemd/2.x/en).
+
+Just make sure to replace `ExecStart` with `/path/to/shlink/bin/rr serve -c config/roadrunner/.rr.yml`, as explained there.

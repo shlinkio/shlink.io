@@ -1,6 +1,6 @@
 import type { FC } from 'react';
+import type { ExternalLinkProps } from 'react-external-link';
 import { ExternalLink } from 'react-external-link';
-import type { ExternalLinkProps } from 'react-external-link/dist/ExternalLink';
 import { InternalLink } from './InternalLink';
 
 export type LinkProps = ExternalLinkProps;

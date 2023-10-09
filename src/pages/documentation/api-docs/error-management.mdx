@@ -1,0 +1,42 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Error management
+
+Shlink's REST API implements the [Problem Details](https://tools.ietf.org/html/rfc7807) standard for error management.
+
+Because of this, all error responses will have `Content-Type: application/problem+json`, and the payload will have at least these properties:
+
+* `type`: A unique error code identifying the error.
+* `detail`: A human-friendly description of the error.
+* `title`: A short unique error title.
+* `status`: The same value returned as the response status code.
+
+```json
+{
+  "type": "TAG_NOT_FOUND",
+  "detail": "Tag with name \"foo\" could not be found",
+  "title": "Tag not found",
+  "status": 404
+}
+```
+
+Some errors can have extra properties, depending on their nature.
+
+```json
+{
+  "type": "INVALID_SLUG",
+  "detail": "Provided slug \"custom\" is already in use",
+  "title": "Invalid custom slug",
+  "status": 400,
+  "customSlug": "custom"
+}
+```
+
+Error interpretation depends on the context and the endpoint. Every endpoint includes the documentation for its specific errors.
+
+For more information, read the [API specification](https://api-spec.shlink.io).

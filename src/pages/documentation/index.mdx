@@ -1,0 +1,22 @@
+---
+layout: ../../layouts/DocsLayout.astro
+---
+
+import { DocsTableOfContents } from '../../components/DocsTableOfContents';
+import { markdownComponents } from '../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Getting started
+
+Shlink is a self-hosted URL shortener which provides both a [REST](/documentation/api-docs) and a [CLI](/documentation/command-line-interface/entry-point) interface to interact with it.
+
+Additionally, there's also an official [Shlink web client](/documentation/shlink-web-client) which, by making use of Shlink's REST API, provides a beautiful web UI to handle multiple Shlink instances.
+
+This documentation will walk you through the process of getting both Shlink and shlink-web-client installed, using one of the many available approaches.
+
+You will also learn how it is architected, how to use it once installed, and answers to frequently asked questions.
+
+### Table of contents
+
+<DocsTableOfContents />

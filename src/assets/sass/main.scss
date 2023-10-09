@@ -1,6 +1,5 @@
-@import "~bootstrap/scss/bootstrap.scss";
-@import "~highlight.js/scss/vs2015";
-@import "~@docsearch/css";
+@import "bootstrap/scss/bootstrap.scss";
+@import "@docsearch/css";
 @import "theme/theme";
 @import "./components/Breadcrumb.scss";
 @import "./components/DocsSearch.scss";
@@ -71,9 +70,9 @@
     margin-bottom: .5rem;
   }
 
-  .mermaid {
-    text-align: center;
-    margin-bottom: 1rem;
+  .mermaid, [id^=mermaid] {
+    display: block;
+    margin: 0 auto 1rem;
 
     .actor {
       fill: #73afeb !important;
@@ -159,14 +158,27 @@
   }
 }
 
+.site-logo__mobile {
+  @media (max-width: 1199px) {
+    padding-left: 40px;
+  }
+}
+
 .docs-menu-toggle {
   display: none;
   vertical-align: text-bottom;
-  margin-right: 1em;
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1040;
 
   @media (max-width: 1199px) {
     display: inline-block !important;
   }
+}
+
+.docs-menu-toggle.collapsed {
+  top: 1.25rem;
 }
 
 .docs-sidebar {
@@ -199,9 +211,9 @@
   }
 }
 
-.hljs {
-  display: block;
+.astro-code {
   padding: .7em;
+  border-radius: 0.25rem;
 }
 
 .algolia-autocomplete .ds-dropdown-menu {

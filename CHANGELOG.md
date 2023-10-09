@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Changed
+* [#421](https://github.com/shlinkio/shlink.io/issues/421) Migrate from Next.js to Astro
+* [#380](https://github.com/shlinkio/shlink.io/issues/380) Migrate from Jest to vitest
 * Use `typed.js` directly and remove `react-typed`, as it still requires react 16.
 
 ### Deprecated

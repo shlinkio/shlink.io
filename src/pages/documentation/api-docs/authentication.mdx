@@ -1,0 +1,44 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../../components/Callout';
+import { Link } from '../../../components/Link';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Authentication
+
+All endpoints require authentication. In order to do it, always provide a `X-Api-Key: {api_key}` header on every request.
+
+### Managing API keys
+
+API keys are generated (and managed) from the command line. Run the `api-key:generate` command to get a new and valid API key.
+
+This command optionally accepts an expiration date through the `--expirationDate`|`-e` modifier:
+
+    shlink api-key:generate -e 2020-01-01
+
+Disabling existing API keys is also possible, through the `api-key:disable` command:
+
+    shlink api-key:disable 1ae89449-f8d2-4b44-baf7-dd7eb0b05017
+
+Both disabled and expired API keys will be considered invalid by Shlink, rejecting any request done with them.
+
+<Callout type="info">
+  Starting with Shlink v2.5.0, API keys can have a set of roles that will limit the operations they can do. <Link href="/documentation/api-docs/api-key-roles/">Read the docs</Link> to learn how.
+</Callout>
+
+### Errors during authentication
+
+When performing an API call, if no API key is provided or it is invalid/disabled/expired, the server will return this response payload, with status 401.
+
+```json
+{
+  "type": "INVALID_API_KEY",
+  "detail": "Provided API key does not exist or is invalid",
+  "title": "Invalid API key",
+  "status": 401
+}
+```

@@ -1,0 +1,58 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../../components/Callout';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## API key roles
+
+Starting with v2.5.0, Shlink allows attaching certain roles to API keys, in order to limit the actions they can do.
+
+For backwards compatibility, all API keys without roles are considered admin API keys and can do everything.
+
+### Supported roles
+
+Currently, API keys can have any combination of these roles:
+
+* `AUTHORED_SHORT_URLS`: The API key will only be able to interact with short URLs created with it.
+
+  This includes not being able to fetch stats or tags that belong to short URLs created with other API keys.
+
+* `DOMAIN_SPECIFIC`: The API key will be able to create and interact with short URLs only under one specific domain.
+
+  It will also cause short URLs from other domains to not be counted when fetching visit stats or tags.
+
+### Attaching roles
+
+Roles are attached from the command line, while creating the API key with `api-key:generate` command.
+
+This command accepts flags for every role, allowing to provide any of them at a time.
+
+* `AUTHORED_SHORT_URLS`: Provide the flag `--author-only` (`-a`), which does not accept a value.
+* `DOMAIN_SPECIFIC`: Provide the flag `--domain-only=example.com` (`-d example.com`). This will attach the role for the domain provided as value.
+
+```bash
+$ bin/cli api-key:generate --author-only --domain-only=example.com
+```
+
+<Callout type="warning">
+  Editing roles on existing API keys is not allowed, as it could lead to behavior inconsistencies and security breaches.
+
+  If you wish to restrict permissions, disable an existing API key and generate a new one.
+</Callout>
+
+### Considerations
+
+There are a couple of edge cases and considerations to have in mind when attaching roles to API keys:
+
+* Operations from CLI will always behave as admin. Among other things, this means that:
+  * It will not be possible to apply any limitation while listing or interacting with any entity.
+  * Created short URLs will not be attached to an API key, and therefore, will not be affected by `AUTHORED_SHORT_URLS` API keys.
+  * Imported short URLs will not be attached to an API key either, having the same limitation as in previous point.
+* Custom slugs are globally unique. That means that a conflict error could occur when providing a custom slug that "seems" to be available, but it's actually in use by a short URL which is not visible by the API key in use.
+* When creating short URLs with a `DOMAIN_SPECIFIC` API key, they will all be created for that domain implicitly, regardless of the domain provided. Provided one will always be ignored.
+* The `DOMAIN_SPECIFIC` restriction cannot be used for the default domain.
+* For simplicity, editing and deleting tags will not be allowed for non-admin API keys, resulting on a 403 response. The intention is to improve this behavior in future versions.

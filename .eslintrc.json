@@ -1,7 +1,6 @@
 {
   "root": true,
   "extends": [
-    "next/core-web-vitals",
     "@shlinkio/js-coding-standard"
   ],
   "parserOptions": {

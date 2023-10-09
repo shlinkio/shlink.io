@@ -1,0 +1,43 @@
+---
+layout: ../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../components/Callout';
+import { markdownComponents } from '../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Long-running tasks
+
+There are a few tasks Shlink needs to perform which are too heavy or time-consuming to be executed when a user visits a short URL.
+
+In order to redirect end users as fast as possible to the final URLs, these tasks have been left for you to configure when and how often should they be executed.
+
+<Callout type="info">
+  These tasks are not strictly required when serving Shlink with [openswoole](/documentation/supported-runtimes/serve-with-openswoole/) or [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/), as they have their own background jobs system that Shlink uses to delegate these tasks.
+</Callout>
+
+### Download GeoLite2 DB
+
+The `visit:download-db` command can be used to make sure your GeoLite2 db is up-to-date.
+
+GeoLite2 DBs do not change that frequently or that much, so you don't need to schedule this one with a very high frequency.
+
+### Locate visits
+
+Shlink provides the command `visit:locate`, which will process all the IP addresses from visits in order to locate them. Those that have already been located will be skipped.
+
+Shlink locates visits automatically just before redirecting end users. However, it might be a good idea to have previous scheduling in place, as a backup in case it fails.
+
+<Callout type="info">
+  When using the docker image and Shlink v2.8.0 or newer, you can provide `-e ENABLE_PERIODIC_VISIT_LOCATE=true` in order to schedule visits to be located every hour inside the container itself.
+</Callout>
+
+### Using cronjobs
+
+One way to schedule any of the previous tasks is by making use of Unix cron jobs:
+
+* Locate visits every hour: `0 * * * * /path/to/shlink/bin/cli visit:locate -q -n`
+* Update the GeoLite2 db every 7 days: `0 0 * * 0 /path/to/shlink/bin/cli visit:download-db -q -n`
+
+*The `-q` and `-n` flags are available on any Shlink command. The first one will discard any output, and the second one ensure the command is run in a non-interactive mode.*

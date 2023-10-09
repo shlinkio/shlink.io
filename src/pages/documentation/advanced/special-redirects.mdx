@@ -1,0 +1,50 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../../components/Callout';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Special redirects
+
+There are some cases in which Shlink can receive "invalid" requests. When this happens, the default behavior is to return a 404 status with a "Not Found" template.
+
+However, it is possible to configure redirects for some special use cases, known as *special redirects*, *"not found" redirects* or *orphan redirects*:
+
+* `base_url`: Requests to the base URL in which Shlink is being served. The base URL is composed by any of the domains that Shlink can respond to, followed by the base path config option.
+* `invalid_short_url`: Requests to a URL with the shape of a valid short URL, but with a short code or custom slug that doesn't resolve an enabled short URL.
+* `regular_404`: Requests to any other URL that Shlink cannot handle.
+
+Each one of these cases can be configured individually, so you can redirect to different URLs for each one of them, or even configure redirects for some of them and leave the 404 behavior for others.
+
+In order to configure these redirects you can use [env vars](/documentation/environment-variables#redirects), or the [installation tool](/documentation/command-line-interface/installation-tool), which will ask you for those values.
+
+### Per-domain redirects
+
+Starting with v2.8.0, Shlink allows configuring different *special redirects* for every domain.
+
+It can be done via CLI, by running the `domain:redirects` command, or using the [`PATCH /domains/redirects`](https://api-spec.shlink.io/#/Domains/setDomainRedirects) REST endpoint.
+
+If a domain does not have a specific redirect configured for any of the values described above, it will fall back to the general configuration.
+
+### Placeholders
+
+With Shlink v2.9.0 and newer, you can include placeholders in the URLs to redirect to. The placeholders will be replaced with the appropriate values before the redirection occurs.
+
+Currently, these are the supported placeholders:
+
+* `{DOMAIN}`: It will be replaced with the visited domain.
+* `{ORIGINAL_PATH}`: It will be replaced with the visited path.
+
+With this, you can generate dynamic redirection URLs looking like this:
+
+* `https://example.com/{ORIGINAL_PATH}`
+* `https://example.com/?domain={DOMAIN}`
+* `https://example.com/?p={ORIGINAL_PATH}&d={DOMAIN}`
+* Etc...
+
+<Callout type="info">
+  If you use any of the placeholders as query params (as in <b>https://example.com/?path={'{ORIGINAL_PATH}'}</b>), Shlink will detect it and make sure they are URL-encoded.
+</Callout>

@@ -1,0 +1,18 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { DocsTableOfContents } from '../../../components/DocsTableOfContents.js';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Integrations
+
+Since Shlink exposes a REST API, it is possible to use it and integrate it with third party services.
+
+Here you will find official documentation on how to integrate Shlink with some popular apps.
+
+<DocsTableOfContents parentLink="/documentation/integrations" />
+
+> If you are already using Shlink with some service or app that's not listed here, feel free to [let me know](https://github.com/shlinkio/shlink.io/issues/new), and I will add it.
