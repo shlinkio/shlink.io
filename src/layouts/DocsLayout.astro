@@ -15,7 +15,7 @@ const renderBreadcrumbs = !/\/documentation\/?$/.test(currentPage);
 
 <Layout pageTitle="Documentation" noFooter={true} leftMenuToggle={true}>
   <div class="docs-wrapper">
-    <DocsSidebar currentPage={currentPage} client:load />
+    <DocsSidebar currentPage={currentPage} client:only="react" />
 
     <div class="docs-content">
       <div class="container">
