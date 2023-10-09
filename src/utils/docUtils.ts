@@ -8,6 +8,7 @@ import {
   faShieldAlt,
   faTerminal,
 } from '@fortawesome/free-solid-svg-icons';
+import { useMemo } from 'react';
 
 export interface Route {
   text: string;
@@ -155,3 +156,5 @@ export const breadcrumbForPath = (path: string): BreadcrumbInfo => {
   const normalizedPath = normalizePath(path);
   return breadcrumbsMap[normalizedPath] || { title: '', breadcrumbItems: [] };
 };
+
+export const useBreadcrumbsForPath = (path: string) => useMemo(() => breadcrumbForPath(path), [path]);

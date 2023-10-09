@@ -68,7 +68,7 @@ const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPag
         <Fragment key={subRoute.text}>
           <SubSection subRoute={subRoute} currentPage={currentPage} />
           {subRoute.subRoutes?.map((subSubRoute) => (
-            <SubSection key={`sub${subRoute.text}`} subRoute={subSubRoute} currentPage={currentPage} extraPadding />
+            <SubSection key={`sub${subSubRoute.text}`} subRoute={subSubRoute} currentPage={currentPage} extraPadding />
           ))}
         </Fragment>
       ))}

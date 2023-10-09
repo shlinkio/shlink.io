@@ -6,21 +6,21 @@ import { NavbarToggler } from 'reactstrap';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { DocsSidebar } from '../components/DocsSidebar';
 import { Footer } from '../components/Footer';
-import { breadcrumbForPath, breadcrumbsMap } from '../utils/docUtils';
 import Layout from './Layout.astro';
 
 const currentPage = Astro.url.pathname;
-const { breadcrumbItems, title } = breadcrumbForPath(currentPage);
+// Do not render breadcrumb for base documentation page
+const renderBreadcrumbs = !/\/documentation\/?$/.test(currentPage);
 ---
 
-<Layout pageTitle="Documentation" noFooter="true" leftMenuToggle="true">
+<Layout pageTitle="Documentation" noFooter={true} leftMenuToggle={true}>
   <div class="docs-wrapper">
     <DocsSidebar currentPage={currentPage} client:load />
 
     <div class="docs-content">
       <div class="container">
         <article class="docs-article">
-          <Breadcrumb prevElements={breadcrumbItems}>{title}</Breadcrumb>
+          {renderBreadcrumbs && <Breadcrumb currentPage={currentPage} />}
           <slot/>
         </article>
       </div>
