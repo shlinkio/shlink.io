@@ -1,13 +1,12 @@
-import { DocSearch } from '@docsearch/react';
 import classNames from 'classnames';
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
 import { NavbarToggler } from 'reactstrap';
 import { DocsMenu } from './DocsMenu';
 
-type DocsSidebarProps = {
+type DocsSidebarProps = PropsWithChildren<{
   currentPage: string;
-};
+}>;
 
 type SidebarState = 'initial' | 'displayed' | 'hidden';
 
@@ -32,7 +31,7 @@ const LeftMenuToggle: FC<LeftMenuToggleProps> = ({ collapsed, toggleSidebar }) =
   </NavbarToggler>
 );
 
-export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage }) => {
+export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage, children }) => {
   const [sidebarState, setSidebarVisible] = useState<SidebarState>('initial');
   const toggleSidebar = useCallback(
     () => setSidebarVisible((prev) => (prev === 'displayed' ? 'hidden' : 'displayed')),
@@ -43,10 +42,9 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage }) => {
     <>
       <LeftMenuToggle toggleSidebar={toggleSidebar} collapsed={sidebarState !== 'displayed'} />
       <div className={classNames('docs-sidebar', classesForState(sidebarState))}>
-        <div className="top-search-box p-3">
-          <DocSearch apiKey="0dd162447ab255a125917745c912176b" appId="9SA2I2A9Q8" indexName="shlink" />
+        <div className="p-3" style={{ height: '68px' }}>
+          {children}
         </div>
-
         <DocsMenu currentPage={currentPage} />
       </div>
     </>

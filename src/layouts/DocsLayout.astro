@@ -1,4 +1,5 @@
 ---
+import { DocSearch } from '@docsearch/react';
 import className from 'classnames';
 import type { FC, PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
@@ -15,7 +16,9 @@ const renderBreadcrumbs = !/\/documentation\/?$/.test(currentPage);
 
 <Layout pageTitle="Documentation" noFooter={true} leftMenuToggle={true}>
   <div class="docs-wrapper">
-    <DocsSidebar currentPage={currentPage} client:only="react" />
+    <DocsSidebar currentPage={currentPage} client:load>
+      <DocSearch apiKey="0dd162447ab255a125917745c912176b" appId="9SA2I2A9Q8" indexName="shlink" client:only="react" />
+    </DocsSidebar>
 
     <div class="docs-content">
       <div class="container">

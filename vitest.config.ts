@@ -1,7 +1,7 @@
-import { getViteConfig } from 'astro/config';
+import { defineConfig } from 'vitest/config';
 
 // eslint-disable-next-line no-restricted-exports
-export default getViteConfig({
+export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
