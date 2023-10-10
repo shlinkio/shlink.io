@@ -6,4 +6,4 @@ Allow: /
 Host: https://shlink.io
 
 # Sitemaps
-Sitemap: https://shlink.io/sitemap.xml
+Sitemap: https://shlink.io/sitemap-0.xml
