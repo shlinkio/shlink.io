@@ -67,7 +67,7 @@ sequenceDiagram
 * Shlink knows Mercure hub's public URL and the JWT secret key.
 * Shlink can generate JWTs for mercure, which only have permission for subscribing.
 * Shlink publishes updates to mercure when something needs to be notified to consumers.
-* Consumers get valid JWTs and the hub URL from Shlink's REST API, by calling `GET /rest/v2/mercure-info`.
+* Consumers get valid JWTs and the hub URL from Shlink's REST API, by calling `GET /rest/v3/mercure-info`.
 * Consumers subscribe to topics on the mercure hub using the JWT returned on previous request.
 * If the JWT expires, consumers can call the endpoint as many times as they need to get new JWTs.
 
