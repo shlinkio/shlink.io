@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.0.1] - 2023-10-16
+### Added
+* *Nothing*
+
+### Changed
+* Update Twitter icon to X icon.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix typo in health endpoint.
+* Fix sitemap link in robots.txt.
+
+
 ## [7.0.0] - 2023-10-10
 ### Added
 * *Nothing*
