@@ -1,4 +1,4 @@
-import { faGithub, faMastodon, faPaypal, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faMastodon, faPaypal, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import type { FC } from 'react';
@@ -18,7 +18,7 @@ export const SocialList: FC<SocialListProps> = ({ type, className }) => (
     </li>
     <li className="list-inline-item">
       <ExternalLink href="https://twitter.com/shlinkio">
-        <FontAwesomeIcon icon={faTwitter} fixedWidth />
+        <FontAwesomeIcon icon={faXTwitter} fixedWidth />
       </ExternalLink>
     </li>
     <li className="list-inline-item">
