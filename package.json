@@ -52,7 +52,7 @@
     "@testing-library/react": "^14.0.0",
     "@types/node": "^20.8.6",
     "@types/react": "^18.2.28",
-    "eslint": "^8.51.0",
+    "eslint": "^8.52.0",
     "jsdom": "^22.1.0",
     "purgecss": "^5.0.0",
     "sass": "^1.69.3",
