@@ -2,6 +2,7 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Mermaid } from 'mdx-mermaid/lib/Mermaid';
 import { Callout } from '../../../components/Callout';
 import { Link } from '../../../components/Link';
 import { markdownComponents } from '../../../utils/markdownUtils';
@@ -56,13 +57,12 @@ Then you need to provide some config options to the mercure hub for the integrat
 
 Once installed, this is how Shlink, the mercure hub and consumers will interact:
 
-```mermaid
+<Mermaid chart={`
 sequenceDiagram
     Shlink->>Consumers: Get mercure URL and JWT
     Consumers-->>Mercure hub: Subscribe to topics
     Shlink->>Mercure hub: Publish updates
-    Mercure hub-->>Consumers: Receive updates
-```
+    Mercure hub-->>Consumers: Receive updates`} client:only="react" />
 
 * Shlink knows Mercure hub's public URL and the JWT secret key.
 * Shlink can generate JWTs for mercure, which only have permission for subscribing.

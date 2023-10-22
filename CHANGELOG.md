@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.0.2] - 2023-10-22
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix Mercure mermaid chart by rendering it in the client, simplifying also the building process.
+
+
 ## [7.0.1] - 2023-10-16
 ### Added
 * *Nothing*

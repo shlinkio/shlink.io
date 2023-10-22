@@ -1,6 +1,4 @@
-# Using puppeteer image because it includes the tools needed for it to run.
-# Puppeteer is used to render mermaid charts server-side
-FROM ghcr.io/puppeteer/puppeteer:21 as node
+FROM node:20.8-alpine as node
 USER root
 COPY . /shlink-website
 RUN cd /shlink-website && \

@@ -3,9 +3,7 @@ version: '3'
 services:
     shlink_webstie_node:
         container_name: shlink_webstie_node
-        # Using puppeteer image because it includes the tools needed for it to run.
-        # Puppeteer is used to render mermaid charts server-side
-        image: ghcr.io/puppeteer/puppeteer:21
+        image: node:20.8-alpine
         command: /bin/sh -c "cd /shlink-website && npm install && npm run dev"
         volumes:
             - ./:/shlink-website
