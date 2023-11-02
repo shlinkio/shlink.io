@@ -16,6 +16,7 @@
     "test": "vitest run --run",
     "test:watch": "vitest --watch",
     "test:ci": "npm run test",
+    "types": "tsc",
     "purge": "node scripts/purgecss.mjs",
     "dev": "astro dev --host=0.0.0.0",
     "build": "astro build",
