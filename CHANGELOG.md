@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.0.3] - 2023-11-15
+### Added
+* *Nothing*
+
+### Changed
+* Update dependencies
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Improve reference to mercure info endpoint.
+
+
 ## [7.0.2] - 2023-10-22
 ### Added
 * *Nothing*
