@@ -11,14 +11,17 @@ updates:
     groups:
       fontawesome:
         patterns:
-          - '@fortawesome*'
+          - '@fortawesome/*'
       astro:
         patterns:
           - 'astro'
-          - '@astrojs*'
+          - '@astrojs/*'
       testing:
         patterns:
-          - '@testing-library*'
+          - '@testing-library/*'
+      types:
+        patterns:
+          - '@types/*'
   - package-ecosystem: docker
     directory: '/'
     schedule:
