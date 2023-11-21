@@ -1,0 +1,53 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+## Send visits to Matomo
+
+Starting with v3.7.0, Shlink can send every visit to a [Matomo](https://matomo.org/) instance of your choice.
+
+Matomo is an open source Google Analytics alternative, with self-hosted and cloud alternatives, which philosophy is very much in line with Shlink's.
+
+Sending visits to Matomo will enable an alternative UI to check short URL visits, and take advantage of all its analytics capabilities.
+
+### Matomo FAQ
+
+This is some general information and considerations when integrating Shlink with a Matomo instance:
+
+* All visits are sent to Matomo, no matter the runtime used to serve Shlink. When using a runtime that supports background jobs (like [roadrunner](/documentation/supported-runtimes/serve-with-roadrunner)), it will send the visits asynchronously, preventing any impact to end visitors. However, if you serve Shlink with a [classic web server](/documentation/supported-runtimes/classic-web-server), visits will be sent to matomo before redirecting the visitor to the long URL.
+* In order to integrate a matomo instance, you need to provide three configuration options:
+  * The instance public URL that can be reached by Shlink.
+  * The Site ID (usually a number). You can see how to get this value in [their docs](https://matomo.org/faq/general/faq_19212/).
+  * An API token. Their docs explain how to [generate one](https://matomo.org/faq/general/faq_114/).
+* While Matomo supports sending data via `GET` and `POST`, Shlink will always use the former, making sure data is secure as long as your Matomo instance uses HTTPS.
+* Matomo [tracks unique visits](https://matomo.org/faq/general/faq_36/) in intervals of 30 minutes. Any new visit from the [same visitor](https://matomo.org/faq/general/faq_43) within this interval will be tracked as an action of the same visit.
+* Shlink will send plain IP addresses to Matomo, to let it [geolocate](https://matomo.org/faq/how-to/setting-up-accurate-visitors-geolocation/) them in case something failed in Shlink side.
+* Matomo has [its own mechanism](https://matomo.org/faq/general/configure-privacy-settings-in-matomo/) to anonymize visitor's IP addresses.
+
+### Configuring Matomo integration
+
+As with any other configuration params, there are two main ways to provide matomo integration options:
+
+* [Environment variables](/documentation/environment-variables/#matomo-integration), which allow you to enable the integration however you like.
+* The [installation tool](/documentation/command-line-interface/installation-tool/), which, at some point in the process, will ask you if you want to integrate with matomo, and request you to provide all required options.
+
+  ```shell
+   [...]
+
+  INTEGRATIONS
+  ============
+
+    Do you want Shlink to send all visits to an external Matomo server? (yes/no) [no]:
+    > yes
+
+    Matomo server URL:
+    > https://my-matomo-server.example.com
+
+    Matomo site ID:
+    > 3
+
+    Matomo API token:
+    > 15a010fec36a1f7d07f507ccd9ef1de5
+
+   [...]
+  ```
