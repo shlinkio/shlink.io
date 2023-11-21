@@ -56,6 +56,7 @@ const docsRoutes: Route[] = [
       { text: 'Real-time updates', link: '/documentation/advanced/real-time-updates' },
       { text: 'Using redis', link: '/documentation/advanced/using-redis' },
       { text: 'Using a reverse proxy', link: '/documentation/advanced/exposing-through-reverse-proxy' },
+      { text: 'Send visits to Matomo', link: '/documentation/advanced/send-visits-to-matomo' },
       { text: 'Shlink architecture', link: '/documentation/advanced/shlink-architecture' },
     ],
   },
