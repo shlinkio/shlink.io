@@ -40,7 +40,12 @@ Shlink supports multiple redis capabilities, depending on how the configuration 
 * [Redis instance](https://redis.io/docs/getting-started/), when providing just one server (for example, `tcp://my_redis_server:6379`).
 * [Redis cluster](https://redis.io/docs/management/scaling/), when providing multiple servers (for example, `tcp://one_redis_server:6379,tcp://another_redis_server:6379`).
 * [Redis sentinel](https://redis.io/docs/management/sentinel/), when providing multiple servers, together with a sentinel service name.
-* Credentials, that can be provided as part of the server URIs, either [just password](https://redis.io/docs/management/security/) (`tcp://the_password@my_redis_server:6379`) or both [username and password](https://redis.io/docs/management/security/acl/) (`tcp://the_username:the_password@my_redis_server:6379`).
+* Credentials, that can be provided as part of the server URIs, either both [username and password](https://redis.io/docs/management/security/acl/) (`tcp://the_username:the_password@my_redis_server:6379`) or [just password](https://redis.io/docs/management/security/) (`tcp://:the_password@my_redis_server:6379`).
+
+<Callout type="warning">
+  Prior to Shlink 3.7.0, password-only URIs had to have the form `tcp://the_password@my_redis_server:6379`.
+  Since that's not a valid URI, it is considered deprecated, and will be removed in Shlink 4.0.0
+</Callout>
 
 ### Providing configuration
 
