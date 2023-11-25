@@ -173,8 +173,10 @@ These are some considerations to take into account when running multiple Shlink 
 Versioning on this docker image works as follows:
 
 * `X.X.X`: when providing a specific version number, the image version will match the Shlink version it contains. For example, installing `shlinkio/shlink:2.9.1`, you will get an image containing Shlink v2.9.1.
-* `stable`: always holds the latest stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
-* `latest`: always holds the latest contents, and it's considered unstable and not suitable for production.
+* `X.X`: when providing major and minor version numbers, the image version will match the latest patch for that combination. For example, installing `shlinkio/shlink:3.6`, you will get an image containing Shlink v3.6.4.
+* `X`: when providing major version number, the image version will match the latest minor version for it. For example, installing `shlinkio/shlink:3`, you will get an image containing Shlink v3.7.0.
+* `stable`: always holds the most recent stable tag. For example, if latest Shlink version is 3.0.0, installing `shlinkio/shlink:stable`, you will get an image containing shlink v3.0.0
+* `latest`: same as `stable`, but if the most recent release is an `alpha` or `beta` version, `latest` will point to it.
 
 #### Runtime variations
 
