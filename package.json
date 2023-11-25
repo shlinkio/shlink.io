@@ -57,7 +57,7 @@
     "jsdom": "^22.1.0",
     "purgecss": "^5.0.0",
     "sass": "^1.69.5",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.2",
     "vitest": "^0.34.6"
   }
 }
