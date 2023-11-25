@@ -25,6 +25,10 @@ Currently, API keys can have any combination of these roles:
 
   It will also cause short URLs from other domains to not be counted when fetching visit stats or tags.
 
+* `NO_ORPHAN_VISITS` *(since v3.7.0)* : Shlink will behave as if orphan visits do not exist when accessed with an API key having this role.
+
+  They will always get an empty list when fetching orphan visits, and when trying to delete orphan visits the result will always be `0` with no side effects.
+
 ### Attaching roles
 
 Roles are attached from the command line, while creating the API key with `api-key:generate` command.
@@ -33,9 +37,10 @@ This command accepts flags for every role, allowing to provide any of them at a 
 
 * `AUTHORED_SHORT_URLS`: Provide the flag `--author-only` (`-a`), which does not accept a value.
 * `DOMAIN_SPECIFIC`: Provide the flag `--domain-only=example.com` (`-d example.com`). This will attach the role for the domain provided as value.
+* `NO_ORPHAN_VISITS`: Provide the flag `--no-orphan-visits` (`-o`), which does not accept a value.
 
 ```bash
-$ bin/cli api-key:generate --author-only --domain-only=example.com
+$ bin/cli api-key:generate --author-only --domain-only=example.com --no-orphan-visits
 ```
 
 <Callout type="warning">
