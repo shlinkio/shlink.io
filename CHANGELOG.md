@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [7.1.0] - 2023-11-25
 ### Added
 * [#475](https://github.com/shlinkio/shlink.io/issues/475) Document how to integrate and send visits to Matomo.
+* Document features introduced in Shlink 3.7.0.
 
 ### Changed
 * *Nothing*
