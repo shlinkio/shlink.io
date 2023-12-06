@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.2.0] - 2023-12-06
+### Added
+* Add link to bluesky.
+
+### Changed
+* Update dependencies, including Astro 4
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix some accessibility issues.
+
+
 ## [7.1.0] - 2023-11-25
 ### Added
 * [#475](https://github.com/shlinkio/shlink.io/issues/475) Document how to integrate and send visits to Matomo.
