@@ -9,7 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * Add link to bluesky.
 
 ### Changed
-* Update dependencies, including Astro 4
+* Update to Astro 4.0
+* Update to vitest 1.0
+* Update other dependencies
 
 ### Deprecated
 * *Nothing*
