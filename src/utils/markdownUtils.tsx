@@ -9,7 +9,7 @@ const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => { /
 
   return (
     <Tag {...rest}>
-      <a className="hidden-title-anchor" id={link} />
+      <a className="hidden-title-anchor" aria-hidden="true" id={link} />
       <a href={`#${link}`}>
         <span className="anchor"><FontAwesomeIcon icon={faLink} /></span>
         {children}
