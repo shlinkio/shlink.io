@@ -87,6 +87,7 @@ These env vars are only relevant when serving Shlink with [openswoole](/document
 * `DEFAULT_QR_CODE_FORMAT` *(v2.9.0)* : One of **png** or **svg**, to determine the default format of generated QR codes when the `format` query param is not provided. Defaults to png.
 * `DEFAULT_QR_CODE_ERROR_CORRECTION` *(v2.9.0)* : One of **L** (Low), **M** (Medium), **Q** (Quartile) or **H** (High), to determine the default error correction of generated QR codes when the `errorCorrection` query param is not provided. Defaults to l.
 * `DEFAULT_QR_CODE_ROUND_BLOCK_SIZE` *(v2.10.0)* : Tells if the block size should be round on QR codes, making it more readable, but potentially adding some extra margin as a side effect. Defaults to `true`.
+* `QR_CODE_FOR_DISABLED_SHORT_URLS` *(v3.7.2)* : Whether generating QR codes should work for disabled short URLs. Disabled short URLs are those which reached the maximum amount of visits, have a `validSince` date in the future, or a `validUntil` date in the past. Defaults to `false`.
 
 ### Redis integration
 
