@@ -51,7 +51,7 @@
     "@shlinkio/eslint-config-js-coding-standard": "~2.3.0",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.11.7",
     "@types/react": "^18.2.48",
     "eslint": "^8.56.0",
     "jsdom": "^23.2.0",
