@@ -1,3 +1,5 @@
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { FC, PropsWithChildren } from 'react';
 import { Fragment } from 'react';
 import type { Route } from '../utils/docUtils';
@@ -6,7 +8,10 @@ import { Link } from './Link';
 
 const MenuItem: FC<PropsWithChildren<{ link: string }>> = ({ link, children }) => (
   <li>
-    <Link href={link}>{children}</Link>
+    <Link href={link}>
+      {children}
+      {link.startsWith('http') && <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ms-2" />}
+    </Link>
   </li>
 );
 

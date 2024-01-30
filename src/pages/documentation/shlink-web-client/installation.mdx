@@ -2,6 +2,7 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Callout } from '../../../components/Callout.js';
 import { markdownComponents } from '../../../utils/markdownUtils';
 
 export const components = markdownComponents
@@ -22,7 +23,11 @@ The main benefit of this approach is that you will always have the latest versio
 
 If you want to deploy shlink-web-client in a container-based infrastructure (kubernetes, docker swarm, etc), just pick the [shlinkio/shlink-web-client](https://hub.docker.com/r/shlinkio/shlink-web-client/) image from Docker hub, or [ghcr.io/shlinkio/shlink-web-client](https://github.com/shlinkio/shlink-web-client/pkgs/container/shlink-web-client) from GitHub Container Registry.
 
-It's a lightweight [nginx:alpine](https://hub.docker.com/r/library/nginx/)-based image serving the static app on port 80.
+It's a lightweight [nginx:alpine](https://hub.docker.com/r/library/nginx/)-based image serving the static app on port 8080.
+
+<Callout type="info">
+  Before shlink-web-client 4.0.0, the docker image was serving the app on port 80.
+</Callout>
 
 ### Self-hosted
 

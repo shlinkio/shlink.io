@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.4.0] - 2024-01-30
+### Added
+* Update documentation around shlink-web-client, to reflect changes from v4.0.0
+* [#477](https://github.com/shlinkio/shlink.io/issues/477) Add icon to external links in docs menus
+
+### Changed
+* Update other dependencies
+* Update shlink-web-client screenshots and recordings
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.3.0] - 2023-12-26
 ### Added
 * Document `QR_CODE_FOR_DISABLED_SHORT_URLS` env var
