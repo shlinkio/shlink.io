@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [7.4.0] - 2024-01-30
 ### Added
 * Update documentation around shlink-web-client, to reflect changes from v4.0.0
+* [#477](https://github.com/shlinkio/shlink.io/issues/477) Add icon to external links in docs menus
 
 ### Changed
 * Update other dependencies

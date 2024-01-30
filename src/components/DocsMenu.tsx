@@ -1,5 +1,5 @@
 import type { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import type { FC, PropsWithChildren } from 'react';
@@ -21,6 +21,7 @@ const MenuItem: FC<MenuItemProps> = ({ active, link, children, icon, isOpen, onC
     <Link className={classNames('nav-link', { active })} href={link}>
       {icon && <span className="theme-icon-holder me-2"><FontAwesomeIcon icon={icon} /></span>}
       {children}
+      {link.startsWith('http') && <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ms-2" />}
     </Link>
     {isOpen !== undefined && (
       <FontAwesomeIcon
