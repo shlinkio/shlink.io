@@ -1,0 +1,53 @@
+---
+layout: ../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../components/Callout';
+
+## Dynamic rule-based redirects system
+
+Shlink 4.0.0 introduced a new system to dynamically redirect visitors to different long URLs based on runtime conditions.
+
+It works by allowing you to define any number of rules for a short URL, which are checked sequentially based on their priority, until one matches.
+
+If a rule matches, the visitor is redirected to that rule's long URL, and only if none match, they are redirected to the default long URL normally.
+
+Every rule can be composed of any number of conditions, but all of them need to match in order to consider the rule a positive match.
+
+### Supported conditions
+
+Currently, Shlink supports the next condition types:
+
+* **Language**: Checks the `Accept-Language` header in order to see if one specific language is accepted.
+* **Query param**: Verifies if the query string contains a specific query param with a specific value.
+* **Device**: Tries to match the visitor's device based on the `User-Agent` header, and infer if it's `Android`, `iOS` or `Desktop`. Other devices like `Tablet`, `iPad` etc. could be added in the future.
+
+<Callout type="info">
+  Device rules used to be handled separately, but they were migrated to the new rule system for consistency and flexibility.
+</Callout>
+
+### FAQs
+
+* **Can I use the same type of condition more than once in the same rule?**
+
+  Yes. Of course, this does not always make sense, like a visitor will never be using an `Android` and `iOS` device at the same time, but you could check for more than one query param, or if more than one language is accepted.
+
+* **Can I make a rule match as soon as some of its conditions match?**
+
+  No. In order to match a rule, all its conditions need to positively match. There's no way to configure a partial match.
+
+  However, this behavior can be easily mimicked by defining consecutive rules that redirect to the same long URL.
+
+  For example, if you want to redirect to `https://example.com/foo` when visitors are (`Android` AND `?foo=bar`) OR (`iOS` AND `?hello=world`), create one rule for the first two conditions, and another rule for the other two, and point both of them to `https://example.com/foo`.
+
+* **How granular is the language condition?**
+
+  The Language condition allows for a lot of flexibility, as you can match full locales (in the form of `en_US` or `en-US`) but also language codes.
+
+  For example, if you define the rule with value `es-ES` and the header is sent like `Accept-Language: fr-FR, es-ES, en-UK`, it will match positively, however, it won't match `Accept-Language: es`.
+
+  On the other hand, if the rule is defined as only `es`, it will match in both cases, as it means "any Spanish".
+
+  There's one exception. If the `Accept-Language` header is sent with value `*`, it will be ignored and never match, as it would incorrectly match any language otherwise.
+
+  Finally, it's worth mentioning language matches are case-insensitive.

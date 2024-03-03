@@ -37,11 +37,12 @@ const docsRoutes: Route[] = [
       },
       { text: 'Supported db engines', link: '/documentation/supported-db-engines' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
-      { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
       { text: 'Update your instance', link: '/documentation/update-your-instance' },
       { text: 'Tracking visits', link: '/documentation/tracking-visits' },
       { text: 'Some features', link: '/documentation/some-features' },
+      { text: 'Dynamic rules redirects', link: '/documentation/dynamic-rule-based-redirects-system' },
       { text: 'Environment variables', link: '/documentation/environment-variables' },
+      { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
     ],
   },
   {
