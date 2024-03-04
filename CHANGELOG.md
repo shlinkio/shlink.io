@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.5.0] - 2024-03-04
+### Added
+* Update documentation to cover changes from Shlink 4.0.0
+
+### Changed
+* Update dependencies
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.4.0] - 2024-01-30
 ### Added
 * Update documentation around shlink-web-client, to reflect changes from v4.0.0
