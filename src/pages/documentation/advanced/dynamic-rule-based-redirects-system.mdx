@@ -1,8 +1,8 @@
 ---
-layout: ../../layouts/DocsLayout.astro
+layout: ../../../layouts/DocsLayout.astro
 ---
 
-import { Callout } from '../../components/Callout';
+import { Callout } from '../../../components/Callout';
 
 ## Dynamic rule-based redirects system
 
@@ -25,6 +25,78 @@ Currently, Shlink supports the next condition types:
 <Callout type="info">
   Device rules used to be handled separately, but they were migrated to the new rule system for consistency and flexibility.
 </Callout>
+
+### Handling redirect rules
+
+There are mainly two ways to manage dynamic redirect rules for a specific short URL:
+
+* The REST API, via [POST /short-urls/[shortCode]/redirect-rules](https://api-spec.shlink.io/?version=v4.0.0#/Redirect%20rules/setShortUrlRedirectRules) endpoint, which expects a body like this:
+  ```json
+  {
+    "redirectRules": [
+      {
+        "longUrl": "https://example.com/android-en-us",
+        "conditions": [
+          {
+            "type": "device",
+            "matchValue": "android",
+            "matchKey": null
+          },
+          {
+            "type": "language",
+            "matchValue": "en-US",
+            "matchKey": null
+          }
+        ]
+      },
+      {
+        "longUrl": "https://example.com/fr",
+        "conditions": [
+          {
+            "type": "language",
+            "matchValue": "fr",
+            "matchKey": null
+          }
+        ]
+      },
+      {
+        "longUrl": "https://example.com/query-foo-bar-hello-world",
+        "conditions": [
+          {
+            "type": "query",
+            "matchKey": "foo",
+            "matchValue": "bar"
+          },
+          {
+            "type": "query",
+            "matchKey": "hello",
+            "matchValue": "world"
+          }
+        ]
+      }
+    ]
+  }
+  ```
+* The command line interface, via `short-code:manage-rules` command:
+  ```shell
+  $ shlink short-url:manage-rules rmD8f
+   ---------- ------------------- -----------------------------
+    Priority   Conditions          Redirect to
+   ---------- ------------------- -----------------------------
+    1          device is android   https://example.com/android
+    2          device is desktop   https://example.com
+   ---------- ------------------- -----------------------------
+
+
+   What do you want to do next? [Save and exit]:
+    [0] Add new rule
+    [1] Remove existing rule
+    [2] Re-arrange rule
+    [3] Save and exit
+    [4] Discard changes
+   >
+  ```
+
 
 ### FAQs
 
