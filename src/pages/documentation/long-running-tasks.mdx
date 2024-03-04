@@ -29,10 +29,6 @@ Shlink provides the command `visit:locate`, which will process all the IP addres
 
 Shlink locates visits automatically just before redirecting end users. However, it might be a good idea to have previous scheduling in place, as a backup in case it fails.
 
-<Callout type="info">
-  When using the docker image and Shlink v2.8.0 or newer, you can provide `-e ENABLE_PERIODIC_VISIT_LOCATE=true` in order to schedule visits to be located every hour inside the container itself.
-</Callout>
-
 ### Using cronjobs
 
 One way to schedule any of the previous tasks is by making use of Unix cron jobs:

@@ -22,7 +22,7 @@ Strikethrough env vars are deprecated.
 * `DEFAULT_DOMAIN` *(v2.9.0)* : The default short domain used for this Shlink instance. For example **s.test**.
 * `IS_HTTPS_ENABLED` *(v2.10.0)* : Tells if Shlink is served with https or not (`true` or `false`). It's still **up to you** to actually serve it with HTTPS.
 * `GEOLITE_LICENSE_KEY`: The license key used to download new GeoLite2 database files. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it. Not providing a license key will completely disable visits geolocation.
-* `AUTO_RESOLVE_TITLES`: Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `false`.
+* `AUTO_RESOLVE_TITLES`: Used to automatically resolve the short URL's title based on the `<title />` tag in the long URL. Defaults to `true`.
 * `DEFAULT_SHORT_CODES_LENGTH`: The length you want generated short codes to have. It defaults to 5 and has to be at least 4, so any value smaller than that will fall back to 4.
 * `DELETE_SHORT_URL_THRESHOLD`: The amount of visits on short URLs which will not allow them to be deleted. If not provided, this restriction will be disabled.
 * `BASE_PATH`: The base path from which you plan to serve Shlink, in case you don't want to serve it from the root of the domain. It **has** to start with a bar, like `/shlink`. Defaults to `''`.
@@ -89,7 +89,6 @@ Strikethrough env vars are deprecated.
 #### Redis integration
 
 * `REDIS_SERVERS`: A comma-separated list of redis servers which Shlink uses for shared locks, cache, and optionally real-time updates through pub/sub (make sure to include the port number and credentials for every server).
-* `REDIS_DECODE_CREDENTIALS` *(v3.7.0)* : Tells if credentials provided for server URIs in `REDIS_SERVERS` should be URL-decoded. Defaults to `false`.
 * `REDIS_SENTINEL_SERVICE` *(v2.9.0)* : The name of the sentinel service if you want to use redis sentinel. If this value is provided, the servers provided in `REDIS_SERVERS` will be considered sentinel instances.
 * `REDIS_PUB_SUB_ENABLED` *(v3.2.0)* : Tells if the configured redis instance/cluster should also be used to publish real-time updates via redis pub/sub. Defaults to `false`.
 

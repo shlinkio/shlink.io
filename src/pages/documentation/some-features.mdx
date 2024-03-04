@@ -101,7 +101,7 @@ This is achieved via the so called `loose` short URL mode (the mode can be set v
   * Shlink will no longer generate short codes with uppercase letters. Only lowercase and numbers will be taken into consideration.
   * When providing a custom slug, Shlink will lowercase it, so if there's a URL with `aaabbb` and `AaaBbb` is provided, it will throw an error saying it already exists.
   * On existing Shlink instances, already existing short URLs will not be changed in any way. If "conflicting" URLs already exist, they have to be fixed manually.
-  * Loosely checks are done only for "public" URLs (short URLs, QR codes and email tracking). REST API endpoints do strict matches no matter what.
+  * Loose checks are done only for "public" URLs (short URLs, QR codes and email tracking). REST API endpoints do strict matches no matter what.
 </Callout>
 
 ### QR codes
@@ -159,4 +159,4 @@ You can find more information in the [API docs](https://api-spec.shlink.io/#/Mon
 
 Shlink 3.5.0 introduced the possibility to dynamically redirect to different long URLs depending on the device used by the visitor.
 
-Shlink v4.0.0 has moved this into a new [dynamic rule-based redirects](/documentation/advanced/dynamic-rule-based-redirects-system) system.
+Shlink v4.0.0 has moved this into a new [dynamic rule-based redirects system](/documentation/advanced/dynamic-rule-based-redirects-system).
