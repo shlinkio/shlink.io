@@ -32,17 +32,16 @@ const docsRoutes: Route[] = [
         link: '/documentation/supported-runtimes',
         subRoutes: [
           { text: 'Serve with RoadRunner', link: '/documentation/supported-runtimes/serve-with-roadrunner' },
-          { text: 'Serve with openswoole', link: '/documentation/supported-runtimes/serve-with-openswoole' },
           { text: 'Classic web server', link: '/documentation/supported-runtimes/classic-web-server' },
         ],
       },
       { text: 'Supported db engines', link: '/documentation/supported-db-engines' },
       { text: 'GeoLite2 license key', link: '/documentation/geolite-license-key' },
-      { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
       { text: 'Update your instance', link: '/documentation/update-your-instance' },
       { text: 'Tracking visits', link: '/documentation/tracking-visits' },
       { text: 'Some features', link: '/documentation/some-features' },
       { text: 'Environment variables', link: '/documentation/environment-variables' },
+      { text: 'Long-running tasks', link: '/documentation/long-running-tasks' },
     ],
   },
   {
@@ -50,6 +49,7 @@ const docsRoutes: Route[] = [
     link: '/documentation/advanced',
     menuIcon: faShieldAlt,
     subRoutes: [
+      { text: 'Dynamic redirects', link: '/documentation/advanced/dynamic-rule-based-redirects-system' },
       { text: 'Special redirects', link: '/documentation/advanced/special-redirects' },
       { text: 'Multiple domains', link: '/documentation/advanced/multiple-domains' },
       { text: 'Import short URLs', link: '/documentation/advanced/import-short-urls' },

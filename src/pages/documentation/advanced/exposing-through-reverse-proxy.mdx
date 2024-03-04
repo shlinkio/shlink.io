@@ -7,14 +7,12 @@ export const components = markdownComponents
 
 ## Exposing Shlink through a reverse proxy
 
-When you are serving Shlink with openswoole or using the openswoole-based docker image, you'll probably want to put a reverse proxy in front of it.
+When you are serving Shlink with RoadRunner or using the docker image, you'll probably want to put a reverse proxy in front of it.
 
-Openswoole have some limitations, that can be solved by using a reverse proxy:
+RoadRunner has some limitations, that can be solved by using a reverse proxy:
 
 * Using a standard HTTP port (80, 443), so that users don't have to explicitly set the port in the URL.
 * Using an `https` certificate to encrypt the connection, keeping your users' data safe.
-
-It is possible to achieve both just by tweaking openswoole, but instead, it is recommended to put a standard HTTP server in front of it, like nginx or apache, as openswoole implements only a subset of the HTTP standard.
 
 The only consideration to ensure all Shlink capabilities work as expected, is that you make sure the consumer's IP address, and the request's domain, are forwarded from the proxy to Shlink.
 
@@ -26,7 +24,7 @@ Here you can find some docs on how to do it with the most used web servers:
 * Apache: https://httpd.apache.org/docs/trunk/en/howto/reverse_proxy.html
 * Caddy: https://caddyserver.com/docs/quick-starts/reverse-proxy
 
-Example nginx configuration to use as a reverse proxy in front of openswoole, with SSL enabled:
+Example nginx configuration to use as a reverse proxy in front of RoadRunner, with SSL enabled:
 
 ```nginx
 server {

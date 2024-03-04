@@ -19,7 +19,7 @@ Shlink can take advantage of [redis](https://redis.io/) in multiple contexts.
 
 Shlink can persist certain things in a faster storage for quick access.
 
-By default, it uses APCu if available (when using a [classic web server](/documentation/supported-runtimes/classic-web-server/)) or in-memory (when using [openswoole](/documentation/supported-runtimes/serve-with-openswoole/) or [Roadrunner](/documentation/supported-runtimes/serve-with-roadrunner/) as the runtimes), but it can be provided with some redis access configuration.
+By default, it uses APCu if available (when using a [classic web server](/documentation/supported-runtimes/classic-web-server/)) or in-memory (when using [Roadrunner](/documentation/supported-runtimes/serve-with-roadrunner/) as the runtimes), but it can be provided with some redis access configuration.
 
 When doing so, Shlink will use redis as the cache persistence.
 
@@ -44,7 +44,7 @@ Shlink supports multiple redis capabilities, depending on how the configuration 
 
 <Callout type="warning">
   Prior to Shlink 3.7.0, password-only URIs had to have the form `tcp://the_password@my_redis_server:6379`.
-  Since that's not a valid URI, it is considered deprecated, and will be removed in Shlink 4.0.0
+  Since that's not a valid URI, it has been removed removed in Shlink 4.0.0
 </Callout>
 
 ### Providing configuration

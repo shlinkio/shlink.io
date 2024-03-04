@@ -18,7 +18,7 @@ Because of this, all error responses will have `Content-Type: application/proble
 
 ```json
 {
-  "type": "TAG_NOT_FOUND",
+  "type": "https://shlink.io/api/error/tag-not-found",
   "detail": "Tag with name \"foo\" could not be found",
   "title": "Tag not found",
   "status": 404
@@ -29,7 +29,7 @@ Some errors can have extra properties, depending on their nature.
 
 ```json
 {
-  "type": "INVALID_SLUG",
+  "type": "https://shlink.io/api/error/non-unique-slug",
   "detail": "Provided slug \"custom\" is already in use",
   "title": "Invalid custom slug",
   "status": 400,

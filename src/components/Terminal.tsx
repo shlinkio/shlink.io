@@ -32,7 +32,7 @@ const strings: IStrings = {
     + '<br>&nbsp;&nbsp;<span class="black">"shortUrl"</span>: <span class="green">"https://s.test/rY9k"</span>,'
     + '<br>&nbsp;&nbsp;<span class="black">"longUrl"</span>: <span class="green">"https://shlink.io"</span>,'
     + '<br>&nbsp;&nbsp;<span class="black">"dateCreated"</span>: <span class="green">"2016-05-02T17:49:53+02:00"</span>,'
-    + '<br>&nbsp;&nbsp;<span class="black">"visitsCount"</span>: 0,'
+    + '<br>&nbsp;&nbsp;<span class="black">"visitsSummary"</span>: {},'
     + '<br>&nbsp;&nbsp;<span class="black">"tags"</span>: [],'
     + '<br>&nbsp;&nbsp;<span class="black">"meta"</span>: {}'
     + '<br>}`',

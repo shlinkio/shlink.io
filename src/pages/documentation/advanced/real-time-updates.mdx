@@ -18,10 +18,9 @@ Currently, Shlink supports the next technologies to publish updates.
 * [Mercure hub](/documentation/advanced/real-time-updates#mercure-hub-server): allows to subscribe to server-sent events. *(Since v2.2.0)*.
 * [RabbitMQ](/documentation/advanced/real-time-updates#rabbitmq-server): to publish server-to-server updates *(Since v2.10.0)*.
 * [Redis pub/sub](/documentation/advanced/real-time-updates#redis-pub-sub): to publish server-to-server updates *(Since v3.2.0)*.
-* [Webhooks](/documentation/advanced/real-time-updates#webhooks): will be called with new visits.
 
 <Callout type="warning">
-    Real-time updates only work when [openswoole](/documentation/supported-runtimes/serve-with-openswoole/) or [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/), which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
+    Real-time updates only work with [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/), which is the case if you are using the <Link href="/documentation/install-docker-image">docker image</Link>.
 </Callout>
 
 ### Topics and payloads
@@ -102,59 +101,3 @@ The exchanges and queues are created in a "durable" way, with "direct" publishin
 Since Shlink v3.2.0, if you configured a redis server/cluster for caching, Shlink can also use that instance for real-time updates via redis pub/sub.
 
 When this happens, the redis server/cluster will act as an intermediary where Shlink publishes the updates, and others can subscribe to them.
-
-### Webhooks
-
-<Callout type="warning">
-  As of Shlink 3.1.0, webhooks are considered <b>deprecated</b>, since any new kind of update is by definition a breaking change, and they provide less flexibility than standard queuing systems.
-
-  Because of this, only visits and, optionally, orphan visits, will be notified to webhooks.
-
-  For a fully featured, real-time subscription to Shlink events, consider using any of the other options.
-</Callout>
-
-Shlink supports providing a comma-separated list of endpoints, via [env vars](/documentation/environment-variables#webhooks-integration) or [installation tool](/documentation/command-line-interface/installation-tool), which will receive a `POST` request from Shlink when a short URL is visited.
-
-The body of the request will contain the payload of both the `shortUrl` that was visited, and the `visit` with the geolocation, like this:
-
-```json
-{
-  "shortUrl": {
-    "shortCode": "12C18",
-    "shortUrl": "https://s.test/12C18",
-    "longUrl": "https://store.steampowered.com",
-    "dateCreated": "2016-08-21T20:34:16+02:00",
-    "visitsCount": 328,
-    "tags": [
-      "games",
-      "tech"
-    ],
-    "meta": {
-      "validSince": "2017-01-21T00:00:00+02:00",
-      "validUntil": null,
-      "maxVisits": 100
-    },
-    "domain": null
-  },
-  "visit": {
-    "referer": "https://t.co",
-    "date": "2015-08-20T05:05:03+04:00",
-    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
-    "visitLocation": {
-      "cityName": "Cupertino",
-      "countryCode": "US",
-      "countryName": "United States",
-      "latitude": 37.3042,
-      "longitude": -122.0946,
-      "regionName": "California",
-      "timezone": "America/Los_Angeles"
-    }
-  }
-}
-```
-
-<Callout type="info">
-  Starting with Shlink v2.9.0, you can also enable sending requests for orphan visits. In that case, the <b>shortUrl</b> prop won't be present.
-
-  This option is disabled by default for backwards compatibility reasons, so you need to actively opt-in.
-</Callout>

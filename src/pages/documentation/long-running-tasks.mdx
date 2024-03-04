@@ -14,7 +14,7 @@ There are a few tasks Shlink needs to perform which are too heavy or time-consum
 In order to redirect end users as fast as possible to the final URLs, these tasks have been left for you to configure when and how often should they be executed.
 
 <Callout type="info">
-  These tasks are not strictly required when serving Shlink with [openswoole](/documentation/supported-runtimes/serve-with-openswoole/) or [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/), as they have their own background jobs system that Shlink uses to delegate these tasks.
+  These tasks are not strictly required when serving Shlink with [RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/), as it has its own background jobs system that Shlink uses to delegate these tasks.
 </Callout>
 
 ### Download GeoLite2 DB
@@ -28,10 +28,6 @@ GeoLite2 DBs do not change that frequently or that much, so you don't need to sc
 Shlink provides the command `visit:locate`, which will process all the IP addresses from visits in order to locate them. Those that have already been located will be skipped.
 
 Shlink locates visits automatically just before redirecting end users. However, it might be a good idea to have previous scheduling in place, as a backup in case it fails.
-
-<Callout type="info">
-  When using the docker image and Shlink v2.8.0 or newer, you can provide `-e ENABLE_PERIODIC_VISIT_LOCATE=true` in order to schedule visits to be located every hour inside the container itself.
-</Callout>
 
 ### Using cronjobs
 

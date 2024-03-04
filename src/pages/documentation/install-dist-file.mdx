@@ -13,7 +13,7 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
 
 * PHP 8.2 or 8.3
 * The next PHP extensions: json, curl, pdo, intl, gd and gmp/bcmath.
-    * apcu extension is recommended if you don't plan to use openswoole or RoadRunner.
+    * apcu extension is recommended if you don't plan to use RoadRunner.
     * xml extension is required if you want to generate QR codes in svg format.
     * sockets and bcmath extensions are required if you want to integrate with a RabbitMQ instance, or use [RoadRunner to serve Shlink](/documentation/supported-runtimes/serve-with-roadrunner/).
 * MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
@@ -22,7 +22,7 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
 
 ### Installation steps
 
-* Download the latest distributable file and decompress it at the location of your choice (you will find a pair of dist files for every supported PHP version, one for openswoole and one for non-openswoole contexts).
+* Download the latest distributable file and decompress it at the location of your choice (you will find a dist file for every supported PHP version).
   <div className="text-center">
     <DownloadLatestBtn />
   </div>
@@ -36,7 +36,6 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
   * For Shlink older than 3.3.0, run `bin/cli api-key:generate`.
   * For Shlink 3.3.0 or newer, the installation tool will create an API key for you. Just copy-paste it.
 * Set-up Shlink's runtime:
-  * [Serve Shlink using openswoole](/documentation/supported-runtimes/serve-with-openswoole/).
   * [Serve Shlink using RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner/).
   * [Serve Shlink with a classic web server](/documentation/supported-runtimes/classic-web-server/).
 * Finally, access to [https://app.shlink.io](https://app.shlink.io) and configure your server to start creating short URLs.

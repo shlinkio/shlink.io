@@ -11,8 +11,6 @@ export const components = markdownComponents
 
 The docker image is probably the simplest installation use case, since it includes all dependencies and works standalone.
 
-There are two "flavors", [RoadRunner](https://roadrunner.dev/)-based and [openswoole](https://openswoole.com/)-based. [See more details](#runtime-variations)
-
 <Callout type="info">
   Shlink docker images are published both in [Docker hub](https://hub.docker.com/r/shlinkio/shlink) and [Github Container Registry](https://github.com/shlinkio/shlink/pkgs/container/shlink).
 
@@ -180,21 +178,12 @@ Versioning on this docker image works as follows:
 
 #### Runtime variations
 
-Before Shlink 3.6.0, you had to add `-roadrunner` to the tag you wanted to install in order to get an image using RoadRunner (for example, `shlinkio/shlink:stable-roadrunner` or `shlinkio/shlink:3.4.0-roadrunner`).
+Before Shlink 4.0.0, you could add `-roadrunner` or `-openswoole` to the tag you wanted to install in order to get an image using RoadRunner (for example, `shlinkio/shlink:stable-roadrunner` or `shlinkio/shlink:3.4.0-roadrunner`) or openswoole (for example `shlinkio/shlink:3.4.0-openswoole`).
 
-Starting with v3.6.0, you can add `-roadrunner` or `-openswoole` to the tag name to make sure you get an image using a specific runtime, otherwise, you will get the default one, which is unlikely, but open to change.
-
-As of today, RoadRunner is the default runtime. Both runtimes are mostly compatible and should be possible to change from one image to the other transparently, so **it's ok to use docker tags with no suffix**.
+Starting with v4.0.0, Shlink only ships images with RoadRunner, but you can still append `-roadrunner` to make sure you'll continue getting that runtime in case support is added for something else.
 
 #### Non-root
 
-For historical reasons, Shlink docker image runs as root. If it's important for you to run it as non-root, add `-non-root` to the tag name, like `shlinkio/shlink:stable-non-root`.
+Starting with Shlink 4.0.0, Shlink docker images run as a non-root user for security reasons.
 
-These images have two considerations: they always run with the default runtime (RoadRunner as of today), and the `ENABLE_PERIODIC_VISIT_LOCATE` env var will be ignored, as it requires root privileges.
-
-<Callout type="warning" title="Considerations">
-  * There are no versions older than 3.0.0 published in GitHub Container registry.
-  * RoadRunner-based images are only available since v3.3.0
-  * Default runtime has changed from openswoole to RoadRunner in v3.6.0
-  * `non-root` docker images are only available since v3.6.0
-</Callout>
+For versions 3.6.x and 3.7.x you could add `-non-root` to get a RoadRunner-based docker image using a non-privileged user.
