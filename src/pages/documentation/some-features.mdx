@@ -3,7 +3,6 @@ layout: ../../layouts/DocsLayout.astro
 ---
 
 import { Callout } from '../../components/Callout';
-import { Link } from '../../components/Link';
 import { markdownComponents } from '../../utils/markdownUtils';
 
 export const components = markdownComponents
@@ -111,22 +110,23 @@ Shlink comes with built-in support to generate QR codes for any short URL.
 
 Getting a QR code URL is as simple as appending `/qr-code` to any short URL. So if your short URL is `https://exam.ple/abc123`, the URL which returns the binary QR code image is `https://exam.ple/abc123/qr-code`.
 
-The image supports certain level of customization via query params:
+The image's default appearance can be customized via [installation tool](/documentation/command-line-interface/installation-tool) or [env vars](/documentation/environment-variables#qr-codes), but it can also be customized on the fly via query params:
 
 * `size`: It determines the width/height in pixels. Default value is 300 and accepts values from 50 to 1000.
 * `margin` *(since v2.6.0)* : The space in pixels between the QR code itself and the border of the image. Default value is 0 and accepts positive numbers.
 * `format` *(since v2.4.0)* : Can be `png` or `svg`. Default values is `png`.
 * `errorCorrection` *(since v2.8.0)* : Can be `L` (Low), `M` (Medium), `Q` (Quartile) or `H` (High). Default value is `L`. [Learn more](https://www.qrcode.com/en/about/error_correction.html).
 * `roundBlockSize` *(since v2.10.0)* : Can be `true` or `false`. Tells if the block size should be rounded, making the QR code more readable, but potentially adding some extra margin as a side effect.
+* `color` *(since v4.0.0)* : Foreground color in hexadecimal, with 3 or 6 characters. Default value is `black` if not provided or provided value is not a color.
+* `bgColor` *(since v4.0.0)* : Background color in hexadecimal, with 3 or 6 characters. Default value is `white` if not provided or provided value is not a color.
 
 For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20&errorCorrection=Q&roundBlockSize=false`.
 
 See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
 
-> Take into consideration that the total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the margin is 20, the resulting image will be 540x540 pixels.
-
-<Callout type="info">
-  Starting with Shlink 2.9.0, you can customize the default configuration for QR codes via <Link href="/documentation/command-line-interface/installation-tool">installation tool</Link> or <Link href="/documentation/environment-variables#qr-codes">env vars</Link>.
+<Callout type="warning" title="Considerations">
+  * The total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the margin is 20, the resulting image will be 540x540 pixels.
+  * The logo cannot be customized via query params, to avoid public QR codes from being unintentionally associated with certain images.
 </Callout>
 
 ### Bot detection
