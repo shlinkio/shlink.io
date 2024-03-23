@@ -50,7 +50,7 @@
   "devDependencies": {
     "@shlinkio/eslint-config-js-coding-standard": "~2.3.0",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.1",
+    "@testing-library/react": "^14.2.2",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.69",
     "eslint": "^8.57.0",
