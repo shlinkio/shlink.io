@@ -55,7 +55,7 @@
     "@types/react": "^18.2.73",
     "eslint": "^8.57.0",
     "jsdom": "^24.0.0",
-    "purgecss": "^5.0.0",
+    "purgecss": "^6.0.0",
     "sass": "^1.72.0",
     "typescript": "^5.4.3",
     "vitest": "^1.4.0"
