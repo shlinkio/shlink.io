@@ -22,6 +22,11 @@ updates:
       types:
         patterns:
           - '@types/*'
+      eslint:
+        patterns:
+          - '@shlinkio/eslint-config-js-coding-standard'
+          - '@typescript-eslint/*'
+          - 'eslint'
   - package-ecosystem: docker
     directory: '/'
     schedule:

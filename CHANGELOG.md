@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.7.0] - 2024-04-07
+### Added
+* Update to actual Bluesky logo
+
+### Changed
+* Update JS coding standard
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.6.0] - 2024-03-05
 ### Added
 * Add JS SDK link
