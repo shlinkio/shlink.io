@@ -48,11 +48,13 @@
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
-    "@shlinkio/eslint-config-js-coding-standard": "~2.3.0",
+    "@shlinkio/eslint-config-js-coding-standard": "~2.4.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@types/node": "^20.12.5",
     "@types/react": "^18.2.74",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "eslint": "^8.57.0",
     "jsdom": "^24.0.0",
     "purgecss": "^6.0.0",
