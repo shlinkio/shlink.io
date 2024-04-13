@@ -59,7 +59,7 @@
     "jsdom": "^24.0.0",
     "purgecss": "^6.0.0",
     "sass": "^1.74.1",
-    "typescript": "^5.4.4",
+    "typescript": "^5.4.5",
     "vitest": "^1.4.0"
   }
 }
