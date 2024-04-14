@@ -37,35 +37,38 @@ Options:
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Available commands:
-  completion               Dump the shell completion script
-  help                     Display help for a command
-  list                     List commands
+  completion                      Dump the shell completion script
+  help                            Display help for a command
+  list                            List commands
  api-key
-  api-key:disable          Disables an API key.
-  api-key:generate         Generate a new valid API key.
-  api-key:list             Lists all the available API keys.
+  api-key:disable                 Disables an API key.
+  api-key:generate                Generate a new valid API key.
+  api-key:list                    Lists all the available API keys.
  domain
-  domain:list              List all domains that have been ever used for some short URL
-  domain:redirects         Set specific "not found" redirects for individual domains.
-  domain:visits            Returns the list of visits for provided domain.
+  domain:list                     List all domains that have been ever used for some short URL
+  domain:redirects                Set specific "not found" redirects for individual domains.
+  domain:visits                   Returns the list of visits for provided domain.
+ integration
+  integration:matomo:send-visits  Send existing visits to the configured matomo instance
  short-url
-  short-url:create         Generates a short URL for provided long URL and returns it
-  short-url:delete         Deletes a short URL
-  short-url:import         Allows to import short URLs from third party sources
-  short-url:list           List all short URLs
-  short-url:manage-rules   Set redirect rules for a short URL
-  short-url:parse          Returns the long URL behind a short code
-  short-url:visits         Returns the detailed visits information for provided short code
-  short-url:visits-delete  Deletes visits from a short URL
+  short-url:create                Generates a short URL for provided long URL and returns it
+  short-url:delete                Deletes a short URL
+  short-url:delete-expired        Deletes all short URLs that are considered expired, because they have a validUntil date in the past
+  short-url:import                Allows to import short URLs from third party sources
+  short-url:list                  List all short URLs
+  short-url:manage-rules          Set redirect rules for a short URL
+  short-url:parse                 Returns the long URL behind a short code
+  short-url:visits                Returns the detailed visits information for provided short code
+  short-url:visits-delete         Deletes visits from a short URL
  tag
-  tag:delete               Deletes one or more tags.
-  tag:list                 Lists existing tags.
-  tag:rename               Renames one existing tag.
-  tag:visits               Returns the list of visits for provided tag.
+  tag:delete                      Deletes one or more tags.
+  tag:list                        Lists existing tags.
+  tag:rename                      Renames one existing tag.
+  tag:visits                      Returns the list of visits for provided tag.
  visit
-  visit:download-db        Checks if the GeoLite2 db file is too old or it does not exist, and tries to download an up-to-date copy if so.
-  visit:locate             Resolves visits origin locations. It implicitly downloads/updates the GeoLite2 db file if needed.
-  visit:non-orphan         Returns the list of non-orphan visits.
-  visit:orphan             Returns the list of orphan visits.
-  visit:orphan-delete      Deletes all orphan visits
+  visit:download-db               Checks if the GeoLite2 db file is too old or it does not exist, and tries to download an up-to-date copy if so.
+  visit:locate                    Resolves visits origin locations. It implicitly downloads/updates the GeoLite2 db file if needed.
+  visit:non-orphan                Returns the list of non-orphan visits.
+  visit:orphan                    Returns the list of orphan visits.
+  visit:orphan-delete             Deletes all orphan visits
 ```

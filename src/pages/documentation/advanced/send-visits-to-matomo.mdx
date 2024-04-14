@@ -2,6 +2,8 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Callout } from '../../../components/Callout.js';
+
 ## Send visits to Matomo
 
 Starting with v3.7.0, Shlink can send every visit to a [Matomo](https://matomo.org/) instance of your choice.
@@ -50,3 +52,19 @@ As with any other configuration params, there are two main ways to provide matom
 
    [...]
   ```
+
+### Sending existing visits
+
+If you have been using Shlink for a while and start using Matomo at a later point in time, you may find yourself with existing visits that do not show in Matomo.
+
+Starting with Shlink 4.1.0, Shlink provides a `integration:matomo:send-visits` command to send existing/old visits to your Matomo instance.
+
+For example, if you started using Matomo on October 10th, 2023, you can send all visits which are older than that:
+
+```shell
+$ shlink integration:matomo:send-visits --until 2023-10-09
+```
+
+<Callout type="warning">
+  Bear in mind that Shlink will not check if a specific visit already exists in Matomo. All visits matching provided dates will be sent, which could cause duplications.
+</Callout>
