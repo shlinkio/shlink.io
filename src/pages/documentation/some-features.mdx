@@ -21,6 +21,7 @@ This document also tries to clarify why some of these features work the way they
 * [Short URLs mode](#short-urls-mode)
 * [QR Codes](#qr-codes)
 * [Bot detection](#bot-detection)
+* [Remove expired links](#remove-expired-links)
 * [Email tracking](#email-tracking)
 * [Service healthiness](#service-healthiness)
 * [Device-specific redirects](#device-specific-redirects)
@@ -136,6 +137,16 @@ Starting with v2.7.0, Shlink can now detect visits from potential bots or crawle
 Of course, there's never a 100% accuracy here, hence the **potential**.
 
 All the endpoints serving visits will include the `potentialBot` flag with values `true` or `false`, and they also allow excluding potential bots from the result set.
+
+### Remove expired links
+
+Sometimes you programmatically create "temporary" links that are meant to be used once or during a short period of time, and then get disabled via `maxVisits` or `validUntil`.
+
+After some time, you can end up with a bunch of short URLs consuming space, that are never going to receive new visits.
+
+While Shlink does not provide a mechanism to automatically delete them once expired, starting with Shlink 4.1.0, you can use the `short-url:delete-expired` command to delete all links that are considered expired by the conditions mentioned above.
+
+It's up to you to configure this command to be run periodically if desired.
 
 ### Email tracking
 
