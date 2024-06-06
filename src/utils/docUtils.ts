@@ -1,4 +1,4 @@
-import type { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {
   faBook,
   faCogs,

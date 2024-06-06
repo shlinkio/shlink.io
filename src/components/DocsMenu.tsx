@@ -1,4 +1,4 @@
-import type { IconProp } from '@fortawesome/fontawesome-svg-core'; // eslint-disable-line import/named
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUpRightFromSquare, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
