@@ -37,7 +37,7 @@
     "@mdx-js/react": "^3.0.1",
     "astro": "^4.9.2",
     "astro-google-analytics": "^1.0.3",
-    "astro-seo": "^0.8.3",
+    "astro-seo": "^0.8.4",
     "bootstrap": "^5.3.3",
     "classnames": "^2.5.1",
     "mdx-mermaid": "^2.0.0",
