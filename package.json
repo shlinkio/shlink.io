@@ -11,7 +11,7 @@
     "url": "https://github.com/shlinkio/shlink.io"
   },
   "scripts": {
-    "lint": "eslint --ext .ts,.tsx src test",
+    "lint": "eslint src test",
     "lint:fix": "npm run lint -- --fix",
     "test": "vitest run --run",
     "test:watch": "vitest --watch",
@@ -48,13 +48,12 @@
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
-    "@shlinkio/eslint-config-js-coding-standard": "~2.5.1",
+    "@shlinkio/eslint-config-js-coding-standard": "~3.0.0",
+    "@stylistic/eslint-plugin": "^2.2.2",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
     "eslint": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.2",
@@ -64,6 +63,7 @@
     "purgecss": "^6.0.0",
     "sass": "^1.77.5",
     "typescript": "^5.4.5",
+    "typescript-eslint": "^7.13.1",
     "vitest": "^1.6.0"
   }
 }
