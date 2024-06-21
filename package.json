@@ -61,7 +61,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "jsdom": "^24.1.0",
     "purgecss": "^6.0.0",
-    "sass": "^1.77.5",
+    "sass": "^1.77.6",
     "typescript": "^5.5.2",
     "typescript-eslint": "^7.13.1",
     "vitest": "^1.6.0"
