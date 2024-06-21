@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ### Changed
 * Update to `@shlinkio/eslint-config-js-coding-standard` 3.0, and migrate to ESLint flat config.
+* Add `eslint-plugin-astro` and enable linting for `.astro` files.
 
 ### Deprecated
 * *Nothing*
