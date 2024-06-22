@@ -52,7 +52,7 @@
     "@stylistic/eslint-plugin": "^2.2.2",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
-    "@types/node": "^20.14.6",
+    "@types/node": "^20.14.7",
     "@types/react": "^18.3.3",
     "eslint": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
