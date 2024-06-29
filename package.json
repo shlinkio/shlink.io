@@ -24,7 +24,7 @@
     "preview": "astro preview --host=0.0.0.0"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.1",
+    "@astrojs/mdx": "^3.1.2",
     "@astrojs/react": "^3.6.0",
     "@astrojs/sitemap": "^3.1.6",
     "@docsearch/react": "^3.6.0",
@@ -35,7 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mdx-js/react": "^3.0.1",
-    "astro": "^4.11.0",
+    "astro": "^4.11.3",
     "astro-google-analytics": "^1.0.3",
     "astro-seo": "^0.8.4",
     "bootstrap": "^5.3.3",
