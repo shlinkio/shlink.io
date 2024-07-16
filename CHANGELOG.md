@@ -4,13 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [7.9.0] - 2024-07-16
 ### Added
-* *Nothing*
+* Add `astro-expressive-code` to improve code blocks and code snippets.
 
 ### Changed
 * Update to `@shlinkio/eslint-config-js-coding-standard` 3.0, and migrate to ESLint flat config.
 * Add `eslint-plugin-astro` and enable linting for `.astro` files.
+* Update dependencies.
 
 ### Deprecated
 * *Nothing*

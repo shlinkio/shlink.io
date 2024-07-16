@@ -27,6 +27,7 @@ Here you can find some docs on how to do it with the most used web servers:
 Example nginx configuration to use as a reverse proxy in front of RoadRunner, with SSL enabled:
 
 ```nginx
+// default.conf
 server {
     listen 443 ssl;
     ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
