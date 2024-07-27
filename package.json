@@ -61,7 +61,7 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "jsdom": "^24.1.0",
+    "jsdom": "^24.1.1",
     "purgecss": "^6.0.0",
     "sass": "^1.77.8",
     "typescript": "^5.5.3",
