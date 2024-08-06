@@ -1,5 +1,4 @@
 ---
-import { GoogleAnalytics } from 'astro-google-analytics';
 import { SEO } from 'astro-seo';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -95,8 +94,6 @@ const currentPage = Astro.url.pathname;
     <meta name="msapplication-square144x144logo" content="/icons/icon-144x144.png"/>
     <meta name="msapplication-square150x150logo" content="/icons/icon-150x150.png"/>
     <meta name="msapplication-square310x310logo" content="/icons/icon-310x310.png"/>
-
-    <GoogleAnalytics id="UA-38351554-5" />
   </head>
   <body>
     <Header currentPage={currentPage} leftMenuToggle={leftMenuToggle} client:load />

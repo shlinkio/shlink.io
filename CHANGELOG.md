@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.10.0] - 2024-08-06
+### Added
+* *Nothing*
+
+### Changed
+* Update dependencies.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* Remove Google Analytics.
+
+### Fixed
+* *Nothing*
+
+
 ## [7.9.0] - 2024-07-16
 ### Added
 * Add `astro-expressive-code` to improve code blocks and code snippets.
