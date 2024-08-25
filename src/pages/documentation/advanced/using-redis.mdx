@@ -35,17 +35,17 @@ Redis is a good way to do so. If Shlink is provided with redis access configurat
 
 ### Supported capabilities
 
-Shlink supports multiple redis capabilities, depending on how the configuration is provided:
+Shlink supports multiple redis capabilities. They can be enabled by providing different connection URIs:
 
 * [Redis instance](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/), when providing just one server (for example, `tcp://my_redis_server:6379`).
 * [Redis cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/), when providing multiple servers (for example, `tcp://one_redis_server:6379,tcp://another_redis_server:6379`).
 * [Redis sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/), when providing multiple servers, together with a sentinel service name.
+* Database selection (since Shlink 4.3), by providing the database index in the URI path (for example, `tcp://my_redis_server:6379/5`).
 * Credentials, that can be provided as part of the server URIs, either both [username and password](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) (`tcp://the_username:the_password@my_redis_server:6379`) or [just password](https://redis.io/docs/latest/operate/oss_and_stack/management/security/) (`tcp://:the_password@my_redis_server:6379`).
-
-<Callout type="warning">
-  Prior to Shlink 3.7.0, password-only URIs had to have the form `tcp://the_password@my_redis_server:6379`.
-  Since that's not a valid URI, it has been removed removed in Shlink 4.0.0
-</Callout>
+  <Callout type="warning">
+    Prior to Shlink 3.7.0, password-only URIs had the form `tcp://the_password@my_redis_server:6379`.
+    Since that's not a valid URI, it has been removed in Shlink 4.0.0
+  </Callout>
 
 ### Providing configuration
 
