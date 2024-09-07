@@ -35,7 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mdx-js/react": "^3.0.1",
-    "astro": "^4.15.1",
+    "astro": "^4.15.4",
     "astro-expressive-code": "^0.36.1",
     "astro-seo": "^0.8.4",
     "bootstrap": "^5.3.3",
