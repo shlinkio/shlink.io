@@ -4,7 +4,7 @@ import type { MDXComponents } from 'mdx/types';
 import type { PropsWithChildren } from 'react';
 import { Link } from '../components/Link';
 
-const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => { // eslint-disable-line
+const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => {
   const { children, id: link, ...rest } = props;
 
   return (
