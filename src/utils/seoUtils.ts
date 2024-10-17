@@ -1,9 +1,3 @@
-export const twitter = {
-  site: '@shlinkio',
-  creator: '@acelayaa',
-  card: 'summary_large_image',
-};
-
 export const openGraph = (title: string, description: string, siteName: string) => ({
   title,
   description,

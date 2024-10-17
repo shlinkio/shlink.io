@@ -2,7 +2,7 @@
 import { SEO } from 'astro-seo';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { openGraph, twitter } from '../utils/seoUtils';
+import { openGraph } from '../utils/seoUtils';
 import '../assets/sass/main.scss';
 
 export interface Props {
@@ -25,7 +25,7 @@ const currentPage = Astro.url.pathname;
     <meta name="viewport" content="width=device-width"/>
     <meta name="generator" content={Astro.generator}/>
     <meta name="theme-color" content="#4696e5"/>
-    <SEO {...openGraph(title, description, siteName)} twitter={twitter} />
+    <SEO {...openGraph(title, description, siteName)} />
 
     <link
       rel="stylesheet"
