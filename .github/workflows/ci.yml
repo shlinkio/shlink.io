@@ -10,4 +10,4 @@ jobs:
   ci:
     uses: shlinkio/github-actions/.github/workflows/web-app-ci.yml@main
     with:
-      node-version: 20.x
+      node-version: 22.x
