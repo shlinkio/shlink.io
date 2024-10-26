@@ -1,7 +1,8 @@
 services:
     shlink_webstie_node:
         container_name: shlink_webstie_node
-        image: node:22.3-alpine
+        user: 1000:1000
+        image: node:22.10-alpine
         command: /bin/sh -c "cd /shlink-website && npm install && npm run dev"
         volumes:
             - ./:/shlink-website
