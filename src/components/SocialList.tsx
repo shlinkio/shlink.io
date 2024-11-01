@@ -22,7 +22,7 @@ export const SocialList: FC<SocialListProps> = ({ type, className }) => (
       </ExternalLink>
     </li>
     <li className="list-inline-item">
-      <ExternalLink href="https://bsky.app/profile/shlinkio.bsky.social" title="Bluesky" aria-label="Bluesky">
+      <ExternalLink href="https://bsky.app/profile/shlink.io" title="Bluesky" aria-label="Bluesky">
         <FontAwesomeIcon icon={faBluesky} fixedWidth />
       </ExternalLink>
     </li>
