@@ -21,10 +21,15 @@ Currently, Shlink supports the next condition types:
 * **Language**: Checks the `Accept-Language` header in order to see if one specific language is accepted.
 * **Query param**: Verifies if the query string contains a specific query param with a specific value.
 * **Device**: Tries to match the visitor's device based on the `User-Agent` header, and infer if it's `Android`, `iOS` or `Desktop`. Other devices like `Tablet`, `iPad` etc. could be added in the future.
-
-<Callout type="info">
-  Device rules used to be handled separately, but they were migrated to the new rule system for consistency and flexibility.
-</Callout>
+  <Callout type="info">
+    Device rules used to be handled separately, but they were migrated to the new rule system for consistency and flexibility.
+  </Callout>
+* **IP address** *(since v4.2.0)* : Allows to dynamically redirect based on the visitor's IP address, via exact match (`100.200.80.40`), CIDR block matching (`192.168.10.0/24`) or wildcard pattern matching (`11.22.*.*`).
+* **Geolocation: country code** *(since v4.3.0)* : Checks the visitor's [ISO 3166-1 alpha-2 two-letter](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code resolved via geolocation.
+* **Geolocation: city name** *(since v4.3.0)* : Checks the visitor's city name resolved via geolocation.
+  <Callout type="warning">
+    Geolocation-based rules are prone to false positives/negatives (specially by city name), since geolocating a visitor based on their IP address is not perfect.
+  </Callout>
 
 ### Handling redirect rules
 
@@ -123,3 +128,11 @@ There are mainly two ways to manage dynamic redirect rules for a specific short 
   There's one exception. If the `Accept-Language` header is sent with value `*`, it will be ignored and never match, as it would incorrectly match any language otherwise.
 
   Finally, it's worth mentioning language matches are case-insensitive.
+
+* **My geolocation conditions do not work. What is wrong?**
+
+  Geolocation conditions will match based on the visitor's geolocation, so you need to make sure a [GeoLite2 license key](/documentation/geolite-license-key) was provided, and [tracking is not disabled](http://localhost:4321/documentation/tracking-visits#disable-tracking).
+
+  Additionally, and even if geolocation is working properly, this is known to be error-prone. Sometimes IP addresses cannot be located, or they are located in the wrong city/country.
+
+  One way to mitigate incorrect geolocations is to combine geolocation-based rules with language rules: You could configure a rule for users in `ES`, and add another rule for language `es-ES`. If the country didn't properly match as Spain but the visitor's language is Spanish from Spain, you could assume the visitor is in Spain and redirect to the same place.
