@@ -4,7 +4,16 @@
       "pattern": "^/"
     },
     {
+      "pattern": "https://www.maxmind.com"
+    },
+    {
       "pattern": "https://www.maxmind.com/en/accounts/current/license-key"
+    },
+    {
+      "pattern": "https://www.maxmind.com/en/geolite2/signup"
+    },
+    {
+      "pattern": "https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/"
     },
     {
       "pattern": "https://www.mysql.com/"
@@ -20,14 +29,6 @@
     },
     {
       "pattern": "/mercure.rocks/"
-    }
-  ],
-  "httpHeaders": [
-    {
-      "urls": ["https://"],
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
-      }
     }
   ]
 }
