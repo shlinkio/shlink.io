@@ -16,23 +16,68 @@ All endpoints require authentication. In order to do it, always provide a `X-Api
 
 API keys are generated (and managed) from the command line. Run the `api-key:generate` command to get a new and valid API key.
 
-This command optionally accepts an expiration date through the `--expirationDate`|`-e` modifier:
+```shell
+shlink api-key:generate --name=my_api_key
+```
 
-    shlink api-key:generate -e 2020-01-01
+<Callout type="warning">
+  Starting with Shlink v4.3, API keys are hashed before being persisted, so it's very important you save them once generated, as you won't be able to get the value afterwards.
+
+  Providing the name is also a good idea to uniquely identify generated API keys afterwards.
+</Callout>
+
+This command optionally accepts an expiration date through the `--expiration-date`|`-e` modifier:
+
+```shell
+shlink api-key:generate --expiration-date 2020-01-01
+```
 
 Disabling existing API keys is also possible, through the `api-key:disable` command:
 
-    shlink api-key:disable 1ae89449-f8d2-4b44-baf7-dd7eb0b05017
+```shell
+shlink api-key:disable my_api_key --by-name
 
-Both disabled and expired API keys will be considered invalid by Shlink, rejecting any request done with them.
+# Disabling via the plain-text key is possible but deprecated
+shlink api-key:disable 1ae89449-f8d2-4b44-baf7-dd7eb0b05017
+```
+
+You can also rename an existing API key, but remember names have to be unique.
+
+```shell
+shlink api-key:rename my_api_key the_key_for_my_client
+```
+
+### Listing API keys
+
+You can see all existing APi keys by running `shlink api-key:list`.
+
+The output will allow you to see which API keys are expired or disabled, and what are their names.
+
+```shell
+shlink api-key:list
+
++--------------------------------------+------------+---------------------------+-------+
+| Name                                 | Is enabled | Expiration date           | Roles |
++--------------------------------------+------------+---------------------------+-------+
+| Disabled                             | ---        | -                         | Admin |
++--------------------------------------+------------+---------------------------+-------+
+| my_api_key                           | +++        | -                         | Admin |
++--------------------------------------+------------+---------------------------+-------+
+| d438df20-****-****-****-************ | +++        | 2024-12-05T00:00:00+00:00 | Admin |
++--------------------------------------+------------+---------------------------+-------+
+```
 
 <Callout type="info">
-  Starting with Shlink v2.5.0, API keys can have a set of roles that will limit the operations they can do. <Link href="/documentation/api-docs/api-key-roles/">Read the docs</Link> to learn how.
+  Starting with Shlink v4.3, all API keys that are created without a name will fall back to a redacted version of the key.
 </Callout>
+
+### API key roles
+
+Starting with Shlink v2.5.0, API keys can have a set of roles that will limit the operations they can do. <Link href="/documentation/api-docs/api-key-roles/">Read the docs</Link> to learn how.
 
 ### Errors during authentication
 
-When performing an API call, if no API key is provided or it is invalid/disabled/expired, the server will return this response payload, with status 401.
+When performing an API call, if no API key is provided, or it is invalid/disabled/expired, the server will return this response payload, with status 401.
 
 ```json
 {
