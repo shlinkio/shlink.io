@@ -41,9 +41,10 @@ Available commands:
   help                            Display help for a command
   list                            List commands
  api-key
-  api-key:disable                 Disables an API key.
+  api-key:disable                 Disables an API key by name or plain-text key (providing a plain-text key is DEPRECATED)
   api-key:generate                Generate a new valid API key.
   api-key:list                    Lists all the available API keys.
+  api-key:rename                  Renames an API key by name
  domain
   domain:list                     List all domains that have been ever used for some short URL
   domain:redirects                Set specific "not found" redirects for individual domains.
@@ -54,6 +55,7 @@ Available commands:
   short-url:create                Generates a short URL for provided long URL and returns it
   short-url:delete                Deletes a short URL
   short-url:delete-expired        Deletes all short URLs that are considered expired, because they have a validUntil date in the past
+  short-url:edit                  Edit an existing short URL
   short-url:import                Allows to import short URLs from third party sources
   short-url:list                  List all short URLs
   short-url:manage-rules          Set redirect rules for a short URL
