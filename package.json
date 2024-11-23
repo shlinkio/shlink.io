@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.9",
-    "@astrojs/react": "^3.6.2",
+    "@astrojs/react": "^3.6.3",
     "@astrojs/sitemap": "^3.2.1",
     "@docsearch/react": "^3.8.0",
     "@fortawesome/fontawesome-free": "^6.6.0",
@@ -35,7 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mdx-js/react": "^3.1.0",
-    "astro": "^4.16.13",
+    "astro": "^4.16.14",
     "astro-expressive-code": "^0.38.3",
     "astro-seo": "^0.8.4",
     "bootstrap": "^5.3.3",
