@@ -3,7 +3,7 @@ services:
         container_name: shlink_webstie_node
         user: 1000:1000
         image: node:22.10-alpine
-        command: /bin/sh -c "cd /shlink-website && npm install && npm run dev"
+        command: /bin/sh -c "cd /shlink-website && npm install && node --run dev"
         volumes:
             - ./:/shlink-website
         ports:

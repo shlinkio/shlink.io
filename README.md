@@ -17,7 +17,7 @@ In order to run this project locally, follow these steps:
     * Run project: `docker compose up`.
 * Without `docker compose`:
     * Install dependencies: `npm install`.
-    * Run project: `npm run dev`.
+    * Run project: `node --run dev`.
 * Open app [localhost:3000](http://localhost:3000).
 
 Now you can work locally on any change in case you want to provide some improvement.
@@ -26,7 +26,7 @@ Now you can work locally on any change in case you want to provide some improvem
 
 The project can be exported to a static site fully optimized for production.
 
-Run `npm run export` and you will get an `out` directory with the static files.
+Run `node --run build:prod` and you will get a `build` directory with the static files.
 
 Now you can serve it with the web server of your choice.
 
