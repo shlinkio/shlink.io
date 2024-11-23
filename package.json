@@ -12,15 +12,15 @@
   },
   "scripts": {
     "lint": "eslint src test",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "node --run lint -- --fix",
     "test": "vitest run --run",
     "test:watch": "vitest --watch",
-    "test:ci": "npm run test",
+    "test:ci": "node --run test",
     "types": "tsc",
-    "purge": "node scripts/purgecss.mjs",
+    "purge": "node scripts/purgecss.js",
     "dev": "astro dev --host=0.0.0.0",
     "build": "astro build",
-    "build:prod": "npm run build && npm run purge",
+    "build:prod": "node --run build && node --run purge",
     "preview": "astro preview --host=0.0.0.0"
   },
   "dependencies": {

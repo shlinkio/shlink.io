@@ -1,9 +1,9 @@
-FROM node:23.3-alpine as node
+FROM node:23.3-alpine AS node
 USER root
 COPY . /shlink-website
 RUN cd /shlink-website && \
     npm ci && \
-    npm run build:prod
+    node --run build:prod
 
 FROM nginx:1.27.2-alpine
 LABEL maintainer="Alejandro Celaya <alejandro@alejandrocelaya.com>"
