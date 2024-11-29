@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.14.0] - 2024-11-29
+### Added
+* Document robots-related env vars that were introduced in Shlink 4.2.0
+* Improve description of the dynamic redirects feature, highlighting capabilities of the rule-based redirect system.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.13.0] - 2024-11-24
 ### Added
 * Improve documentation around API keys management, mentioning hashing and recommending the usage of names
