@@ -95,6 +95,11 @@ Strikethrough env vars are deprecated.
 * `DEFAULT_QR_CODE_BG_COLOR` *(v4.0.0)* : The QR code background color. Defaults to `#FFFFFF` (white).
 * `DEFAULT_QR_CODE_LOGO_URL` *(v4.0.0)* : A URL pointing to a logo that will be placed in the middle of the QR code. This one is experimental, as some images might break the QR code.
 
+#### Robots.txt
+
+* `ROBOTS_ALLOW_ALL_SHORT_URLS` *(v4.2.0)* : Whether all short URLs should be allowed via robots.txt or not. If set to `true`, the `crawlable` option set in individual short URLs will be ignored. Defaults to `false`.
+* `ROBOTS_USER_AGENTS` *(v4.2.0)* : A comma-separated list of allowed user agents via robots.txt. Defaults to `*`.
+
 #### Redis integration
 
 * `REDIS_SERVERS`: A comma-separated list of redis servers which Shlink uses for shared locks, cache, and optionally real-time updates through pub/sub (make sure to include the port number and credentials for every server).
