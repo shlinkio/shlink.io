@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.14.1] - 2024-12-02
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Add missing mention to support on PHP 8.4
+
+
 ## [7.14.0] - 2024-11-29
 ### Added
 * Document robots-related env vars that were introduced in Shlink 4.2.0
