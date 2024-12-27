@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.15.0] - 2024-12-27
+### Added
+* Document changes for Shlink 4.4.0
+
+### Changed
+* Update dependencies
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.14.1] - 2024-12-02
 ### Added
 * *Nothing*
