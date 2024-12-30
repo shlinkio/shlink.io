@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.16.0] - 2024-12-30
+### Added
+* [#835](https://github.com/shlinkio/shlink.io/issues/835) Add links to integration docs for Dropshare and Shortshare.
+
+### Changed
+* Update to Astro 5.1
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.15.0] - 2024-12-27
 ### Added
 * Document changes for Shlink 4.4.0
