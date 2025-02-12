@@ -96,7 +96,7 @@ const docsRoutes: Route[] = [
     menuIcon: faCogs,
     subRoutes: [
       { text: 'Official PHP SDK', link: 'https://php-sdk.shlink.io/' },
-      { text: 'Official JS SDK', link: 'https://github.com/shlinkio/shlink-js-sdk?tab=readme-ov-file#shlink-js-sdk' },
+      { text: 'Official JS SDK', link: 'https://js-sdk.shlink.io/' },
       { text: 'Short Menu for Mac', link: '/documentation/integrations/short-menu-mac' },
       { text: 'Short Menu for iOS', link: '/documentation/integrations/short-menu-ios' },
       { text: 'GNOME Shell extension', link: '/documentation/integrations/gnome-shell-extension' },
