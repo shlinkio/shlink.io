@@ -12,7 +12,7 @@ export const RTULimitationTooltip: FC = () => {
       <sup ref={ref}>
         <FontAwesomeIcon icon={faWarning} className="text-warning" />
       </sup>
-      <UncontrolledTooltip target={ref} placement="top">
+      <UncontrolledTooltip target={ref as any} placement="top">
         When creating short URLs from the CLI, real-time updates are not dispatched.
       </UncontrolledTooltip>
     </>
