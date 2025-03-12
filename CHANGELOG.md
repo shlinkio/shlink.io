@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [Unreleased]
+### Added
+* *Nothing*
+
+### Changed
+* Remove dependency on reactstrap
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.18.0] - 2025-03-10
 ### Added
 * [#877](https://github.com/shlinkio/shlink.io/issues/877) Add docs for integration with https://github.com/inukiwi/PowerToysRun-Shlink
