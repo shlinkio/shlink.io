@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { FC, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
-import { Collapse, Navbar, NavbarToggler } from 'reactstrap';
 import { InternalLink } from './InternalLink';
+import { NavbarToggler } from './NavbarToggler';
 import { SocialList } from './SocialList';
 
 type MenuItemProps = PropsWithChildren<{
@@ -32,34 +32,32 @@ export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
   return (
     <header className="header fixed-top">
       <div className="container-fluid position-relative">
-        <Navbar expand="lg">
-          <div className={classNames('site-logo', { 'site-logo__mobile': leftMenuToggle })}>
-            <InternalLink href="/" className="navbar-brand">
-              <img
-                className="logo-icon me-2"
-                src="/images/shlink-logo-blue.svg"
-                alt="logo"
-              />
-              <span className="logo-text">Shlink</span>
-            </InternalLink>
+        <nav className="navbar navbar-expand-lg">
+          <div className="container-fluid">
+            <div className={classNames('site-logo', { 'site-logo__mobile': leftMenuToggle })}>
+              <InternalLink href="/" className="navbar-brand">
+                <img
+                  className="logo-icon me-2"
+                  src="/images/shlink-logo-blue.svg"
+                  alt="logo"
+                />
+                <span className="logo-text">Shlink</span>
+              </InternalLink>
+            </div>
+
+            <NavbarToggler collapsed={collapsed} onClick={toggleCollapsed}/>
+
+            <div className={classNames('collapse navbar-collapse', { show: !collapsed })}>
+              <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ms-lg-5 me-lg-5"/>
+
+              <ul className="navbar-nav ms-lg-auto">
+                <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
+                <MenuItem to="/apps" active={currentPage.startsWith('/apps')}>Apps</MenuItem>
+                <MenuItem to="/documentation" active={isBaseDocsActive} isLast>Documentation</MenuItem>
+              </ul>
+            </div>
           </div>
-
-          <NavbarToggler className={classNames({ collapsed })} onClick={toggleCollapsed}>
-            <span />
-            <span />
-            <span />
-          </NavbarToggler>
-
-          <Collapse isOpen={!collapsed} navbar>
-            <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ms-lg-5 me-lg-5" />
-
-            <ul className="navbar-nav ms-lg-auto">
-              <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
-              <MenuItem to="/apps" active={currentPage.startsWith('/apps')}>Apps</MenuItem>
-              <MenuItem to="/documentation" active={isBaseDocsActive} isLast>Documentation</MenuItem>
-            </ul>
-          </Collapse>
-        </Navbar>
+        </nav>
 
       </div>
     </header>
