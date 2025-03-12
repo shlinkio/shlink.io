@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import type { FC, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
-import { NavbarToggler } from 'reactstrap';
 import { DocsMenu } from './DocsMenu';
+import { NavbarToggler } from './NavbarToggler';
 
 type DocsSidebarProps = PropsWithChildren<{
   currentPage: string;
@@ -18,19 +18,6 @@ const classesForState = (state: SidebarState) => {
   return { 'sidebar-visible': state === 'displayed', 'sidebar-hidden': state === 'hidden' };
 };
 
-interface LeftMenuToggleProps {
-  collapsed: boolean;
-  toggleSidebar: () => void;
-}
-
-const LeftMenuToggle: FC<LeftMenuToggleProps> = ({ collapsed, toggleSidebar }) => (
-  <NavbarToggler className={classNames('docs-menu-toggle', { collapsed })} onClick={toggleSidebar}>
-    <span />
-    <span />
-    <span />
-  </NavbarToggler>
-);
-
 export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage, children }) => {
   const [sidebarState, setSidebarVisible] = useState<SidebarState>('initial');
   const toggleSidebar = useCallback(
@@ -40,7 +27,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage, children }) => 
 
   return (
     <>
-      <LeftMenuToggle toggleSidebar={toggleSidebar} collapsed={sidebarState !== 'displayed'} />
+      <NavbarToggler onClick={toggleSidebar} collapsed={sidebarState !== 'displayed'} className="docs-menu-toggle" />
       <div className={classNames('docs-sidebar', classesForState(sidebarState))}>
         <div className="p-3" style={{ height: '68px' }}>
           {children}

@@ -44,7 +44,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-external-link": "^2.4.0",
-    "reactstrap": "^9.2.3",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
