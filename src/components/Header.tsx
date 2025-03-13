@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
 import { InternalLink } from './InternalLink';
@@ -12,7 +12,7 @@ type MenuItemProps = PropsWithChildren<{
 }>;
 
 const MenuItem: FC<MenuItemProps> = ({ to, children, isLast, active }) => (
-  <li className={classNames('nav-item', { 'me-lg-0': isLast, 'me-lg-4': !isLast, active })}>
+  <li className={clsx('nav-item', { 'me-lg-0': isLast, 'me-lg-4': !isLast, active })}>
     <InternalLink href={to} className="nav-link">{children}</InternalLink>
   </li>
 );
@@ -34,7 +34,7 @@ export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
       <div className="container-fluid position-relative">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <div className={classNames('site-logo', { 'site-logo__mobile': leftMenuToggle })}>
+            <div className={clsx('site-logo', { 'site-logo__mobile': leftMenuToggle })}>
               <InternalLink href="/" className="navbar-brand">
                 <img
                   className="logo-icon me-2"
@@ -47,7 +47,7 @@ export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
 
             <NavbarToggler collapsed={collapsed} onClick={toggleCollapsed}/>
 
-            <div className={classNames('collapse navbar-collapse', { show: !collapsed })}>
+            <div className={clsx('collapse navbar-collapse', { show: !collapsed })}>
               <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ms-lg-5 me-lg-5"/>
 
               <ul className="navbar-nav ms-lg-auto">

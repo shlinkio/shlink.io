@@ -1,6 +1,6 @@
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 import { Link } from './Link';
 
@@ -12,7 +12,7 @@ type FeatureProps = PropsWithChildren<{
 }>;
 
 export const Feature: FC<FeatureProps> = ({ title, children, link, icon, className }) => (
-  <div className={classNames('item col-12 col-md-6 col-lg-3', className)}>
+  <div className={clsx('item col-12 col-md-6 col-lg-3', className)}>
     <div className="item-inner rounded">
       <div className="icon-holder text-center mx-auto mb-3">
         <FontAwesomeIcon icon={icon} />

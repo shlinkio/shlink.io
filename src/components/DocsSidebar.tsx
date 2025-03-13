@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
 import { DocsMenu } from './DocsMenu';
@@ -28,7 +28,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({ currentPage, children }) => 
   return (
     <>
       <NavbarToggler onClick={toggleSidebar} collapsed={sidebarState !== 'displayed'} className="docs-menu-toggle" />
-      <div className={classNames('docs-sidebar', classesForState(sidebarState))}>
+      <div className={clsx('docs-sidebar', classesForState(sidebarState))}>
         <div className="p-3" style={{ height: '68px' }}>
           {children}
         </div>

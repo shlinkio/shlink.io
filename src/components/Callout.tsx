@@ -1,6 +1,6 @@
 import { faBullhorn, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 
 type CalloutType = 'info' | 'warning';
@@ -23,7 +23,7 @@ const TYPE_MAP: Record<CalloutType, any> = {
 };
 
 export const Callout: FC<CalloutProps> = ({ children, type, title }) => (
-  <div className={classNames('callout-block', TYPE_MAP[type].className)}>
+  <div className={clsx('callout-block', TYPE_MAP[type].className)}>
     <div className="content">
       <h4 className="callout-title">
         <span className="callout-icon-holder me-2">
