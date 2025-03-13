@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [7.18.1] - 2025-03-13
 ### Added
 * *Nothing*
 
@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Fixed
-* *Nothing*
+* Improve Microsoft PowerToys Run integration screenshot quality.
 
 
 ## [7.18.0] - 2025-03-10
