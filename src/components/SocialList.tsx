@@ -1,6 +1,6 @@
 import { faBluesky, faGithub, faMastodon, faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC } from 'react';
 import { ExternalLink } from 'react-external-link';
 
@@ -10,7 +10,7 @@ interface SocialListProps {
 }
 
 export const SocialList: FC<SocialListProps> = ({ type, className }) => (
-  <ul className={classNames(`social-list list-${type}`, className)}>
+  <ul className={clsx(`social-list list-${type}`, className)}>
     <li className="list-inline-item">
       <ExternalLink href="https://github.com/shlinkio/shlink" title="GitHub" aria-label="GitHub">
         <FontAwesomeIcon icon={faGithub} fixedWidth />

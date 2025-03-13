@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC } from 'react';
 
 export type NavbarTogglerProps = {
@@ -10,7 +10,7 @@ export type NavbarTogglerProps = {
 export const NavbarToggler: FC<NavbarTogglerProps> = ({ collapsed, onClick, className }) => (
   <button
     aria-label="Toggle navigation"
-    className={classNames('navbar-toggler', className, { collapsed })}
+    className={clsx('navbar-toggler', className, { collapsed })}
     onClick={onClick}
   >
     <span/>

@@ -1,7 +1,7 @@
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUpRightFromSquare, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 import { Fragment, useState } from 'react';
 import type { Route } from '../utils/docUtils';
@@ -17,8 +17,8 @@ type MenuItemProps = PropsWithChildren<{
 }>;
 
 const MenuItem: FC<MenuItemProps> = ({ active, link, children, icon, isOpen, onChevronClick }) => (
-  <li className={classNames('nav-item', { 'section-title': icon })}>
-    <Link className={classNames('nav-link', { active })} href={link}>
+  <li className={clsx('nav-item', { 'section-title': icon })}>
+    <Link className={clsx('nav-link', { active })} href={link}>
       {icon && <span className="theme-icon-holder me-2"><FontAwesomeIcon icon={icon} /></span>}
       {children}
       {link.startsWith('http') && <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ms-2" />}
