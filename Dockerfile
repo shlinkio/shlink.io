@@ -1,4 +1,4 @@
-FROM node:23.9-alpine AS node
+FROM node:23.10-alpine AS node
 USER root
 COPY . /shlink-website
 RUN cd /shlink-website && \
