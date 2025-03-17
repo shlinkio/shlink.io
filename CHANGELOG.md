@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.19.0] - 2025-03-17
+### Added
+* *Nothing*
+
+### Changed
+* Change to a darker brand color which has >=4.5 contrast ration with white.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Improve Microsoft PowerToys Run integration screenshot quality.
+
+
 ## [7.18.1] - 2025-03-13
 ### Added
 * *Nothing*
