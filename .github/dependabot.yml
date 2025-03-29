@@ -19,9 +19,12 @@ updates:
       testing:
         patterns:
           - '@testing-library/*'
-      types:
+      react:
         patterns:
-          - '@types/*'
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
       eslint:
         patterns:
           - '@shlinkio/eslint-config-js-coding-standard'
