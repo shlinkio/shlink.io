@@ -20,11 +20,11 @@ const renderBreadcrumbs = !/\/documentation\/?$/.test(currentPage);
       <div class="container">
         <article class="docs-article">
           {renderBreadcrumbs && <Breadcrumb currentPage={currentPage} />}
-          <slot/>
+          <slot />
         </article>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   </div>
 </Layout>

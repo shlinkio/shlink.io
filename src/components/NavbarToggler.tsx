@@ -13,8 +13,8 @@ export const NavbarToggler: FC<NavbarTogglerProps> = ({ collapsed, onClick, clas
     className={clsx('navbar-toggler', className, { collapsed })}
     onClick={onClick}
   >
-    <span/>
-    <span/>
-    <span/>
+    <span />
+    <span />
+    <span />
   </button>
 );
