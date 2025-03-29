@@ -1,28 +1,34 @@
 import shlink from '@shlinkio/eslint-config-js-coding-standard';
+import { defineConfig } from 'eslint/config';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
 /* eslint-disable-next-line no-restricted-exports */
-export default [
-  ...shlink,
-  ...eslintPluginAstro.configs.recommended,
+export default defineConfig(
+  shlink,
+
+  // react-external-link states is a ESM ("type": "module"), but then exposes a CommonJS module as its main entry point.
+  // This works around that.
+  {
+    languageOptions: {
+      sourceType: 'module',
+      ecmaVersion: 'latest',
+    },
+  },
 
   {
     files: ['**/*.astro'],
+    extends: eslintPluginAstro.configs.recommended,
+    settings: {
+      // eslint-plugin-import needs to know what parser to use for certain file types
+      'import/parsers': {
+        'astro-eslint-parser': ['.astro'],
+        espree: ['.js', '.mjs'],
+      },
+    },
     rules: {
       // Linter is throwing a false positive on the usage of `class` property when it should be className, but in astro
       // files, `class` is correct
       'react/no-unknown-property': ['error', { ignore: ['class'] }],
-
-      // Disable eslint-plugin-import rules in astro files, as they throw an error
-      // See https://github.com/import-js/eslint-plugin-import/issues/3058
-      'import/no-unresolved': 'off',
-      'import/named': 'off',
-      'import/namespace': 'off',
-      'import/default': 'off',
-      'import/export': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
-      'import/no-duplicates': 'off',
     },
   },
-];
+);
