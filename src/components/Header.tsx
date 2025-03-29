@@ -45,10 +45,10 @@ export const Header: FC<HeaderProps> = ({ leftMenuToggle, currentPage }) => {
               </InternalLink>
             </div>
 
-            <NavbarToggler collapsed={collapsed} onClick={toggleCollapsed}/>
+            <NavbarToggler collapsed={collapsed} onClick={toggleCollapsed} />
 
             <div className={clsx('collapse navbar-collapse', { show: !collapsed })}>
-              <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ms-lg-5 me-lg-5"/>
+              <SocialList type="inline" className="mt-3 mt-lg-0 mb-lg-0 d-flex ms-lg-5 me-lg-5" />
 
               <ul className="navbar-nav ms-lg-auto">
                 <MenuItem to="/features" active={currentPage.startsWith('/features')}>Features</MenuItem>
