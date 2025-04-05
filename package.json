@@ -38,7 +38,7 @@
     "astro": "^5.5.5",
     "astro-expressive-code": "^0.40.2",
     "astro-seo": "^0.8.4",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.5",
     "clsx": "^2.1.1",
     "mdx-mermaid": "^2.0.3",
     "react": "^19.1.0",
