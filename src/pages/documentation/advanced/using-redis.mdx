@@ -37,7 +37,7 @@ Redis is a good way to do so. If Shlink is provided with redis access configurat
 
 Shlink supports multiple redis capabilities. They can be enabled by providing different connection URIs:
 
-* [Redis instance](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/), when providing just one server (for example, `tcp://my_redis_server:6379`).
+* [Redis instance](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/), when providing just one server (for example, `tcp://my_redis_server:6379`).
 * [Redis cluster](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/), when providing multiple servers (for example, `tcp://one_redis_server:6379,tcp://another_redis_server:6379`).
 * [Redis sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/), when providing multiple servers, together with a sentinel service name.
 * Database selection (since Shlink 4.2.1), by providing the database index in the URI path (for example, `tcp://my_redis_server:6379/5`).
