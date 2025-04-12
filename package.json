@@ -43,7 +43,7 @@
     "mdx-mermaid": "^2.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-external-link": "^2.4.0",
+    "react-external-link": "^2.5.0",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
