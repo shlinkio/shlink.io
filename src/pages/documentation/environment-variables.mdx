@@ -90,6 +90,10 @@ Strikethrough env vars are deprecated.
 
 #### QR codes
 
+<Callout type="warning">
+  Generating QR codes through Shlink is being deprecated. See [this issue](https://github.com/shlinkio/shlink/issues/2408) for details.
+</Callout>
+
 * `DEFAULT_QR_CODE_SIZE`: A value between 50 and 1000 to determine the default size of generated QR codes when the `size` query param is not provided. Defaults to 300.
 * `DEFAULT_QR_CODE_MARGIN`: A value greater than 0 to determine the default margin of generated QR codes when the `margin` query param is not provided. Defaults to 0.
 * `DEFAULT_QR_CODE_FORMAT`: One of **png** or **svg**, to determine the default format of generated QR codes when the `format` query param is not provided. Defaults to png.

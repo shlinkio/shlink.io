@@ -109,6 +109,10 @@ This is achieved via the so called `loose` short URL mode (the mode can be set v
 
 Shlink comes with built-in support to generate QR codes for any short URL.
 
+<Callout type="warning">
+  Generating QR codes through Shlink is being deprecated. See [this issue](https://github.com/shlinkio/shlink/issues/2408) for details.
+</Callout>
+
 Getting a QR code URL is as simple as appending `/qr-code` to any short URL. So if your short URL is `https://exam.ple/abc123`, the URL which returns the binary QR code image is `https://exam.ple/abc123/qr-code`.
 
 The image's default appearance can be customized via [installation tool](/documentation/command-line-interface/installation-tool) or [env vars](/documentation/environment-variables#qr-codes), but it can also be customized on the fly via query params:
