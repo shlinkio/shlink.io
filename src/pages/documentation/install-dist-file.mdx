@@ -14,7 +14,7 @@ If you are going to host Shlink yourself, you need to make sure your server fulf
 * PHP 8.3 or 8.4
 * The next PHP extensions: json, curl, pdo, intl, gd and gmp/bcmath.
     * apcu extension is recommended if you don't plan to use RoadRunner.
-    * xml extension is required if you want to generate QR codes in svg format. (QR code generation is being deprecated, see [#2408](https://github.com/shlinkio/shlink/issues/2408))
+    * xml extension is required if you want to generate QR codes in svg format. (QR code generation is being deprecated, see [this issue](https://github.com/shlinkio/shlink/issues/2408) for details)
     * sockets and bcmath extensions are required if you want to integrate with a RabbitMQ instance, or use [RoadRunner to serve Shlink](/documentation/supported-runtimes/serve-with-roadrunner/).
 * MySQL, MariaDB, PostgreSQL, MicrosoftSQL or SQLite.
     * You will also need the corresponding pdo variation for the database you are planning to use: `pdo_mysql`, `pdo_pgsql` or `pdo_sqlsrv`.
