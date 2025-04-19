@@ -62,7 +62,7 @@
     "eslint-plugin-react-compiler": "^19.0.0-beta-e993439-20250405",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "jsdom": "^26.0.0",
+    "jsdom": "^26.1.0",
     "purgecss": "^7.0.2",
     "sass": "^1.86.3",
     "typescript": "^5.8.3",
