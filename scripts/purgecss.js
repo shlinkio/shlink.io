@@ -1,5 +1,5 @@
-import { PurgeCSS } from 'purgecss';
 import { writeFileSync } from 'fs';
+import { PurgeCSS } from 'purgecss';
 
 const purgecss = new PurgeCSS();
 const result = await purgecss.purge({
@@ -12,5 +12,6 @@ const result = await purgecss.purge({
 });
 
 result.forEach(({ css, file }) => {
+  // eslint-disable-next-line no-undef
   writeFileSync(file, Buffer.from(css));
 });

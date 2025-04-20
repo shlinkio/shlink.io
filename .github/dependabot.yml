@@ -16,9 +16,6 @@ updates:
         patterns:
           - 'astro'
           - '@astrojs/*'
-      testing:
-        patterns:
-          - '@testing-library/*'
       react:
         patterns:
           - 'react'
