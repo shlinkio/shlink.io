@@ -1,6 +1,6 @@
 import shlink from '@shlinkio/eslint-config-js-coding-standard';
 import { defineConfig } from 'eslint/config';
-import eslintPluginAstro from 'eslint-plugin-astro';
+import { configs as eslintAstroConfigs } from 'eslint-plugin-astro';
 
 /* eslint-disable-next-line no-restricted-exports */
 export default defineConfig(
@@ -17,7 +17,7 @@ export default defineConfig(
 
   {
     files: ['**/*.astro'],
-    extends: eslintPluginAstro.configs.recommended,
+    extends: eslintAstroConfigs.recommended,
     settings: {
       // eslint-plugin-import needs to know what parser to use for certain file types
       'import/parsers': {
