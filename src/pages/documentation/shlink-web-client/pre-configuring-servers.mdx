@@ -25,7 +25,8 @@ Those servers can be exported and imported in other browsers, but if for some re
   {
     "name": "Main server",
     "url": "https://s.test",
-    "apiKey": "09c972b7-506b-49f1-a19a-d729e22e599c"
+    "apiKey": "09c972b7-506b-49f1-a19a-d729e22e599c",
+    "forwardCredentials": true // Since v4.4.0
   },
   {
     "name": "Local",
@@ -37,9 +38,17 @@ Those servers can be exported and imported in other browsers, but if for some re
 
 > The list can contain as many servers as you need.
 
+<Callout type="warning">
+  The `forwardCredentials` option will make cookies, TLS client certificates and authentication headers to be forwarded to the Shlink server.
+
+  Setting it to `true` will make all requests fail if the server sets `Accept-Control-Allow-Origin: *`, which is the default behavior in Shlink older than 4.5.0.
+
+  If you need this capability, you will need to configure a more restrictive value in your custom proxy, or use Shlink 4.5.0 or newer, which allows further customizations.
+</Callout>
+
 When shlink-web-client is loaded, if it detects there are no servers configured yet in current device, it will try to load the `servers.json` file, and populate the local storage with the servers it finds there.
 
-Once loaded, it will not try to load the file again, so making changes in that file will not take any effect on a device that already loaded the servers.
+Once loaded, it will not try to load the file again, so making changes in that file will not have any effect on a device that already loaded the servers.
 
 ### With the docker image
 
@@ -61,7 +70,8 @@ If you are using the shlink-web-client docker image, you can also pre-configure 
 
   * `SHLINK_SERVER_URL`: The fully qualified URL for the Shlink server.
   * `SHLINK_SERVER_API_KEY`: The API key.
-  * `SHLINK_SERVER_NAME`: The name to be displayed. Defaults to **Shlink** if not provided.
+  * `SHLINK_SERVER_NAME`: The name to be displayed. Defaults to `Shlink` if not provided.
+  * `SHLINK_SERVER_FORWARD_CREDENTIALS` *(v4.4.0)* : Whether credentials should be forwarded (`true`) or not (`false`). Defaults to `false`.
 
   ```shell
   docker run \
