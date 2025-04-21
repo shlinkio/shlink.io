@@ -132,11 +132,11 @@ docker run \
 
 ### Other integrations
 
-#### Use an external redis server
+#### Use an external Redis or Valkey server
 
 If you plan to run more than one Shlink instance, there are some resources that should be shared ([Multi instance considerations](/documentation/install-docker-image#multi-instance-considerations)).
 
-One of those resources are the locks Shlink generates to prevent some operations to be run more than once in parallel. You can find more information [here](/documentation/advanced/using-redis/#shared-locks).
+One of those resources are the locks Shlink generates to prevent some operations to be run more than once in parallel. You can find more information [here](/documentation/advanced/using-redis-or-valkey/#shared-locks).
 
 #### Integrations for real-time updates
 
@@ -164,7 +164,7 @@ These are some considerations to take into account when running multiple Shlink 
 
     However, these locks are locally scoped to each Shlink instance by default.
 
-    You can (and should) make the locks to be shared by all Shlink instances by using a redis server/cluster. Just define the `REDIS_SERVERS` env var with the list of servers.
+    You can (and should) share the locks among all Shlink instances by using a Redis or Valkey server/cluster. Just define the `REDIS_SERVERS` env var with the list of servers.
 
 ### Versions
 

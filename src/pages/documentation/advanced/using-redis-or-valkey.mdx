@@ -1,0 +1,74 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../../components/Callout';
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Using Redis or Valkey
+
+Shlink can take advantage of a shared cache server like [redis](https://redis.io/) or [valkey](https://valkey.io/) in multiple contexts.
+
+* For [caching purposes](#caching-purposes).
+* To store [shared locks](#shared-locks).
+* To publish [real-time updates](/documentation/advanced/real-time-updates/#redis-pubsub) via Pub/Sub.
+
+#### Caching purposes
+
+Shlink can persist certain things in a faster storage for quick access.
+
+By default, it uses APCu if available (when using a [classic web server](/documentation/supported-runtimes/classic-web-server/)) or in-memory (when using [Roadrunner](/documentation/supported-runtimes/serve-with-roadrunner/) as the runtimes), but it can be provided with some shared cache server access configuration.
+
+When doing so, Shlink will use it as the cache persistence.
+
+#### Shared locks
+
+<Callout type="info">
+  **Locks** are used to make sure certain tasks are not run more than once in parallel. For example, geolocating visits.
+</Callout>
+
+If you plan to run multiple Shlink instances, it's important to make sure the so-called "locks" are shared between all of them.
+
+A shared cache server is a good way to do so. If Shlink is provided with access configuration, it will use it to store shared locks.
+
+### Supported capabilities
+
+Shlink supports multiple shared cache server capabilities. They can be enabled by providing different connection URIs:
+
+* **Single instance** ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/) / [Valkey](https://valkey.io/topics/installation/)), when providing just one server (for example, `tcp://my_redis_server:6379`).
+* **Cluster** ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/) / [Valkey](https://valkey.io/topics/cluster-tutorial/)), when providing multiple servers (for example, `tcp://one_redis_server:6379,tcp://another_redis_server:6379`).
+* **Sentinels** ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) / [Valkey](https://valkey.io/topics/sentinel/)), when providing multiple servers, together with a sentinel service name.
+* Database selection (since Shlink 4.2.1), by providing the database index in the URI path (for example, `tcp://my_redis_server:6379/5`).
+* Credentials, that can be provided as part of the server URIs:
+    * ACL, with username and password ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) / [Valkey](https://valkey.io/topics/acl/)): `tcp://the_username:the_password@my_redis_server:6379`
+    * Legacy, with just password ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/security/) / [Valkey](https://valkey.io/topics/security/)): `tcp://:the_password@my_redis_server:6379`.
+
+### Providing configuration
+
+As with any other configuration params, there are two main ways to provide shared cache server options:
+
+* [Environment variables](/documentation/environment-variables/#redis-integration), which allow you to enable the integration however you like.
+* The [installation tool](/documentation/command-line-interface/installation-tool/), which will, at some point, ask you if you want to integrate with redis, and request you to provide all the capabilities above if so.
+
+  ```shell
+   [...]
+
+  INTEGRATIONS
+  ============
+
+   Do you want to use a redis instance, redis cluster or redis sentinels as a shared cache for Shlink? (recommended if you run a cluster of Shlink instances) (yes/no) [no]:
+   > yes
+
+   Provide a comma-separated list of URIs (redis servers/sentinel instances):
+   > tcp://one_redis_server:6379,tcp://another_redis_server:6379
+
+   Provide the name of the sentinel service (leave empty if not using redis sentinel):
+   >
+
+   Do you want Shlink to publish real-time updates in this Redis instance/cluster? (yes/no) [no]:
+   > yes
+
+   [...]
+  ```
