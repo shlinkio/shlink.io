@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ## [7.21.0] - 2025-04-21
 ### Added
 * Document changes in shlink-web-client 4.4.0
+* [#897](https://github.com/shlinkio/shlink.io/issues/897) Document support for Valkey as an alternative to Redis
 
 ### Changed
 * *Nothing*
