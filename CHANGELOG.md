@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.21.1] - 2025-04-09
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Update icons and favicons to use the new brand color.
+
+
 ## [7.21.0] - 2025-04-21
 ### Added
 * Document changes in shlink-web-client 4.4.0
