@@ -17,6 +17,20 @@ Strikethrough env vars are deprecated.
 
 ### Supported env vars
 
+* [General](#general)
+* [URL shortening](#url-shortening)
+* [Database](#database)
+* [Redirects](#redirects)
+* [Visits tracking](#visits-tracking)
+* [Robots.txt](#robotstxt)
+* [Cross-origin](#cross-origin)
+* [Real-time updates](#real-time-updates)
+* [Redis integration](#redis-integration)
+* [Mercure hub integration](#mercure-hub-integration)
+* [RabbitMQ integration](#rabbitmq-integration)
+* [Matomo integration](#matomo-integration)
+* [Specific for the docker image](#specific-for-the-docker-image)
+
 #### General
 
 * `DEFAULT_DOMAIN`: The default short domain used for this Shlink instance. For example **s.test**.
@@ -104,6 +118,14 @@ Strikethrough env vars are deprecated.
 * `CORS_ALLOW_CREDENTIALS` *(v4.5.0)* : If set to `true`, the response will include `Access-Control-Allow-Credentials: true`, and the header won't be included at all otherwise. Defaults to `false`.
 * `CORS_MAX_AGE` *(v4.5.0)* : Determines the value in `Access-Control-Max-Age` header. Defaults to 3600.
 
+#### Real-time updates
+
+* `REAL_TIME_UPDATES_TOPICS` *(v4.5.0)* : A comma-separated list of the topics to which real-time updates should be sent, if at least one real-time updates integration is enabled. All topics are enabled if not provided. Possible values are:
+* `NEW_VISIT`: Notify when any short URL is visited, in a common topic.
+* `NEW_ORPHAN_VISIT`: Notify when a new non-orphan.
+* `NEW_SHORT_URL_VISIT`: Notify when a short URL is visited, on its own scoped topic.
+* `NEW_SHORT_URL`: Notify when a short URL is created.
+
 #### Redis integration
 
 * `REDIS_SERVERS`: A comma-separated list of redis servers which Shlink uses for shared locks, cache, and optionally real-time updates through pub/sub (make sure to include the port number and credentials for every server).
@@ -126,14 +148,6 @@ Strikethrough env vars are deprecated.
 * `RABBITMQ_USER`: The RabbitMQ server username credential. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_PASSWORD`: The RabbitMQ server password credential. This will be ignored if `RABBITMQ_ENABLED` is false.
 * `RABBITMQ_VHOST`: The RabbitMQ server VHost. Defaults to `/`. This will be ignored if `RABBITMQ_ENABLED` is false.
-
-### Real-time updates
-
-* `REAL_TIME_UPDATES_TOPICS` *(v4.5.0)* : A comma-separated list of the topics to which real-time updates should be sent, if at least one real-time updates integration is enabled. All topics are enabled if not provided. Possible values are:
-  * `NEW_VISIT`: Notify when any short URL is visited, in a common topic.
-  * `NEW_ORPHAN_VISIT`: Notify when a new non-orphan.
-  * `NEW_SHORT_URL_VISIT`: Notify when a short URL is visited, on its own scoped topic.
-  * `NEW_SHORT_URL`: Notify when a short URL is created.
 
 #### Matomo integration
 
