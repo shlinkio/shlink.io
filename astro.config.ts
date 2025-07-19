@@ -11,4 +11,15 @@ export default defineConfig({
   site: 'https://shlink.io',
   outDir: './build',
   integrations: [sitemap(), react(), expressiveCode(), mdx()],
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Silence annoying sass deprecation warnings until we get rid of bootstrap
+          silenceDeprecations: ['mixed-decls', 'abs-percent', 'color-functions', 'global-builtin', 'import'],
+        },
+      },
+    },
+  },
 });
