@@ -22,7 +22,15 @@ Currently, Shlink supports the next condition types:
 * **Query param**: Verifies if the query string contains a specific query param with a specific value.
 * **Any value query param** *(since v4.5.0)* : Verifies if the query string contains a specific query param with any value or no value at all.
 * **Valueless query param** *(since v4.5.0)* : Verifies if the query string contains a specific query param with no value at all.
-* **Device**: Tries to match the visitor's device based on the `User-Agent` header, and infer if it's `Android`, `iOS` or `Desktop`. Other devices like `Tablet`, `iPad` etc. could be added in the future.
+* **Device**: Tries to match the visitor's device based on the `User-Agent` header. It can match:
+  * `Android`
+  * `iOS`
+  * `Mobile` *(since v4.5.0)* (matches the two above all at once)
+  * `Windows` *(since v4.5.0)*
+  * `Linux` *(since v4.5.0)*
+  * `MacOS` *(since v4.5.0)*
+  * `ChromeOS` *(since v4.5.0)*
+  * `Desktop` (matches the four above all at once)
   <Callout type="info">
     Device rules used to be handled separately, but they were migrated to the new rule system for consistency and flexibility.
   </Callout>
