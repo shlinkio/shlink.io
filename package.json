@@ -21,9 +21,9 @@
     "preview": "astro preview --host=0.0.0.0"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.1",
+    "@astrojs/mdx": "^4.3.3",
     "@astrojs/react": "^4.3.0",
-    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/sitemap": "^3.4.2",
     "@docsearch/react": "^3.9.0",
     "@fortawesome/fontawesome-free": "^7.0.0",
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
@@ -32,7 +32,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
     "@mdx-js/react": "^3.1.0",
-    "astro": "^5.12.3",
+    "astro": "^5.12.8",
     "astro-expressive-code": "^0.41.3",
     "astro-seo": "^0.8.4",
     "bootstrap": "^5.3.7",
