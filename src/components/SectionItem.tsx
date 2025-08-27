@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 
 export type SectionItemProps = PropsWithChildren<{

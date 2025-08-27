@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
 import { InternalLink } from './InternalLink';

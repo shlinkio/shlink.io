@@ -1,7 +1,7 @@
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faArrowUpRightFromSquare, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 import { Fragment, useState } from 'react';
 import type { Route } from '../utils/docUtils';

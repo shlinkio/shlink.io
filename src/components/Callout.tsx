@@ -1,6 +1,6 @@
 import { faBullhorn, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import type { FC, PropsWithChildren } from 'react';
 
 type CalloutType = 'info' | 'warning';
