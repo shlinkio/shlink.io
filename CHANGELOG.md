@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.24.0] - 2025-09-20
+### Added
+* *Nothing*
+
+### Changed
+* Update to Algolia docsearch 4.0.
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.23.0] - 2025-07-24
 ### Added
 * Document remaining Shlink 4.5 features.
