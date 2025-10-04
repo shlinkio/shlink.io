@@ -44,7 +44,7 @@
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
-    "@shlinkio/eslint-config-js-coding-standard": "~3.5.0",
+    "@shlinkio/eslint-config-js-coding-standard": "~3.6.0",
     "@stylistic/eslint-plugin": "^5.4.0",
     "@types/node": "^24.6.2",
     "@types/react": "^19.2.0",
