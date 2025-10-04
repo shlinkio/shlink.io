@@ -46,7 +46,7 @@
   "devDependencies": {
     "@shlinkio/eslint-config-js-coding-standard": "~3.5.0",
     "@stylistic/eslint-plugin": "^5.4.0",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.6.2",
     "@types/react": "^19.1.14",
     "@types/react-dom": "^19.1.9",
     "eslint": "^9.36.0",
