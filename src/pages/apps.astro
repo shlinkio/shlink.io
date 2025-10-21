@@ -14,7 +14,21 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="theme-bg-light pb-4 pt-4">
     <div class="container">
-      <ShlinkWebClientVideoSectionItem title="Shlink web client">
+      <ImgSectionItem title="Shlink Dashboard" src="/images/apps/shlink-dashboard.png">
+        <p>
+          The official UI for Shlink, with support for multiple users and servers, and a granular permission-based
+          system.
+        </p>
+        <p>
+          Each user can manage their own servers, or you can make an admin provide a predefined list for them.
+        </p>
+        <p>
+          It&apos;s a <ExternalLink href="https://github.com/shlinkio/shlink-dashboard">self-host</ExternalLink>
+          application with its own backend, which secures communications with your Shlink instances.
+        </p>
+      </ImgSectionItem>
+
+      <ShlinkWebClientVideoSectionItem title="Shlink Web Client" reverse={true}>
         <p>
           Manage any number of Shlink servers with this
           <Indivisible>React-based</Indivisible>
@@ -33,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </ShlinkWebClientVideoSectionItem>
 
-      <ImgSectionItem reverse={true} title="PSShlink" src="/images/apps/psshlink-powershell.png">
+      <ImgSectionItem title="PSShlink" src="/images/apps/psshlink-powershell.png">
         <p>
           Manage your Shlink instance from the command line with this PowerShell module,
           by
@@ -53,7 +67,7 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </ImgSectionItem>
 
-      <ImgSectionItem title="Smol Links" src="/images/apps/smol-links.jpg">
+      <ImgSectionItem title="Smol Links" src="/images/apps/smol-links.jpg" reverse={true}>
         <p>
           Smol Links is a WordPress plugin that will not only provide a dashboard to manage your short URLs, but
           also allow you to generate short URLs for your pages and posts on the fly.
