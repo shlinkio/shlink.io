@@ -1,0 +1,32 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Serve Shlink using FrankenPHP
+
+Starting with v4.6.0, it is possible to use [FrankenPHP](https://frankenphp.dev/) to serve Shlink, using its [worker mode](https://frankenphp.dev/docs/worker/).
+
+### Installing FrankenPHP binary
+
+The first thing you need to do is getting the [official binary](https://frankenphp.dev/docs/#standalone-binary):
+
+```shell
+curl https://frankenphp.dev/install.sh | sh
+mv frankenphp /usr/local/bin/
+```
+
+### Running Shlink with FrankenPHP
+
+Now, you can run the following command:
+
+```shell
+frankenphp php-server --worker /path/to/shlink/bin/frankenphp-worker.php
+```
+
+Where `/path/to/shlink` is the directory where you downloaded Shlink. The `frankenphp-worker.php` script is provided by Shlink.
+
+FrankenPHP supports many other configuration options. Take a look at [their documentation](https://frankenphp.dev/docs/config/) to customize it for your needs.

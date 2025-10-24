@@ -27,6 +27,14 @@ This makes it the current **officially recommended runtime**.
 
 Follow [the documentation](/documentation/supported-runtimes/serve-with-roadrunner) in order to know how to get it up and running.
 
+### FrankenPHP
+
+Similarly to RoadRunner, [FrankenPHP](https://frankenphp.dev/) is also a PHP application server written in go, with support for worker mode.
+
+It also has a very good performance, but as opposed to RoadRunner, background tasks are not supported with this runtime.
+
+Follow [the documentation](/documentation/supported-runtimes/serve-with-franken-php) in order to know how to install it and serve Shlink with it.
+
 #### Classic web server
 
 This is the way traditionally PHP apps have been served.
@@ -41,12 +49,12 @@ Follow [the documentation](/documentation/supported-runtimes/classic-web-server)
 
 Now that you know the options, follow this table in order to decide what's the best one for you and how to install it.
 
-|                                                                              | <img src="/images/logos/roadrunner.png" width="25" className="d-inline me-1" /> RoadRunner | Classic web server                                           |
-|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| **Performance**                                                              | <span className="text-success">90</span>                                                   | <span className="text-danger">30</span>                      |
-| **Stability under heavy load**                                               | <span className="text-success">100</span>                                                  | <span className="text-warning">70</span>                     |
-| **Hard to install**                                                          | <span className="text-success">Easy</span>                                                 | Medium                                                       |
-| **[Reverse proxy](/documentation/advanced/exposing-through-reverse-proxy/)** | Recommended                                                                                | <span className="text-success">Not needed</span>             |
-| **HTTPS support**                                                            | Via reverse proxy                                                                          | Yes                                                          |
-| **[Real-time updates](/documentation/advanced/real-time-updates/)**          | <FontAwesomeIcon icon={faCheck} className="text-success" /> <RTULimitationTooltip />       | <FontAwesomeIcon icon={faXmark} className="text-danger" />   |
-| **GeoLite2 updates**                                                         | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | Via [long-running tasks](/documentation/long-running-tasks/) |
+|                                                                              | <img src="/images/logos/roadrunner.png" width="25" className="d-inline me-1" /> RoadRunner | FrankenPHP                                                 | Classic web server                                           |
+|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------- |------------------------------------------------------------|--------------------------------------------------------------|
+| **Performance**                                                              | <span className="text-success">90</span>                                                   | <span className="text-success">80</span>                   | <span className="text-danger">30</span>                      |
+| **Stability under heavy load**                                               | <span className="text-success">100</span>                                                  | <span className="text-success">100</span>                  | <span className="text-warning">70</span>                     |
+| **Hard to install**                                                          | <span className="text-success">Easy</span>                                                 | <span className="text-success">Easy</span>                 | Medium                                                       |
+| **[Reverse proxy](/documentation/advanced/exposing-through-reverse-proxy/)** | Recommended                                                                                | <span className="text-success">Not needed</span>           | <span className="text-success">Not needed</span>             |
+| **HTTPS support**                                                            | Via reverse proxy                                                                          | <span className="text-success">Built-in</span>             | Yes                                                          |
+| **[Real-time updates](/documentation/advanced/real-time-updates/)**          | <FontAwesomeIcon icon={faCheck} className="text-success" /> <RTULimitationTooltip />       | <FontAwesomeIcon icon={faXmark} className="text-danger" /> | <FontAwesomeIcon icon={faXmark} className="text-danger" />   |
+| **GeoLite2 updates**                                                         | <FontAwesomeIcon icon={faCheck} className="text-success" />                                | Via [long-running tasks](/documentation/long-running-tasks/)                              | Via [long-running tasks](/documentation/long-running-tasks/)                                |

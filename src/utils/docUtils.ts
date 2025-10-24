@@ -31,7 +31,8 @@ const docsRoutes: Route[] = [
         text: 'Supported runtimes',
         link: '/documentation/supported-runtimes',
         subRoutes: [
-          { text: 'Serve with RoadRunner', link: '/documentation/supported-runtimes/serve-with-roadrunner' },
+          { text: 'RoadRunner', link: '/documentation/supported-runtimes/serve-with-roadrunner' },
+          { text: 'FrankenPHP', link: '/documentation/supported-runtimes/serve-with-franken-php' },
           { text: 'Classic web server', link: '/documentation/supported-runtimes/classic-web-server' },
         ],
       },
