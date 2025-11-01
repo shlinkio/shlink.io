@@ -30,7 +30,8 @@ Usage:
 
 Options:
   -h, --help            Display help for the given command. When no command is given display help for the list command
-  -q, --quiet           Do not output any message
+      --silent          Do not output any message
+  -q, --quiet           Only errors are displayed. All other output is suppressed
   -V, --version         Display this application version
       --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
   -n, --no-interaction  Do not ask any interactive question
@@ -41,8 +42,10 @@ Available commands:
   help                            Display help for a command
   list                            List commands
  api-key
+  api-key:delete                  Deletes an API key by name
   api-key:disable                 Disables an API key by name or plain-text key (providing a plain-text key is DEPRECATED)
   api-key:generate                Generate a new valid API key.
+  api-key:initial                 Tries to create initial API key
   api-key:list                    Lists all the available API keys.
   api-key:rename                  Renames an API key by name
  domain
