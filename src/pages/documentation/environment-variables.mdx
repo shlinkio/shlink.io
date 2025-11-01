@@ -131,8 +131,8 @@ Strikethrough env vars are deprecated.
 
 * `REDIS_SERVERS`: A comma-separated list of redis servers which Shlink uses for shared locks, cache, and optionally real-time updates through pub/sub (make sure to include the port number and credentials for every server).
 * `REDIS_SENTINEL_SERVICE`: The name of the sentinel service if you want to use redis sentinel. If this value is provided, the servers provided in `REDIS_SERVERS` will be considered sentinel instances.
-* `REDIS_SERVERS_USER`: The user credential for redis server/s. Ignored when not using `REDIS_SENTINEL_SERVICE`.
-* `REDIS_SERVERS_PASSWORD`: The password credential for redis server/s. Ignored when not using `REDIS_SENTINEL_SERVICE`.
+* `REDIS_SERVERS_USER` *(v4.6.0)* : The user credential for redis server/s. Ignored when not using `REDIS_SENTINEL_SERVICE`.
+* `REDIS_SERVERS_PASSWORD` *(v4.6.0)* : The password credential for redis server/s. Ignored when not using `REDIS_SENTINEL_SERVICE`.
 * `REDIS_PUB_SUB_ENABLED`: Tells if the configured redis instance/cluster should also be used to publish real-time updates via redis pub/sub. Defaults to `false`.
 
 #### Mercure hub integration
