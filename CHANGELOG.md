@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [7.26.0] - 2025-11-01
 ### Added
 * Document support for FrankenPHP as a runtime.
+* Document other Shlink 4.6 features.
 
 ### Changed
 * *Nothing*
