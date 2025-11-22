@@ -59,7 +59,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "purgecss": "^7.0.2",
-    "sass": "^1.94.0",
+    "sass": "^1.94.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.4"
   }
