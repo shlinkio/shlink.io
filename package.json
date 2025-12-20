@@ -61,6 +61,6 @@
     "purgecss": "^7.0.2",
     "sass": "^1.96.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.49.0"
+    "typescript-eslint": "^8.50.0"
   }
 }
