@@ -1,0 +1,37 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { markdownComponents } from '../../../utils/markdownUtils';
+
+export const components = markdownComponents
+
+## Shlink iOS shortcut
+
+Create an iOS shortcut to generate short URLs with your Shlink instance, from [ycy-0510](https://github.com/ycy-0510).
+
+### Installation
+
+1. Using an iOS device, go to https://shlink-shortcut.ycydev.org/, and click on "Get Shortcut".
+2. Add the shortcut to your iPhone.
+  ![Add shortcut](/images/integrations/ios-shortcut-add-shortcut.png)
+3. Configure your custom domain (make sure you **do not** include a trailing slash).
+  ![Set domain](/images/integrations/ios-shortcut-set-domain.png)
+4. Generate an API key and paste it here.
+  ![Set API key](/images/integrations/ios-shortcut-set-api-key.png)
+
+### Usage
+
+Share any link from iOS, then tap Short URL in the Share Sheet.
+
+![Generate short URL](/images/integrations/ios-shortcut-generate-url.png)
+
+You can optionally set a custom slug, or leave it empty to let Shlink generate a random one.
+
+![Custom slug](/images/integrations/ios-shortcut-custom-slug.png)
+
+Once the short URL has been generated, it will be copied to the clipboard and show a notification.
+
+Long-pressing the notification will display a QR code for the new link.
+
+![QR code](/images/integrations/ios-shortcut-qr-code.png)
