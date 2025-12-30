@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.27.0] - 2025-12-29
+### Added
+* Document integration with Shlink iOS shortcut https://shlink-shortcut.ycydev.org/.
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.26.0] - 2025-11-01
 ### Added
 * Document support for FrankenPHP as a runtime.
