@@ -1,4 +1,4 @@
-FROM node:25.2-alpine
+FROM node:25.3-alpine
 MAINTAINER Alejandro Celaya <alejandro@alejandrocelaya.com>
 
 # Install tini
