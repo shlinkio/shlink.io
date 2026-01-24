@@ -41,7 +41,7 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-external-link": "^2.6.1",
-    "typed.js": "^2.1.0"
+    "typed.js": "^3.0.0"
   },
   "devDependencies": {
     "@shlinkio/eslint-config-js-coding-standard": "~3.7.0",
