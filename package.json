@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@shlinkio/eslint-config-js-coding-standard": "~3.7.0",
-    "@stylistic/eslint-plugin": "^5.7.0",
+    "@stylistic/eslint-plugin": "^5.7.1",
     "@types/node": "^25.0.10",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
@@ -61,6 +61,6 @@
     "purgecss": "^7.0.2",
     "sass": "^1.97.3",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0"
+    "typescript-eslint": "^8.53.1"
   }
 }
