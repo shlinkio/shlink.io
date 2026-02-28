@@ -44,14 +44,14 @@
     "typed.js": "^3.0.0"
   },
   "devDependencies": {
-    "@shlinkio/eslint-config-js-coding-standard": "~3.7.0",
-    "@stylistic/eslint-plugin": "^5.7.1",
+    "@shlinkio/eslint-config-js-coding-standard": "~3.8.0",
+    "@stylistic/eslint-plugin": "^5.9.0",
     "@types/node": "^25.3.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/trusted-types": "^2.0.7",
-    "eslint": "^9.39.2",
-    "eslint-plugin-astro": "^1.5.0",
+    "eslint": "^10.0.2",
+    "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
@@ -61,6 +61,6 @@
     "purgecss": "^8.0.0",
     "sass": "^1.97.3",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript-eslint": "^8.56.1"
   }
 }
