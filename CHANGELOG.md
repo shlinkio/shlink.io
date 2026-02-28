@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.27.1] - 2026-02-28
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix link to `Kutt.it` project, which main domain has been revoked. New one is https://kutt.to.
+
+
 ## [7.27.0] - 2025-12-29
 ### Added
 * Document integration with Shlink iOS shortcut https://shlink-shortcut.ycydev.org/.
