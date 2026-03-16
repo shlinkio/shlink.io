@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.28.1] - 2026-03-16
+### Added
+* *Nothing*
+
+### Changed
+* *Nothing*
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix docker image build by downgrading build step to node 24
+
+
 ## [7.28.0] - 2026-03-16
 ### Added
 * Clarify docs around using redis/valkey credentials for redis and sentinels instances.
