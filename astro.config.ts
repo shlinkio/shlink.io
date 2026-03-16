@@ -17,7 +17,7 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           // Silence annoying sass deprecation warnings until we get rid of bootstrap
-          silenceDeprecations: ['mixed-decls', 'abs-percent', 'color-functions', 'global-builtin', 'import'],
+          silenceDeprecations: ['abs-percent', 'color-functions', 'global-builtin', 'import', 'if-function'],
         },
       },
     },

@@ -41,9 +41,10 @@ Shlink supports multiple shared cache server capabilities. They can be enabled b
 * **Cluster** ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/) / [Valkey](https://valkey.io/topics/cluster-tutorial/)), when providing multiple servers (for example, `tcp://one_redis_server:6379,tcp://another_redis_server:6379`).
 * **Sentinels** ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) / [Valkey](https://valkey.io/topics/sentinel/)), when providing multiple servers, together with a sentinel service name.
 * Database selection (since Shlink 4.2.1), by providing the database index in the URI path (for example, `tcp://my_redis_server:6379/5`).
-* Credentials, that can be provided as part of the server URIs:
+* Credentials, that can be provided as part of the server URIs (whether they are redis instances or sentinels):
     * ACL, with username and password ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) / [Valkey](https://valkey.io/topics/acl/)): `tcp://the_username:the_password@my_redis_server:6379`
     * Legacy, with just password ([Redis](https://redis.io/docs/latest/operate/oss_and_stack/management/security/) / [Valkey](https://valkey.io/topics/security/)): `tcp://:the_password@my_redis_server:6379`.
+    * Separately via config or env vars, when using sentinels and redis instances have their own auth.
 
 ### Providing configuration
 

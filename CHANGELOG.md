@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.28.0] - 2026-03-16
+### Added
+* Clarify docs around using redis/valkey credentials for redis and sentinels instances.
+
+### Changed
+* Update to Astro 6.0
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* *Nothing*
+
+
 ## [7.27.1] - 2026-02-28
 ### Added
 * *Nothing*
