@@ -24,7 +24,7 @@
     "@astrojs/mdx": "^5.0.2",
     "@astrojs/react": "^5.0.1",
     "@astrojs/sitemap": "^3.7.1",
-    "@docsearch/react": "^4.6.0",
+    "@docsearch/react": "^4.6.2",
     "@fortawesome/fontawesome-free": "^7.2.0",
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
