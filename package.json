@@ -37,7 +37,7 @@
     "astro-seo": "^1.1.0",
     "bootstrap": "^5.3.8",
     "clsx": "^2.1.1",
-    "mdx-mermaid": "^2.0.3",
+    "mdx-mermaid": "^2.0.4",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-external-link": "^2.7.0",
