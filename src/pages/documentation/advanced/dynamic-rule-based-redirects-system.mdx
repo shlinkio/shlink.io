@@ -18,34 +18,36 @@ Every rule can be composed of any number of conditions, but all of them need to 
 
 Currently, Shlink supports the next condition types:
 
-* **Language**: Checks the `Accept-Language` header in order to see if one specific language is accepted.
-* **Query param**: Verifies if the query string contains a specific query param with a specific value.
-* **Any value query param** *(since v4.5.0)* : Verifies if the query string contains a specific query param with any value or no value at all.
-* **Valueless query param** *(since v4.5.0)* : Verifies if the query string contains a specific query param with no value at all.
-* **Device**: Tries to match the visitor's device based on the `User-Agent` header. It can match:
-  * `Android`
-  * `iOS`
-  * `Mobile` *(since v4.5.0)* (matches the two above all at once)
-  * `Windows` *(since v4.5.0)*
-  * `Linux` *(since v4.5.0)*
-  * `MacOS` *(since v4.5.0)*
-  * `ChromeOS` *(since v4.5.0)*
-  * `Desktop` (matches the four above all at once)
-  <Callout type="info">
-    Device rules used to be handled separately, but they were migrated to the new rule system for consistency and flexibility.
-  </Callout>
-* **IP address** *(since v4.2.0)* : Allows to dynamically redirect based on the visitor's IP address, via exact match (`100.200.80.40`), CIDR block matching (`192.168.10.0/24`) or wildcard pattern matching (`11.22.*.*`).
-* **Geolocation: country code** *(since v4.3.0)* : Checks the visitor's [ISO 3166-1 alpha-2 two-letter](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code resolved via geolocation.
-* **Geolocation: city name** *(since v4.3.0)* : Checks the visitor's city name resolved via geolocation.
+- **Language**: Checks the `Accept-Language` header in order to see if one specific language is accepted.
+- **Query param**: Verifies if the query string contains a specific query param with a specific value.
+- **Any value query param** _(since v4.5.0)_ : Verifies if the query string contains a specific query param with any value or no value at all.
+- **Valueless query param** _(since v4.5.0)_ : Verifies if the query string contains a specific query param with no value at all.
+- **Device**: Tries to match the visitor's device based on the `User-Agent` header. It can match:
+  - `Android`
+  - `iOS`
+  - `Mobile` _(since v4.5.0)_ (matches the two above all at once)
+  - `Windows` _(since v4.5.0)_
+  - `Linux` _(since v4.5.0)_
+  - `MacOS` _(since v4.5.0)_
+  - `ChromeOS` _(since v4.5.0)_
+  - `Desktop` (matches the four above all at once)
+    <Callout type="info">
+      Device rules used to be handled separately, but they were migrated to the new rule system for consistency and
+      flexibility.
+    </Callout>
+- **IP address** _(since v4.2.0)_ : Allows to dynamically redirect based on the visitor's IP address, via exact match (`100.200.80.40`), CIDR block matching (`192.168.10.0/24`) or wildcard pattern matching (`11.22.*.*`).
+- **Geolocation: country code** _(since v4.3.0)_ : Checks the visitor's [ISO 3166-1 alpha-2 two-letter](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code resolved via geolocation.
+- **Geolocation: city name** _(since v4.3.0)_ : Checks the visitor's city name resolved via geolocation.
   <Callout type="warning">
-    Geolocation-based rules are prone to false positives/negatives (specially by city name), since geolocating a visitor based on their IP address is not perfect.
+    Geolocation-based rules are prone to false positives/negatives (specially by city name), since geolocating a visitor
+    based on their IP address is not perfect.
   </Callout>
 
 ### Handling redirect rules
 
 There are mainly two ways to manage dynamic redirect rules for a specific short URL:
 
-* The REST API, via [POST /short-urls/[shortCode]/redirect-rules](https://api-spec.shlink.io/?version=v4.0.0#/Redirect%20rules/setShortUrlRedirectRules) endpoint, which expects a body like this:
+- The REST API, via [POST /short-urls/[shortCode]/redirect-rules](https://api-spec.shlink.io/?version=v4.0.0#/Redirect%20rules/setShortUrlRedirectRules) endpoint, which expects a body like this:
   ```json
   {
     "redirectRules": [
@@ -92,7 +94,8 @@ There are mainly two ways to manage dynamic redirect rules for a specific short 
     ]
   }
   ```
-* The command line interface, via `short-code:manage-rules` command:
+- The command line interface, via `short-code:manage-rules` command:
+
   ```shell
   $ shlink short-url:manage-rules rmD8f
    ---------- ------------------- -----------------------------
@@ -112,14 +115,13 @@ There are mainly two ways to manage dynamic redirect rules for a specific short 
    >
   ```
 
-
 ### FAQs
 
-* **Can I use the same type of condition more than once in the same rule?**
+- **Can I use the same type of condition more than once in the same rule?**
 
   Yes. Of course, this does not always make sense, like a visitor will never be using an `Android` and `iOS` device at the same time, but you could check for more than one query param, or if more than one language is accepted.
 
-* **Can I make a rule match as soon as some of its conditions match?**
+- **Can I make a rule match as soon as some of its conditions match?**
 
   No. In order to match a rule, all its conditions need to positively match. There's no way to configure a partial match.
 
@@ -127,7 +129,7 @@ There are mainly two ways to manage dynamic redirect rules for a specific short 
 
   For example, if you want to redirect to `https://example.com/foo` when visitors are (`Android` AND `?foo=bar`) OR (`iOS` AND `?hello=world`), create one rule for the first two conditions, and another rule for the other two, and point both of them to `https://example.com/foo`.
 
-* **How granular is the language condition?**
+- **How granular is the language condition?**
 
   The Language condition allows for a lot of flexibility, as you can match full locales (in the form of `en_US` or `en-US`) but also language codes.
 
@@ -139,7 +141,7 @@ There are mainly two ways to manage dynamic redirect rules for a specific short 
 
   Finally, it's worth mentioning language matches are case-insensitive.
 
-* **My geolocation conditions do not work. What is wrong?**
+- **My geolocation conditions do not work. What is wrong?**
 
   Geolocation conditions will match based on the visitor's geolocation, so you need to make sure a [GeoLite2 license key](/documentation/geolite-license-key) was provided, and [tracking is not disabled](/documentation/tracking-visits#disable-tracking).
 

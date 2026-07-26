@@ -6,7 +6,7 @@ import { Callout } from '../../../components/Callout';
 import { Link } from '../../../components/Link';
 import { markdownComponents } from '../../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Import short URLs
 
@@ -32,19 +32,19 @@ The import command can be run as many times as you want, as Shlink is smart enou
 
 However, there's a couple considerations:
 
-* The process has been optimized as much as possible, trying to avoid memory leaks. However, it is recommended to [reserve at least 512Mb](https://www.php.net/manual/en/ini.core.php#ini.memory-limit) to PHP when running this process.
-* The import process is transactional and all-or-nothing. If there's an uncontrolled error, the import will be rolled-back.
-* In order to determine if a visit has already been imported, Shlink relies on their date, assuming you will usually import on top of an "empty" instance. If this is not the case, it could end up ignoring visits that are not actually imported yet, just because they are older than other existing visits.
+- The process has been optimized as much as possible, trying to avoid memory leaks. However, it is recommended to [reserve at least 512Mb](https://www.php.net/manual/en/ini.core.php#ini.memory-limit) to PHP when running this process.
+- The import process is transactional and all-or-nothing. If there's an uncontrolled error, the import will be rolled-back.
+- In order to determine if a visit has already been imported, Shlink relies on their date, assuming you will usually import on top of an "empty" instance. If this is not the case, it could end up ignoring visits that are not actually imported yet, just because they are older than other existing visits.
 
 #### Supported sources
 
 These are the sources from which you can currently import:
 
-* [Bitly](/documentation/advanced/import-short-urls#bitly) *(since Shlink v2.4.0)*
-* [YOURLS](/documentation/advanced/import-short-urls#yourls) *(since Shlink v2.10.0)*
-* [Standard CSV](/documentation/advanced/import-short-urls#standard-csv) *(since Shlink v2.6.0)*
-* [Shlink instance](/documentation/advanced/import-short-urls#shlink-instance) *(since Shlink v2.7.0)*
-* [Kutt.it](/documentation/advanced/import-short-urls#kuttit) *(since Shlink v3.1.0)*
+- [Bitly](/documentation/advanced/import-short-urls#bitly) _(since Shlink v2.4.0)_
+- [YOURLS](/documentation/advanced/import-short-urls#yourls) _(since Shlink v2.10.0)_
+- [Standard CSV](/documentation/advanced/import-short-urls#standard-csv) _(since Shlink v2.6.0)_
+- [Shlink instance](/documentation/advanced/import-short-urls#shlink-instance) _(since Shlink v2.7.0)_
+- [Kutt.it](/documentation/advanced/import-short-urls#kuttit) _(since Shlink v3.1.0)_
 
 ### Bitly
 
@@ -96,7 +96,9 @@ Shlink allows importing short URLs, and optionally visits, from a YOURLS instanc
 There's a couple of limitations on imported data, as YOURLS does not store by default visitors IP address or geoloaction.
 
 <Callout type="warning">
-  YOURLS' API does not expose enough actions for Shlink to fetch all data. Because of that, you first need to install the <code className="indivisible">yourls-shlink-import-plugin</code> in YOURLS itself. You can download it from <Link href="https://slnk.to/yourls-import">its repository</Link> and follow the instructions there.
+  YOURLS' API does not expose enough actions for Shlink to fetch all data. Because of that, you first need to install
+  the <code className="indivisible">yourls-shlink-import-plugin</code> in YOURLS itself. You can download it from{' '}
+  <Link href="https://slnk.to/yourls-import">its repository</Link> and follow the instructions there.
 </Callout>
 
 Running the command will generate an output similar to this:

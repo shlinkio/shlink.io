@@ -1,39 +1,39 @@
 .fake-browser-ui {
-    position: relative;
-    border-radius: 5px;
-    padding: 30px 5px 5px;
-    background-color: white;
-    border: 1px solid #e6e6e6;
+  position: relative;
+  border-radius: 5px;
+  padding: 30px 5px 5px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
 }
 
 .fake-browser-ui .frame {
-    display: block;
-    height: 15px;
-    position: absolute;
-    top: 10px;
-    left: 4px;
+  display: block;
+  height: 15px;
+  position: absolute;
+  top: 10px;
+  left: 4px;
 }
 
 .fake-browser-ui .frame span {
-    height: 10px;
-    width: 10px;
-    border-radius: 10px;
-    background-color: #eee;
-    float: left;
-    margin: 0 0 0 4px;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background-color: #eee;
+  float: left;
+  margin: 0 0 0 4px;
 }
 
 .fake-browser-ui .frame span.close {
-    background-color: #C23824;
+  background-color: #c23824;
 }
 .fake-browser-ui .frame span.minimize {
-    background-color: #F2C600;
+  background-color: #f2c600;
 }
 .fake-browser-ui .frame span.maximize {
-    background-color: #1AAF5D;
+  background-color: #1aaf5d;
 }
 
 .fake-browser-ui img {
-    border-radius: 0 0 2px 2px;
-    margin-top: 24px;
+  border-radius: 0 0 2px 2px;
+  margin-top: 24px;
 }

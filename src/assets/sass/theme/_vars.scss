@@ -1,6 +1,6 @@
 /*************************** Theme Colours****************************/
 // Define theme colour scheme
-$theme-color-primary: #2078CF;
+$theme-color-primary: #2078cf;
 //$theme-color-primary-dark-theme: #2985E0; // To eventually use with dark background
 
 $theme-text-color-primary: #252930;
@@ -11,30 +11,28 @@ $theme-bg-light: #f5f6fe;
 $theme-bg-dark: $theme-color-primary;
 $theme-bg-color: $theme-color-primary;
 
-$theme-border-color:  #efefef;
+$theme-border-color: #efefef;
 $theme-divider-color: #efefef;
 
 $theme-divider: lighten($theme-text-color-primary, 75%);
 
 $theme-color-new: #5ab66e;
-$theme-error: #EC575B;
+$theme-error: #ec575b;
 
 $smoky-white: #f5f5f5;
 $google-color: #d73d32;
 $facebook-color: #3b5998;
-$twitter-color: #1DA1F2;
-$github-color: #24282D;
+$twitter-color: #1da1f2;
+$github-color: #24282d;
 $producthunt-color: #da552f;
 $wordpress-color: #028cb0;
 
 $single-col-max: 800px;
 
 $theme-success-color: #5cb377;
-$theme-warning-color: #EEBF41;
+$theme-warning-color: #eebf41;
 $theme-info-color: #5b99ea;
 $theme-danger-color: #d26d69;
-
-
 
 /*************************** Variables Section. *****************************/
 // Create variables to override the default value for variables used in the Bootstrap SCSS files.
@@ -50,10 +48,10 @@ $gray-800: lighten($theme-text-color-secondary, 10%);
 $gray-900: $theme-text-color-primary;
 
 $theme-colors: (
-  "primary":  $theme-color-primary,
-  "secondary": $theme-text-color-secondary,
-  "success": $theme-success-color,
-  "danger": $theme-danger-color,
-  "warning": $theme-warning-color,
-  "info": $theme-info-color,
+  'primary': $theme-color-primary,
+  'secondary': $theme-text-color-secondary,
+  'success': $theme-success-color,
+  'danger': $theme-danger-color,
+  'warning': $theme-warning-color,
+  'info': $theme-info-color,
 );

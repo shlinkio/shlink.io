@@ -10,10 +10,10 @@ interface ImgSectionItemProps extends Omit<SectionItemProps, 'block'> {
 export const ImgSectionItem: FC<ImgSectionItemProps> = ({ src, ...rest }) => (
   <SectionItem
     {...rest}
-    block={(
+    block={
       <FakeBrowser>
         <img alt={rest.title} src={src} className="m-0 w-100" />
       </FakeBrowser>
-    )}
+    }
   />
 );

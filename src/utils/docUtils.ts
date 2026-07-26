@@ -103,7 +103,10 @@ const docsRoutes: Route[] = [
       { text: 'GNOME Shell extension', link: '/documentation/integrations/gnome-shell-extension' },
       { text: 'Microsoft PowerToys Run', link: '/documentation/integrations/microsoft-power-toys-run' },
       { text: 'Shlink iOS shortcut', link: '/documentation/integrations/shlink-ios-shortcut' },
-      { text: 'Dropshare/Shortshare', link: 'https://support.dropshare.app/hc/en-us/articles/23560649959826-How-to-set-up-Shlink-as-URL-shortener' },
+      {
+        text: 'Dropshare/Shortshare',
+        link: 'https://support.dropshare.app/hc/en-us/articles/23560649959826-How-to-set-up-Shlink-as-URL-shortener',
+      },
     ],
   },
   {

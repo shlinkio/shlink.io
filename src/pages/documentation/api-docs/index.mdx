@@ -5,7 +5,7 @@ layout: ../../../layouts/DocsLayout.astro
 import { DocsTableOfContents } from '../../../components/DocsTableOfContents.js';
 import { markdownComponents } from '../../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 Shlink provides a REST API that can be used to integrate the short URLs management on any consuming system or application.
 
@@ -31,11 +31,11 @@ Starting with Shlink v2.5.2, the `Access-Control-Allow-Origin` header will be re
 
 The API tries to be consistent on how dates are handled and exchanged, but these are some basic guidelines:
 
-* All returned dates will have the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format with offset from UTC (for example, `2020-01-23T05:16:00+02:00`).
-* Any endpoint accepting dates will also expect the same format, usually resulting in `400 Bad Request` response when this is not fulfilled.
-* Shlink also assumes all persisted dates (from visits, short URL creation, etc) belong to the timezone in which Shlink is configured.
-* Any input date will be converted to the timezone in which Shlink is configured, before using it to query data.
-  * For example, if Shlink is configured in `America/Los_Angeles`, and the date `2020-01-23T05:16:00+02:00` is provided as part of the input for any endpoint, Shlink will first cast it to `2020-01-22T19:16:00-08:00`.
+- All returned dates will have the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format with offset from UTC (for example, `2020-01-23T05:16:00+02:00`).
+- Any endpoint accepting dates will also expect the same format, usually resulting in `400 Bad Request` response when this is not fulfilled.
+- Shlink also assumes all persisted dates (from visits, short URL creation, etc) belong to the timezone in which Shlink is configured.
+- Any input date will be converted to the timezone in which Shlink is configured, before using it to query data.
+  - For example, if Shlink is configured in `America/Los_Angeles`, and the date `2020-01-23T05:16:00+02:00` is provided as part of the input for any endpoint, Shlink will first cast it to `2020-01-22T19:16:00-08:00`.
 
 ### Request tracing
 

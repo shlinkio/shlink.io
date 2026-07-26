@@ -12,7 +12,9 @@ const buildTitleForTag = (Tag: string) => (props: PropsWithChildren<any>) => {
       {/* eslint-disable-next-line jsx-a11y/anchor-has-content,jsx-a11y/anchor-is-valid */}
       <a className="hidden-title-anchor" aria-hidden="true" id={link} />
       <a href={`#${link}`}>
-        <span className="anchor"><FontAwesomeIcon icon={faLink} /></span>
+        <span className="anchor">
+          <FontAwesomeIcon icon={faLink} />
+        </span>
         {children}
       </a>
     </Tag>

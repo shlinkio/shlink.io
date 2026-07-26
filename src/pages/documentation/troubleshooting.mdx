@@ -4,7 +4,7 @@ layout: ../../layouts/DocsLayout.astro
 
 import { markdownComponents } from '../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Troubleshooting
 
@@ -20,9 +20,9 @@ In order to do that, you can simply use the `vendor/bin/shlink-installer set-opt
 
 If that script fails, it could mean you are using a too old Shlink version. In that case, follow these steps:
 
-* Make a backup of the generated config file (`config/params/generated_config.php`).
-* Open that same file, locate the config option you want to change, and set the new value.
-* Delete the config cache file (`data/cache/app_config.php`). If the file does not exist, skip this step.
+- Make a backup of the generated config file (`config/params/generated_config.php`).
+- Open that same file, locate the config option you want to change, and set the new value.
+- Delete the config cache file (`data/cache/app_config.php`). If the file does not exist, skip this step.
 
 The generated config file is in PHP format, but it's a relatively straightforward options "map".
 
@@ -44,8 +44,8 @@ There are other projects which play better with shared hosting. Try googling "se
 
 That said, there are ways to get Shlink working.
 
-* Some shared hosting services provide SSH access to the document root's parent folder. If that's the case, upload Shlink there, and then rename the `public` folder to whatever name your service provider is using for the document root.
-* If you only have access to the document root, upload the project there, and then copy everything inside the `public` folder to the project's root.
+- Some shared hosting services provide SSH access to the document root's parent folder. If that's the case, upload Shlink there, and then rename the `public` folder to whatever name your service provider is using for the document root.
+- If you only have access to the document root, upload the project there, and then copy everything inside the `public` folder to the project's root.
   Sadly, this makes all other folders accessible. It's highly recommended that you deny access to them if you shared hosting provider allows it, for example, using `.htaccess` files.
 
 In any case, you will need to have some kind of shell access in order to run the [installation tool](/documentation/command-line-interface/installation-tool).
@@ -74,16 +74,16 @@ Sometimes, after setting up Shlink and verifying it works from the command line,
 
 In most of the cases, this is due to one of these other two issues:
 
-* [Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present](/documentation/troubleshooting/#response-to-preflight-request-doesnt-pass-access-control-check-no-access-control-allow-origin-header-is-present)
-* [I see "Mixed Content" errors in the browser's console](/documentation/troubleshooting/#i-see-mixed-content-errors-in-the-browsers-console)
+- [Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present](/documentation/troubleshooting/#response-to-preflight-request-doesnt-pass-access-control-check-no-access-control-allow-origin-header-is-present)
+- [I see "Mixed Content" errors in the browser's console](/documentation/troubleshooting/#i-see-mixed-content-errors-in-the-browsers-console)
 
 In order to find out which is the actual root cause, you will have to open the browser's developer console, which will most probably display one of the errors above.
 
 These are the instructions to open it on the most popular web browsers:
 
-* [Google Chrome](https://developer.chrome.com/docs/devtools/open/#console)
-* [Mozilla Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools#the_javascript_console)
-* [Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/open/?tabs=cmd-Windows#open-the-console-panel)
+- [Google Chrome](https://developer.chrome.com/docs/devtools/open/#console)
+- [Mozilla Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools#the_javascript_console)
+- [Microsoft Edge](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/open/?tabs=cmd-Windows#open-the-console-panel)
 
 ### Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present
 
@@ -107,7 +107,7 @@ It is highly recommended that you serve Shlink with `https` to solve this proble
 
 ### Short URLs work, but I can't consume Shlink from shlink-web-client
 
-*See [Shlink cannot be accessed from shlink-web-client or other web clients](/documentation/troubleshooting/#shlink-cannot-be-accessed-from-shlink-web-client-or-other-web-clients)*
+_See [Shlink cannot be accessed from shlink-web-client or other web clients](/documentation/troubleshooting/#shlink-cannot-be-accessed-from-shlink-web-client-or-other-web-clients)_
 
 ### URLs on non-default domains result in 404 errors
 
@@ -123,8 +123,8 @@ You can also get detailed info on how to [expose Shlink through a reverse proxy]
 
 There are two main reasons for the visits to never get located:
 
-* You are serving Shlink with a classic web server (like nginx or apache) and didn't [schedule the task](/documentation/long-running-tasks/#locate-visits) that processes the visits.
-* You didn't provide your own GeoLite2 license key.
+- You are serving Shlink with a classic web server (like nginx or apache) and didn't [schedule the task](/documentation/long-running-tasks/#locate-visits) that processes the visits.
+- You didn't provide your own GeoLite2 license key.
 
 When the second happens, Shlink falls back to the default license key. The problem is that this key is used by too many people, and the daily download limit is always hit.
 

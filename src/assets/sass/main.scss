@@ -1,12 +1,12 @@
-@import "bootstrap/scss/bootstrap.scss";
-@import "@docsearch/css";
-@import "theme/theme";
-@import "./components/Breadcrumb.scss";
-@import "./components/DocsSearch.scss";
-@import "./components/FakeBrowser.scss";
-@import "./components/InlineVideo.scss";
-@import "./components/Jumbotron.scss";
-@import "./components/Terminal.scss";
+@import 'bootstrap/scss/bootstrap.scss';
+@import '@docsearch/css';
+@import 'theme/theme';
+@import './components/Breadcrumb.scss';
+@import './components/DocsSearch.scss';
+@import './components/FakeBrowser.scss';
+@import './components/InlineVideo.scss';
+@import './components/Jumbotron.scss';
+@import './components/Terminal.scss';
 
 .DocSearch-Container {
   z-index: 1031;
@@ -31,7 +31,7 @@
   font-size: inherit;
   height: 1em;
   overflow: visible;
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
 }
 
 .svg-inline--fa.fa-w-16 {
@@ -43,11 +43,13 @@
     word-break: break-word;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     margin-bottom: 2rem;
   }
 
-  h3, h4:not(.callout-title) {
+  h3,
+  h4:not(.callout-title) {
     margin: 1.5rem 0 1rem;
   }
 
@@ -62,22 +64,24 @@
     display: block;
   }
 
-  blockquote strong, a strong {
+  blockquote strong,
+  a strong {
     color: inherit;
   }
 
   li .callout-block {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
-  .mermaid, [id^=mermaid] {
+  .mermaid,
+  [id^='mermaid'] {
     display: block;
     margin: 0 auto 1rem;
 
     .actor {
-      fill: #1D75CD !important;
-      stroke: #2078CF !important;
+      fill: #1d75cd !important;
+      stroke: #2078cf !important;
 
       > tspan {
         fill: #fff !important;
@@ -94,7 +98,12 @@
 .docs-content {
   padding-bottom: 0;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     a {
       color: inherit;
       text-decoration: none;
@@ -111,10 +120,12 @@
     font-size: 1.2rem;
     margin-left: -1.7rem;
     vertical-align: middle;
-    padding-right: .2rem;
+    padding-right: 0.2rem;
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     .anchor {
       font-size: 1.1rem;
       margin-left: -1.6rem;
@@ -187,7 +198,7 @@
   @include transform(translateX(0));
   display: block;
 
-  @media (max-width: 1199px){
+  @media (max-width: 1199px) {
     @include transform(translateX(-($docs-sidebar-size + 10px)));
     display: block;
   }
@@ -197,7 +208,7 @@
   height: calc(100vh - 145px);
 
   /* Forefox scrollbar */
-  scrollbar-color: rgba(0, 0, 0, 0.2) $smoky-white;;
+  scrollbar-color: rgba(0, 0, 0, 0.2) $smoky-white;
   scrollbar-width: thin;
 
   /* Chrome webkit scrollbar */
@@ -213,7 +224,7 @@
 }
 
 .astro-code {
-  padding: .7em;
+  padding: 0.7em;
   border-radius: 0.25rem;
 }
 
@@ -224,9 +235,9 @@
 }
 
 blockquote {
-  padding: .7rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   margin: 0 0 20px;
-  border-left: .3rem solid #eee;
+  border-left: 0.3rem solid #eee;
   background-color: #f9f9f9;
   color: #848d96;
 }

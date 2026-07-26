@@ -12,3 +12,4 @@ jobs:
     with:
       node-version: 24.x
       with-unit-tests: false
+      cs-script: true

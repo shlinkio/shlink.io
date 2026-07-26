@@ -5,7 +5,7 @@ layout: ../../layouts/DocsLayout.astro
 import { Callout } from '../../components/Callout';
 import { markdownComponents } from '../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Some features
 
@@ -13,18 +13,18 @@ Here you'll find some extra Shlink features, which are not as evident, but you m
 
 This document also tries to clarify why some of these features work the way they do.
 
-* [Short URL title](#short-url-title)
-* [Query params forwarding](#query-params-forwarding)
-* [Extra path forwarding](#extra-path-forwarding)
-* [Multi-segment custom slugs](#multi-segment-custom-slugs)
-* [Short URLs trailing slash](#short-urls-trailing-slash)
-* [Short URLs mode](#short-urls-mode)
-* [Bot detection](#bot-detection)
-* [Remove expired links](#remove-expired-links)
-* [Email tracking](#email-tracking)
-* [Service healthiness](#service-healthiness)
-* [Device-specific redirects](#device-specific-redirects)
-* [QR Codes](#qr-codes)
+- [Short URL title](#short-url-title)
+- [Query params forwarding](#query-params-forwarding)
+- [Extra path forwarding](#extra-path-forwarding)
+- [Multi-segment custom slugs](#multi-segment-custom-slugs)
+- [Short URLs trailing slash](#short-urls-trailing-slash)
+- [Short URLs mode](#short-urls-mode)
+- [Bot detection](#bot-detection)
+- [Remove expired links](#remove-expired-links)
+- [Email tracking](#email-tracking)
+- [Service healthiness](#service-healthiness)
+- [Device-specific redirects](#device-specific-redirects)
+- [QR Codes](#qr-codes)
 
 ### Short URL title
 
@@ -45,7 +45,8 @@ If for any reason the long URL already had query params, they will be merged wit
 For example, if `https://exam.ple/abc123` points to `https://www.google.com?foo=bar`, when users visit `https://exam.ple/abc123?foo=overwritten&another=param`, they will get redirected to `https://www.google.com?foo=overwritten&another=param`.
 
 <Callout type="info">
-  Starting with Shlink v2.9.0, this behavior can be overwritten on every individual short URL, allowing to disable the query params forwarding if desired.
+  Starting with Shlink v2.9.0, this behavior can be overwritten on every individual short URL, allowing to disable the
+  query params forwarding if desired.
 </Callout>
 
 ### Extra path forwarding
@@ -68,9 +69,9 @@ That means that you can provide multiple parts separated by slashes as the custo
 
 This feature has some considerations though:
 
-* When this is enabled, any URL will match a potential short URL. That means any future orphan visit will have either `base_url` or `invalid_short_url` types, but never `regular_404`.
-* Because of previous point, this is considered a breaking change, and therefore, it's disabled by default, and you have to actively opt in.
-* If [Extra path forwarding](#extra-path-forwarding) is also enabled, there's always a chance of conflict. If you have both `https://exam.ple/foo` and `https://exam.ple/foo/bar`, when the second one is visited, it will match the first one, and the `/bar` part will be forwarded to the long URL.
+- When this is enabled, any URL will match a potential short URL. That means any future orphan visit will have either `base_url` or `invalid_short_url` types, but never `regular_404`.
+- Because of previous point, this is considered a breaking change, and therefore, it's disabled by default, and you have to actively opt in.
+- If [Extra path forwarding](#extra-path-forwarding) is also enabled, there's always a chance of conflict. If you have both `https://exam.ple/foo` and `https://exam.ple/foo/bar`, when the second one is visited, it will match the first one, and the `/bar` part will be forwarded to the long URL.
 
 ### Short URLs trailing slash
 
@@ -82,9 +83,9 @@ In older versions of Shlink or when this is not enabled, visiting a short URL wi
 
 If you want to support trailing slashes in any route known by Shlink and not only short URLs, you can configure the web server in front of Shlink to strip trailing slashes before calling it:
 
-* Nginx: https://ubiq.co/tech-blog/remove-trailing-slash-in-nginx/
-* Apache: https://ubiq.co/tech-blog/how-to-remove-trailing-slash-in-apache/
-* Caddy: https://caddy.community/t/efficient-remove-trailing-slash-redirect/3289
+- Nginx: https://ubiq.co/tech-blog/remove-trailing-slash-in-nginx/
+- Apache: https://ubiq.co/tech-blog/how-to-remove-trailing-slash-in-apache/
+- Caddy: https://caddy.community/t/efficient-remove-trailing-slash-redirect/3289
 
 ### Short URLs mode
 
@@ -99,11 +100,11 @@ This is achieved via the so called `loose` short URL mode (the mode can be set v
 <Callout type="warning">
   Setting `loose` mode has a couple of considerations:
 
-  * Shlink will no longer generate short codes with uppercase letters. Only lowercase and numbers will be taken into consideration.
-  * When providing a custom slug, Shlink will lowercase it, so if there's a URL with `aaabbb` and `AaaBbb` is provided, it will throw an error saying it already exists.
-  * On existing Shlink instances, already existing short URLs will not be changed in any way. If "conflicting" URLs already exist, they have to be fixed manually.
-  * Loose checks are done only for "public" URLs (short URLs, QR codes and email tracking). REST API endpoints do strict matches no matter what.
-</Callout>
+- Shlink will no longer generate short codes with uppercase letters. Only lowercase and numbers will be taken into consideration.
+- When providing a custom slug, Shlink will lowercase it, so if there's a URL with `aaabbb` and `AaaBbb` is provided, it will throw an error saying it already exists.
+- On existing Shlink instances, already existing short URLs will not be changed in any way. If "conflicting" URLs already exist, they have to be fixed manually.
+- Loose checks are done only for "public" URLs (short URLs, QR codes and email tracking). REST API endpoints do strict matches no matter what.
+  </Callout>
 
 ### Bot detection
 
@@ -152,26 +153,28 @@ Shlink v4.0.0 has moved this into a new [dynamic rule-based redirects system](/d
 Shlink comes with built-in support to generate QR codes for any short URL.
 
 <Callout type="warning">
-  Starting with Shlink 4.5.0, generating QR codes through Shlink is considered deprecated. See [this issue](https://github.com/shlinkio/shlink/issues/2408) for details.
+  Starting with Shlink 4.5.0, generating QR codes through Shlink is considered deprecated. See [this
+  issue](https://github.com/shlinkio/shlink/issues/2408) for details.
 </Callout>
 
 Getting a QR code URL is as simple as appending `/qr-code` to any short URL. So if your short URL is `https://exam.ple/abc123`, the URL which returns the binary QR code image is `https://exam.ple/abc123/qr-code`.
 
 The image's default appearance can be customized via [installation tool](/documentation/command-line-interface/installation-tool) or [env vars](/documentation/environment-variables#qr-codes), but it can also be customized on the fly via query params:
 
-* `size`: It determines the width/height in pixels. Default value is 300 and accepts values from 50 to 1000.
-* `margin` *(since v2.6.0)* : The space in pixels between the QR code itself and the border of the image. Default value is 0 and accepts positive numbers.
-* `format` *(since v2.4.0)* : Can be `png` or `svg`. Default values is `png`.
-* `errorCorrection` *(since v2.8.0)* : Can be `L` (Low), `M` (Medium), `Q` (Quartile) or `H` (High). Default value is `L`. [Learn more](https://www.qrcode.com/en/about/error_correction.html).
-* `roundBlockSize` *(since v2.10.0)* : Can be `true` or `false`. Tells if the block size should be rounded, making the QR code more readable, but potentially adding some extra margin as a side effect.
-* `color` *(since v4.0.0)* : Foreground color in hexadecimal, with 3 or 6 characters. Default value is `black` if not provided or provided value is not a color.
-* `bgColor` *(since v4.0.0)* : Background color in hexadecimal, with 3 or 6 characters. Default value is `white` if not provided or provided value is not a color.
+- `size`: It determines the width/height in pixels. Default value is 300 and accepts values from 50 to 1000.
+- `margin` _(since v2.6.0)_ : The space in pixels between the QR code itself and the border of the image. Default value is 0 and accepts positive numbers.
+- `format` _(since v2.4.0)_ : Can be `png` or `svg`. Default values is `png`.
+- `errorCorrection` _(since v2.8.0)_ : Can be `L` (Low), `M` (Medium), `Q` (Quartile) or `H` (High). Default value is `L`. [Learn more](https://www.qrcode.com/en/about/error_correction.html).
+- `roundBlockSize` _(since v2.10.0)_ : Can be `true` or `false`. Tells if the block size should be rounded, making the QR code more readable, but potentially adding some extra margin as a side effect.
+- `color` _(since v4.0.0)_ : Foreground color in hexadecimal, with 3 or 6 characters. Default value is `black` if not provided or provided value is not a color.
+- `bgColor` _(since v4.0.0)_ : Background color in hexadecimal, with 3 or 6 characters. Default value is `white` if not provided or provided value is not a color.
 
 For example `https://exam.ple/abc123/qr-code?size=500&format=svg&margin=20&errorCorrection=Q&roundBlockSize=false`.
 
 See the ["endpoint" docs](https://api-spec.shlink.io/#/URL%20Shortener/shortUrlQrCode) for more information.
 
 <Callout type="warning" title="Considerations">
-  * The total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the margin is 20, the resulting image will be 540x540 pixels.
-  * The logo cannot be customized via query params, to avoid public QR codes from being unintentionally associated with certain images.
+  * The total size of the image will be determined by the size + the margin times two. So, if the size is 500 and the
+  margin is 20, the resulting image will be 540x540 pixels. * The logo cannot be customized via query params, to avoid
+  public QR codes from being unintentionally associated with certain images.
 </Callout>

@@ -19,7 +19,11 @@ type MenuItemProps = PropsWithChildren<{
 const MenuItem: FC<MenuItemProps> = ({ active, link, children, icon, isOpen, onChevronClick }) => (
   <li className={clsx('nav-item', { 'section-title': icon })}>
     <Link className={clsx('nav-link', { active })} href={link}>
-      {icon && <span className="theme-icon-holder me-2"><FontAwesomeIcon icon={icon} /></span>}
+      {icon && (
+        <span className="theme-icon-holder me-2">
+          <FontAwesomeIcon icon={icon} />
+        </span>
+      )}
       {children}
       {link.startsWith('http') && <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ms-2" />}
     </Link>
@@ -38,16 +42,18 @@ const isCurrentSection = (currentPage: string, route: Route): boolean => {
   return currentPage === link || subRoutes.some((subRoute) => isCurrentSection(currentPage, subRoute));
 };
 
-const SubSection: FC<{ subRoute: Route; currentPage: string; extraPadding?: boolean }> = (
-  { subRoute, currentPage, extraPadding = false },
-) => (
+const SubSection: FC<{ subRoute: Route; currentPage: string; extraPadding?: boolean }> = ({
+  subRoute,
+  currentPage,
+  extraPadding = false,
+}) => (
   <MenuItem link={subRoute.link} active={currentPage === subRoute.link}>
     {extraPadding && <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}
     {subRoute.text}
   </MenuItem>
 );
 
-const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPage }) => {
+const Section: FC<{ route: Route; currentPage: string }> = ({ route, currentPage }) => {
   const { text, link, menuIcon, subRoutes = [] } = route;
   const [isOpen, setOpen] = useState(isCurrentSection(currentPage, route));
   const parent = (
@@ -65,14 +71,20 @@ const Section: FC<{ route: Route; currentPage: string; }> = ({ route, currentPag
   return (
     <>
       {parent}
-      {isOpen && subRoutes.map((subRoute) => (
-        <Fragment key={subRoute.text}>
-          <SubSection subRoute={subRoute} currentPage={currentPage} />
-          {subRoute.subRoutes?.map((subSubRoute) => (
-            <SubSection key={`sub${subSubRoute.text}`} subRoute={subSubRoute} currentPage={currentPage} extraPadding />
-          ))}
-        </Fragment>
-      ))}
+      {isOpen &&
+        subRoutes.map((subRoute) => (
+          <Fragment key={subRoute.text}>
+            <SubSection subRoute={subRoute} currentPage={currentPage} />
+            {subRoute.subRoutes?.map((subSubRoute) => (
+              <SubSection
+                key={`sub${subSubRoute.text}`}
+                subRoute={subSubRoute}
+                currentPage={currentPage}
+                extraPadding
+              />
+            ))}
+          </Fragment>
+        ))}
     </>
   );
 };
@@ -86,8 +98,9 @@ export const DocsMenu: FC<DocsMenuProps> = ({ currentPage }) => {
   return (
     <nav className="docs-nav navbar align-items-start">
       <ul className="section-items list-unstyled nav flex-column pb-3">
-        {menuItems.map((route) =>
-          <Section key={`${route.link}_${path}`} route={route} currentPage={path} />)}
+        {menuItems.map((route) => (
+          <Section key={`${route.link}_${path}`} route={route} currentPage={path} />
+        ))}
       </ul>
     </nav>
   );

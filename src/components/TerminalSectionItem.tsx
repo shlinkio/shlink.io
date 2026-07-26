@@ -7,8 +7,5 @@ import { Terminal } from './Terminal';
 export type TerminalSectionItemProps = Omit<SectionItemProps, 'block'> & TerminalProps;
 
 export const TerminalSectionItem: FC<TerminalSectionItemProps> = ({ id, ...rest }) => (
-  <SectionItem
-    {...rest}
-    block={<Terminal id={id} />}
-  />
+  <SectionItem {...rest} block={<Terminal id={id} />} />
 );

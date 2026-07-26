@@ -4,15 +4,18 @@ layout: ../../../layouts/DocsLayout.astro
 
 import { markdownComponents } from '../../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 import { Callout } from '../../../components/Callout';
 
 ## Pre-configuring servers
 
 <Callout type="warning" title="Be extremely careful when using this feature">
-  Due to shlink-web-client's client-side nature, the file needs to be accessible from the browser.<br />
-  Because of that, make sure you use this only when you self-host shlink-web-client, and you know only trusted people will have access to it.<br />
+  Due to shlink-web-client's client-side nature, the file needs to be accessible from the browser.
+  <br />
+  Because of that, make sure you use this only when you self-host shlink-web-client, and you know only trusted people
+  will have access to it.
+  <br />
   Failing to do this could cause your API keys to be exposed.
 </Callout>
 
@@ -41,9 +44,10 @@ Those servers can be exported and imported in other browsers, but if for some re
 <Callout type="warning">
   The `forwardCredentials` option will make cookies, TLS client certificates and authentication headers to be forwarded to the Shlink server.
 
-  Setting it to `true` will make all requests fail if the server sets `Accept-Control-Allow-Origin: *`, which is the default behavior in Shlink older than 4.5.0.
+Setting it to `true` will make all requests fail if the server sets `Accept-Control-Allow-Origin: *`, which is the default behavior in Shlink older than 4.5.0.
 
-  If you need this capability, you will need to configure a more restrictive value in your custom proxy, or use Shlink 4.5.0 or newer, which allows further customizations.
+If you need this capability, you will need to configure a more restrictive value in your custom proxy, or use Shlink 4.5.0 or newer, which allows further customizations.
+
 </Callout>
 
 When shlink-web-client is loaded, if it detects there are no servers configured yet in current device, it will try to load the `servers.json` file, and populate the local storage with the servers it finds there.
@@ -54,24 +58,24 @@ Once loaded, it will not try to load the file again, so making changes in that f
 
 If you are using the shlink-web-client docker image, you can also pre-configure servers in one of these ways:
 
-* Mount the `servers.json` file in a volume inside `/usr/share/nginx/html`, which is the app's document root inside the container.
+- Mount the `servers.json` file in a volume inside `/usr/share/nginx/html`, which is the app's document root inside the container.
 
-    ```shell
-    docker run --name shlink-web-client -p 8000:8080 -v ${PWD}/servers.json:/usr/share/nginx/html/servers.json shlinkio/shlink-web-client
-    ```
+  ```shell
+  docker run --name shlink-web-client -p 8000:8080 -v ${PWD}/servers.json:/usr/share/nginx/html/servers.json shlinkio/shlink-web-client
+  ```
 
-* Mount a `conf.d` directory, which in turn contains the `servers.json` file, in a volume inside `/usr/share/nginx/html`. *(since shlink-web-client 3.2.0)*.
+- Mount a `conf.d` directory, which in turn contains the `servers.json` file, in a volume inside `/usr/share/nginx/html`. _(since shlink-web-client 3.2.0)_.
 
   ```shell
   docker run --name shlink-web-client -p 8000:8080 -v ${PWD}/my-config/:/usr/share/nginx/html/conf.d/ shlinkio/shlink-web-client
-    ```
+  ```
 
-* Provide the config for a default server via env vars. When the container starts up, it will build the `servers.json` file dynamically based on them. *(since shlink-web-client 3.2.0)*.
+- Provide the config for a default server via env vars. When the container starts up, it will build the `servers.json` file dynamically based on them. _(since shlink-web-client 3.2.0)_.
 
-  * `SHLINK_SERVER_URL`: The fully qualified URL for the Shlink server.
-  * `SHLINK_SERVER_API_KEY`: The API key.
-  * `SHLINK_SERVER_NAME`: The name to be displayed. Defaults to `Shlink` if not provided.
-  * `SHLINK_SERVER_FORWARD_CREDENTIALS` *(v4.4.0)* : Whether credentials should be forwarded (`true`) or not (`false`). Defaults to `false`.
+  - `SHLINK_SERVER_URL`: The fully qualified URL for the Shlink server.
+  - `SHLINK_SERVER_API_KEY`: The API key.
+  - `SHLINK_SERVER_NAME`: The name to be displayed. Defaults to `Shlink` if not provided.
+  - `SHLINK_SERVER_FORWARD_CREDENTIALS` _(v4.4.0)_ : Whether credentials should be forwarded (`true`) or not (`false`). Defaults to `false`.
 
   ```shell
   docker run \
@@ -80,4 +84,4 @@ If you are using the shlink-web-client docker image, you can also pre-configure 
     -e SHLINK_SERVER_URL=https://s.test \
     -e SHLINK_SERVER_API_KEY=6aeb82c6-e275-4538-a747-31f9abfba63c \
     shlinkio/shlink-web-client
-    ```
+  ```
