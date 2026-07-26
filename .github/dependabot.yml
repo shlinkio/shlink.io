@@ -22,12 +22,13 @@ updates:
           - 'react-dom'
           - '@types/react'
           - '@types/react-dom'
-      eslint:
+      coding-styles:
         patterns:
           - '@shlinkio/eslint-config-js-coding-standard'
-          - 'typescript-eslint'
-          - '*eslint-plugin*'
-          - 'eslint'
+          - 'eslint-plugin-astro'
+          - 'oxfmt'
+          - 'oxlint'
+          - 'oxlint-tsgolint'
   - package-ecosystem: docker
     directory: '/'
     schedule:

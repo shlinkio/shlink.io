@@ -1,9 +1,10 @@
 ---
 layout: ../../../layouts/DocsLayout.astro
 ---
+
 import { markdownComponents } from '../../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Error management
 
@@ -11,10 +12,10 @@ Shlink's REST API implements the [Problem Details](https://tools.ietf.org/html/r
 
 Because of this, all error responses will have `Content-Type: application/problem+json`, and the payload will have at least these properties:
 
-* `type`: A unique error code identifying the error.
-* `detail`: A human-friendly description of the error.
-* `title`: A short unique error title.
-* `status`: The same value returned as the response status code.
+- `type`: A unique error code identifying the error.
+- `detail`: A human-friendly description of the error.
+- `title`: A short unique error title.
+- `status`: The same value returned as the response status code.
 
 ```json
 {

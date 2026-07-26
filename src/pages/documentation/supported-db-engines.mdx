@@ -5,23 +5,24 @@ layout: ../../layouts/DocsLayout.astro
 import { Callout } from '../../components/Callout';
 import { markdownComponents } from '../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Supported database engines
 
 For your own convenience, Shlink supports the most popular relational database engines:
 
-* [MySQL](https://www.mysql.com/)
-* [MariaDB](https://mariadb.org/)
-* [PostgreSQL](https://www.postgresql.org/)
-* [Microsoft SQL Server](https://www.microsoft.com/sql-server/)
+- [MySQL](https://www.mysql.com/)
+- [MariaDB](https://mariadb.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Microsoft SQL Server](https://www.microsoft.com/sql-server/)
 
 Performance with all of them is pretty similar, and the only reason to not force you to use a specific one is so that you can use the one you are more comfortable with.
 
 <Callout type="warning" title="Database availability">
   It is important to mention that Shlink expects the database to be **up and running** when it starts.
 
-  If you are starting-up the database together with Shlink (like, via `docker compose` or similar), you may see some errors until the database is ready, and it's important to make sure Shlink container is configured to restart on error so that it "retries" a couple of times.
+If you are starting-up the database together with Shlink (like, via `docker compose` or similar), you may see some errors until the database is ready, and it's important to make sure Shlink container is configured to restart on error so that it "retries" a couple of times.
+
 </Callout>
 
 ### Migrating your database
@@ -30,9 +31,9 @@ At some point, and after successfully running Shlink for some time, you may need
 
 There are a number of reasons you may need to do this:
 
-* Migrating to another hosting which does not support the one you were using
-* You found a cheaper managed database, but it uses a different engine.
-* You started testing Shlink with SQLite and want to move to something more future-proof, but retaining your data.
+- Migrating to another hosting which does not support the one you were using
+- You found a cheaper managed database, but it uses a different engine.
+- You started testing Shlink with SQLite and want to move to something more future-proof, but retaining your data.
 
 In order to do this, the easiest approach is to set up a new Shlink instance with the new database, and then take advantage of the [import tool](/documentation/advanced/import-short-urls/#shlink-instance) to bring your data from the old one.
 

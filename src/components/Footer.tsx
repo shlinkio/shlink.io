@@ -10,8 +10,7 @@ export const Footer: FC = () => (
       <SocialList type="unstyled" className="mb-4 mt-5" />
 
       <p className="copyright">
-        <b>&copy; {new Date().getFullYear()} Shlink</b>. Brought to you
-        with <FontAwesomeIcon icon={faHeart} /> by {' '}
+        <b>&copy; {new Date().getFullYear()} Shlink</b>. Brought to you with <FontAwesomeIcon icon={faHeart} /> by{' '}
         <ExternalLink href="https://www.alejandrocelaya.com">Alejandro Celaya</ExternalLink>
       </p>
     </div>

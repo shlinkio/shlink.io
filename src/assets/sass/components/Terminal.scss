@@ -1,26 +1,26 @@
 .terminal {
-    font-family: monospace;
-    font-size: .8em;
-    line-height: 1.6em;
-    overflow: auto;
-    white-space: nowrap;
-    font-weight: bold;
-    color: #555;
-    background-color: white;
+  font-family: monospace;
+  font-size: 0.8em;
+  line-height: 1.6em;
+  overflow: auto;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #555;
+  background-color: white;
 }
 .terminal.cli {
-    min-height: 175px;
+  min-height: 175px;
 }
 .terminal.rest {
-    min-height: 275px;
+  min-height: 275px;
 }
 
 .terminal .green {
-    color: #77AA4E;
+  color: #77aa4e;
 }
 .terminal .yellow {
-    color: #ddb035;
+  color: #ddb035;
 }
 .terminal .black {
-    color: #000;
+  color: #000;
 }

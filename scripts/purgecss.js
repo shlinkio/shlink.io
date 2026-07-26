@@ -12,6 +12,6 @@ const result = await purgecss.purge({
 });
 
 result.forEach(({ css, file }) => {
-  // eslint-disable-next-line no-undef
+  // oxlint-disable-next-line eslint/no-undef
   writeFileSync(file, Buffer.from(css));
 });

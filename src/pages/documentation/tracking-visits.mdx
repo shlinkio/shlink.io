@@ -4,7 +4,7 @@ layout: ../../layouts/DocsLayout.astro
 
 import { markdownComponents } from '../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Tracking visits
 
@@ -26,9 +26,9 @@ Starting with v2.6.0, Shlink can also track visits to any URL that would usually
 
 These visits can have one of these types:
 
-* `base_url`: Someone opened the base URL in which Shlink is hosted.
-* `invalid_short_url`: Someone opened a short-url-like URL, but it did not resolve an existing short URL, or it was disabled.
-* `regular_404`: Someone opened a route which Shlink didn't understand.
+- `base_url`: Someone opened the base URL in which Shlink is hosted.
+- `invalid_short_url`: Someone opened a short-url-like URL, but it did not resolve an existing short URL, or it was disabled.
+- `regular_404`: Someone opened a route which Shlink didn't understand.
 
 The visits will be tracked both if you configure [special redirects](/documentation/advanced/special-redirects) from those three cases, but also if you leave Shlink serve a regular 404 status with a "Not found" template.
 
@@ -40,7 +40,7 @@ Since v2.7.0, Shlink provides a more granular way to disable visits tracking, ei
 
 Via configuration or [env vars](/documentation/environment-variables#visits-tracking), you will be able to:
 
-* Completely disable tracking: All short URLs will display they had **0** visits.
-* Disable IP address tracking: The visits will be counted, but they will all show they come from an **unknown** location.
-* Disable referrer tracking: All visits will be counted and located, but Shlink will not track the **referrer**.
-* Disable user agent tracking: All visits will be counted and located, but Shlink will not track the **user agent**.
+- Completely disable tracking: All short URLs will display they had **0** visits.
+- Disable IP address tracking: The visits will be counted, but they will all show they come from an **unknown** location.
+- Disable referrer tracking: All visits will be counted and located, but Shlink will not track the **referrer**.
+- Disable user agent tracking: All visits will be counted and located, but Shlink will not track the **user agent**.

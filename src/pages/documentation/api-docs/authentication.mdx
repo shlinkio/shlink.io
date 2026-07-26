@@ -6,7 +6,7 @@ import { Callout } from '../../../components/Callout';
 import { Link } from '../../../components/Link';
 import { markdownComponents } from '../../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Authentication
 
@@ -23,7 +23,8 @@ shlink api-key:generate --name=my_api_key
 <Callout type="warning">
   Starting with Shlink v4.3, API keys are hashed before being persisted, so it's very important you save them once generated, as you won't be able to get the value afterwards.
 
-  Providing the name is also a good idea to uniquely identify generated API keys afterwards.
+Providing the name is also a good idea to uniquely identify generated API keys afterwards.
+
 </Callout>
 
 This command optionally accepts an expiration date through the `--expiration-date`|`-e` modifier:
@@ -68,7 +69,8 @@ shlink api-key:list
 ```
 
 <Callout type="info">
-  Starting with Shlink v4.3, all API keys that are created without a name will fall back to a redacted version of the key.
+  Starting with Shlink v4.3, all API keys that are created without a name will fall back to a redacted version of the
+  key.
 </Callout>
 
 ### API key roles

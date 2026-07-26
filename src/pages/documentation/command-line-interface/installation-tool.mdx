@@ -5,7 +5,7 @@ layout: ../../../layouts/DocsLayout.astro
 import { Callout } from '../../../components/Callout';
 import { markdownComponents } from '../../../utils/markdownUtils';
 
-export const components = markdownComponents
+export const components = markdownComponents;
 
 ## Installation tool
 
@@ -14,7 +14,8 @@ Shlink provides a helper CLI installation tool which comes in handy to configure
 The tool is executed using the `vendor/bin/shlink-installer` script, and it provides a couple of commands that simplify installing/updating shlink instances, or editing some configuration options.
 
 <Callout type="warning">
-  The installation tool expects to be executed on Shlink's root directory. Running it at a different level will result in an error.
+  The installation tool expects to be executed on Shlink's root directory. Running it at a different level will result
+  in an error.
 </Callout>
 
 ### Commands
@@ -153,10 +154,10 @@ Options:
       --skip-download-geolite              Skip downloading the initial GeoLite DB file. Shlink will try to download it the first time it needs to geolocate visits.
 ```
 
-* `--initial-api-key`: useful for new Shlink instances, so that it generates a first admin API key.
-* `--skip-initialize-db`: it can be passed when updating Shlink to skip a command which won't have any effect anyway.
-* `--clear-db-cache`: you want to provide this every time you update Shlink, but passing it on new installations won't have any side effect.
-* `--download-rr-binary`: If you are serving/want to [serve Shlink with RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner), this option will ensure the binary is downloaded.
-* `--skip-download-geolite`: If you are not passing a [GeoLite license key](/documentation/geolite-license-key/), you can pass this to skip a command which won't have any effect anyway.
+- `--initial-api-key`: useful for new Shlink instances, so that it generates a first admin API key.
+- `--skip-initialize-db`: it can be passed when updating Shlink to skip a command which won't have any effect anyway.
+- `--clear-db-cache`: you want to provide this every time you update Shlink, but passing it on new installations won't have any side effect.
+- `--download-rr-binary`: If you are serving/want to [serve Shlink with RoadRunner](/documentation/supported-runtimes/serve-with-roadrunner), this option will ensure the binary is downloaded.
+- `--skip-download-geolite`: If you are not passing a [GeoLite license key](/documentation/geolite-license-key/), you can pass this to skip a command which won't have any effect anyway.
 
 > This command is available since Shlink 3.6.0

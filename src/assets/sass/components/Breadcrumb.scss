@@ -1,11 +1,11 @@
-@import "../theme/vars";
+@import '../theme/vars';
 
 .breadcrumb {
   background-color: #f9fbfe;
   border-radius: 0;
   border-left: 3px solid $theme-info-color;
   margin-bottom: 2rem;
-  padding: .4rem 0 .4rem 1.5rem;
+  padding: 0.4rem 0 0.4rem 1.5rem;
 
   @media (max-width: 767px) {
     display: none;

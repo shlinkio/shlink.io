@@ -14,6 +14,8 @@ const sourceToType = (source: string) => {
 
 export const InlineVideo: FC<InlineVideoProps> = ({ poster, sources }) => (
   <video poster={poster} className="inline-video" autoPlay loop muted playsInline>
-    {sources.map((source) => <source key={source} src={source} type={sourceToType(source)} />)}
+    {sources.map((source) => (
+      <source key={source} src={source} type={sourceToType(source)} />
+    ))}
   </video>
 );

@@ -8,11 +8,7 @@ export type NavbarTogglerProps = {
 };
 
 export const NavbarToggler: FC<NavbarTogglerProps> = ({ collapsed, onClick, className }) => (
-  <button
-    aria-label="Toggle navigation"
-    className={clsx('navbar-toggler', className, { collapsed })}
-    onClick={onClick}
-  >
+  <button aria-label="Toggle navigation" className={clsx('navbar-toggler', className, { collapsed })} onClick={onClick}>
     <span />
     <span />
     <span />
