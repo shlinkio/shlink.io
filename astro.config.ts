@@ -5,7 +5,6 @@ import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-// eslint-disable-next-line no-restricted-exports
 export default defineConfig({
   site: 'https://shlink.io',
   outDir: './build',
