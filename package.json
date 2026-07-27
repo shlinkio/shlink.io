@@ -19,7 +19,7 @@
     "format:check": "node --run format -- --check",
     "types": "tsc",
     "purge": "node scripts/purgecss.js",
-    "dev": "astro dev --host=0.0.0.0",
+    "dev": "astro dev --ignore-lock --host=0.0.0.0",
     "build": "astro build",
     "build:prod": "node --run build && node --run purge",
     "preview": "astro preview --host=0.0.0.0"
