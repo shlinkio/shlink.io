@@ -12,4 +12,3 @@ jobs:
     with:
       node-version: 26.x
       with-unit-tests: false
-      cs-script: true
