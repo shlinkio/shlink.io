@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## [7.29.1] - 2026-07-31
 ### Added
 * *Nothing*
 
@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 * *Nothing*
 
 ### Fixed
-* *Nothing*
+* Fix links to articles to remove trailing slashes in Nginx and Apache
 
 
 ## [7.29.0] - 2026-05-23
