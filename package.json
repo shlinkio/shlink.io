@@ -48,14 +48,14 @@
     "typed.js": "^3.0.0"
   },
   "devDependencies": {
-    "@shlinkio/eslint-config-js-coding-standard": "~4.0.0",
+    "@shlinkio/eslint-config-js-coding-standard": "~4.1.0",
     "@types/node": "^26.1.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@types/trusted-types": "^2.0.7",
-    "eslint-plugin-astro": "^3.0.1",
-    "oxfmt": "^0.61.0",
-    "oxlint": "^1.76.0",
+    "eslint-plugin-astro": "^3.1.0",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
     "oxlint-tsgolint": "^7.0.2001",
     "purgecss": "^8.0.0",
     "sass": "^1.102.0",
