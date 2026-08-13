@@ -1,4 +1,4 @@
-FROM node:26.5-alpine
+FROM node:26.6-alpine
 MAINTAINER Alejandro Celaya <alejandro@alejandrocelaya.com>
 
 # Install tini and update npm
