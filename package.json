@@ -38,7 +38,7 @@
     "@mdx-js/react": "^3.1.1",
     "astro": "^7.2.7",
     "astro-expressive-code": "^0.44.1",
-    "astro-seo": "^1.1.0",
+    "astro-seo": "^1.2.0",
     "bootstrap": "^5.3.8",
     "clsx": "^2.1.1",
     "mdx-mermaid": "^2.0.4",
