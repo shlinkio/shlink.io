@@ -8,6 +8,8 @@ updates:
       time: '09:00'
       timezone: 'Europe/Madrid'
     open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: '@docsearch/react'
     groups:
       fontawesome:
         patterns:
