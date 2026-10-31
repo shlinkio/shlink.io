@@ -58,7 +58,7 @@
     "oxlint": "^1.89.0",
     "oxlint-tsgolint": "^7.0.2002",
     "purgecss": "^8.0.0",
-    "sass": "^1.106.0",
+    "sass": "^1.106.1",
     "typescript": "^7.0.2"
   }
 }
