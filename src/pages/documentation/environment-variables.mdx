@@ -112,7 +112,7 @@ There's a potential risk of breakage when updating Shlink, so make sure you move
 - `GEOLOCATION_STRATEGIES` _(v5.2.0)_ : What systems should be used (and in what order) to geolocate visitors. Provide any of the supported values separated by commas to enable strategies and define their order. If a geolocation strategy fails, Shlink will try with the next one until one works or all fail.<br />E.g. `cloudflare,geolite2`.
    - **geolite2**: Geolocate visitors using a local GeoLite2 database file handled by Shlink. It requires a `GEOLITE_LICENSE_KEY` to be set.
    - **cloudflare**: Geolocate visitors using [location headers provided by Cloudflare](https://developers.cloudflare.com/rules/transform/managed-transforms/reference/#add-visitor-location-headers). It requires Shlink to be proxied by Cloudflare.
-- `GEOLITE_LICENSE_KEY`: The license key used to download new GeoLite2 database files when the **geolite2** strategy s enabled. Go to [GeoLite2 license key](/documentation/geolite-license-key) to know how to generate it. Not providing a license key will completely disable visits geolocation.
+- `GEOLITE_LICENSE_KEY`: The license key used to download new GeoLite2 database files when the **geolite2** strategy s enabled. Go to [GeoLite2 license key](/documentation/geolocating-visitors/#geolite2-license-key) to know how to generate it. Not providing a license key will completely disable visits geolocation with the **geolite2** strategy.
 
 <Callout type="info">
   If `GEOLOCATION_STRATEGIES` is not explicitly set, but a `GEOLITE_LICENSE_KEY` is, the `geolite2` strategy is enabled by default.

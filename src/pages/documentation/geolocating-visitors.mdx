@@ -1,0 +1,51 @@
+---
+layout: ../../layouts/DocsLayout.astro
+---
+
+import { Callout } from '../../components/Callout';
+import { markdownComponents } from '../../utils/markdownUtils';
+
+export const components = markdownComponents;
+
+## Geolocating visitors
+
+Up until v5.1, Shlink would always use a [GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/) database, by [MaxMind](https://www.maxmind.com/), to geolocate visits to your short URLs.
+
+Starting with v5.2, Shlink supports a strategy-based system to more flexibly geolocate visitors using different strategies.
+
+Currently supported strategies are:
+
+- **GeoLite2**: Geolocate visitors using a local GeoLite2 database file handled by Shlink. It requires a license key to be set.
+- **Cloudflare**: Geolocate visitors using [location headers provided by Cloudflare](https://developers.cloudflare.com/rules/transform/managed-transforms/reference/#add-visitor-location-headers). It requires Shlink to be proxied by Cloudflare.
+
+Via configuration or [env vars](/documentation/environment-variables#geolocation), you can enable any number of strategies, and order them as desired. Shlink will try all enabled strategies in order until one is capable of geolocating the visitor, or all of them fail.
+
+### GeoLite2 license key
+
+Shlink needs a [GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/) license key when the **geolite2** strategy is enabled.
+
+To make sure the data is always up-to-date, it downloads new versions of the database regularly.
+
+However, in order to do this, Shlink needs a GeoLite2 license key. These licenses are free, and you can easily generate one by following the instructions below.
+
+<Callout type="warning">
+  If you don't provide a GeoLite2 license key, Shlink will simply not geolocate visits with the **geolite2** strategy, even if explicitly enabled.
+</Callout>
+
+<Callout type="info">
+  If a GeoLite2 license key is provided and no geolocation strategies are explicitly set, the **geolite2** strategy will be implicitly enabled.
+</Callout>
+
+#### Generate a license key
+
+In order to generate the license key, follow these steps.
+
+- Create a [MaxMind account for GeoLite2](https://www.maxmind.com/en/geolite2/signup).
+- Generate a [license key](https://www.maxmind.com/en/accounts/current/license-key). Its **important** that you save the value, as you will not be able to recover it afterward.
+
+#### Provide the license key to Shlink
+
+Once you have your license key, you will need to provide it to Shlink.
+
+- Via environment variable: use `GEOLITE_LICENSE_KEY` to set your license key.
+- Via [installation tool](/documentation/command-line-interface/installation-tool): you will be asked to provide the license key when installing or updating Shlink, or you can use [set-option](/documentation/command-line-interface/installation-tool#set-option) to set it later.
