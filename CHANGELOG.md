@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [7.30.0] - 2026-11-07
+### Added
+* Document new geolocation strategies
+
+### Changed
+* Update dependencies
+
+### Deprecated
+* *Nothing*
+
+### Removed
+* *Nothing*
+
+### Fixed
+* Fix link to article to remove trailing slashes Apache
+
+
 ## [7.29.1] - 2026-07-31
 ### Added
 * *Nothing*

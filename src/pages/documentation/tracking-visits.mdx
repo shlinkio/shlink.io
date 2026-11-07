@@ -10,13 +10,11 @@ export const components = markdownComponents;
 
 One of the most interesting features in Shlink is the visits tracking.
 
-Shlink will track every time your short URLs are opened, and then try to geolocate the visitor.
+Shlink will track every time your short URLs are opened, and then try to [geolocate the visitor](/documentation/geolocating-visitors/) using one of the supported strategies.
 
 ### Considerations
 
-In order to geolocate visits, Shlink makes use of a [GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/) database, by [MaxMind](https://www.maxmind.com), which is used to match the location of the visitor's IP address.
-
-To make sure your GeoLite2 db is always up-to-date, you will have to [configure your own license key](/documentation/geolite-license-key).
+If the **geolite2** strategy is enabled, you will have to [configure your own license key](/documentation/geolocating-visitors/#geolite2-license-key) to make sure your GeoLite2 db is always up-to-date.
 
 Also, Shlink will make sure you fulfil most data protection regulations, by storing only an anonymized version of the visitor's IP address (unless deliberately opting-out of this behavior).
 

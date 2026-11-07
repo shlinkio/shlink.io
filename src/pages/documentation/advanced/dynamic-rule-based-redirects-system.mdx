@@ -143,7 +143,7 @@ There are mainly two ways to manage dynamic redirect rules for a specific short 
 
 - **My geolocation conditions do not work. What is wrong?**
 
-  Geolocation conditions will match based on the visitor's geolocation, so you need to make sure a [GeoLite2 license key](/documentation/geolite-license-key) was provided, and [tracking is not disabled](/documentation/tracking-visits#disable-tracking).
+  Geolocation conditions will match based on the visitor's geolocation, so you need to make sure at least one [geolocation strategy](/documentation/geolocating-visitors) was enabled, a [GeoLite2 license key](/documentation/geolocating-visitors/#geolite2-license-key) was provided if **geolite2** strategy is set and [tracking is not disabled](/documentation/tracking-visits#disable-tracking).
 
   Additionally, and even if geolocation is working properly, this is known to be error-prone. Sometimes IP addresses cannot be located, or they are located in the wrong city/country.
 
