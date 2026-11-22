@@ -171,12 +171,15 @@ There's a potential risk of breakage when updating Shlink, so make sure you move
 - `MATOMO_BASE_URL`: The external Matomo server URL. This will be ignored if `MATOMO_ENABLED` is false.
 - `MATOMO_SITE_ID`: The site ID to be used for Shlink visits. This will be ignored if `MATOMO_ENABLED` is false.
 - `MATOMO_API_TOKEN`: The API token so that Shlink can call Matomo's API. This will be ignored if `MATOMO_ENABLED` is false.
+- `MATOMO_VISIT_TYPE_DIMENSION_ID` _(v5.2.0)_ : The dimension ID configured in Matomo to track the visit type. This custom dimension will not be sent if not set.
+- `MATOMO_IS_ORPHAN_DIMENSION_ID` _(v5.2.0)_ : The dimension ID configured in Matomo to track if the visit is orphan or not. This custom dimension will not be sent if not set.
+- `MATOMO_VISIT_DOMAIN_DIMENSION_ID` _(v5.2.0)_ : The dimension ID configured in Matomo to track the visit domain. This custom dimension will not be sent if not set.
 
 #### Specific for the docker image
 
 These are the env vars that only the docker image take into consideration:
 
-- `PORT`: Can be used to set the port in which Shlink listens. Defaults to 8080 (Some cloud providers, like Google cloud or Heroku, expect to be able to customize exposed port by providing this env var).
+- `PORT`: Can be used to set the port in which Shlink listens. Defaults to 8080 (Some cloud providers, like Google Cloud or Heroku, expect to be able to customize exposed port by providing this env var).
 - `WEB_WORKER_NUM`: The amount of concurrent http requests this Shlink instance will be able to serve. Defaults to the amount of available CPUs.
 - `TASK_WORKER_NUM`: The amount of concurrent background tasks this Shlink instance will be able to execute. Defaults to the amount of available CPUs.
 - `SKIP_INITIAL_GEOLITE_DOWNLOAD`: If provided with value `true`, it will skip the initial GeoLite2 db file download, speeding-up the container start-up. As a side effect, first visits on this container will remain un-located until the file finishes downloading in background.

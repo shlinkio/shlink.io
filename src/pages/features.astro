@@ -5,6 +5,7 @@ import {
   faBan,
   faCropAlt,
   faDatabase,
+  faEarthEurope,
   faFileImport,
   faLaptopCode,
   faLaugh,
@@ -42,6 +43,10 @@ import Layout from '../layouts/Layout.astro';
           Personalize your campaigns&apos; short URLs by using custom
           slugs or <Indivisible>multi-segment</Indivisible> custom slugs.
         </Feature>
+        <Feature title="Geolocation" icon={faEarthEurope} link="/documentation/geolocating-visitors">
+          Geolocate visitors using different strategies,
+          like <ExternalLink href="https://www.maxmind.com/en/geolite-free-ip-geolocation-data">GeoLite2</ExternalLink>.
+        </Feature>
         <Feature title="Multi-domain" icon={faLink} link="/documentation/advanced/multiple-domains">
           Serve multiple short domains under the same Shlink instance. You can even use the same custom slugs.
         </Feature>
@@ -52,24 +57,21 @@ import Layout from '../layouts/Layout.astro';
         >
           Dynamically redirect visitors to different places based on geolocation, device type, language, etc.
         </Feature>
+        <Feature title="Real-time updates" icon={faPaperPlane} link="/documentation/advanced/real-time-updates">
+          Subscribe to events on Shlink, by integrating your instance
+          with <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> or <ExternalLink href="https://www.rabbitmq.com/">RabbitMQ</ExternalLink>.
+        </Feature>
         <Feature title="Tags" icon={faTags}>
           Tag your short URLs and classify them for later analytics.
         </Feature>
         <Feature title="Emojis" icon={faLaugh}>
           Emojis are just unicode. Use them in your short URLs, long URLs, titles, tags or anywhere you want.
         </Feature>
-        <Feature title="Real-time updates" icon={faPaperPlane} link="/documentation/advanced/real-time-updates">
-          Subscribe to events on Shlink, by integrating your instance
-          with <ExternalLink href="https://mercure.rocks">mercure</ExternalLink> or <ExternalLink href="https://www.rabbitmq.com/">RabbitMQ</ExternalLink>.
-        </Feature>
         <Feature title="Limited access" icon={faLock}>
           Limit access to short URLs, by date range and/or maximum number of visits.
         </Feature>
         <Feature title="API-first" icon={faLaptopCode} link="/documentation/api-docs/">
           Shlink exposes a fully featured REST API that simplifies integrating it anywhere.
-        </Feature>
-        <Feature title="API key roles" icon={faBan} link="/documentation/api-docs/api-key-roles/">
-          Limit the resources with which an API key can interact, by domain or only short URLs created with it.
         </Feature>
         <Feature
           title="Docker image"

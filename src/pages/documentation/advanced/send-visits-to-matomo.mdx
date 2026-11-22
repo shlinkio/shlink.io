@@ -6,11 +6,25 @@ import { Callout } from '../../../components/Callout.js';
 
 ## Send visits to Matomo
 
-Starting with v3.7.0, Shlink can send every visit to a [Matomo](https://matomo.org/) instance of your choice.
+Shlink can send every visit to a [Matomo](https://matomo.org/) instance of your choice.
 
 Matomo is an open source Google Analytics alternative, which can be self-hosted or used in the cloud, with a philosophy very much in line with Shlink's.
 
 Sending visits to Matomo will enable an alternative UI to check short URL visits, and take advantage of all its analytics capabilities.
+
+### Custom dimensions
+
+Starting with v5.2.0, Shlink can send some custom dimensions to Matomo, to track some useful segmentation topics that are not supported by Matomo out of the box.
+
+Currently supported custom dimensions are:
+
+* Visit type: `valid_short_url`, `invalid_short_url`, `base_url` or `regular_404`.
+* Visit domain: The domain of the visited URL. Usually one of your configured domains, except for orphan visits, where someone could have used a random domain and still reach your instance depending on your DNS configuration.
+* Is orphan: `true` or `false`.
+
+Custom dimensions need to be first [configured in Matomo](https://matomo.org/blog/2026/03/custom-dimensions/#:~:text=Step%201%3A%20Plan%20and%20create%20the%20dimension), and then provided to Shlink via configuration or environment variables:
+
+![Matomo custom dimensions](/images/integrations/matomo-custom-dimensions.png)
 
 ### Matomo integration FAQ
 
